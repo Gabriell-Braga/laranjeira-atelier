@@ -1,6 +1,6 @@
 // Roda depois do next build: falha se algum [PREENCHER] vazou para out/
 // e lista o que ainda está pendente em content/ (só informativo).
-import { appendFileSync, readFileSync, readdirSync } from "node:fs";
+import { appendFileSync, copyFileSync, readFileSync, readdirSync } from "node:fs";
 import path from "node:path";
 
 const RAIZ = path.resolve(import.meta.dirname, "..");
@@ -31,6 +31,22 @@ if (vazados.length) {
   process.exit(1);
 }
 console.log("\nverificar-build: nenhum [PREENCHER] no site gerado.");
+
+// O Next grava os dados de pré-carregamento em pastas (livros/__next.livros/__PAGE__.txt), mas o
+// navegador pede o nome com pontos (livros/__next.livros.__PAGE__.txt). Sem servidor do Next para
+// traduzir, criamos também a versão com pontos; senão o pré-carregamento dá 404.
+{
+  let copiados = 0;
+  for (const f of arquivos(path.join(RAIZ, "out"))) {
+    const partes = path.relative(path.join(RAIZ, "out"), f).split(path.sep);
+    const i = partes.findIndex((p) => p.startsWith("__next.") && p !== partes.at(-1));
+    if (i < 0) continue;
+    const plano = path.join(RAIZ, "out", ...partes.slice(0, i), partes.slice(i).join("."));
+    copyFileSync(f, plano);
+    copiados++;
+  }
+  console.log(`verificar-build: ${copiados} arquivos de pré-carregamento com nome plano.`);
+}
 
 // Prévia: enquanto o site não for público, nenhum endereço deve ser indexado.
 if (process.env.SITE_PUBLICO !== "sim") {

@@ -114,6 +114,7 @@
   }
   a {
     color: var(--color-vereda);
+    text-decoration: underline;
     text-underline-offset: 3px;
   }
   img {

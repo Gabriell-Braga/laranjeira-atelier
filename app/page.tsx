@@ -28,7 +28,7 @@ export default function Inicio() {
           <h1 className="titulo-display mt-3">{c("destaque")}</h1>
           <div className="mt-8 flex flex-wrap gap-3">
             <Botao href="/livros/">Conhecer a coleção</Botao>
-            <Botao href={site.amazon["colecao-sertao-vivo"]} variante="vereda" aria-label="Comprar na Amazon (abre em nova aba)">
+            <Botao href={site.amazon["colecao-sertao-vivo"]} variante="vereda" aria-label="Comprar na Amazon: Coleção Sertão Vivo (abre em nova aba)">
               Comprar na Amazon
             </Botao>
           </div>

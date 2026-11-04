@@ -25,7 +25,7 @@ export default function Projeto() {
         <Texto html={pagina.html} className="leitura mx-auto" />
         <div className="leitura mx-auto mt-10 flex flex-wrap gap-3">
           <Botao href="/livros/">Conhecer os livros</Botao>
-          <Botao href={site.amazon["colecao-sertao-vivo"]} variante="vereda" aria-label="Comprar a coleção na Amazon (abre em nova aba)">
+          <Botao href={site.amazon["colecao-sertao-vivo"]} variante="vereda" aria-label="Comprar na Amazon: Coleção Sertão Vivo (abre em nova aba)">
             Comprar na Amazon
           </Botao>
         </div>

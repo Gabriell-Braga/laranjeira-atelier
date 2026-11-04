@@ -32,11 +32,11 @@ export function CartaoLivro({ livro, amazon, nivel: Titulo = "h3" }: Props) {
       <p className="legenda mt-1 flex-1">{livro.subtitulo}</p>
       <div className="mt-5 flex flex-wrap gap-3">
         {amazon && (
-          <Botao href={amazon} variante="vereda" aria-label={`Comprar ${livro.titulo} na Amazon (abre em nova aba)`}>
+          <Botao href={amazon} variante="vereda" aria-label={`Comprar na Amazon: ${livro.titulo} (abre em nova aba)`}>
             Comprar na Amazon
           </Botao>
         )}
-        <Botao href={href} variante="contorno" aria-label={`Conhecer o livro ${livro.titulo}`}>
+        <Botao href={href} variante="contorno" aria-label={`Conhecer: ${livro.titulo}`}>
           Conhecer
         </Botao>
       </div>

@@ -47,7 +47,7 @@ export default function Livros() {
             <h2 id="titulo-compra" className="titulo-2">{c("compraTitulo")}</h2>
             <p className="mt-4">{c("compraTexto")}</p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <Botao href={site.amazon[colecao.slug]} variante="vereda" aria-label="Comprar a coleção completa na Amazon (abre em nova aba)">
+              <Botao href={site.amazon[colecao.slug]} variante="vereda" aria-label="Comprar a coleção na Amazon (abre em nova aba)">
                 Comprar a coleção na Amazon
               </Botao>
               <Botao href={`/livros/${colecao.slug}/`} variante="contorno">Ver detalhes</Botao>

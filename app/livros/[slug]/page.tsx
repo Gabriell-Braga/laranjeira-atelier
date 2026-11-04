@@ -50,7 +50,7 @@ export default async function PaginaLivro({ params }: Props) {
           <p className="mt-3 font-display text-[24px] italic leading-snug md:text-[28px]">{livro.subtitulo}</p>
           <p className="mt-4 text-ink-muted">{livro.autora}</p>
           {amazon && (
-            <Botao href={amazon} variante="vereda" className="mt-8" aria-label={`Comprar ${livro.titulo} na Amazon (abre em nova aba)`}>
+            <Botao href={amazon} variante="vereda" className="mt-8" aria-label={`Comprar na Amazon: ${livro.titulo} (abre em nova aba)`}>
               Comprar na Amazon
             </Botao>
           )}

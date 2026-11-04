@@ -19,7 +19,7 @@ export function Cabecalho() {
   return (
     <header className="sticky top-0 z-40 bg-areia">
       <div className="conteudo relative flex h-[76px] items-center justify-between gap-6">
-        <Link href="/" className="shrink-0" aria-label="Laranjeira Atelier, página inicial">
+        <Link href="/" className="shrink-0" aria-label="Laranjeira Atelier: página inicial">
           <Imagem img={{ ...logo, alt: "" }} sizes="150px" prioridade className="h-[46px] w-auto" />
         </Link>
         <Menu
