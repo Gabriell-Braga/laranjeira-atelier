@@ -9,6 +9,24 @@
   "formato": "18 × 22 cm",
   "encadernacao": "Costurada",
   "isbn": "[PREENCHER: ISBN da coleção, se houver]",
+  "ficha": [
+    {
+      "rotulo": "Volumes",
+      "valor": "4"
+    },
+    {
+      "rotulo": "Ilustrações",
+      "valor": "Grafite, aquarela e pintura digital"
+    },
+    {
+      "rotulo": "Imagens",
+      "valor": "Mais de 500"
+    },
+    {
+      "rotulo": "Projeto gráfico, diagramação e ilustrações",
+      "valor": "Dilce Laranjeira"
+    }
+  ],
   "descricao": [
     "[PREENCHER: descrição oficial do livro (Gabriel vai trazer da Amazon)]"
   ],

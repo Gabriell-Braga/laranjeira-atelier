@@ -80,10 +80,13 @@ const livro = z.object({
   formato: z.string(),
   encadernacao: z.string(),
   isbn: z.string(),
+  ficha: z.array(z.object({ rotulo: z.string(), valor: z.string() })).default([]),
   descricao: z.array(z.string()).min(1),
   capa: imagem,
   imagens: z.array(imagem),
 });
+
+export type Livro = z.infer<typeof livro>;
 
 const serie = z.object({
   slug: z.string().regex(/^[a-z0-9-]+$/),
@@ -128,11 +131,26 @@ export const lerPortfolio = () =>
     .map((f) => validar(serie, lerJson(`portfolio/${f}`), `content/portfolio/${f}`))
     .sort((a, b) => a.ordem - b.ordem);
 
+// Campo de texto obrigatório do front matter (o build para se faltar).
+export function campo(dados: Record<string, unknown>, chave: string, pagina: string): string {
+  const v = dados[chave];
+  if (typeof v !== "string" || !v.trim()) throw new Error(`Falta o campo "${chave}" em content/paginas/${pagina}.md`);
+  return v;
+}
+
 export function lerPagina(nome: string) {
   const arquivo = `content/paginas/${nome}.md`;
   const { data, content } = matter(fs.readFileSync(path.join(RAIZ, arquivo), "utf8"));
+  const dados = validar(pagina, data, arquivo);
   return {
-    dados: validar(pagina, data, arquivo),
+    dados,
+    campo: (chave: string) => campo(dados, chave, nome),
+    // Lista de arquivos de imagem no front matter, resolvida com os dados (alt, título) de livros e portfólio.
+    imagens: (chave: string) => {
+      const lista = dados[chave];
+      if (!Array.isArray(lista)) throw new Error(`Falta a lista "${chave}" em ${arquivo}`);
+      return lista.map((a) => buscarImagem(String(a), `${arquivo} (${chave})`));
+    },
     html: destacarPendencias(marked.parse(tratarMarkdown(content), { async: false })),
   };
 }
@@ -151,6 +169,18 @@ export function info(arquivo: string, alt: string): ImagemInfo {
     placeholder: m.transparente ? undefined : m.placeholder,
     alt,
   };
+}
+
+// Imagens dos livros recebem a origem "Livro <título>" na legenda do lightbox.
+export const imagensDoLivro = (l: Livro): Imagem[] =>
+  [l.capa, ...l.imagens].map((img) => ({ ...img, origem: img.origem ?? `Livro ${l.titulo}` }));
+
+// Procura um arquivo nos livros e no portfólio para reaproveitar alt, título e legenda.
+function buscarImagem(arquivo: string, onde: string): Imagem {
+  const todas = [...lerLivros().flatMap(imagensDoLivro), ...lerPortfolio().flatMap((s) => s.itens)];
+  const achada = todas.find((i) => i.arquivo === arquivo);
+  if (!achada) throw new Error(`A imagem "${arquivo}" citada em ${onde} não está em nenhum livro nem no portfólio.`);
+  return achada;
 }
 
 export function paraGaleria(img: Imagem): ImagemGaleria {

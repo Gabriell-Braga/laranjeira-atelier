@@ -9,6 +9,12 @@
   "formato": "18 × 22 cm",
   "encadernacao": "Costurada",
   "isbn": "[PREENCHER: ISBN do Livro IV]",
+  "ficha": [
+    {
+      "rotulo": "Projeto gráfico, diagramação e ilustrações",
+      "valor": "Dilce Laranjeira"
+    }
+  ],
   "descricao": [
     "[PREENCHER: descrição oficial do livro (Gabriel vai trazer da Amazon)]"
   ],
