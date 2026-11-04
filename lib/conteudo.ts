@@ -7,6 +7,8 @@ import { marked } from "marked";
 import { z } from "zod";
 import type { ImagemGaleria, ImagemInfo } from "./imagem";
 import { destacarPendencias, tratarMarkdown } from "./pendencias";
+import { GRUPO_DA_TECNICA, lerPortfolioCsv, TECNICAS, type ItemPortfolio, type Tecnica } from "./portfolio-dados";
+import type { ItemIndice } from "./portfolio-indice";
 
 const RAIZ = process.cwd();
 const CONTENT = path.join(RAIZ, "content");
@@ -16,24 +18,8 @@ const manifesto: Manifesto = JSON.parse(fs.readFileSync(path.join(RAIZ, "public/
 
 // ---------- Esquemas ----------
 
-export const TECNICAS = ["aquarela", "grafite", "pastel", "digital", "gravura"] as const;
-export type Tecnica = (typeof TECNICAS)[number];
-export const ROTULO_TECNICA: Record<Tecnica, string> = {
-  aquarela: "Aquarela",
-  grafite: "Grafite",
-  pastel: "Pastel",
-  digital: "Pintura digital",
-  gravura: "Gravura",
-};
-// Filtro do portfólio: grafite e pastel entram juntos em "Desenho".
-export const FILTRO_TECNICA = { aquarela: "Aquarela", desenho: "Desenho", digital: "Digital", gravura: "Gravura" } as const;
-export const GRUPO_TECNICA: Record<Tecnica, keyof typeof FILTRO_TECNICA> = {
-  aquarela: "aquarela",
-  grafite: "desenho",
-  pastel: "desenho",
-  digital: "digital",
-  gravura: "gravura",
-};
+// Técnicas e tipos ficam em lib/portfolio-dados.ts (compartilhado com os scripts).
+const NOMES_TECNICAS = Object.keys(TECNICAS) as [Tecnica, ...Tecnica[]];
 
 const arquivoImagem = z.string().refine((a) => a in manifesto, {
   error: (i) =>
@@ -46,7 +32,7 @@ const imagem = z.object({
   alt: z.string({ error: "falta o texto alternativo (alt) da imagem" }).trim().min(1, "o alt da imagem está vazio"),
   titulo: z.string().optional(),
   cientifico: z.string().optional(),
-  tecnicas: z.array(z.enum(TECNICAS)).default([]),
+  tecnicas: z.array(z.enum(NOMES_TECNICAS)).default([]),
   origem: z.string().optional(),
   descricao: z.string().optional(),
   link: z.string().optional(),
@@ -88,16 +74,6 @@ const livro = z.object({
 
 export type Livro = z.infer<typeof livro>;
 
-const serie = z.object({
-  slug: z.string().regex(/^[a-z0-9-]+$/),
-  titulo: z.string(),
-  tipo: z.enum(["ilustracao", "design-grafico", "livros-autorais"]),
-  ordem: z.number().int(),
-  pagina: z.boolean(),
-  texto: z.string().optional(),
-  itens: z.array(imagem).min(1),
-});
-
 const pagina = z.looseObject({
   titulo: z.string(),
   descricao: z.string(),
@@ -125,11 +101,6 @@ export const lerLivros = () =>
     .sort((a, b) => a.ordem - b.ordem);
 
 export const lerLivro = (slug: string) => lerLivros().find((l) => l.slug === slug);
-
-export const lerPortfolio = () =>
-  listar("portfolio", ".json")
-    .map((f) => validar(serie, lerJson(`portfolio/${f}`), `content/portfolio/${f}`))
-    .sort((a, b) => a.ordem - b.ordem);
 
 // Campo de texto obrigatório do front matter (o build para se faltar).
 export function campo(dados: Record<string, unknown>, chave: string, pagina: string): string {
@@ -177,7 +148,7 @@ export const imagensDoLivro = (l: Livro): Imagem[] =>
 
 // Procura um arquivo nos livros e no portfólio para reaproveitar alt, título e legenda.
 function buscarImagem(arquivo: string, onde: string): Imagem {
-  const todas = [...lerLivros().flatMap(imagensDoLivro), ...lerPortfolio().flatMap((s) => s.itens)];
+  const todas = [...lerLivros().flatMap(imagensDoLivro), ...lerPortfolio().itens.map(paraImagem)];
   const achada = todas.find((i) => i.arquivo === arquivo);
   if (!achada) throw new Error(`A imagem "${arquivo}" citada em ${onde} não está em nenhum livro nem no portfólio.`);
   return achada;
@@ -189,8 +160,89 @@ export function paraGaleria(img: Imagem): ImagemGaleria {
     slug: path.basename(img.arquivo).replace(/\.[^.]+$/, ""),
     titulo: img.titulo,
     cientifico: img.cientifico,
-    tecnica: img.tecnicas.map((t) => ROTULO_TECNICA[t]).join(", ") || undefined,
+    tecnica: img.tecnicas.map((t) => TECNICAS[t]).join(", ") || undefined,
     origem: img.origem,
     descricao: img.descricao,
   };
+}
+
+// ---------- Portfólio (content/portfolio.csv + content/portfolio/series.json) ----------
+
+let portfolioEmCache: ReturnType<typeof lerPortfolioCsv> | undefined;
+
+/** Itens válidos da planilha. Linhas com problema ficam fora e aparecem como aviso no build. */
+export function lerPortfolio() {
+  if (!portfolioEmCache) {
+    portfolioEmCache = lerPortfolioCsv(RAIZ, (a) => a in manifesto);
+    const graves = portfolioEmCache.problemas.filter((p) => p.grave);
+    if (graves.length) {
+      console.warn(`\nPortfólio: ${graves.length} linha(s) da planilha ficaram fora do site (detalhes: npm run portfolio).`);
+    }
+  }
+  return portfolioEmCache;
+}
+
+export const paraImagem = (i: ItemPortfolio): Imagem => ({
+  arquivo: i.arquivo,
+  alt: i.alt,
+  titulo: i.titulo || undefined,
+  cientifico: i.cientifico,
+  tecnicas: i.tecnicas,
+  origem: i.origem,
+  descricao: i.descricao,
+});
+
+const grupos = (tecnicas: Tecnica[]) => [...new Set(tecnicas.map((t) => GRUPO_DA_TECNICA[t]))];
+
+/**
+ * Índice completo do portfólio na ordem "Destaques": itens com destaque primeiro,
+ * depois a ordem das séries e a ordem da planilha. Séries com página própria viram
+ * um único cartão de projeto; capas dos livros autorais levam à página do livro.
+ */
+export function indicePortfolio(): ItemIndice[] {
+  const { series, itens } = lerPortfolio();
+  const livros = lerLivros();
+  const ordemSerie = new Map(series.map((s, i) => [s.slug, i]));
+  const ordenados = itens
+    .map((it, i) => ({ it, i }))
+    .sort((a, b) => Number(b.it.destaque) - Number(a.it.destaque) || ordemSerie.get(a.it.serie)! - ordemSerie.get(b.it.serie)! || a.i - b.i)
+    .map(({ it }) => it);
+
+  const saida: ItemIndice[] = [];
+  const projetosVistos = new Set<string>();
+  for (const it of ordenados) {
+    const serie = series.find((s) => s.slug === it.serie)!;
+    if (serie.pagina) {
+      if (projetosVistos.has(serie.slug)) continue;
+      projetosVistos.add(serie.slug);
+      const doProjeto = itens.filter((x) => x.serie === serie.slug);
+      const anos = doProjeto.map((x) => x.ano).filter((a): a is number => a !== undefined);
+      saida.push({
+        ...paraGaleria(paraImagem(it)),
+        slug: `projeto-${serie.slug}`,
+        titulo: serie.titulo,
+        serie: serie.slug,
+        tipo: serie.tipo,
+        grupos: grupos(doProjeto.flatMap((x) => x.tecnicas)),
+        ano: anos.length ? Math.max(...anos) : undefined,
+        destaque: doProjeto.some((x) => x.destaque) || undefined,
+        ordem: saida.length,
+        href: `/portfolio/${serie.slug}/`,
+        selo: `Projeto · ${doProjeto.length} imagens`,
+      });
+      continue;
+    }
+    const livro = it.tipo === "livros-autorais" ? livros.find((l) => l.capa.arquivo === it.arquivo) : undefined;
+    saida.push({
+      ...paraGaleria(paraImagem(it)),
+      serie: it.serie,
+      tipo: it.tipo,
+      grupos: grupos(it.tecnicas),
+      ano: it.ano,
+      destaque: it.destaque || undefined,
+      ordem: saida.length,
+      ...(livro ? { href: `/livros/${livro.slug}/`, selo: "Livro" } : {}),
+    });
+  }
+  return saida;
 }

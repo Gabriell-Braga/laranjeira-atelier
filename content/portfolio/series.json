@@ -1,0 +1,103 @@
+[
+  {
+    "slug": "aves",
+    "titulo": "Aves",
+    "tipo": "ilustracao",
+    "ordem": 1,
+    "pagina": false
+  },
+  {
+    "slug": "flora",
+    "titulo": "Flora e culinária",
+    "tipo": "ilustracao",
+    "ordem": 2,
+    "pagina": false
+  },
+  {
+    "slug": "cartazes-ecologicos",
+    "titulo": "Cartazes Ecológicos Petrobras",
+    "tipo": "ilustracao",
+    "ordem": 3,
+    "pagina": false
+  },
+  {
+    "slug": "retratos",
+    "titulo": "Retratos",
+    "tipo": "ilustracao",
+    "ordem": 4,
+    "pagina": false
+  },
+  {
+    "slug": "povos-indigenas",
+    "titulo": "Povos indígenas",
+    "tipo": "ilustracao",
+    "ordem": 5,
+    "pagina": false
+  },
+  {
+    "slug": "arquitetura-e-cidade",
+    "titulo": "Arquitetura e cidade",
+    "tipo": "ilustracao",
+    "ordem": 6,
+    "pagina": false
+  },
+  {
+    "slug": "livros-infantis",
+    "titulo": "Livros infantis",
+    "tipo": "ilustracao",
+    "ordem": 7,
+    "pagina": false
+  },
+  {
+    "slug": "didaticos",
+    "titulo": "Didáticos de Ciências",
+    "tipo": "ilustracao",
+    "ordem": 8,
+    "pagina": false
+  },
+  {
+    "slug": "ilustracao-editorial",
+    "titulo": "Ilustração editorial",
+    "tipo": "ilustracao",
+    "ordem": 9,
+    "pagina": false
+  },
+  {
+    "slug": "reversos",
+    "titulo": "Reversos",
+    "tipo": "design-grafico",
+    "ordem": 10,
+    "pagina": true,
+    "texto": "Livro de Flávia Menegaz, 2019. Ilustração, projeto gráfico e editoração eletrônica."
+  },
+  {
+    "slug": "zoobotanica",
+    "titulo": "Livro Ilustrado da Zoobotânica",
+    "tipo": "design-grafico",
+    "ordem": 11,
+    "pagina": true,
+    "texto": "Fundação Municipal de Parques e Zoobotânica de Belo Horizonte, PBH, 2019. Projeto gráfico, ilustração, diagramação e editoração eletrônica."
+  },
+  {
+    "slug": "gravura-em-metal",
+    "titulo": "Guia Gravura em Metal",
+    "tipo": "design-grafico",
+    "ordem": 12,
+    "pagina": true,
+    "texto": "Projeto gráfico, ilustração e editoração."
+  },
+  {
+    "slug": "capas-e-livros",
+    "titulo": "Capas e livros diagramados",
+    "tipo": "design-grafico",
+    "ordem": 13,
+    "pagina": false
+  },
+  {
+    "slug": "sertao-vivo",
+    "titulo": "Coleção Sertão Vivo",
+    "tipo": "livros-autorais",
+    "ordem": 14,
+    "pagina": false
+  }
+]
