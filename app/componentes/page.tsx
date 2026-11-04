@@ -167,15 +167,7 @@ export default function Componentes() {
         <ul className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {livros.filter((l) => l.slug !== "colecao-sertao-vivo").map((l) => (
             <li key={l.slug}>
-              <CartaoLivro
-                slug={l.slug}
-                volume={l.volume}
-                paginas={l.paginas}
-                titulo={l.titulo}
-                subtitulo={l.subtitulo}
-                capa={info(l.capa.arquivo, l.capa.alt)}
-                amazon={site.amazon[l.slug]}
-              />
+              <CartaoLivro livro={l} amazon={site.amazon[l.slug]} />
             </li>
           ))}
         </ul>

@@ -62,11 +62,18 @@ type Props = {
   variante?: "grade" | "livro";
   /** sizes das miniaturas */
   sizes?: string;
+  /** classes da grade de miniaturas (variante "grade") */
+  grade?: string;
 };
 
 // Miniaturas que abrem no lightbox. A URL ganha ?imagem=slug enquanto ele está aberto,
 // e abrir a página com esse parâmetro já mostra a imagem.
-export function Galeria({ imagens, variante = "grade", sizes = "(min-width: 768px) 25vw, 50vw" }: Props) {
+export function Galeria({
+  imagens,
+  variante = "grade",
+  sizes = "(min-width: 768px) 25vw, 50vw",
+  grade = "grid-cols-2 md:grid-cols-4",
+}: Props) {
   const [indice, setIndice] = useState(-1);
 
   useEffect(() => {
@@ -138,7 +145,7 @@ export function Galeria({ imagens, variante = "grade", sizes = "(min-width: 768p
           {imagens.slice(1).map((img, i) => miniatura(img, i + 1, "(min-width: 768px) 12vw, 25vw"))}
         </ul>
       ) : (
-        <ul className="grid list-none grid-cols-2 gap-4 p-0 md:grid-cols-4">
+        <ul className={`grid list-none items-start gap-4 p-0 ${grade}`}>
           {imagens.map((img, i) => miniatura(img, i, sizes))}
         </ul>
       )}
