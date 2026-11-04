@@ -27,5 +27,3 @@ export const srcSet = (img: ImagemInfo) => img.larguras.map((l) => `${urlImagem(
 // Fallback para navegadores sem srcset: a versão de ~960px, ou a maior que existir.
 export const srcPadrao = (img: ImagemInfo) =>
   urlImagem(img, img.larguras.find((l) => l >= 960) ?? img.larguras[img.larguras.length - 1]);
-
-export const pendente = (texto: string | undefined) => !texto || texto.startsWith("[PREENCHER");

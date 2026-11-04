@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { lerSite } from "@/lib/conteudo";
-import { pendente } from "@/lib/imagem";
+import { Pendente } from "./Pendente";
 
 export function Rodape() {
   const { contato } = lerSite();
@@ -28,12 +28,12 @@ export function Rodape() {
 
         <ul className="space-y-2 text-[16px]">
           <li><a href={`mailto:${contato.email}`}>{contato.email}</a></li>
-          <li>
-            {pendente(contato.whatsapp) ? <mark className="preencher">{contato.whatsapp}</mark> : <a href={whatsapp} target="_blank" rel="noopener">WhatsApp</a>}
-          </li>
-          <li>
-            {pendente(contato.instagram) ? <mark className="preencher">{contato.instagram}</mark> : <a href={contato.instagram} target="_blank" rel="noopener">Instagram</a>}
-          </li>
+          <Pendente valor={contato.whatsapp}>
+            <li><a href={whatsapp} target="_blank" rel="noopener">WhatsApp</a></li>
+          </Pendente>
+          <Pendente valor={contato.instagram}>
+            <li><a href={contato.instagram} target="_blank" rel="noopener">Instagram</a></li>
+          </Pendente>
         </ul>
       </div>
       <div className="border-t border-linha">

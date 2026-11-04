@@ -6,6 +6,7 @@ import matter from "gray-matter";
 import { marked } from "marked";
 import { z } from "zod";
 import type { ImagemGaleria, ImagemInfo } from "./imagem";
+import { destacarPendencias, tratarMarkdown } from "./pendencias";
 
 const RAIZ = process.cwd();
 const CONTENT = path.join(RAIZ, "content");
@@ -127,15 +128,12 @@ export const lerPortfolio = () =>
     .map((f) => validar(serie, lerJson(`portfolio/${f}`), `content/portfolio/${f}`))
     .sort((a, b) => a.ordem - b.ordem);
 
-// Marca [PREENCHER: ...] para aparecer destacado na página.
-const destacarPendencias = (html: string) => html.replace(/\[PREENCHER:[^\]]*\]/g, (m) => `<mark class="preencher">${m}</mark>`);
-
 export function lerPagina(nome: string) {
   const arquivo = `content/paginas/${nome}.md`;
   const { data, content } = matter(fs.readFileSync(path.join(RAIZ, arquivo), "utf8"));
   return {
     dados: validar(pagina, data, arquivo),
-    html: destacarPendencias(marked.parse(content, { async: false })),
+    html: destacarPendencias(marked.parse(tratarMarkdown(content), { async: false })),
   };
 }
 
