@@ -1,0 +1,21 @@
+{
+  "slug": "colecao-sertao-vivo",
+  "ordem": 5,
+  "volume": "Coleção completa",
+  "titulo": "Coleção Sertão Vivo",
+  "subtitulo": "Os quatro volumes",
+  "autora": "Dilce Laranjeira",
+  "paginas": 728,
+  "formato": "18 × 22 cm",
+  "encadernacao": "Costurada",
+  "isbn": "[PREENCHER: ISBN da coleção, se houver]",
+  "descricao": [
+    "As ilustrações foram criadas em grafite, aquarela e pintura digital. As páginas com as pranchas de imagens apresentam as ilustrações à direita e os textos sobre as espécies à esquerda. Além das pranchas, o miolo apresenta ilustrações de página inteira, de espécies similares, vinhetas e mapas, reunindo mais de 500 imagens.",
+    "A produção editorial, projeto gráfico, diagramação, imagens e editoração eletrônica da coleção são da autora."
+  ],
+  "capa": { "arquivo": "wix/colecao-sertao-vivo/colecao-sertao-vivo1-aed3af15.png", "alt": "Os quatro volumes da Coleção Sertão Vivo em uma caixa, com a capa de Sertão Sem Fim! na frente" },
+  "imagens": [
+    { "arquivo": "wix/colecao-sertao-vivo/imagem-64222522.png", "alt": "As capas dos quatro livros da coleção lado a lado", "titulo": "Os quatro volumes" },
+    { "arquivo": "wix/colecao-sertao-vivo/imagem-1824cc17.jpg", "alt": "Cartaz da Coleção Sertão Vivo com as quatro capas e ilustrações de aves e bichos", "titulo": "Cartaz da coleção" }
+  ]
+}

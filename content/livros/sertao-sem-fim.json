@@ -1,0 +1,23 @@
+{
+  "slug": "sertao-sem-fim",
+  "ordem": 4,
+  "volume": "Livro IV",
+  "titulo": "Sertão Sem Fim!",
+  "subtitulo": "Visões do Grande Sertão",
+  "autora": "Dilce Laranjeira",
+  "paginas": 168,
+  "formato": "18 × 22 cm",
+  "encadernacao": "Costurada",
+  "isbn": "[PREENCHER: ISBN do Livro IV]",
+  "descricao": [
+    "Trazer à luz uma obra visual, conseguinte ao trabalho de pesquisa com as espécies, da imersão em inúmeras leituras, releituras, encontros, diálogos e reflexões acerca dos olhares diversos sobre o romance. Esse objetivo refere-se à publicação do quarto volume da coleção – Sertão Sem Fim! – um livro de imagens sobre o Grande Sertão, na visão da autora.",
+    "[PREENCHER: o texto acima é um dos objetivos da página Projeto. Confirmar ou trocar pela descrição oficial do Livro IV]"
+  ],
+  "capa": { "arquivo": "wix/colecao-sertao-vivo/imagem-9aea4c51.jpg", "alt": "Capa do livro Sertão Sem Fim!, com paisagem em aquarela de árvores, sol e raízes refletidas na água" },
+  "imagens": [
+    { "arquivo": "wix/colecao-sertao-vivo/imagem-6e4b1316.jpg", "alt": "Página de rosto de Sertão Sem Fim!, com paisagem em aquarela", "titulo": "Página de rosto" },
+    { "arquivo": "wix/projeto-sertao-vivo/livro-sertao-sem-fim-capa-e-miolo-70c3eec1.jpg", "alt": "Montagem com a capa e páginas internas de Sertão Sem Fim!", "titulo": "Capa e miolo" },
+    { "arquivo": "wix/projeto-sertao-vivo/imagens-das-pranchas-de15269e.jpg", "alt": "Montagem com paisagens em aquarela do livro", "titulo": "Imagens do livro" },
+    { "arquivo": "wix/projeto-sertao-vivo/imagens-das-pranchas-e90daac5.jpg", "alt": "Montagem com imagens digitais e paisagens noturnas do livro", "titulo": "Imagens do livro" }
+  ]
+}
