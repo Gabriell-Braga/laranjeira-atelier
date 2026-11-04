@@ -68,10 +68,25 @@ Enquanto a variável `SITE_PUBLICO` não for `sim`, o site inteiro sai com `noin
 em Workers & Pages > laranjeira-atelier > Settings > Build > Variables and secrets.
 O endereço `.workers.dev` continua com `noindex` para sempre (regra em `public/_headers`).
 
-### Variáveis de ambiente
-Nenhuma é necessária hoje. O Node 22 vem do `.nvmrc`.
-As do formulário de contato (`RESEND_API_KEY`, `CONTATO_PARA`, `TURNSTILE_SITE_KEY`, `TURNSTILE_SECRET`) entram na Fase 5,
-como segredos do Worker (`npx wrangler secret put NOME`), nunca em arquivo.
+### Formulário de contato (Worker)
+O site é estático, mas `/api/contato` passa pelo código em `worker/index.ts` (ver `run_worker_first` em `wrangler.jsonc`).
+Ele valida os campos (`worker/contato.ts`; teste: `node worker/contato.ts`), confere o Turnstile, ignora robôs pelo
+campo escondido e envia pelo Resend.
+
+Segredos do Worker (cada um com `npx wrangler secret put NOME`; o valor é digitado no terminal e não fica em arquivo):
+
+| Nome | O que é |
+|---|---|
+| `TURNSTILE_SITE_KEY` | chave pública do widget Turnstile |
+| `TURNSTILE_SECRET` | chave secreta do Turnstile |
+| `RESEND_API_KEY` | chave da API do Resend |
+| `CONTATO_PARA` | e-mail da Dilce que recebe as mensagens |
+| `CONTATO_DE` | remetente no domínio verificado, ex.: `Site Laranjeira Atelier <site@laranjeiraatelier.com.br>` |
+
+Sem `RESEND_API_KEY`, `CONTATO_PARA` ou `CONTATO_DE`, o formulário fica em **modo de teste**: valida tudo, não envia e avisa na tela.
+
+Testar no computador: copie `.dev.vars.example` para `.dev.vars` (chaves de teste do Turnstile) e rode `npm run dev:worker`
+(site e formulário em http://127.0.0.1:8787). O Node 22 vem do `.nvmrc`.
 
 ## Portfólio
 
