@@ -3,7 +3,7 @@ import { Botao } from "@/components/Botao";
 import { CartaoLivro } from "@/components/CartaoLivro";
 import { Galeria } from "@/components/Galeria";
 import { Imagem } from "@/components/Imagem";
-import { info, lerLivros, lerPagina, lerPortfolio, lerSite, paraGaleria } from "@/lib/conteudo";
+import { info, lerLivros, lerPagina, lerPortfolio, lerSite, paraGaleria, paraImagem } from "@/lib/conteudo";
 
 // Página interna: vitrine dos componentes. Fora do menu e do sitemap.
 export const metadata: Metadata = { title: "Componentes", robots: { index: false, follow: false } };
@@ -63,7 +63,7 @@ function Secao({ titulo, children, fundo = "" }: { titulo: string; children: Rea
 export default function Componentes() {
   const site = lerSite();
   const livros = lerLivros();
-  const aves = lerPortfolio().find((s) => s.slug === "aves")!;
+  const aves = lerPortfolio().itens.filter((i) => i.serie === "aves").map(paraImagem);
   const ave = livros[0];
   const inicio = lerPagina("inicio").dados;
 
@@ -175,7 +175,7 @@ export default function Componentes() {
 
       <Secao titulo="Galeria e lightbox">
         <p className="legenda mb-6">Clique em uma imagem. Setas, Esc, duplo clique ou roda do mouse para ampliar.</p>
-        <Galeria imagens={aves.itens.map(paraGaleria)} />
+        <Galeria imagens={aves.map(paraGaleria)} />
         <h3 className="titulo-3 mb-6 mt-14">Variante livro</h3>
         <div className="max-w-xl">
           <Galeria variante="livro" imagens={[ave.capa, ...ave.imagens].map(paraGaleria)} />

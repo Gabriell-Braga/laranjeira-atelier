@@ -72,3 +72,33 @@ O endereço `.workers.dev` continua com `noindex` para sempre (regra em `public/
 Nenhuma é necessária hoje. O Node 22 vem do `.nvmrc`.
 As do formulário de contato (`RESEND_API_KEY`, `CONTATO_PARA`, `TURNSTILE_SITE_KEY`, `TURNSTILE_SECRET`) entram na Fase 5,
 como segredos do Worker (`npx wrangler secret put NOME`), nunca em arquivo.
+
+## Portfólio
+
+A lista oficial de trabalhos é a planilha **`content/portfolio.csv`** (pode ser editada no Google Sheets e exportada como CSV).
+As séries (título, tipo, se têm página própria) ficam em `content/portfolio/series.json`.
+O modelo com 3 linhas de exemplo é `content/portfolio-modelo.csv`.
+
+Colunas: `arquivo, titulo, serie, tipo, tecnica, ano, ano_fonte, cliente_ou_livro, nome_cientifico, descricao, destaque, alt`.
+
+- `arquivo`: caminho a partir de `content/originais/` (ex.: `portfolio/aves/sabia.jpg`).
+- `tipo`: `ilustracao`, `design-grafico` ou `livros-autorais` (vazio = tipo da série).
+- `tecnica`: `aquarela`, `grafite`, `pastel`, `digital`, `gravura`; várias separadas por `;`. No filtro, grafite e pastel aparecem como "Desenho".
+- `ano` e `ano_fonte`: só anos confirmados, dizendo de onde vieram (ex.: `currículo`). Nunca estimar.
+- `destaque`: `sim` coloca o item no começo da ordem padrão.
+- `alt`: descrição da imagem para quem não enxerga. **Item sem alt não entra no site.**
+
+Trabalhos novos:
+1. Coloque as imagens em `content/originais/portfolio/<serie>/`.
+2. Rode `npm run portfolio`. Imagens sem linha vão para `content/portfolio-novas-linhas.csv`, já com arquivo e série.
+3. Copie essas linhas para a planilha, preencha, exporte como CSV por cima de `content/portfolio.csv`.
+4. Rode `npm run portfolio` de novo até não sobrar problema grave e faça commit de `content/portfolio.csv` e `public/img`.
+
+Séries com `"pagina": true` aparecem na grade como um cartão de projeto e ganham a página `/portfolio/<serie>/`.
+O build gera `/portfolio/indice.json` (metadados de todos os itens), que o navegador só baixa quando a pessoa rola, filtra ou abre o lightbox.
+
+## Pendências com data
+
+- **A partir de 09/11/2026:** atualizar o `wrangler` de 4.151.3 para **4.153.0** (aprovado). Essa versão resolve os 3 alertas do
+  `npm audit` (undici, via miniflare), que afetam só a ferramenta de deploy, não o site publicado. Ela só completa
+  duas semanas de publicada nessa data. Comando: `npm install -D wrangler@4.153.0`, depois `npm audit` deve dar 0.

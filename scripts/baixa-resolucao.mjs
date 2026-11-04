@@ -10,6 +10,7 @@ import path from "node:path";
 import { pathToFileURL } from "node:url";
 import matter from "gray-matter";
 import sharp from "sharp";
+import { lerPortfolioCsv } from "../lib/portfolio-dados.ts";
 
 const RAIZ = path.resolve(import.meta.dirname, "..");
 const MINIMO = 1600;
@@ -47,8 +48,11 @@ for (const l of lista("livros").sort((a, b) => a.ordem - b.ordem)) {
   usos.push([l.capa.arquivo, `Capa de ${l.titulo}`, `Livro ${l.titulo}: capa`, "lightbox"]);
   for (const i of l.imagens) usos.push([i.arquivo, `${l.titulo}: ${i.titulo ?? "imagem"}`, `Livro ${l.titulo}: galeria`, "lightbox"]);
 }
-for (const s of lista("portfolio").sort((a, b) => a.ordem - b.ordem)) {
-  for (const i of s.itens) usos.push([i.arquivo, i.titulo ?? i.alt, `Portfólio, série ${s.titulo}`, "lightbox"]);
+{
+  const { series, itens } = lerPortfolioCsv(RAIZ, (a) => a in manifesto);
+  for (const s of series) {
+    for (const i of itens.filter((x) => x.serie === s.slug)) usos.push([i.arquivo, i.titulo || i.alt, `Portfólio, série ${s.titulo}`, "lightbox"]);
+  }
 }
 
 const porArquivo = new Map();
