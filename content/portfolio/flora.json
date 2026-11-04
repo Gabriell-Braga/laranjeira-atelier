@@ -1,0 +1,44 @@
+{
+  "slug": "flora",
+  "titulo": "Flora e culinária",
+  "tipo": "ilustracao",
+  "ordem": 2,
+  "pagina": false,
+  "itens": [
+    {
+      "arquivo": "wix/ilustracao/pequi-a46ce093.jpg",
+      "titulo": "Pequi",
+      "alt": "Ramo de pequizeiro com flores claras e frutos verdes",
+      "tecnicas": [],
+      "origem": "Livro Mbur’iti, Sertão!"
+    },
+    {
+      "arquivo": "wix/ilustracao/lagrima-de-cristo-c6c2a274.jpg",
+      "titulo": "Lágrima de Cristo",
+      "alt": "Ramo de lágrima-de-cristo com folhas verdes e flores brancas e vermelhas",
+      "tecnicas": [],
+      "origem": "Ilustração editorial"
+    },
+    {
+      "arquivo": "wix/ilustracao/pimenta-dedo-de-moca-474611c4.jpg",
+      "titulo": "Pimenta dedo de moça",
+      "alt": "Pé de pimenta dedo-de-moça com folhas verdes e pimentas vermelhas",
+      "tecnicas": [],
+      "origem": "Livro Aquarela e Sabores"
+    },
+    {
+      "arquivo": "wix/ilustracao/amora-8f903569.jpg",
+      "titulo": "Amora",
+      "alt": "Ramo de amoreira com amoras vermelhas e escuras e uma flor branca",
+      "tecnicas": [],
+      "origem": "Livro Aquarela e Sabores"
+    },
+    {
+      "arquivo": "wix/ilustracao/tamarindo-a8451088.jpg",
+      "titulo": "Tamarindo",
+      "alt": "Ramo de tamarindeiro com folhas miúdas, flores e vagens marrons",
+      "tecnicas": [],
+      "origem": "Livro Aquarela e Sabores"
+    }
+  ]
+}

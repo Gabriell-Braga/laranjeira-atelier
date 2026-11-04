@@ -1,0 +1,31 @@
+{
+  "slug": "zoobotanica",
+  "titulo": "Livro Ilustrado da Zoobotânica",
+  "tipo": "design-grafico",
+  "ordem": 11,
+  "pagina": true,
+  "texto": "Fundação Municipal de Parques e Zoobotânica de Belo Horizonte, PBH, 2019. Projeto gráfico, ilustração, diagramação e editoração eletrônica.",
+  "itens": [
+    {
+      "arquivo": "wix/design-grafico/livro-ilustrado-da-zoobotanica-03ecae9b.jpg",
+      "titulo": "Livro Ilustrado da Zoobotânica",
+      "alt": "Capa com leão, macacos, aves e plantas em meio à mata",
+      "tecnicas": [],
+      "descricao": "Projeto gráfico, criação de capa, editoração e ilustração"
+    },
+    {
+      "arquivo": "wix/design-grafico/livro-ilustrado-da-zoobotanica-318a13fe.jpg",
+      "titulo": "Livro Ilustrado da Zoobotânica",
+      "alt": "Página sobre répteis e anfíbios com fotos de tartarugas e cobra",
+      "tecnicas": [],
+      "descricao": "Diagramação e editoração"
+    },
+    {
+      "arquivo": "wix/design-grafico/livro-ilustrado-da-zoobotanica-7049d3ea.jpg",
+      "titulo": "Livro Ilustrado da Zoobotânica",
+      "alt": "Página sobre o aquário, com esquema em quadros verdes e um peixe",
+      "tecnicas": [],
+      "descricao": "Diagramação e editoração"
+    }
+  ]
+}

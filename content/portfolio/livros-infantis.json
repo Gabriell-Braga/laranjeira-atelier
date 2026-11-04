@@ -1,0 +1,137 @@
+{
+  "slug": "livros-infantis",
+  "titulo": "Livros infantis",
+  "tipo": "ilustracao",
+  "ordem": 7,
+  "pagina": false,
+  "itens": [
+    {
+      "arquivo": "wix/ilustracao/dibi-01aec5f9.jpg",
+      "titulo": "Dibi",
+      "alt": "Céu noturno com planetas, estrelas e cometas",
+      "tecnicas": [],
+      "origem": "Livro infantil"
+    },
+    {
+      "arquivo": "wix/ilustracao/dibi-4f9a250d.jpg",
+      "titulo": "Dibi",
+      "alt": "Brinquedos, bola e livros espalhados sobre água azul",
+      "tecnicas": [],
+      "origem": "Livro infantil"
+    },
+    {
+      "arquivo": "wix/ilustracao/dibi-87d62e82.jpg",
+      "titulo": "Dibi",
+      "alt": "Desenho de casa com sol sorridente e flores coloridas",
+      "tecnicas": [],
+      "origem": "Livro infantil"
+    },
+    {
+      "arquivo": "wix/ilustracao/dibi-8f634277.jpg",
+      "titulo": "Dibi",
+      "alt": "Fundo do mar com peixes e crianças nadando",
+      "tecnicas": [],
+      "origem": "Livro infantil"
+    },
+    {
+      "arquivo": "wix/ilustracao/dibi-ab607b67.jpg",
+      "titulo": "Dibi",
+      "alt": "Paisagem com arco-íris, flores e bichos",
+      "tecnicas": [],
+      "origem": "Livro infantil"
+    },
+    {
+      "arquivo": "wix/ilustracao/dibi-b90758d1.jpg",
+      "titulo": "Dibi",
+      "alt": "Formas geométricas em tons de azul e a palavra Feliz",
+      "tecnicas": [],
+      "origem": "Livro infantil"
+    },
+    {
+      "arquivo": "wix/ilustracao/dibi-e2d20879.jpg",
+      "titulo": "Dibi",
+      "alt": "Criança e pássaro sobre água azul",
+      "tecnicas": [],
+      "origem": "Livro infantil"
+    },
+    {
+      "arquivo": "wix/ilustracao/a-caixa-de-sonhos-8718bf17.jpg",
+      "titulo": "A caixa de sonhos",
+      "alt": "Menino sentado no chão entre brinquedos, sob fundo azul esverdeado",
+      "tecnicas": [],
+      "origem": "Livro infantil"
+    },
+    {
+      "arquivo": "wix/ilustracao/a-caixa-de-sonhos-270d1fc7.jpg",
+      "titulo": "A caixa de sonhos",
+      "alt": "Menino sobre uma caixa diante de um caminho de pedras no céu",
+      "tecnicas": [],
+      "origem": "Livro infantil"
+    },
+    {
+      "arquivo": "wix/ilustracao/a-caixa-de-sonhos-bd66904f.jpg",
+      "titulo": "A caixa de sonhos",
+      "alt": "Menino diante de uma porta aberta de madeira",
+      "tecnicas": [],
+      "origem": "Livro infantil"
+    },
+    {
+      "arquivo": "wix/ilustracao/chuva-de-natal-fdaaeed3.jpg",
+      "titulo": "Chuva de Natal",
+      "alt": "Presentes caindo de paraquedas coloridos em um céu estrelado",
+      "tecnicas": [],
+      "origem": "Livro Chuva de Natal"
+    },
+    {
+      "arquivo": "wix/ilustracao/aldeia-49cbcecd.jpg",
+      "titulo": "Aldeia",
+      "alt": "Vila de casas vermelhas entre morros verdes sob o sol",
+      "tecnicas": [],
+      "origem": "Livro infantil"
+    },
+    {
+      "arquivo": "wix/ilustracao/a-minha-floresta-abb81c9d.jpg",
+      "titulo": "A minha floresta",
+      "alt": "Casa e folha flutuando entre traços de grafite",
+      "tecnicas": [],
+      "origem": "Livro A Minha Floresta"
+    },
+    {
+      "arquivo": "wix/ilustracao/um-livro-voador-e1a67ce9.jpg",
+      "titulo": "Um livro voador",
+      "alt": "Livro aberto de onde sobe um balão entre luzes azuis",
+      "tecnicas": [],
+      "origem": "Livro Um Livro Voador"
+    },
+    {
+      "arquivo": "wix/ilustracao/cores-0e9a7b50.jpg",
+      "titulo": "Cores",
+      "alt": "Jardim florido em tons de rosa com confetes coloridos",
+      "tecnicas": [],
+      "origem": "Livro A Magia das Cores"
+    },
+    {
+      "arquivo": "wix/ilustracao/natureza-c7587d69.jpg",
+      "titulo": "Natureza",
+      "alt": "Faixa com peixes, flores e bichos coloridos",
+      "tecnicas": [],
+      "origem": "Livro infantil"
+    },
+    {
+      "arquivo": "wix/ilustracao/estudo-bebe-79159bf2.jpg",
+      "titulo": "Estudo Bebê",
+      "alt": "Estudo de bebê dormindo, em tons suaves de rosa",
+      "tecnicas": [],
+      "origem": "Livro infantil"
+    },
+    {
+      "arquivo": "wix/ilustracao/estudos-em-aquarela-e211b2e5.jpg",
+      "titulo": "Estudos em Aquarela",
+      "alt": "Dois estudos: paisagem com nuvens e castelo azul ao longe",
+      "tecnicas": [
+        "aquarela"
+      ],
+      "origem": "Livro infantil"
+    }
+  ]
+}

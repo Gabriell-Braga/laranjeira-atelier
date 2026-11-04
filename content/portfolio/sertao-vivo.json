@@ -1,0 +1,37 @@
+{
+  "slug": "sertao-vivo",
+  "titulo": "Coleção Sertão Vivo",
+  "tipo": "livros-autorais",
+  "ordem": 14,
+  "pagina": false,
+  "itens": [
+    {
+      "arquivo": "wix/colecao-sertao-vivo/capa-ave-281d710e.jpg",
+      "titulo": "Ave, Sertão!",
+      "alt": "Capa do livro Ave, Sertão!",
+      "tecnicas": [],
+      "link": "/livros/ave-sertao/"
+    },
+    {
+      "arquivo": "wix/colecao-sertao-vivo/imagem-d7babd5c.jpg",
+      "titulo": "Vive, Sertão!",
+      "alt": "Capa do livro Vive, Sertão!",
+      "tecnicas": [],
+      "link": "/livros/vive-sertao/"
+    },
+    {
+      "arquivo": "wix/colecao-sertao-vivo/imagem-29cf2d65.jpg",
+      "titulo": "Mbur’iti, Sertão!",
+      "alt": "Capa do livro Mbur’iti, Sertão!",
+      "tecnicas": [],
+      "link": "/livros/mburiti-sertao/"
+    },
+    {
+      "arquivo": "wix/colecao-sertao-vivo/imagem-9aea4c51.jpg",
+      "titulo": "Sertão Sem Fim!",
+      "alt": "Capa do livro Sertão Sem Fim!",
+      "tecnicas": [],
+      "link": "/livros/sertao-sem-fim/"
+    }
+  ]
+}

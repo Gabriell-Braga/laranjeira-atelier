@@ -1,0 +1,37 @@
+{
+  "slug": "povos-indigenas",
+  "titulo": "Povos indígenas",
+  "tipo": "ilustracao",
+  "ordem": 5,
+  "pagina": false,
+  "itens": [
+    {
+      "arquivo": "wix/ilustracao/menino-maxacali-8f9d4b16.jpg",
+      "titulo": "Menino Maxakali",
+      "alt": "Menino Maxakali com o rosto pintado de vermelho, sobre fundo azul com a palavra Maxakali",
+      "tecnicas": [],
+      "origem": "Livro Nosso Nome"
+    },
+    {
+      "arquivo": "wix/ilustracao/menina-pataxo-8ae94d08.jpg",
+      "titulo": "Menina Pataxó",
+      "alt": "Menina Pataxó com pintura facial, sobre fundo verde com a palavra Pataxó",
+      "tecnicas": [],
+      "origem": "Livro Nosso Nome"
+    },
+    {
+      "arquivo": "wix/ilustracao/aderecos-pataxo-17c1bd26.jpg",
+      "titulo": "Adereços Pataxó",
+      "alt": "Adereços Pataxó: colares, cabaças, colher de madeira e grafismos",
+      "tecnicas": [],
+      "origem": "Livro Nosso Nome"
+    },
+    {
+      "arquivo": "wix/ilustracao/cocar-xucuru-kariri-824e6ab0.jpg",
+      "titulo": "Cocar Xucuru-Kariri",
+      "alt": "Cocar Xucuru-Kariri de penas azuis, vermelhas e amarelas",
+      "tecnicas": [],
+      "origem": "Livro Nosso Nome"
+    }
+  ]
+}
