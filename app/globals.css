@@ -1,0 +1,171 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #f7f4ee;
+  --color-surface: #ffffff;
+  --color-areia: #eedbc5;
+  --color-laranja: #ed7f29;
+  --color-vereda: #2f4a2a;
+  --color-ink: #2a2620;
+  --color-ink-muted: #5e574c;
+  --color-terra: #6b4a1e;
+  --color-linha: #e4ddd0;
+  --color-ceu: #a9b4d6;
+
+  --font-display: var(--fonte-cormorant), Georgia, serif;
+  --font-sans: var(--fonte-karla), system-ui, sans-serif;
+
+  --radius-imagem: 4px;
+}
+
+/* ---------- Tipografia ---------- */
+
+@utility titulo-display {
+  font-family: var(--font-display);
+  font-size: 40px;
+  line-height: 1.04;
+  font-weight: 500;
+  @media (width >= 48rem) {
+    font-size: 64px;
+  }
+}
+
+@utility titulo-2 {
+  font-family: var(--font-display);
+  font-size: 34px;
+  line-height: 1.1;
+  font-weight: 600;
+  @media (width >= 48rem) {
+    font-size: 48px;
+  }
+}
+
+@utility titulo-3 {
+  font-family: var(--font-display);
+  font-size: 30px;
+  line-height: 1.15;
+  font-weight: 600;
+}
+
+@utility citacao {
+  font-family: var(--font-display);
+  font-size: 30px;
+  line-height: 1.25;
+  font-style: italic;
+  @media (width >= 48rem) {
+    font-size: 38px;
+  }
+}
+
+@utility sobretitulo {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-terra);
+}
+
+@utility legenda {
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--color-ink-muted);
+}
+
+/* ---------- Espaçamento ---------- */
+
+@utility conteudo {
+  width: 100%;
+  max-width: calc(1200px + 2 * 32px);
+  margin-inline: auto;
+  padding-inline: 20px;
+  @media (width >= 48rem) {
+    padding-inline: 32px;
+  }
+}
+
+@utility faixa {
+  padding-block: 56px;
+  @media (width >= 48rem) {
+    padding-block: 88px;
+  }
+}
+
+/* Coluna de leitura: no máximo ~70 caracteres por linha */
+@utility leitura {
+  max-width: 68ch;
+}
+
+/* ---------- Base ---------- */
+
+@layer base {
+  html {
+    background: var(--color-paper);
+    scroll-padding-top: 96px;
+  }
+  body {
+    font-family: var(--font-sans);
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--color-ink);
+    background: var(--color-paper);
+    -webkit-font-smoothing: antialiased;
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-laranja);
+    outline-offset: 3px;
+  }
+  a {
+    color: var(--color-vereda);
+    text-underline-offset: 3px;
+  }
+  img {
+    border-radius: var(--radius-imagem);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* Texto vindo do markdown */
+@layer components {
+  .texto > * + * {
+    margin-top: 1em;
+  }
+  .texto h2 {
+    font-family: var(--font-display);
+    font-size: 34px;
+    line-height: 1.1;
+    font-weight: 600;
+    margin-top: 1.6em;
+  }
+  .texto ul {
+    list-style: disc;
+    padding-left: 1.25em;
+  }
+  .texto li + li {
+    margin-top: 0.5em;
+  }
+  .texto blockquote {
+    font-family: var(--font-display);
+    font-size: 24px;
+    line-height: 1.4;
+    font-style: italic;
+    border-left: 3px solid var(--color-laranja);
+    padding-left: 1em;
+  }
+
+  /* Conteúdo que ainda falta: visível de propósito */
+  .preencher {
+    background: #fff3b0;
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 15px;
+    font-style: normal;
+    padding: 0 4px;
+    border-radius: 2px;
+  }
+}
