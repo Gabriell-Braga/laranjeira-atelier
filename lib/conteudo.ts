@@ -51,7 +51,6 @@ const site = z.object({
     instagram: z.string(),
   }),
   amazon: z.record(z.string(), z.string()),
-  curriculo: z.string(),
   mostrarAgenda: z.boolean(),
 });
 

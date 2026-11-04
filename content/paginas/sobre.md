@@ -5,7 +5,7 @@ retrato: "[PREENCHER: foto da Dilce (o site atual usa a ilustração Tesourinha 
 sobretitulo: "Ilustradora e designer gráfica"
 imagem:
   - "wix/sobre/tesourinha-ilustracao-editorial-158534f8.jpg"
-curriculo: "[PREENCHER: autorizar a publicação do currículo em PDF, que traz o telefone; depois troque por /docs/curriculo-dilce-laranjeira.pdf]"
+curriculo: "/docs/curriculo-dilce-laranjeira.pdf"
 ---
 
 Trabalho com Arte e Design Gráfico, em especial na área editorial, sempre em meio a textos, imagens e livros, esse maravilhoso universo de comunicação e arte.

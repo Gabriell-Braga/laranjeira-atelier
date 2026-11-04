@@ -36,6 +36,14 @@ export function Botao({ variante = "laranja", className = "", children, ...resto
       </a>
     );
   }
+  // Arquivo (PDF etc.): link comum, sem a navegação interna do Next.
+  if (/\.[a-z0-9]+$/i.test(href)) {
+    return (
+      <a href={href} {...props} className={classes}>
+        {children}
+      </a>
+    );
+  }
   return (
     <Link href={href} {...props} className={classes}>
       {children}
