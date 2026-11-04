@@ -36,7 +36,7 @@ export function Galeria({
     atualizarUrlImagem(imagens[i].slug);
   };
 
-  const miniatura = (img: ImagemGaleria, i: number, tamanho: string, className = "") => (
+  const miniatura = (img: ImagemGaleria, i: number, tamanho: string, className = "", prioridade = false) => (
     <li key={img.slug} className={className}>
       <button
         type="button"
@@ -44,7 +44,7 @@ export function Galeria({
         className="block w-full cursor-zoom-in rounded-[4px]"
         aria-label={`Ampliar: ${img.titulo ?? img.alt}`}
       >
-        <Imagem img={img} sizes={tamanho} className="w-full" />
+        <Imagem img={img} sizes={tamanho} prioridade={prioridade} className="w-full" />
       </button>
     </li>
   );
@@ -53,7 +53,8 @@ export function Galeria({
     <>
       {variante === "livro" ? (
         <ul className="grid list-none grid-cols-4 gap-3 p-0">
-          {miniatura(imagens[0], 0, "(min-width: 768px) 50vw, 100vw", "col-span-4")}
+          {/* capa grande: primeira imagem da página, carrega sem esperar (LCP) */}
+          {miniatura(imagens[0], 0, "(min-width: 1264px) 600px, (min-width: 768px) 50vw, 100vw", "col-span-4", true)}
           {imagens.slice(1).map((img, i) => miniatura(img, i + 1, "(min-width: 768px) 12vw, 25vw"))}
         </ul>
       ) : (

@@ -16,7 +16,13 @@ const RAIZ = path.resolve(import.meta.dirname, "..");
 const ORIGINAIS = path.join(RAIZ, "content/originais");
 const SAIDA = path.join(RAIZ, "public/img");
 const MANIFEST = path.join(SAIDA, "manifest.json");
-const LARGURAS = [480, 960, 1600, 2400];
+// 720: celulares comuns (360–412 pontos × densidade ~2) não precisam baixar a de 960.
+const LARGURAS = [480, 720, 960, 1600, 2400];
+const larguraPara = (w) => {
+  const l = LARGURAS.filter((x) => x < w);
+  if (l.length < LARGURAS.length) l.push(Math.min(w, 2400)); // inclui o tamanho original (se < 2400)
+  return l;
+};
 
 const existe = (f) => access(f).then(() => true, () => false);
 
@@ -50,13 +56,14 @@ let geradas = 0;
 for (const arquivo of arquivos) {
   const buffer = await readFile(path.join(ORIGINAIS, arquivo));
   const hash = createHash("sha1").update(buffer).digest("hex").slice(0, 12);
-  if (manifest[arquivo]?.hash === hash) continue;
+  const antes = manifest[arquivo];
+  // pula se o original e a lista de larguras não mudaram
+  if (antes?.hash === hash && JSON.stringify(antes.larguras) === JSON.stringify(larguraPara(antes.largura))) continue;
 
   const img = sharp(buffer).rotate(); // respeita a orientação EXIF
   const meta = await img.metadata();
   const [w, h] = (meta.orientation ?? 1) >= 5 ? [meta.height, meta.width] : [meta.width, meta.height];
-  const larguras = LARGURAS.filter((l) => l < w);
-  if (larguras.length < LARGURAS.length) larguras.push(Math.min(w, 2400)); // inclui o tamanho original (se < 2400)
+  const larguras = larguraPara(w);
 
   const destino = path.join(SAIDA, semExtensao(arquivo));
   await mkdir(path.dirname(destino), { recursive: true });
