@@ -9,7 +9,8 @@
     "build": "npm run imagens && next build && node scripts/verificar-build.mjs",
     "preview": "npm run build && npx serve@14.2.6 out",
     "typecheck": "tsc --noEmit",
-    "portfolio": "node scripts/imagens.mjs && node scripts/portfolio.mjs"
+    "portfolio": "node scripts/imagens.mjs && node scripts/portfolio.mjs",
+    "dev:worker": "npm run build && wrangler dev"
   },
   "dependencies": {
     "next": "16.4.2",
