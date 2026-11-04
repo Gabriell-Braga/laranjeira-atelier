@@ -1,8 +1,29 @@
-import { EmBreve, metadataEmBreve } from "@/components/EmBreve";
+import type { Metadata } from "next";
+import { Texto } from "@/components/Blocos";
+import { ContatosDiretos } from "@/components/ContatosDiretos";
+import { FormularioContato } from "@/components/FormularioContato";
+import { lerPagina } from "@/lib/conteudo";
 
-// Provisória: substituída pela página real na sua fase.
-export const metadata = metadataEmBreve("Contato");
+const pagina = lerPagina("contato");
 
-export default function Pagina() {
-  return <EmBreve titulo="Contato" />;
+export const metadata: Metadata = { title: pagina.campo("titulo"), description: pagina.campo("descricao") };
+
+export default function Contato() {
+  const c = pagina.campo;
+  return (
+    <div className="conteudo pb-[56px] pt-10 md:pb-[88px] md:pt-16">
+      <p className="sobretitulo">{c("sobretitulo")}</p>
+      <h1 className="titulo-display mt-3">{c("titulo")}</h1>
+      <Texto html={pagina.html} className="leitura mt-6 text-[20px]" />
+      <div className="mt-12 grid gap-14 md:grid-cols-[3fr_2fr]">
+        <section aria-labelledby="titulo-formulario">
+          <h2 id="titulo-formulario" className="titulo-3 mb-6">{c("formularioTitulo")}</h2>
+          <FormularioContato />
+        </section>
+        <aside className="md:border-l md:border-linha md:pl-10">
+          <ContatosDiretos titulo={c("diretosTitulo")} />
+        </aside>
+      </div>
+    </div>
+  );
 }

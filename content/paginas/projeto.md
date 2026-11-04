@@ -2,6 +2,19 @@
 titulo: "Projeto Sertão Vivo"
 descricao: "Apresentação de projeto para publicação de 4 livros de textos e imagens sobre a natureza presente na obra Grande Sertão: veredas, para dar a conhecer a riqueza da obra de João Guimarães Rosa e o universo infinito das possibilidades de leitura e transcendência de sua linguagem. E sobretudo da sua poética, que permeia as criaturas, as paisagens e as gentes do grande sertão."
 citacao: "Primeiro e maior personagem em Grande sertão: veredas, o sertão se faz presente a cada passo da jornada de Riobaldo."
+citacaoFonte: "Dilce Laranjeira, introdução de Vive, Sertão!"
+sobretitulo: "Coleção Sertão Vivo · Dilce Laranjeira"
+pranchasTitulo: "Imagens de capas, ilustrações, pranchas e páginas de miolo"
+pranchas:
+  - "wix/projeto-sertao-vivo/livro-ave-sertao-capa-e-miolo-5d1c5f1a.jpg"
+  - "wix/projeto-sertao-vivo/imagens-das-pranchas-aves-e9509c2e.jpg"
+  - "wix/projeto-sertao-vivo/livro-vive-sertao-capa-e-miolo-01d2cff0.jpg"
+  - "wix/projeto-sertao-vivo/imagens-das-pranchas-bichos-8d1a8111.jpg"
+  - "wix/projeto-sertao-vivo/livro-mbur-iti-sertao-capa-e-miolo-55168c81.jpg"
+  - "wix/projeto-sertao-vivo/imagens-das-pranchas-plantas-3f80ddad.jpg"
+  - "wix/projeto-sertao-vivo/livro-sertao-sem-fim-capa-e-miolo-70c3eec1.jpg"
+  - "wix/projeto-sertao-vivo/imagens-das-pranchas-de15269e.jpg"
+  - "wix/projeto-sertao-vivo/imagens-das-pranchas-e90daac5.jpg"
 ---
 
 > Primeiro e maior personagem em Grande sertão: veredas, o sertão se faz presente a cada passo da jornada de Riobaldo: na aridez do Liso do Sussuarão, nas beiras verdejantes do São Francisco e do Urucuia, nas veredas mortas, nos buritizais; nas histórias dos sertanejos, nas pelejas dos jagunços, nas emboscadas do “Não-sei-que-diga.” De toda a matéria viva que plasma, delineia e dá forma ao sertão rosiano, aves, bichos e plantas têm grande protagonismo não só em Grande Sertão, como em toda a obra de Guimarães Rosa.(...) De famílias, gêneros e espécies diversas, convivendo no sertão, presentes e amalgamados à vida e ao espírito sertanejo. Vivem no sertão. São o sertão.
