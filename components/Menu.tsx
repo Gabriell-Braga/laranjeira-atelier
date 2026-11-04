@@ -34,16 +34,24 @@ export function Menu({ itens, compra }: { itens: ItemMenu[]; compra: React.React
   const pathname = usePathname();
   const [aberto, setAberto] = useState(false);
   const botao = useRef<HTMLButtonElement>(null);
+  const painel = useRef<HTMLElement>(null);
 
   useEffect(() => setAberto(false), [pathname]);
 
   useEffect(() => {
     if (!aberto) return;
+    // Esc fecha e devolve o foco ao botão; Tab circula entre o botão e os links do painel.
     const esc = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         setAberto(false);
         botao.current?.focus();
       }
+      if (e.key !== "Tab" || !painel.current || !botao.current) return;
+      const focaveis = [botao.current, ...painel.current.querySelectorAll<HTMLElement>("a[href], button")];
+      const atual = focaveis.indexOf(document.activeElement as HTMLElement);
+      const proximo = atual === -1 ? 0 : (atual + (e.shiftKey ? -1 : 1) + focaveis.length) % focaveis.length;
+      e.preventDefault();
+      focaveis[proximo].focus();
     };
     document.addEventListener("keydown", esc);
     return () => document.removeEventListener("keydown", esc);
@@ -75,6 +83,7 @@ export function Menu({ itens, compra }: { itens: ItemMenu[]; compra: React.React
       </button>
 
       <nav
+        ref={painel}
         id="menu-celular"
         aria-label="Principal"
         hidden={!aberto}
