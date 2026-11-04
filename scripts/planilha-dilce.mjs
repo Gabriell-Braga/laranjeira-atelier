@@ -8,8 +8,9 @@
 //     casando as linhas pela coluna "arquivo". As outras colunas não mudam.
 //     Ano novo ou alterado pela Dilce fica com ano_fonte = "Dilce".
 //     Depois rode: npm run portfolio
-import { readFileSync, writeFileSync } from "node:fs";
+import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
+import sharp from "sharp";
 import { COLUNAS, lerCsv, lerSeries, normalizarTecnica, TECNICAS } from "../lib/portfolio-dados.ts";
 
 const RAIZ = path.resolve(import.meta.dirname, "..");
@@ -31,10 +32,25 @@ const oficial = lerCsv(readFileSync(CSV_OFICIAL, "utf8"));
 const [modo, entrada] = process.argv.slice(2);
 
 if (modo === "gerar") {
-  const linhas = oficial.map((l, i) => {
+  // Miniaturas em JPG de 480px (o Google Sheets pode não mostrar WebP), publicadas com o site
+  // em /planilha/<nome>.jpg. Feitas a partir das versões WebP já geradas: não precisa dos originais.
+  const pasta = path.join(RAIZ, "public/planilha");
+  mkdirSync(pasta, { recursive: true });
+  const urls = [];
+  for (const l of oficial) {
     const m = manifesto[l.arquivo];
-    const largura = m ? (m.larguras.includes(480) ? 480 : m.larguras[0]) : null;
-    const url = largura ? `${ENDERECO}/img/${l.arquivo.replace(/\.[^.]+$/, "")}-${largura}.webp` : "";
+    if (!m) {
+      urls.push("");
+      continue;
+    }
+    const base = l.arquivo.replace(/\.[^.]+$/, "");
+    const fonte = path.join(RAIZ, "public/img", `${base}-${m.larguras.find((w) => w >= 480) ?? m.larguras.at(-1)}.webp`);
+    const nome = `${path.basename(base)}.jpg`;
+    await sharp(fonte).flatten({ background: "#ffffff" }).resize({ width: 480, withoutEnlargement: true }).jpeg({ quality: 78, mozjpeg: true }).toFile(path.join(pasta, nome));
+    urls.push(`${ENDERECO}/planilha/${nome}`);
+  }
+  const linhas = oficial.map((l, i) => {
+    const url = urls[i];
     return {
       miniatura: url ? `=IMAGE("${url}")` : "",
       numero: i + 1,
