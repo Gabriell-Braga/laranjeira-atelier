@@ -1,7 +1,7 @@
 # Laranjeira Atelier
 
 Site de Dilce Laranjeira: ilustração, design gráfico e a coleção Sertão Vivo.
-Next.js com exportação estática, hospedado no Cloudflare Pages.
+Next.js com exportação estática, publicado no Cloudflare (Worker com arquivos estáticos).
 
 ## Rodar no computador
 
@@ -41,3 +41,34 @@ Guarde a pasta `content/originais` inteira no Google Drive da Dilce, por exemplo
 Depois de colocar ou trocar um original, rode `npm run imagens` e faça commit de `public/img`. O build do Cloudflare não tem os originais e usa as versões já geradas. Para remover do site as imagens cujo original foi apagado: `node scripts/imagens.mjs --limpar`.
 
 Para trazer de novo as imagens do site antigo: `node scripts/importar-wix.mjs`. O script nunca sobrescreve um arquivo existente.
+
+## Publicação (deploy)
+
+O site é um **Worker do Cloudflare com arquivos estáticos**, ligado ao repositório do GitHub (Workers Builds).
+A configuração fica em `wrangler.jsonc`: publica a pasta `out/`, usa `out/404.html` para páginas inexistentes e põe barra no fim das URLs.
+
+- **Push na `main`**: o Cloudflare roda `npm run build` e `npx wrangler deploy` e atualiza
+  https://laranjeira-atelier.hub-villa-deli.workers.dev (leva cerca de 1 minuto).
+- **Push em outra branch**: o Cloudflare gera uma prévia separada, sem mexer na versão principal:
+  `https://<branch>-laranjeira-atelier.hub-villa-deli.workers.dev`.
+  ```sh
+  git switch -c previa-dilce
+  # ... alterações e commits ...
+  git push -u origin previa-dilce
+  ```
+  Se a prévia não aparecer, confira no painel: Workers & Pages > laranjeira-atelier > Settings > Build >
+  "Builds for non-production branches" deve estar ligado.
+- **Publicar pelo terminal** (sem esperar o GitHub): `npm run build` e depois `npx wrangler deploy`.
+  Precisa de `npx wrangler login` uma vez nesta máquina.
+- **Ver deploys:** `npx wrangler deployments list`.
+
+### Indexação no Google
+Enquanto a variável `SITE_PUBLICO` não for `sim`, o site inteiro sai com `noindex`
+(meta nas páginas e cabeçalho `X-Robots-Tag` em todos os arquivos). Ela só será ligada na migração do domínio,
+em Workers & Pages > laranjeira-atelier > Settings > Build > Variables and secrets.
+O endereço `.workers.dev` continua com `noindex` para sempre (regra em `public/_headers`).
+
+### Variáveis de ambiente
+Nenhuma é necessária hoje. O Node 22 vem do `.nvmrc`.
+As do formulário de contato (`RESEND_API_KEY`, `CONTATO_PARA`, `TURNSTILE_SITE_KEY`, `TURNSTILE_SECRET`) entram na Fase 5,
+como segredos do Worker (`npx wrangler secret put NOME`), nunca em arquivo.
