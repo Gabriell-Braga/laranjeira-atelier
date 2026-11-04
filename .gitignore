@@ -1,0 +1,14 @@
+node_modules/
+.next/
+out/
+next-env.d.ts
+*.tsbuildinfo
+
+# Originais em alta resolução: ficam fora do repositório (ver README)
+content/originais/
+
+.env
+.env.local
+.dev.vars
+.DS_Store
+Thumbs.db
