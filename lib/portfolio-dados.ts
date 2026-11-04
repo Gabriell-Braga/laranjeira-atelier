@@ -23,7 +23,14 @@ export const COLUNAS = [
 export const TIPOS = { ilustracao: "Ilustração", "design-grafico": "Design gráfico", "livros-autorais": "Livros autorais" } as const;
 export type Tipo = keyof typeof TIPOS;
 
-export const TECNICAS = { aquarela: "Aquarela", grafite: "Grafite", pastel: "Pastel", digital: "Pintura digital", gravura: "Gravura" } as const;
+export const TECNICAS = {
+  aquarela: "Aquarela",
+  desenho: "Desenho",
+  grafite: "Grafite",
+  pastel: "Pastel",
+  digital: "Pintura digital",
+  gravura: "Gravura",
+} as const;
 export type Tecnica = keyof typeof TECNICAS;
 
 // Filtro do portfólio: grafite e pastel entram juntos em "Desenho".
@@ -31,6 +38,7 @@ export const GRUPOS_TECNICA = { aquarela: "Aquarela", desenho: "Desenho", digita
 export type GrupoTecnica = keyof typeof GRUPOS_TECNICA;
 export const GRUPO_DA_TECNICA: Record<Tecnica, GrupoTecnica> = {
   aquarela: "aquarela",
+  desenho: "desenho",
   grafite: "desenho",
   pastel: "desenho",
   digital: "digital",
@@ -95,6 +103,13 @@ export type ItemPortfolio = {
 
 export type Problema = { linha?: number; arquivo?: string; mensagem: string; grave: boolean };
 
+// Aceita "Aquarela", "pintura digital", "Grafite"... como na planilha da Dilce.
+const APELIDOS: Record<string, string> = { "pintura digital": "digital" };
+export const normalizarTecnica = (t: string) => {
+  const s = t.trim().toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
+  return APELIDOS[s] ?? s;
+};
+
 const SIM = new Set(["sim", "s", "x", "1", "true", "yes"]);
 
 // ---------- Leitura ----------
@@ -134,7 +149,7 @@ export function lerPortfolioCsv(raiz: string, existe: (arquivo: string) => boole
     if (!(tipo in TIPOS)) return p(`tipo "${l.tipo}" desconhecido (use: ${Object.keys(TIPOS).join(", ")})`);
 
     const tecnicas: Tecnica[] = [];
-    for (const t of l.tecnica.split(/[;,]/).map((x) => x.trim().toLowerCase()).filter(Boolean)) {
+    for (const t of l.tecnica.split(/[;,]/).map(normalizarTecnica).filter(Boolean)) {
       if (t in TECNICAS) tecnicas.push(t as Tecnica);
       else p(`técnica "${t}" desconhecida, ignorada (use: ${Object.keys(TECNICAS).join(", ")})`, false);
     }

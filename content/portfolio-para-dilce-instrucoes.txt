@@ -1,0 +1,35 @@
+PLANILHA DO PORTFÓLIO: COMO PREENCHER
+
+Cada linha é um trabalho que aparece no portfólio do site. A primeira coluna mostra a imagem,
+para você saber de qual trabalho se trata. Preencha o que souber; o que ficar em branco não aparece no site.
+
+O QUE SIGNIFICA CADA COLUNA
+
+miniatura   A imagem do trabalho. Não mexa.
+numero      Só para a gente conversar ("o 12 está com o título errado"). Não mexa.
+titulo      O nome da obra, como deve aparecer no site. Ex.: Saíra Azul
+serie       O grupo em que o trabalho aparece. Use um destes nomes:
+            Aves / Flora e culinária / Cartazes Ecológicos Petrobras / Retratos / Povos indígenas /
+            Arquitetura e cidade / Livros infantis / Didáticos de Ciências / Ilustração editorial /
+            Reversos / Livro Ilustrado da Zoobotânica / Guia Gravura em Metal /
+            Capas e livros diagramados / Coleção Sertão Vivo
+tecnica     A técnica usada. Opções: Aquarela, Desenho, Digital, Gravura.
+            Se forem várias, separe com ponto e vírgula. Ex.: Aquarela; Digital
+            Se quiser ser mais precisa no desenho, também pode escrever Grafite ou Pastel
+            (no site, os dois aparecem no filtro "Desenho").
+ano         O ano em que o trabalho foi feito ou publicado, com 4 números. Ex.: 2019
+            Se não tiver certeza, deixe em branco.
+destaque    Escreva sim nos seus 10 a 15 trabalhos favoritos. Eles aparecem primeiro no portfólio.
+            Nos outros, deixe em branco.
+descricao   Uma frase curta que aparece embaixo da imagem ampliada, se quiser.
+            Ex.: Ilustração e diagramação. Pode deixar em branco.
+
+As colunas do fim (arquivo, alt, ano_fonte) são técnicas. Por favor, não apague nem mude a coluna "arquivo":
+é ela que liga cada linha à imagem certa. "alt" é a descrição da imagem para pessoas cegas; se quiser
+melhorar alguma, pode editar. "ano_fonte" diz de onde veio o ano; não precisa mexer.
+
+DICAS
+- Não apague linhas. Se um trabalho não deve aparecer no site, escreva "tirar" na coluna descricao
+  e avise o Gabriel.
+- Para incluir trabalhos novos, mande as imagens para o Gabriel; ele acrescenta as linhas.
+- Quando terminar, avise o Gabriel. Não precisa baixar nada.
