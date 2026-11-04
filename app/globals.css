@@ -151,9 +151,9 @@
   }
   .texto blockquote {
     font-family: var(--font-display);
-    font-size: 24px;
-    line-height: 1.4;
-    font-style: italic;
+    font-size: 22px;
+    line-height: 1.45;
+    /* sem itálico: o briefing proíbe parágrafos inteiros em itálico */
     border-left: 3px solid var(--color-laranja);
     padding-left: 1em;
   }

@@ -1,9 +1,12 @@
 ---
 titulo: "Escolas e livrarias"
 descricao: "[PREENCHER: descrição curta para buscadores]"
+sobretitulo: "Coleção Sertão Vivo"
+condicoes: "[PREENCHER: condições de compra em quantidade: quantidade mínima, desconto, frete, nota fiscal]"
+formularioTitulo: "Peça um orçamento"
 ---
 
-[PREENCHER: texto de apresentação para escolas, bibliotecas e livrarias, nas palavras da Dilce. Condições de compra em quantidade (quantidade mínima, desconto, frete, nota fiscal).]
+[PREENCHER: texto de apresentação para escolas, bibliotecas e livrarias, nas palavras da Dilce.]
 
 [PREENCHER: confirmar se os objetivos do projeto abaixo servem de argumento educativo]
 

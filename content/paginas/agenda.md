@@ -1,6 +1,7 @@
 ---
 titulo: "Agenda"
 descricao: "[PREENCHER: descrição curta para buscadores]"
+sobretitulo: "Lançamentos, exposições, palestras e imprensa"
 ---
 
 [PREENCHER: itens vindos do currículo (PDF do site atual). Confirmar datas exatas, locais, links e eventos futuros]
