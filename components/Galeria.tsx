@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { ImagemGaleria } from "@/lib/imagem";
 import { Imagem } from "./Imagem";
-import { atualizarUrlImagem, slugDaUrl, Visualizador } from "./Visualizador";
+import { atualizarUrlImagem, slugDaUrl } from "@/lib/url-imagem";
+import { VisualizadorSobDemanda as Visualizador } from "./VisualizadorSobDemanda";
 
 type Props = {
   imagens: ImagemGaleria[];
@@ -24,6 +25,8 @@ export function Galeria({
   grade = "grid-cols-2 md:grid-cols-4",
 }: Props) {
   const [indice, setIndice] = useState(-1);
+  const ultimo = useRef(-1); // última imagem vista: recebe o foco quando o lightbox fecha
+  const lista = useRef<HTMLUListElement>(null);
 
   useEffect(() => {
     const slug = slugDaUrl();
@@ -32,6 +35,7 @@ export function Galeria({
   }, [imagens]);
 
   const abrir = (i: number) => {
+    ultimo.current = i;
     setIndice(i);
     atualizarUrlImagem(imagens[i].slug);
   };
@@ -40,6 +44,7 @@ export function Galeria({
     <li key={img.slug} className={className}>
       <button
         type="button"
+        data-indice={i}
         onClick={() => abrir(i)}
         className="block w-full cursor-zoom-in rounded-[4px]"
         aria-label={`Ampliar: ${img.titulo ?? img.alt}`}
@@ -52,15 +57,24 @@ export function Galeria({
   return (
     <>
       {variante === "livro" ? (
-        <ul className="grid list-none grid-cols-4 gap-3 p-0">
+        <ul ref={lista} className="grid list-none grid-cols-4 gap-3 p-0">
           {/* capa grande: primeira imagem da página, carrega sem esperar (LCP) */}
-          {miniatura(imagens[0], 0, "(min-width: 1264px) 600px, (min-width: 768px) 50vw, 100vw", "col-span-4", true)}
+          {miniatura(imagens[0], 0, "(min-width: 1264px) 600px, (min-width: 768px) 50vw, calc(100vw - 40px)", "col-span-4", true)}
           {imagens.slice(1).map((img, i) => miniatura(img, i + 1, "(min-width: 768px) 12vw, 25vw"))}
         </ul>
       ) : (
-        <ul className={`grid list-none items-start gap-4 p-0 ${grade}`}>{imagens.map((img, i) => miniatura(img, i, sizes))}</ul>
+        <ul ref={lista} className={`grid list-none items-start gap-4 p-0 ${grade}`}>{imagens.map((img, i) => miniatura(img, i, sizes))}</ul>
       )}
-      <Visualizador imagens={imagens} indice={indice} aoVer={setIndice} aoFechar={() => setIndice(-1)} />
+      <Visualizador
+        imagens={imagens}
+        indice={indice}
+        aoVer={(i) => {
+          ultimo.current = i;
+          setIndice(i);
+        }}
+        aoFechar={() => setIndice(-1)}
+        aoSair={() => lista.current?.querySelector<HTMLElement>(`[data-indice="${ultimo.current}"]`)?.focus()}
+      />
     </>
   );
 }

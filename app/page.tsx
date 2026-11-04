@@ -35,7 +35,7 @@ export default function Inicio() {
         </div>
         <Imagem
           img={info(c("imagemDestaque"), c("imagemDestaqueAlt"))}
-          sizes="(min-width: 1264px) 660px, (min-width: 768px) 52vw, 100vw"
+          sizes="(min-width: 1264px) 660px, (min-width: 768px) 52vw, calc(100vw - 40px)"
           prioridade
           className="w-full"
         />

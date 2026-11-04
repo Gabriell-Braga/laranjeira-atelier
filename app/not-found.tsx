@@ -22,7 +22,7 @@ export default function NaoEncontrada() {
           <Botao href="/contato/" variante="contorno">Contato</Botao>
         </div>
       </div>
-      <Imagem img={imagem} sizes="(min-width: 768px) 40vw, 100vw" prioridade className="mx-auto w-full max-w-[420px]" />
+      <Imagem img={imagem} sizes="(min-width: 768px) 40vw, calc(100vw - 40px)" className="mx-auto w-full max-w-[420px]" />
     </div>
   );
 }

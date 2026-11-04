@@ -17,7 +17,7 @@ export function CartaoLivro({ livro, amazon, nivel: Titulo = "h3" }: Props) {
       <Link href={href} tabIndex={-1} aria-hidden="true" className="block">
         <Imagem
           img={info(livro.capa.arquivo, livro.capa.alt)}
-          sizes="(min-width: 1024px) 280px, (min-width: 640px) 45vw, 100vw"
+          sizes="(min-width: 1024px) 280px, (min-width: 640px) 45vw, calc(100vw - 40px)"
           className="w-full"
         />
       </Link>

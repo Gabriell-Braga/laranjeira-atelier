@@ -11,6 +11,7 @@ import "yet-another-react-lightbox/plugins/captions.css";
 import "yet-another-react-lightbox/plugins/counter.css";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
 import { urlImagem, type ImagemGaleria } from "@/lib/imagem";
+import { atualizarUrlImagem } from "@/lib/url-imagem";
 
 const ROTULOS = {
   Lightbox: "Visualizador de imagens",
@@ -48,14 +49,6 @@ function Legenda({ img }: { img: ImagemGaleria }) {
   );
 }
 
-export function atualizarUrlImagem(slug: string | null) {
-  const url = new URL(window.location.href);
-  if (slug) url.searchParams.set("imagem", slug);
-  else url.searchParams.delete("imagem");
-  window.history.replaceState(window.history.state, "", url);
-}
-
-export const slugDaUrl = () => new URLSearchParams(window.location.search).get("imagem");
 
 type Props = {
   imagens: ImagemGaleria[];

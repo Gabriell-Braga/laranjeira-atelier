@@ -15,7 +15,8 @@ import {
   type Ordem,
 } from "@/lib/portfolio-indice";
 import { Imagem } from "./Imagem";
-import { atualizarUrlImagem, slugDaUrl, Visualizador } from "./Visualizador";
+import { atualizarUrlImagem, slugDaUrl } from "@/lib/url-imagem";
+import { VisualizadorSobDemanda as Visualizador } from "./VisualizadorSobDemanda";
 
 const LEVAS_AUTOMATICAS = 5;
 const MARGEM_AUTOMATICA = "800px 0px";
@@ -253,7 +254,7 @@ export function Portfolio({ inicial, total, tipos, tecnicas, series }: Props) {
                 <>
                   <Imagem
                     img={it}
-                    sizes="(min-width: 1024px) 384px, (min-width: 640px) 50vw, 100vw"
+                    sizes="(min-width: 1024px) 384px, (min-width: 640px) 50vw, calc(100vw - 40px)"
                     maxLargura={960}
                     prioridade={i < 3}
                     className="h-full w-full object-cover"
