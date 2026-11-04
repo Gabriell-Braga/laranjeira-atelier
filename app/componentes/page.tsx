@@ -21,6 +21,34 @@ const CORES = [
   ["ceu", "#A9B4D6", "só decorativo"],
 ];
 
+// Contraste WCAG entre as combinações usadas no site.
+const HEX: Record<string, string> = Object.fromEntries(CORES.map(([n, h]) => [n, h]));
+HEX.branco = "#FFFFFF";
+const luminancia = (hex: string) => {
+  const [r, g, b] = [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16) / 255).map((c) => (c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4));
+  return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+};
+const contraste = (a: string, b: string) => {
+  const [l1, l2] = [luminancia(HEX[a]), luminancia(HEX[b])].sort((x, y) => y - x);
+  return (l1 + 0.05) / (l2 + 0.05);
+};
+// [texto, fundo, onde, texto grande? (AA pede 3:1 em vez de 4.5:1)]
+const PARES: [string, string, string, boolean][] = [
+  ["ink", "paper", "texto principal", false],
+  ["ink", "surface", "texto em faixas brancas", false],
+  ["ink", "areia", "menu no cabeçalho", false],
+  ["ink-muted", "paper", "legendas", false],
+  ["ink-muted", "surface", "legendas em faixas brancas", false],
+  ["terra", "paper", "sobretítulos", false],
+  ["terra", "surface", "sobretítulos em faixas brancas", false],
+  ["vereda", "paper", "links e botão de contorno", false],
+  ["vereda", "surface", "links em faixas brancas", false],
+  ["branco", "vereda", "botão de compra", false],
+  ["paper", "vereda", "faixa da citação", false],
+  ["ink", "laranja", "botão principal", false],
+  ["laranja", "paper", "PROIBIDO como texto (só filetes e foco)", false],
+];
+
 function Secao({ titulo, children, fundo = "" }: { titulo: string; children: React.ReactNode; fundo?: string }) {
   return (
     <section className={`faixa border-t border-linha ${fundo}`}>
@@ -59,6 +87,41 @@ export default function Componentes() {
         </ul>
       </Secao>
 
+      <Secao titulo="Contraste (WCAG AA)">
+        <div className="overflow-x-auto">
+          <table className="w-full min-w-[560px] border-collapse text-left text-[16px]">
+            <thead>
+              <tr className="border-b border-linha">
+                <th className="py-2 pr-4">Exemplo</th>
+                <th className="py-2 pr-4">Texto / fundo</th>
+                <th className="py-2 pr-4">Uso</th>
+                <th className="py-2 pr-4">Contraste</th>
+                <th className="py-2">AA</th>
+              </tr>
+            </thead>
+            <tbody>
+              {PARES.map(([texto, fundo, uso, grande]) => {
+                const c = contraste(texto, fundo);
+                const passa = c >= (grande ? 3 : 4.5);
+                return (
+                  <tr key={texto + fundo} className="border-b border-linha">
+                    <td className="py-2 pr-4">
+                      <span className="inline-block rounded-[4px] border border-linha px-3 py-1" style={{ color: HEX[texto], backgroundColor: HEX[fundo] }}>
+                        Aa Sertão
+                      </span>
+                    </td>
+                    <td className="py-2 pr-4">{texto} / {fundo}</td>
+                    <td className="py-2 pr-4">{uso}</td>
+                    <td className="py-2 pr-4">{c.toFixed(2)}:1</td>
+                    <td className="py-2 font-bold">{passa ? "passa" : "não passa"}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      </Secao>
+
       <Secao titulo="Tipografia">
         <div className="space-y-6">
           <p className="titulo-display">Display: Cormorant 64/1.04</p>
@@ -86,7 +149,7 @@ export default function Componentes() {
 
       <Secao titulo="Faixa da citação" fundo="!border-0 bg-vereda text-paper">
         <blockquote className="citacao leitura">“{inicio.citacao as string}”</blockquote>
-        <p className="mt-4 text-paper/85">Dilce Laranjeira, introdução de Ave, Sertão!</p>
+        <p className="mt-4">Dilce Laranjeira, introdução de Ave, Sertão!</p>
       </Secao>
 
       <Secao titulo="Imagem">
