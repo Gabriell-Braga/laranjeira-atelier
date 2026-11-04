@@ -166,8 +166,9 @@ export function Galeria({
         slides={slides}
         plugins={[Captions, Counter, Thumbnails, Zoom]}
         labels={ROTULOS}
-        // preload também define quantas miniaturas aparecem na faixa (2 × preload + 1)
-        carousel={{ preload: 3, finite: imagens.length <= 1 }}
+        // preload também define quantas miniaturas aparecem na faixa (2 × preload + 1).
+        // Com 7 imagens ou menos o carrossel não dá a volta, senão a faixa repete miniaturas.
+        carousel={{ preload: 3, finite: imagens.length <= 7 }}
         zoom={{ maxZoomPixelRatio: razaoZoom, scrollToZoom: true }}
         thumbnails={{ showToggle: true, vignette: false, border: 0, borderRadius: 4 }}
         captions={{ descriptionTextAlign: "start", descriptionMaxLines: 4 }}

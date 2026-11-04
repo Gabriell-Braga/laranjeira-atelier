@@ -3,6 +3,9 @@
 {
   "name": "laranjeira-atelier",
   "compatibility_date": "2026-10-01",
+  // endereço laranjeira-atelier.hub-villa-deli.workers.dev e prévias por versão/branch
+  "workers_dev": true,
+  "preview_urls": true,
   "assets": {
     "directory": "./out",
     // /livros/ e /livros/index.html servem a mesma página, com barra no fim
