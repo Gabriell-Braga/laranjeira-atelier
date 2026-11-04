@@ -96,3 +96,9 @@ Trabalhos novos:
 
 Séries com `"pagina": true` aparecem na grade como um cartão de projeto e ganham a página `/portfolio/<serie>/`.
 O build gera `/portfolio/indice.json` (metadados de todos os itens), que o navegador só baixa quando a pessoa rola, filtra ou abre o lightbox.
+
+## Pendências com data
+
+- **A partir de 09/11/2026:** atualizar o `wrangler` de 4.151.3 para **4.153.0** (aprovado). Essa versão resolve os 3 alertas do
+  `npm audit` (undici, via miniflare), que afetam só a ferramenta de deploy, não o site publicado. Ela só completa
+  duas semanas de publicada nessa data. Comando: `npm install -D wrangler@4.153.0`, depois `npm audit` deve dar 0.
