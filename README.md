@@ -117,3 +117,22 @@ O build gera `/portfolio/indice.json` (metadados de todos os itens), que o naveg
 - **A partir de 09/11/2026:** atualizar o `wrangler` de 4.151.3 para **4.153.0** (aprovado). Essa versão resolve os 3 alertas do
   `npm audit` (undici, via miniflare), que afetam só a ferramenta de deploy, não o site publicado. Ela só completa
   duas semanas de publicada nessa data. Comando: `npm install -D wrangler@4.153.0`, depois `npm audit` deve dar 0.
+
+## Medição (sem cookies)
+
+- **Cliques para comprar:** todo botão "Comprar na Amazon" leva a `/comprar/<livro>/`, que conta o clique e redireciona (302)
+  para o link do `content/site.json`. Guarda só o livro e a página de origem; nada de IP ou identificador. Robôs não contam.
+- **Mensagens do formulário:** cada envio bem-sucedido conta por assunto.
+- Os números ficam no **Workers Analytics Engine** (grátis no plano Free), dataset `laranjeira_atelier`.
+- **Para ver:** https://laranjeira-atelier.hub-villa-deli.workers.dev/painel/ (depois da migração, `/painel/` no domínio).
+  Pede usuário e senha: o usuário pode ser qualquer um; a senha é a do segredo `PAINEL_SENHA`.
+  Mostra 7, 30 ou 90 dias.
+- Segredos: `PAINEL_SENHA` e `CF_ANALYTICS_TOKEN` (token de API com a permissão "Account Analytics: Read").
+
+## SEO
+
+- Metadados, endereço canônico e imagem de compartilhamento por página (`lib/meta.tsx`); imagens em `/og/`, geradas no build (`scripts/og.mjs`).
+- JSON-LD: WebSite e Person (Início e Sobre), Book em cada livro e BookSeries na coleção (`lib/dados-estruturados.ts`).
+- `/sitemap.xml` e `/robots.txt` gerados no build. Título e descrição de cada livro para o Google: `seoTitulo` e `seoDescricao` em `content/livros/*.json`.
+- Redirecionamentos do Wix (301): `public/_redirects`.
+- Cloudflare Web Analytics: cole o token em `content/site.json` (`analyticsToken`); o script só entra no site público (`SITE_PUBLICO=sim`).
