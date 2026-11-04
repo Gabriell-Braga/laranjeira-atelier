@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { metadados } from "@/lib/meta";
 import { notFound } from "next/navigation";
 import { Botao } from "@/components/Botao";
 import { Galeria } from "@/components/Galeria";
@@ -19,7 +20,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const s = projetos().find((x) => x.slug === slug);
-  return { title: s?.titulo, description: s?.texto };
+  return metadados({ titulo: s?.titulo ?? "Projeto", descricao: s?.texto, caminho: `/portfolio/${slug}/` });
 }
 
 export default async function Projeto({ params }: Props) {

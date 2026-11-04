@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { metadados } from "@/lib/meta";
 import { Texto } from "@/components/Blocos";
 import { ContatosDiretos } from "@/components/ContatosDiretos";
 import { FormularioContato } from "@/components/FormularioContato";
@@ -6,7 +7,7 @@ import { lerPagina } from "@/lib/conteudo";
 
 const pagina = lerPagina("contato");
 
-export const metadata: Metadata = { title: pagina.campo("titulo"), description: pagina.campo("descricao") };
+export const metadata: Metadata = metadados({ titulo: pagina.campo("titulo"), descricao: pagina.campo("descricao"), caminho: "/contato/" });
 
 export default function Contato() {
   const c = pagina.campo;

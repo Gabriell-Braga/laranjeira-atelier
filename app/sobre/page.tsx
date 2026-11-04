@@ -1,23 +1,22 @@
 import type { Metadata } from "next";
+import { pessoa } from "@/lib/dados-estruturados";
+import { JsonLd, metadados } from "@/lib/meta";
 import { Texto } from "@/components/Blocos";
 import { Botao } from "@/components/Botao";
 import { Imagem } from "@/components/Imagem";
 import { Pendente } from "@/components/Pendente";
-import { lerPagina, paraGaleria } from "@/lib/conteudo";
-import { pendente } from "@/lib/pendencias";
+import { lerPagina, lerSite, paraGaleria } from "@/lib/conteudo";
 
 const pagina = lerPagina("sobre");
 
-export const metadata: Metadata = {
-  title: pagina.campo("titulo"),
-  ...(pendente(pagina.campo("descricao")) ? {} : { description: pagina.campo("descricao") }),
-};
+export const metadata: Metadata = metadados({ titulo: pagina.campo("titulo"), descricao: pagina.campo("descricao"), caminho: "/sobre/", tipo: "profile" });
 
 export default function Sobre() {
   const c = pagina.campo;
   const imagem = paraGaleria(pagina.imagens("imagem")[0]);
   return (
     <div className="conteudo pb-[56px] pt-10 md:pb-[88px] md:pt-16">
+      <JsonLd dados={{ "@context": "https://schema.org", ...pessoa(lerSite()) }} />
       <div className="grid gap-12 md:grid-cols-[3fr_2fr] md:gap-16">
         <div>
           <p className="sobretitulo">{c("sobretitulo")}</p>

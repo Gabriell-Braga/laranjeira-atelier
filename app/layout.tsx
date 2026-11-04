@@ -40,6 +40,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           {children}
         </main>
         <Rodape />
+        {/* Cloudflare Web Analytics: sem cookies; só no site público e com token em content/site.json */}
+        {site.analyticsToken && process.env.SITE_PUBLICO === "sim" && (
+          <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon={JSON.stringify({ token: site.analyticsToken })} />
+        )}
       </body>
     </html>
   );

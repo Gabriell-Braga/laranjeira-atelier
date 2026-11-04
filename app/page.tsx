@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { websiteEPessoa } from "@/lib/dados-estruturados";
+import { JsonLd, metadados } from "@/lib/meta";
 import { Citacao, Faixa, Texto } from "@/components/Blocos";
 import { Botao } from "@/components/Botao";
 import { CartaoLivro } from "@/components/CartaoLivro";
@@ -8,10 +10,7 @@ import { info, lerLivros, lerPagina, lerSite, paraGaleria } from "@/lib/conteudo
 
 const pagina = lerPagina("inicio");
 
-export const metadata: Metadata = {
-  title: { absolute: pagina.campo("titulo") },
-  description: pagina.campo("descricao"),
-};
+export const metadata: Metadata = metadados({ titulo: pagina.campo("titulo"), descricao: pagina.campo("descricao"), caminho: "/", absoluto: true });
 
 export default function Inicio() {
   const site = lerSite();
@@ -21,6 +20,7 @@ export default function Inicio() {
 
   return (
     <>
+      <JsonLd dados={websiteEPessoa(site)} />
       {/* Destaque */}
       <section className="conteudo grid items-center gap-10 pb-14 pt-10 md:grid-cols-[5fr_6fr] md:gap-14 md:pb-[88px] md:pt-16">
         <div>

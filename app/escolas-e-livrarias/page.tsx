@@ -1,16 +1,13 @@
 import type { Metadata } from "next";
+import { metadados } from "@/lib/meta";
 import { Paragrafos, Texto } from "@/components/Blocos";
 import { CartaoLivro } from "@/components/CartaoLivro";
 import { FormularioContato } from "@/components/FormularioContato";
 import { lerLivros, lerPagina, lerSite } from "@/lib/conteudo";
-import { pendente } from "@/lib/pendencias";
 
 const pagina = lerPagina("escolas-e-livrarias");
 
-export const metadata: Metadata = {
-  title: pagina.campo("titulo"),
-  ...(pendente(pagina.campo("descricao")) ? {} : { description: pagina.campo("descricao") }),
-};
+export const metadata: Metadata = metadados({ titulo: pagina.campo("titulo"), descricao: pagina.campo("descricao"), caminho: "/escolas-e-livrarias/" });
 
 export default function EscolasELivrarias() {
   const site = lerSite();

@@ -1,16 +1,12 @@
 import type { Metadata } from "next";
+import { metadados } from "@/lib/meta";
 import { Texto } from "@/components/Blocos";
 import { lerPagina, lerSite } from "@/lib/conteudo";
-import { pendente } from "@/lib/pendencias";
 
 const pagina = lerPagina("agenda");
 
 // Fora do menu e do sitemap enquanto "mostrarAgenda" for false em content/site.json.
-export const metadata: Metadata = {
-  title: pagina.campo("titulo"),
-  ...(pendente(pagina.campo("descricao")) ? {} : { description: pagina.campo("descricao") }),
-  ...(lerSite().mostrarAgenda ? {} : { robots: { index: false, follow: false } }),
-};
+export const metadata: Metadata = metadados({ titulo: pagina.campo("titulo"), descricao: pagina.campo("descricao"), caminho: "/agenda/", semIndice: !lerSite().mostrarAgenda });
 
 export default function Agenda() {
   return (

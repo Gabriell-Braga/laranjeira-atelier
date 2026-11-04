@@ -1,17 +1,14 @@
 import type { Metadata } from "next";
+import { metadados } from "@/lib/meta";
 import { Faixa, FichaTecnica, Texto } from "@/components/Blocos";
 import { Botao } from "@/components/Botao";
 import { CartaoLivro } from "@/components/CartaoLivro";
 import { Imagem } from "@/components/Imagem";
 import { info, lerLivros, lerPagina, lerSite } from "@/lib/conteudo";
-import { pendente } from "@/lib/pendencias";
 
 const pagina = lerPagina("livros");
 
-export const metadata: Metadata = {
-  title: pagina.campo("titulo"),
-  ...(pendente(pagina.campo("descricao")) ? {} : { description: pagina.campo("descricao") }),
-};
+export const metadata: Metadata = metadados({ titulo: pagina.campo("titulo"), descricao: pagina.campo("descricao"), caminho: "/livros/", imagem: "/og/livros.jpg" });
 
 export default function Livros() {
   const site = lerSite();

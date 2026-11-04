@@ -1,6 +1,6 @@
 ---
 titulo: "Coleção Sertão Vivo"
-descricao: "[PREENCHER: descrição curta da página da coleção para buscadores]"
+descricao: "Os quatro livros da Coleção Sertão Vivo, de Dilce Laranjeira: aves, bichos, plantas e visões de Grande sertão: veredas, em mais de 500 ilustrações."
 sobretitulo: "Quatro volumes · Dilce Laranjeira"
 fichaTitulo: "Ficha técnica da coleção"
 compraTitulo: "Comprar a coleção completa"

@@ -5,7 +5,8 @@ import { Botao } from "@/components/Botao";
 import { CartaoLivro } from "@/components/CartaoLivro";
 import { Galeria } from "@/components/Galeria";
 import { imagensDoLivro, lerLivro, lerLivros, lerSite, paraGaleria } from "@/lib/conteudo";
-import { pendente } from "@/lib/pendencias";
+import { livroLd } from "@/lib/dados-estruturados";
+import { JsonLd, metadados } from "@/lib/meta";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -17,11 +18,14 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const livro = lerLivro((await params).slug)!;
-  const descricao = livro.descricao.find((d) => !pendente(d));
-  return {
-    title: `${livro.titulo} ${livro.subtitulo}`,
-    description: descricao ?? `${livro.titulo} ${livro.subtitulo}. ${livro.volume} da Coleção Sertão Vivo, de ${livro.autora}.`,
-  };
+  return metadados({
+    titulo: livro.seoTitulo,
+    absoluto: true,
+    descricao: livro.seoDescricao,
+    caminho: `/livros/${livro.slug}/`,
+    imagem: `/og/livro-${livro.slug}.jpg`,
+    tipo: "book",
+  });
 }
 
 export default async function PaginaLivro({ params }: Props) {
@@ -33,6 +37,7 @@ export default async function PaginaLivro({ params }: Props) {
 
   return (
     <>
+      <JsonLd dados={livroLd(livro, site)} />
       <div className="conteudo grid gap-10 pb-14 pt-10 md:grid-cols-2 md:gap-14 md:pb-[88px] md:pt-16">
         <section aria-label="Imagens do livro">
           <Galeria variante="livro" imagens={imagensDoLivro(livro).map(paraGaleria)} />

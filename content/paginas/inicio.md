@@ -1,6 +1,6 @@
 ---
-titulo: "Laranjeira Atelier"
-descricao: "O Laranjeira Atelier atua na área de criação em Design Gráfico: projeto e editoração de livros e revistas, criação de peças gráficas e ilustração científica, editorial e infanto-juvenil."
+titulo: "Laranjeira Atelier: ilustração de Dilce Laranjeira e a coleção Sertão Vivo"
+descricao: "Ilustrações de Dilce Laranjeira e a coleção Sertão Vivo: as aves, os bichos e as plantas de Grande sertão: veredas, de Guimarães Rosa, em aquarela."
 destaque: "As aves, os bichos e as plantas de Grande sertão: veredas, pintados em aquarela."
 destaqueSobretitulo: "Coleção Sertão Vivo · Dilce Laranjeira"
 imagemDestaque: "wix/home/imagem-713fd077.jpg"

@@ -17,5 +17,6 @@
     "sertao-sem-fim": "https://www.amazon.com.br/dp/6501834384",
     "colecao-sertao-vivo": "https://www.amazon.com.br/dp/6502162339"
   },
-  "mostrarAgenda": false
+  "mostrarAgenda": false,
+  "analyticsToken": ""
 }
