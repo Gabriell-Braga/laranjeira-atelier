@@ -34,6 +34,7 @@ const ROTULOS = {
   "Hide captions": "Esconder legenda",
 };
 
+const ZOOM_MAXIMO = 3;
 const FUNDO = "rgba(17, 24, 20, 0.96)"; // #111814 a 96%
 
 function Legenda({ img }: { img: ImagemGaleria }) {
@@ -73,6 +74,29 @@ export function Galeria({ imagens, variante = "grade", sizes = "(min-width: 768p
     const i = slug ? imagens.findIndex((img) => img.slug === slug) : -1;
     if (i >= 0) setIndice(i);
   }, [imagens]);
+
+  // O Zoom da biblioteca limita pelo tamanho do arquivo (pixels × maxZoomPixelRatio).
+  // Para o limite ser 3x do tamanho na tela, calculamos a razão para a imagem atual.
+  const [razaoZoom, setRazaoZoom] = useState(1);
+  useEffect(() => {
+    if (indice < 0) return;
+    const img = imagens[indice];
+    const medir = () => {
+      const slide = document.querySelector<HTMLElement>(".yarl__slide_current");
+      if (!slide) return;
+      const cs = getComputedStyle(slide);
+      const w = slide.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+      const h = slide.clientHeight - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom);
+      const exibida = Math.min(w, (h * img.largura) / img.altura, img.largura);
+      setRazaoZoom((ZOOM_MAXIMO * exibida) / img.largura);
+    };
+    const quadro = requestAnimationFrame(medir);
+    window.addEventListener("resize", medir);
+    return () => {
+      cancelAnimationFrame(quadro);
+      window.removeEventListener("resize", medir);
+    };
+  }, [indice, imagens]);
 
   const abrir = (i: number) => {
     setIndice(i);
@@ -126,15 +150,21 @@ export function Galeria({ imagens, variante = "grade", sizes = "(min-width: 768p
           setIndice(-1);
           atualizarUrl(null);
         }}
-        on={{ view: ({ index }) => indice >= 0 && atualizarUrl(imagens[index].slug) }}
+        on={{
+          view: ({ index }) => {
+            setIndice(index);
+            atualizarUrl(imagens[index].slug);
+          },
+        }}
         slides={slides}
         plugins={[Captions, Counter, Thumbnails, Zoom]}
         labels={ROTULOS}
-        carousel={{ preload: 1, finite: imagens.length <= 1 }}
-        zoom={{ maxZoomPixelRatio: 3, maxZoom: 3, scrollToZoom: true }}
+        // preload também define quantas miniaturas aparecem na faixa (2 × preload + 1)
+        carousel={{ preload: 3, finite: imagens.length <= 1 }}
+        zoom={{ maxZoomPixelRatio: razaoZoom, scrollToZoom: true }}
         thumbnails={{ showToggle: true, vignette: false, border: 0, borderRadius: 4 }}
         captions={{ descriptionTextAlign: "start", descriptionMaxLines: 4 }}
-        counter={{ separator: "/" }}
+        counter={{ separator: "/", container: { style: { top: "unset", bottom: 0, left: "auto", right: 0 } } }}
         styles={{ container: { backgroundColor: FUNDO }, thumbnailsContainer: { backgroundColor: FUNDO } }}
         render={imagens.length <= 1 ? { buttonPrev: () => null, buttonNext: () => null } : undefined}
       />
