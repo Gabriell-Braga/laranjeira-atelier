@@ -1,5 +1,8 @@
 // Worker do site. Os arquivos estáticos (out/) são servidos direto pelo Cloudflare;
-// este código só roda para /api/* (ver run_worker_first em wrangler.jsonc).
+// este código só roda para /api/*, /comprar/* e /painel/ (ver run_worker_first em wrangler.jsonc).
+//
+// /comprar/<livro>/  conta o clique (sem dados pessoais) e redireciona para a Amazon (worker/metricas.ts)
+// /painel/           números de cliques e mensagens, com senha (PAINEL_SENHA)
 //
 // /api/contato
 //   GET  -> { siteKey, ativo } para o formulário montar o Turnstile
@@ -13,8 +16,9 @@
 // Sem RESEND_API_KEY, CONTATO_PARA ou CONTATO_DE, o formulário funciona em MODO DE TESTE:
 // valida tudo, mas não envia, e avisa isso na tela.
 import { validar } from "./contato";
+import { comprar, painel, registrar, type EnvMetricas } from "./metricas";
 
-type Env = {
+type Env = EnvMetricas & {
   ASSETS: { fetch(req: Request): Promise<Response> };
   TURNSTILE_SITE_KEY?: string;
   TURNSTILE_SECRET?: string;
@@ -67,6 +71,7 @@ async function contato(req: Request, env: Env): Promise<Response> {
 
   if (!envioAtivo(env)) {
     console.log("[contato] modo de teste: mensagem validada e não enviada", { assunto: v.dados.assunto });
+    registrar(env, "contato", v.dados.assunto, "teste");
     return json({ ok: true, teste: true });
   }
 
@@ -86,6 +91,7 @@ async function contato(req: Request, env: Env): Promise<Response> {
     console.error("[contato] Resend respondeu", r.status, await r.text());
     return json({ ok: false, erros: { geral: "Não foi possível enviar agora. Tente de novo em alguns minutos ou escreva direto para o e-mail da página." } }, 502);
   }
+  registrar(env, "contato", assunto, "enviado");
   return json({ ok: true });
 }
 
@@ -94,6 +100,9 @@ export default {
     const url = new URL(req.url);
     if (url.pathname === "/api/contato" || url.pathname === "/api/contato/") return contato(req, env);
     if (url.pathname.startsWith("/api/")) return json({ ok: false }, 404);
+    const compra = url.pathname.match(/^\/comprar\/([a-z0-9-]+)\/?$/);
+    if (compra) return comprar(req, env, compra[1]);
+    if (url.pathname === "/painel" || url.pathname === "/painel/") return painel(req, env);
     return env.ASSETS.fetch(req);
   },
 };

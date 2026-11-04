@@ -52,6 +52,8 @@ const site = z.object({
   }),
   amazon: z.record(z.string(), z.string()),
   mostrarAgenda: z.boolean(),
+  // token do Cloudflare Web Analytics (público). Vazio = sem estatísticas.
+  analyticsToken: z.string().default(""),
 });
 
 const livro = z.object({
@@ -60,6 +62,9 @@ const livro = z.object({
   volume: z.string(),
   titulo: z.string(),
   subtitulo: z.string(),
+  // título e descrição para o Google (o que passar disso aparece cortado na busca)
+  seoTitulo: z.string().max(70),
+  seoDescricao: z.string().max(160),
   autora: z.string(),
   paginas: z.number().int().positive(),
   formato: z.string(),
@@ -92,7 +97,20 @@ const lerJson = (rel: string) => JSON.parse(fs.readFileSync(path.join(CONTENT, r
 const listar = (pasta: string, ext: string) =>
   fs.readdirSync(path.join(CONTENT, pasta)).filter((f) => f.endsWith(ext)).sort();
 
-export const lerSite = () => validar(site, lerJson("site.json"), "content/site.json");
+/**
+ * Dados do site. Os links de compra (`amazon`) apontam para /comprar/<livro>/, que conta o clique
+ * e redireciona para a Amazon (worker/metricas.ts). O link direto fica em `amazonDireto`
+ * (usado nos dados estruturados para o Google).
+ */
+export function lerSite() {
+  const dados = validar(site, lerJson("site.json"), "content/site.json");
+  const ofertas = Object.entries(dados.amazon).filter(([k, v]) => !k.startsWith("_") && /^https:\/\//.test(v));
+  return {
+    ...dados,
+    amazon: Object.fromEntries(ofertas.map(([k]) => [k, `/comprar/${k}/`])) as Record<string, string>,
+    amazonDireto: Object.fromEntries(ofertas) as Record<string, string>,
+  };
+}
 
 export const lerLivros = () =>
   listar("livros", ".json")

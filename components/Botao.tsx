@@ -29,9 +29,11 @@ export function Botao({ variante = "laranja", className = "", children, ...resto
     );
   }
   const { href, ...props } = resto as { href: string } & ComponentProps<"a">;
-  if (/^https?:\/\//.test(href)) {
+  // Externo, ou /comprar/ (conta o clique e vai para a Amazon): nova aba, sem seguir para buscadores.
+  if (/^https?:\/\//.test(href) || href.startsWith("/comprar/")) {
+    const rel = href.startsWith("/comprar/") ? "noopener nofollow" : "noopener";
     return (
-      <a href={href} target="_blank" rel="noopener" {...props} className={classes}>
+      <a href={href} target="_blank" rel={rel} {...props} className={classes}>
         {children}
       </a>
     );

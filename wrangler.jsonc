@@ -8,10 +8,13 @@
   // endereço laranjeira-atelier.hub-villa-deli.workers.dev e prévias por versão/branch
   "workers_dev": true,
   "preview_urls": true,
+  // contagem de cliques e mensagens (worker/metricas.ts)
+  "analytics_engine_datasets": [{ "binding": "METRICAS", "dataset": "laranjeira_atelier" }],
+  "vars": { "CF_ACCOUNT_ID": "1078752fdb2ad1e73785039e4c3c958e" },
   "assets": {
     "directory": "./out",
     "binding": "ASSETS",
-    "run_worker_first": ["/api/*"],
+    "run_worker_first": ["/api/*", "/comprar/*", "/painel", "/painel/"],
     // /livros/ e /livros/index.html servem a mesma página, com barra no fim
     "html_handling": "auto-trailing-slash",
     // páginas inexistentes usam out/404.html
