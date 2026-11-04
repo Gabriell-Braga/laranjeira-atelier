@@ -21,6 +21,8 @@ export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: { default: site.nome, template: `%s | ${site.nome}` },
   description: site.descricao,
+  // Enquanto SITE_PUBLICO não for "sim" (variável no Cloudflare), nenhuma página é indexada.
+  robots: process.env.SITE_PUBLICO === "sim" ? undefined : { index: false, follow: false },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

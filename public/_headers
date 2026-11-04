@@ -1,0 +1,8 @@
+# Cabeçalhos do Cloudflare Pages.
+# O endereço .pages.dev (e as prévias de cada commit) nunca deve aparecer no Google,
+# nem depois que o domínio laranjeiraatelier.com.br estiver no ar.
+https://:projeto.pages.dev/*
+  X-Robots-Tag: noindex, nofollow
+
+https://:versao.:projeto.pages.dev/*
+  X-Robots-Tag: noindex, nofollow
