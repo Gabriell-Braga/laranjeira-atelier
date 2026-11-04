@@ -1,0 +1,13 @@
+// Cloudflare Workers com arquivos estáticos: publica a pasta out/ gerada pelo "npm run build".
+// O build do Cloudflare (ligado ao GitHub) roda "npm run build" e depois "npx wrangler deploy".
+{
+  "name": "laranjeira-atelier",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./out",
+    // /livros/ e /livros/index.html servem a mesma página, com barra no fim
+    "html_handling": "auto-trailing-slash",
+    // páginas inexistentes usam out/404.html
+    "not_found_handling": "404-page"
+  }
+}

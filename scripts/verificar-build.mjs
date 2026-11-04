@@ -1,6 +1,6 @@
 // Roda depois do next build: falha se algum [PREENCHER] vazou para out/
 // e lista o que ainda está pendente em content/ (só informativo).
-import { readFileSync, readdirSync } from "node:fs";
+import { appendFileSync, readFileSync, readdirSync } from "node:fs";
 import path from "node:path";
 
 const RAIZ = path.resolve(import.meta.dirname, "..");
@@ -31,3 +31,9 @@ if (vazados.length) {
   process.exit(1);
 }
 console.log("\nverificar-build: nenhum [PREENCHER] no site gerado.");
+
+// Prévia: enquanto o site não for público, nenhum endereço deve ser indexado.
+if (process.env.SITE_PUBLICO !== "sim") {
+  appendFileSync(path.join(RAIZ, "out/_headers"), "\n/*\n  X-Robots-Tag: noindex, nofollow\n");
+  console.log("verificar-build: prévia (SITE_PUBLICO diferente de sim), noindex em todos os endereços.");
+}
