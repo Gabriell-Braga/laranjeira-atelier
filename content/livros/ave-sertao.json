@@ -10,13 +10,27 @@
   "encadernacao": "Costurada",
   "isbn": "6501834376",
   "descricao": [
-    "Já na primeira experiência com o texto de Guimarães Rosa, a percepção do sertão como o principal e maior personagem do romance, naturalmente se incorpora na leitura. Na verdade, são muitos e vários personagens, das paisagens áridas e angustiantes do Liso do Sussuarão, às veredas verdejantes das beiras do São Francisco; dos onipresentes buritizais, aos rios, numerosos rios, que acompanham o itinerário dos pelejantes. De todos esses personagens, matéria viva do sertão, as plantas e os bichos têm um protagonismo superlativo na literatura brasileira. Não apenas em Grande sertão: veredas, em toda a obra de Guimarães Rosa. E dos bichos habitantes do grande sertão, os pássaros são como as constelações em noites de céu limpo: impossível ignorar a presença, a recorrência, a diversidade.",
-    "[PREENCHER: o texto acima é da introdução do livro, vindo da página Projeto. Confirmar ou trocar pela descrição oficial do Livro I]"
+    "[PREENCHER: descrição oficial do livro (Gabriel vai trazer da Amazon)]"
   ],
-  "capa": { "arquivo": "wix/colecao-sertao-vivo/capa-ave-281d710e.jpg", "alt": "Capa do livro Ave, Sertão!, com a aquarela de uma ave de colar preto sobre fundo em tons de areia" },
+  "capa": {
+    "arquivo": "wix/colecao-sertao-vivo/capa-ave-281d710e.jpg",
+    "alt": "Capa do livro Ave, Sertão!, com a aquarela de uma ave de colar preto sobre fundo em tons de areia"
+  },
   "imagens": [
-    { "arquivo": "wix/colecao-sertao-vivo/rosto-ave-sertao-07e02c9f.jpg", "alt": "Página de rosto de Ave, Sertão!, com um colhereiro rosa em aquarela", "titulo": "Página de rosto" },
-    { "arquivo": "wix/projeto-sertao-vivo/livro-ave-sertao-capa-e-miolo-5d1c5f1a.jpg", "alt": "Montagem com a capa e páginas internas de Ave, Sertão!", "titulo": "Capa e miolo" },
-    { "arquivo": "wix/projeto-sertao-vivo/imagens-das-pranchas-aves-e9509c2e.jpg", "alt": "Montagem com aquarelas de aves das pranchas do livro", "titulo": "Imagens das pranchas" }
+    {
+      "arquivo": "wix/colecao-sertao-vivo/rosto-ave-sertao-07e02c9f.jpg",
+      "alt": "Página de rosto de Ave, Sertão!, com um colhereiro rosa em aquarela",
+      "titulo": "Página de rosto"
+    },
+    {
+      "arquivo": "wix/projeto-sertao-vivo/livro-ave-sertao-capa-e-miolo-5d1c5f1a.jpg",
+      "alt": "Montagem com a capa e páginas internas de Ave, Sertão!",
+      "titulo": "Capa e miolo"
+    },
+    {
+      "arquivo": "wix/projeto-sertao-vivo/imagens-das-pranchas-aves-e9509c2e.jpg",
+      "alt": "Montagem com aquarelas de aves das pranchas do livro",
+      "titulo": "Imagens das pranchas"
+    }
   ]
 }

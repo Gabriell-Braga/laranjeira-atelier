@@ -1,5 +1,5 @@
 ---
-titulo: Sobre
+titulo: "Sobre"
 descricao: "[PREENCHER: descrição curta da página Sobre para buscadores]"
 retrato: "[PREENCHER: foto da Dilce (o site atual usa a ilustração Tesourinha nesta página)]"
 ---

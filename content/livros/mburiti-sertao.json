@@ -9,11 +9,28 @@
   "formato": "18 × 22 cm",
   "encadernacao": "Costurada",
   "isbn": "[PREENCHER: ISBN do Livro III]",
-  "descricao": ["[PREENCHER: descrição do Livro III. O site atual não tem texto para este volume]"],
-  "capa": { "arquivo": "wix/colecao-sertao-vivo/imagem-29cf2d65.jpg", "alt": "Capa do livro Mbur’iti, Sertão!, com buritis e árvores do cerrado em aquarela" },
+  "descricao": [
+    "[PREENCHER: descrição oficial do livro (Gabriel vai trazer da Amazon)]"
+  ],
+  "capa": {
+    "arquivo": "wix/colecao-sertao-vivo/imagem-29cf2d65.jpg",
+    "alt": "Capa do livro Mbur’iti, Sertão!, com buritis e árvores do cerrado em aquarela"
+  },
   "imagens": [
-    { "arquivo": "wix/colecao-sertao-vivo/imagem-ab0e3df5.jpg", "alt": "Página de rosto de Mbur’iti, Sertão!, com um ramo florido em aquarela", "titulo": "Página de rosto" },
-    { "arquivo": "wix/projeto-sertao-vivo/livro-mbur-iti-sertao-capa-e-miolo-55168c81.jpg", "alt": "Montagem com a capa e páginas internas de Mbur’iti, Sertão!", "titulo": "Capa e miolo" },
-    { "arquivo": "wix/projeto-sertao-vivo/imagens-das-pranchas-plantas-3f80ddad.jpg", "alt": "Montagem com aquarelas de plantas das pranchas do livro", "titulo": "Imagens das pranchas" }
+    {
+      "arquivo": "wix/colecao-sertao-vivo/imagem-ab0e3df5.jpg",
+      "alt": "Página de rosto de Mbur’iti, Sertão!, com um ramo florido em aquarela",
+      "titulo": "Página de rosto"
+    },
+    {
+      "arquivo": "wix/projeto-sertao-vivo/livro-mbur-iti-sertao-capa-e-miolo-55168c81.jpg",
+      "alt": "Montagem com a capa e páginas internas de Mbur’iti, Sertão!",
+      "titulo": "Capa e miolo"
+    },
+    {
+      "arquivo": "wix/projeto-sertao-vivo/imagens-das-pranchas-plantas-3f80ddad.jpg",
+      "alt": "Montagem com aquarelas de plantas das pranchas do livro",
+      "titulo": "Imagens das pranchas"
+    }
   ]
 }

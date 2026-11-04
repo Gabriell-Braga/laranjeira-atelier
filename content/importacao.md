@@ -48,7 +48,7 @@ Para as aquarelas brilharem no lightbox, o ideal é a Dilce mandar os arquivos e
 
 ## O que não foi possível importar
 
-- **Logo em vetor.** O Wix só tem um PNG de 343×106px, pequeno para telas de alta densidade. Precisamos do arquivo original (SVG, AI ou PDF).
+- **Logo em vetor.** O Wix só tem um PNG de 343×106px (salvo em `wix/marca/`, usado por enquanto no cabeçalho). Precisamos do arquivo original (SVG, AI ou PDF).
 - **Instagram.** Não aparece em nenhuma página.
 - **WhatsApp.** Não aparece no site. O telefone do currículo pode ser o WhatsApp, mas isso precisa de confirmação.
 - **Páginas internas dos livros, uma a uma.** O site só tem montagens (capa + miolo, várias pranchas juntas). A galeria de cada livro precisa das páginas e pranchas individuais.

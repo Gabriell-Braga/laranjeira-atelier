@@ -5,8 +5,7 @@
   "url": "https://www.laranjeiraatelier.com.br",
   "contato": {
     "email": "dillaranjeira@gmail.com",
-    "telefone": "(31) 99415 2043",
-    "whatsapp": "[PREENCHER: confirmar se o WhatsApp é o (31) 99415 2043, no formato 5531994152043]",
+    "whatsapp": "[PREENCHER: número do WhatsApp no formato 55DDNNNNNNNNN]",
     "whatsappMensagem": "Olá, Dilce! Vim pelo site do Laranjeira Atelier.",
     "instagram": "[PREENCHER: endereço do Instagram]"
   },
@@ -18,5 +17,6 @@
     "sertao-sem-fim": "https://www.amazon.com.br/dp/6501834384",
     "colecao-sertao-vivo": "https://www.amazon.com.br/dp/6502162339"
   },
-  "curriculo": "wix/sobre/curriculo-breve-pdf.pdf"
+  "curriculo": "wix/sobre/curriculo-breve-pdf.pdf",
+  "mostrarAgenda": false
 }

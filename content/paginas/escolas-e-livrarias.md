@@ -1,5 +1,5 @@
 ---
-titulo: Escolas e livrarias
+titulo: "Escolas e livrarias"
 descricao: "[PREENCHER: descrição curta para buscadores]"
 ---
 

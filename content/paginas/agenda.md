@@ -1,5 +1,5 @@
 ---
-titulo: Agenda
+titulo: "Agenda"
 descricao: "[PREENCHER: descrição curta para buscadores]"
 ---
 

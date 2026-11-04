@@ -1,5 +1,5 @@
 ---
-titulo: Coleção Sertão Vivo
+titulo: "Coleção Sertão Vivo"
 descricao: "[PREENCHER: descrição curta da página da coleção para buscadores]"
 ---
 
