@@ -3,6 +3,7 @@
 // - põe a classe "anim" no <html>: só então os .revelar começam escondidos (sem JS, tudo aparece);
 // - .revelar ganha .visivel uma vez, ao entrar na tela (também nos que surgem depois, via MutationObserver);
 // - o cabeçalho ganha data-rolado ao rolar (encolhe e fica translúcido, ver globals.css);
+// - .barra-presa (filtros do portfólio) ganha data-presa enquanto está presa no topo;
 // - [data-parallax="0.06"] desloca o elemento uma fração da rolagem (desligado com movimento reduzido).
 export function movimento() {
   const html = document.documentElement;
@@ -37,6 +38,10 @@ export function movimento() {
     agendado = false;
     const y = window.scrollY;
     document.querySelector(".cabecalho")?.toggleAttribute("data-rolado", y > 8);
+    // barras sticky (.barra-presa) ganham data-presa quando encostam no topo: sombra leve no CSS
+    for (const el of document.querySelectorAll<HTMLElement>(".barra-presa")) {
+      el.toggleAttribute("data-presa", el.getBoundingClientRect().top <= parseFloat(getComputedStyle(el).top) + 1);
+    }
     if (reduzir.matches || y > window.innerHeight * 1.5) return;
     for (const el of document.querySelectorAll<HTMLElement>("[data-parallax]")) {
       el.style.transform = `translate3d(0, ${(y * Number(el.dataset.parallax)).toFixed(1)}px, 0)`;

@@ -756,6 +756,19 @@
   }
 }
 
+/* Barra de filtros presa no topo: sombra leve só enquanto está presa */
+.barra-presa {
+  transition: box-shadow 0.4s var(--ease-natural);
+}
+.barra-presa[data-presa] {
+  box-shadow: 0 10px 24px -18px rgb(42 38 32 / 0.35);
+}
+/* Com a barra presa logo abaixo, o cabeçalho e a barra viram um bloco só: sem sombra nem fio no meio */
+.cabecalho[data-rolado]:has(~ main .barra-presa[data-presa])::before {
+  box-shadow: none;
+  border-color: transparent;
+}
+
 /* Painel de filtros do portfólio: abre pela altura, grupos entram em sequência */
 .painel-filtros {
   display: grid;
