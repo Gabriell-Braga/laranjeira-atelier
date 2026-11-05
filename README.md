@@ -67,6 +67,7 @@ Enquanto a variável `SITE_PUBLICO` não for `sim`, o site inteiro sai com `noin
 (meta nas páginas e cabeçalho `X-Robots-Tag` em todos os arquivos). Ela só será ligada na migração do domínio,
 em Workers & Pages > laranjeira-atelier > Settings > Build > Variables and secrets.
 O endereço `.workers.dev` continua com `noindex` para sempre (regra em `public/_headers`).
+O interruptor fica num lugar só, `lib/publico.ts` (lido pelo layout); `scripts/verificar-build.mjs` usa a mesma variável para o cabeçalho.
 
 ### Formulário de contato (Worker)
 O site é estático, mas `/api/contato` passa pelo código em `worker/index.ts` (ver `run_worker_first` em `wrangler.jsonc`).

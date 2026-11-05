@@ -4,6 +4,8 @@ import type { ReactNode } from "react";
 import { Cabecalho } from "@/components/Cabecalho";
 import { Rodape } from "@/components/Rodape";
 import { lerSite } from "@/lib/conteudo";
+import { movimento } from "@/lib/movimento";
+import { SITE_PUBLICO } from "@/lib/publico";
 import "./globals.css";
 
 const cormorant = Cormorant({
@@ -17,17 +19,22 @@ const karla = Karla({ subsets: ["latin"], weight: ["400", "700"], variable: "--f
 
 const site = lerSite();
 
+
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: { default: site.nome, template: `%s | ${site.nome}` },
   description: site.descricao,
-  // Enquanto SITE_PUBLICO não for "sim" (variável no Cloudflare), nenhuma página é indexada.
-  robots: process.env.SITE_PUBLICO === "sim" ? undefined : { index: false, follow: false },
+  // Enquanto SITE_PUBLICO não for "sim" (variável de build no Cloudflare, lib/publico.ts), nenhuma página é indexada.
+  robots: SITE_PUBLICO ? undefined : { index: false, follow: false },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="pt-BR" className={`${cormorant.variable} ${karla.variable}`}>
+    // suppressHydrationWarning: o script de movimento põe a classe "anim" antes do React.
+    <html lang="pt-BR" className={`${cormorant.variable} ${karla.variable}`} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: `(${movimento.toString()})()` }} />
+      </head>
       <body>
         <a
           href="#conteudo"
@@ -41,7 +48,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         </main>
         <Rodape />
         {/* Cloudflare Web Analytics: sem cookies; só no site público e com token em content/site.json */}
-        {site.analyticsToken && process.env.SITE_PUBLICO === "sim" && (
+        {site.analyticsToken && SITE_PUBLICO && (
           <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon={JSON.stringify({ token: site.analyticsToken })} />
         )}
       </body>

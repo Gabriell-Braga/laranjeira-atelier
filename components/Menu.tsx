@@ -10,7 +10,7 @@ const ativo = (pathname: string, href: string) => pathname === href || pathname.
 
 function Links({ itens, pathname, vertical }: { itens: ItemMenu[]; pathname: string; vertical?: boolean }) {
   return (
-    <ul className={vertical ? "flex flex-col gap-1" : "flex items-center gap-7"}>
+    <ul className={vertical ? "flex flex-col gap-1" : "flex items-center gap-6 xl:gap-8"}>
       {itens.map((item) => {
         const atual = ativo(pathname, item.href);
         return (
@@ -18,7 +18,7 @@ function Links({ itens, pathname, vertical }: { itens: ItemMenu[]; pathname: str
             <Link
               href={item.href}
               aria-current={atual ? "page" : undefined}
-              className={`block py-2 text-[17px] text-ink no-underline decoration-laranja decoration-[3px] underline-offset-8 hover:underline ${atual ? "underline" : ""}`}
+              className={`block whitespace-nowrap py-2 text-[16px] text-ink no-underline decoration-laranja decoration-2 underline-offset-8 transition-colors hover:text-vereda hover:underline ${atual ? "underline" : ""}`}
             >
               {item.rotulo}
             </Link>
@@ -59,7 +59,7 @@ export function Menu({ itens, compra }: { itens: ItemMenu[]; compra: React.React
 
   return (
     <>
-      <nav aria-label="Principal" className="hidden items-center gap-8 lg:flex">
+      <nav aria-label="Principal" className="hidden items-center gap-6 lg:flex xl:gap-8">
         <Links itens={itens} pathname={pathname} />
         {compra}
       </nav>
@@ -67,7 +67,7 @@ export function Menu({ itens, compra }: { itens: ItemMenu[]; compra: React.React
       <button
         ref={botao}
         type="button"
-        className="inline-flex items-center gap-2 rounded-full border-2 border-ink px-4 py-2 text-[16px] font-bold lg:hidden"
+        className="inline-flex items-center gap-2 rounded-full border-2 border-ink px-4 py-2 text-[16px] font-bold transition-colors hover:bg-ink hover:text-paper lg:hidden"
         aria-expanded={aberto}
         aria-controls="menu-celular"
         onClick={() => setAberto((a) => !a)}
@@ -87,7 +87,7 @@ export function Menu({ itens, compra }: { itens: ItemMenu[]; compra: React.React
         id="menu-celular"
         aria-label="Principal"
         hidden={!aberto}
-        className="absolute inset-x-0 top-full border-t border-linha bg-areia px-5 pb-6 pt-2 shadow-[0_12px_24px_rgba(42,38,32,0.12)] lg:hidden"
+        className="absolute inset-x-0 top-full border-t border-linha bg-paper px-5 pb-6 pt-2 transition-transform duration-300 shadow-[0_12px_24px_rgba(42,38,32,0.12)] lg:hidden"
       >
         <Links itens={itens} pathname={pathname} vertical />
         <div className="mt-4">{compra}</div>

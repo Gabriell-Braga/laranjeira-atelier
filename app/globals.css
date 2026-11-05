@@ -1,66 +1,106 @@
 @import "tailwindcss";
 
+/* ---------- Tokens ----------
+   Paleta tirada das aquarelas: papel e areia, ocre/terra, verde-cerrado (vereda),
+   azul de céu e rio, e o laranja da marca. Pares de texto usados no site têm contraste AA
+   (tabela em /componentes/). */
 @theme {
   --color-paper: #f7f4ee;
-  --color-surface: #ffffff;
+  --color-surface: #fdfbf7;
   --color-areia: #eedbc5;
+  --color-areia-clara: #f4e8d9;
+  --color-ocre: #c48a3a; /* só decorativo (fios, detalhes); não usar em texto */
+  --color-terra: #6b4a1e; /* ocre escuro: texto pequeno */
   --color-laranja: #ed7f29;
-  --color-vereda: #2f4a2a;
+  --color-laranja-claro: #f39448;
+  --color-laranja-escuro: #d9701c;
+  --color-vereda: #2f4a2a; /* verde-cerrado */
+  --color-vereda-claro: #3d5e37;
+  --color-vereda-escuro: #223620;
+  --color-ceu: #a9b4d6;
+  --color-rio: #34507a; /* azul que passa AA em texto sobre o papel */
   --color-ink: #2a2620;
   --color-ink-muted: #5e574c;
-  --color-terra: #6b4a1e;
   --color-linha: #e4ddd0;
-  --color-ceu: #a9b4d6;
 
   --font-display: var(--fonte-cormorant), Georgia, serif;
   --font-sans: var(--fonte-karla), system-ui, sans-serif;
 
   --radius-imagem: 4px;
+
+  --ease-natural: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+:root {
+  /* Escala tipográfica fluida (360px -> 1440px) */
+  --texto-display: clamp(2.5rem, 1.75rem + 3.3vw, 4.5rem);
+  --texto-h2: clamp(2rem, 1.55rem + 2vw, 3.25rem);
+  --texto-h3: clamp(1.5rem, 1.35rem + 0.65vw, 1.875rem);
+  --texto-citacao: clamp(1.75rem, 1.3rem + 2vw, 2.75rem);
+  --texto-corpo: clamp(1.0625rem, 1.03rem + 0.15vw, 1.125rem);
+
+  /* Espaçamento vertical */
+  --espaco-secao: clamp(4rem, 2.6rem + 6vw, 8rem);
+  --espaco-bloco: clamp(2rem, 1.5rem + 2.2vw, 3.5rem);
+  --espaco-topo: clamp(2.5rem, 1.8rem + 3vw, 4.5rem);
+
+  --cabecalho: 76px; /* altura do cabeçalho; encolhido ele parece ter 64px */
+  --duracao: 0.6s;
 }
 
 /* ---------- Tipografia ---------- */
 
 @utility titulo-display {
   font-family: var(--font-display);
-  font-size: 40px;
+  font-size: var(--texto-display);
   line-height: 1.04;
   font-weight: 500;
-  @media (width >= 48rem) {
-    font-size: 64px;
-  }
+  letter-spacing: -0.01em;
+  text-wrap: balance;
 }
 
 @utility titulo-2 {
   font-family: var(--font-display);
-  font-size: 34px;
-  line-height: 1.1;
-  font-weight: 600;
-  @media (width >= 48rem) {
-    font-size: 48px;
-  }
+  font-size: var(--texto-h2);
+  line-height: 1.08;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  text-wrap: balance;
 }
 
 @utility titulo-3 {
   font-family: var(--font-display);
-  font-size: 30px;
+  font-size: var(--texto-h3);
   line-height: 1.15;
   font-weight: 600;
 }
 
 @utility citacao {
   font-family: var(--font-display);
-  font-size: 30px;
+  font-size: var(--texto-citacao);
   line-height: 1.25;
   font-style: italic;
-  @media (width >= 48rem) {
-    font-size: 38px;
-  }
+  text-wrap: pretty;
 }
 
+/* Sobretítulo em versalete espaçado, com um fio de ocre à esquerda */
 @utility sobretitulo {
-  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 13px;
+  line-height: 1.4;
   font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   color: var(--color-terra);
+  &::before {
+    content: "";
+    width: 28px;
+    height: 1px;
+    flex: none;
+    background: var(--color-ocre);
+  }
 }
 
 @utility legenda {
@@ -82,10 +122,11 @@
 }
 
 @utility faixa {
-  padding-block: 56px;
-  @media (width >= 48rem) {
-    padding-block: 88px;
-  }
+  padding-block: var(--espaco-secao);
+}
+
+@utility topo {
+  padding-top: var(--espaco-topo);
 }
 
 /* Coluna de leitura: no máximo ~70 caracteres por linha */
@@ -102,8 +143,8 @@
   }
   body {
     font-family: var(--font-sans);
-    font-size: 18px;
-    line-height: 1.6;
+    font-size: var(--texto-corpo);
+    line-height: 1.65;
     color: var(--color-ink);
     background: var(--color-paper);
     -webkit-font-smoothing: antialiased;
@@ -115,30 +156,96 @@
   a {
     color: var(--color-vereda);
     text-decoration: underline;
+    text-decoration-thickness: 1px;
     text-underline-offset: 3px;
+    transition: color 0.2s var(--ease-natural), text-decoration-color 0.2s var(--ease-natural);
   }
   img {
     border-radius: var(--radius-imagem);
   }
-  @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-      animation-duration: 0.01ms !important;
-      transition-duration: 0.01ms !important;
-      scroll-behavior: auto !important;
-    }
+  ::selection {
+    background: var(--color-areia);
   }
 }
 
-/* Texto vindo do markdown */
 @layer components {
+  /* ---------- Botões ---------- */
+  .botao {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 999px;
+    padding: 0.8rem 1.5rem;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    white-space: nowrap;
+    transition:
+      background-color 0.22s var(--ease-natural),
+      color 0.22s var(--ease-natural),
+      border-color 0.22s var(--ease-natural),
+      box-shadow 0.22s var(--ease-natural),
+      transform 0.22s var(--ease-natural);
+  }
+  .botao:hover {
+    box-shadow: 0 6px 18px -8px rgb(42 38 32 / 0.35);
+  }
+  .botao:active {
+    transform: translateY(1px);
+    box-shadow: none;
+  }
+  /* Ação secundária: texto com seta, sublinhado aparece no hover */
+  .link-seta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding-block: 0.8rem; /* área de toque igual à do botão */
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.2;
+    white-space: nowrap;
+    color: var(--color-vereda);
+    text-decoration-line: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: 6px;
+  }
+  .link-seta:hover {
+    text-decoration-color: currentColor;
+  }
+  .link-seta:active {
+    color: var(--color-vereda-escuro);
+  }
+  .seta {
+    flex: none;
+    transition: transform 0.25s var(--ease-natural);
+  }
+  :is(.botao, .link-seta):is(:hover, :focus-visible) .seta {
+    transform: translateX(4px);
+  }
+
+  /* Par (ou grupo) de ações: lado a lado; em telas muito estreitas, um embaixo do outro. */
+  .acoes {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem 1.75rem;
+    @media (width >= 30rem) {
+      flex-direction: row;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+  }
+
+  /* ---------- Texto vindo do markdown ---------- */
   .texto > * + * {
     margin-top: 1em;
   }
   .texto h2 {
     font-family: var(--font-display);
-    font-size: 34px;
+    font-size: var(--texto-h3);
     line-height: 1.1;
     font-weight: 600;
     margin-top: 1.6em;
@@ -150,24 +257,182 @@
   .texto li + li {
     margin-top: 0.5em;
   }
+  .texto li::marker {
+    color: var(--color-ocre);
+  }
   .texto blockquote {
     font-family: var(--font-display);
     font-size: 22px;
     line-height: 1.45;
     /* sem itálico: o briefing proíbe parágrafos inteiros em itálico */
-    border-left: 3px solid var(--color-laranja);
+    border-left: 2px solid var(--color-ocre);
     padding-left: 1em;
   }
 
-  /* Conteúdo que ainda falta: visível de propósito */
+  /* Conteúdo que ainda falta: visível de propósito (só em desenvolvimento) */
   .preencher {
     background: #fff3b0;
     color: var(--color-ink);
     font-family: var(--font-sans);
     font-size: 15px;
     font-style: normal;
+    letter-spacing: normal;
+    text-transform: none;
     padding: 0 4px;
     border-radius: 2px;
+  }
+
+  /* ---------- Cabeçalho ----------
+     O cabeçalho ocupa sempre 76px no fluxo (nada abaixo se mexe). Ao rolar, o fundo
+     encolhe para 64px com transform e fica translúcido com desfoque. */
+  .cabecalho {
+    pointer-events: none;
+  }
+  .cabecalho > * {
+    pointer-events: auto;
+  }
+  .cabecalho::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform-origin: top;
+    background: var(--color-paper);
+    border-bottom: 1px solid transparent;
+    transition:
+      transform 0.4s var(--ease-natural),
+      background-color 0.4s var(--ease-natural),
+      border-color 0.4s var(--ease-natural),
+      box-shadow 0.4s var(--ease-natural);
+  }
+  .cabecalho-linha {
+    transition: transform 0.4s var(--ease-natural);
+  }
+  .cabecalho-logo {
+    transform-origin: left center;
+    transition: transform 0.4s var(--ease-natural);
+  }
+  .cabecalho[data-rolado]::before {
+    transform: scaleY(calc(64 / 76));
+    background: rgb(247 244 238 / 0.82);
+    border-color: var(--color-linha);
+    box-shadow: 0 8px 24px -18px rgb(42 38 32 / 0.4);
+    backdrop-filter: blur(14px) saturate(1.2);
+    -webkit-backdrop-filter: blur(14px) saturate(1.2);
+  }
+  .cabecalho[data-rolado] .cabecalho-linha {
+    transform: translateY(-6px);
+  }
+  .cabecalho[data-rolado] .cabecalho-logo {
+    transform: scale(0.86);
+  }
+  .cabecalho[data-rolado] #menu-celular {
+    transform: translateY(-6px); /* a linha já subiu 6px */
+  }
+
+  /* ---------- Cartão de livro ---------- */
+  .cartao-capa {
+    overflow: hidden;
+    border-radius: var(--radius-imagem);
+    box-shadow: 0 1px 2px rgb(42 38 32 / 0.08);
+    transition:
+      transform 0.45s var(--ease-natural),
+      box-shadow 0.45s var(--ease-natural);
+  }
+  .cartao-capa img {
+    transition: transform 0.6s var(--ease-natural);
+  }
+  .cartao:hover .cartao-capa,
+  .cartao:focus-within .cartao-capa {
+    transform: translateY(-6px);
+    box-shadow: 0 22px 40px -22px rgb(42 38 32 / 0.45);
+  }
+  .cartao:hover .cartao-capa img {
+    transform: scale(1.04);
+  }
+}
+
+/* ---------- Animações ----------
+   Só transform e opacity (exceto a máscara de tinta do destaque, que é pedida assim).
+   Elementos .revelar ficam escondidos apenas quando o JS está ativo (classe "anim" no <html>,
+   posta antes da primeira pintura) e aparecem uma vez, ao entrar na tela (components/Movimento.tsx). */
+.anim .revelar {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity var(--duracao) var(--ease-natural),
+    transform var(--duracao) var(--ease-natural);
+  transition-delay: calc(var(--i, 0) * 80ms);
+}
+.anim .revelar.visivel {
+  opacity: 1;
+  transform: none;
+}
+/* Citação: entra mais devagar */
+.anim .revelar-lento {
+  --duracao: 1.1s;
+}
+
+/* Destaque da Início: título linha a linha, depois os botões */
+@keyframes subir {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+}
+.entrar {
+  animation: subir 0.7s var(--ease-natural) backwards;
+  animation-delay: calc(120ms + var(--i, 0) * 110ms);
+}
+
+/* Ilustração do destaque revelada como tinta se espalhando no papel */
+@property --tinta {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 150%;
+}
+@keyframes tinta {
+  from {
+    --tinta: 8%;
+  }
+}
+.tinta {
+  --tinta: 150%;
+  -webkit-mask-image:
+    radial-gradient(ellipse 70% 60% at 42% 52%, #000 calc(var(--tinta) - 18%), transparent var(--tinta)),
+    radial-gradient(ellipse 55% 70% at 64% 44%, #000 calc(var(--tinta) - 26%), transparent calc(var(--tinta) - 4%));
+  mask-image:
+    radial-gradient(ellipse 70% 60% at 42% 52%, #000 calc(var(--tinta) - 18%), transparent var(--tinta)),
+    radial-gradient(ellipse 55% 70% at 64% 44%, #000 calc(var(--tinta) - 26%), transparent calc(var(--tinta) - 4%));
+  animation: tinta 1.6s var(--ease-natural) 0.15s backwards;
+}
+
+/* Lightbox: abre com fade + leve escala */
+@keyframes lightbox-entra {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+}
+.yarl__container {
+  animation: lightbox-entra 0.45s var(--ease-natural);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+    scroll-behavior: auto !important;
+  }
+  .anim .revelar {
+    transform: none;
+  }
+  .cartao:hover .cartao-capa,
+  .cartao:hover .cartao-capa img {
+    transform: none;
   }
 }
 
@@ -211,4 +476,68 @@
     left: calc(var(--c3) * (var(--cw) + var(--gap)));
     top: calc(var(--r3) * var(--cw) + var(--k3) * var(--gap));
   }
+}
+
+/* Legenda discreta no hover (só com mouse) */
+.obra {
+  overflow: hidden;
+}
+.obra img {
+  transition: transform 0.6s var(--ease-natural);
+}
+.obra-legenda {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 2.5rem 1rem 0.85rem;
+  border-radius: 0 0 var(--radius-imagem) var(--radius-imagem);
+  background: linear-gradient(to top, rgb(26 22 18 / 0.72), transparent);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 20px;
+  line-height: 1.2;
+  text-align: left;
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 0.3s var(--ease-natural),
+    transform 0.3s var(--ease-natural);
+  pointer-events: none;
+}
+@media (hover: hover) {
+  .obra:is(:hover, :focus-visible) .obra-legenda {
+    opacity: 1;
+    transform: none;
+  }
+  .obra:hover img {
+    transform: scale(1.03);
+  }
+}
+
+/* Faixa de rolagem horizontal ("Por dentro dos livros") */
+.faixa-rolagem {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: min(82%, 520px);
+  gap: 1.25rem;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 20px;
+  padding-inline: 20px;
+  padding-bottom: 1rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-ocre) transparent;
+  cursor: grab;
+  @media (width >= 48rem) {
+    padding-inline: max(32px, calc((100vw - 1200px) / 2));
+    scroll-padding-inline: max(32px, calc((100vw - 1200px) / 2));
+  }
+}
+.faixa-rolagem > * {
+  scroll-snap-align: start;
+}
+.faixa-rolagem[data-arrastando] {
+  cursor: grabbing;
+  scroll-snap-type: none;
+  user-select: none;
 }
