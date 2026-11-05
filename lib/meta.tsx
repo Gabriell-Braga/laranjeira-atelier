@@ -4,7 +4,7 @@ import { pendente } from "./pendencias";
 
 type Opcoes = {
   titulo: string;
-  /** true: usa o título sem o sufixo " | Laranjeira Atelier" */
+  /** true: usa o título sem o sufixo " · Laranjeira Atelier" */
   absoluto?: boolean;
   descricao?: string;
   /** caminho da página, com barra no fim (ex.: "/livros/") */

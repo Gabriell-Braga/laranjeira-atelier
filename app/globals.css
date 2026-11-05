@@ -477,9 +477,11 @@
 }
 
 /* Destaque da Início: título linha a linha, depois os botões */
+/* Começa em 0,01 (invisível na prática): com 0 exato, o navegador só conta a imagem/texto
+   principal (LCP) quando a animação termina, e a nota de desempenho cai. */
 @keyframes subir {
   from {
-    opacity: 0;
+    opacity: 0.01;
     transform: translateY(18px);
   }
 }

@@ -1,5 +1,5 @@
 ---
-titulo: "Laranjeira Atelier: ilustração de Dilce Laranjeira e a coleção Sertão Vivo"
+titulo: "Laranjeira Atelier · Arte Design"
 descricao: "Ilustrações de Dilce Laranjeira e a coleção Sertão Vivo: aves, bichos e plantas do Cerrado em Grande sertão: veredas, de Guimarães Rosa, em aquarela."
 destaque: "As aves, os bichos e as plantas de Grande sertão: veredas, pintados em aquarela."
 destaqueSobretitulo: "Coleção Sertão Vivo · Dilce Laranjeira"
