@@ -24,6 +24,7 @@
   --color-linha: #e4ddd0;
 
   --font-display: var(--fonte-cormorant), Georgia, serif;
+  --font-italico: var(--fonte-cormorant-italico), Georgia, serif;
   --font-sans: var(--fonte-karla), system-ui, sans-serif;
 
   --radius-imagem: 4px;
@@ -76,7 +77,7 @@
 }
 
 @utility citacao {
-  font-family: var(--font-display);
+  font-family: var(--font-italico);
   font-size: var(--texto-citacao);
   line-height: 1.25;
   font-style: italic;

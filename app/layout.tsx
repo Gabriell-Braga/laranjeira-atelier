@@ -11,9 +11,18 @@ import "./globals.css";
 const cormorant = Cormorant({
   subsets: ["latin"],
   weight: ["500", "600"],
-  style: ["normal", "italic"],
   variable: "--fonte-cormorant",
   display: "swap",
+});
+// Itálico só aparece abaixo da primeira tela (citações, subtítulo do livro): sem preload,
+// para não disputar banda com a ilustração do destaque no celular.
+const cormorantItalico = Cormorant({
+  subsets: ["latin"],
+  weight: ["500"],
+  style: ["italic"],
+  variable: "--fonte-cormorant-italico",
+  display: "swap",
+  preload: false,
 });
 const karla = Karla({ subsets: ["latin"], weight: ["400", "700"], variable: "--fonte-karla", display: "swap" });
 
@@ -31,7 +40,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     // suppressHydrationWarning: o script de movimento põe a classe "anim" antes do React.
-    <html lang="pt-BR" className={`${cormorant.variable} ${karla.variable}`} suppressHydrationWarning>
+    <html lang="pt-BR" className={`${cormorant.variable} ${cormorantItalico.variable} ${karla.variable}`} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: `(${movimento.toString()})()` }} />
       </head>
