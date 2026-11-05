@@ -330,7 +330,7 @@ export function Portfolio({ inicial, total, tipos, tecnicas, series }: Props) {
             </label>
             <div className="md:text-right">
               <button type="button" onClick={limpar} disabled={!ativosNoPainel} className="link-seta py-2 disabled:opacity-40">
-                Limpar filtros
+                <span>Limpar filtros</span>
               </button>
             </div>
           </div>

@@ -27,7 +27,7 @@ export function Botao({ variante = "laranja", className = "", children, seta = v
   const classes = `${estilos[variante]} ${className}`;
   const conteudo = (
     <>
-      {children}
+      <span>{children}</span>
       {seta && <Seta />}
     </>
   );

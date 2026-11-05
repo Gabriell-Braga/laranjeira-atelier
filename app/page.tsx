@@ -118,7 +118,8 @@ export default function Inicio() {
           </div>
           <Galeria
             imagens={pagina.imagens("ilustracaoImagens").map(paraGaleria)}
-            grade="grid-cols-2 gap-4 md:gap-5"
+            grade="grid-cols-2 gap-4 md:gap-5 [&>li:nth-child(even)]:mt-10 md:[&>li:nth-child(even)]:mt-16"
+            recorte="aspect-[4/5]"
             sizes="(min-width: 1264px) 290px, (min-width: 1024px) 24vw, 45vw"
           />
         </div>

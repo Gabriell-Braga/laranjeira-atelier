@@ -18,7 +18,7 @@ function Links({ itens, pathname, vertical }: { itens: ItemMenu[]; pathname: str
             <Link
               href={item.href}
               aria-current={atual ? "page" : undefined}
-              className={`block whitespace-nowrap py-2 text-[16px] text-ink no-underline decoration-laranja decoration-2 underline-offset-8 transition-colors hover:text-vereda hover:underline ${atual ? "underline" : ""}`}
+              className={`menu-link block whitespace-nowrap py-2 text-[16px] text-ink ${vertical ? "w-fit" : ""}`}
             >
               {item.rotulo}
             </Link>

@@ -192,10 +192,11 @@
       transform 0.22s var(--ease-natural);
   }
   .botao:hover {
-    box-shadow: 0 6px 18px -8px rgb(42 38 32 / 0.35);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px -10px rgb(42 38 32 / 0.45);
   }
   .botao:active {
-    transform: translateY(1px);
+    transform: translateY(0);
     box-shadow: none;
   }
   /* Ação secundária: texto com seta, sublinhado aparece no hover */
@@ -209,12 +210,46 @@
     line-height: 1.2;
     white-space: nowrap;
     color: var(--color-vereda);
-    text-decoration-line: underline;
-    text-decoration-color: transparent;
-    text-underline-offset: 6px;
+    text-decoration: none;
   }
-  .link-seta:hover {
-    text-decoration-color: currentColor;
+  /* Sublinhado que se desenha da esquerda para a direita (links de texto, rodapé) */
+  .link-seta > :first-child,
+  .sublinhado {
+    text-decoration: none;
+    background: linear-gradient(currentColor, currentColor) no-repeat left bottom / 0% 1px;
+    padding-bottom: 2px;
+    transition:
+      background-size 0.35s var(--ease-natural),
+      color 0.2s var(--ease-natural);
+  }
+  .link-seta:is(:hover, :focus-visible) > :first-child,
+  .sublinhado:is(:hover, :focus-visible) {
+    background-size: 100% 1px;
+  }
+
+  /* Menu principal: fio laranja que cresce do centro; fica cheio na página atual */
+  .menu-link {
+    position: relative;
+    text-decoration: none;
+    transition: color 0.25s var(--ease-natural);
+  }
+  .menu-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 2px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--color-laranja);
+    transform: scaleX(0);
+    transition: transform 0.35s var(--ease-natural);
+  }
+  .menu-link:hover {
+    color: var(--color-vereda);
+  }
+  .menu-link:is(:hover, :focus-visible, [aria-current="page"])::after {
+    transform: scaleX(1);
   }
   .link-seta:active {
     color: var(--color-vereda-escuro);

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { lerLivros, lerSite } from "@/lib/conteudo";
 import { Pendente } from "./Pendente";
 
-const link = "text-ink no-underline hover:text-vereda hover:underline";
+const link = "sublinhado text-ink hover:text-vereda";
 
 export function Rodape() {
   const { contato, redes } = lerSite();

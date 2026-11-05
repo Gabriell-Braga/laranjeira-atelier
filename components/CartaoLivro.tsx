@@ -42,7 +42,7 @@ export function CartaoLivro({ livro, amazon, nivel: Titulo = "h3", prioridade }:
           </Botao>
         ) : (
           <span className="link-seta" aria-hidden="true">
-            Conhecer o livro
+            <span>Conhecer o livro</span>
           </span>
         )}
       </div>

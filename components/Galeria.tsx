@@ -19,6 +19,8 @@ type Props = {
   sizes?: string;
   /** classes da grade de miniaturas (variante "grade") */
   grade?: string;
+  /** recorte igual para todas as miniaturas (ex.: "aspect-[4/5]"); o lightbox mostra a imagem inteira */
+  recorte?: string;
 };
 
 // Miniaturas que abrem no lightbox. A URL ganha ?imagem=slug enquanto ele está aberto,
@@ -28,6 +30,7 @@ export function Galeria({
   variante = "grade",
   sizes = "(min-width: 768px) 25vw, 50vw",
   grade = "grid-cols-2 md:grid-cols-4",
+  recorte,
 }: Props) {
   const [indice, setIndice] = useState(-1);
   const ultimo = useRef(-1); // última imagem vista: recebe o foco quando o lightbox fecha
@@ -88,7 +91,7 @@ export function Galeria({
         className="obra relative block w-full cursor-zoom-in rounded-[4px]"
         aria-label={`Ampliar: ${img.titulo ?? img.alt}`}
       >
-        <Imagem img={img} sizes={tamanho} prioridade={prioridade} className="w-full" />
+        <Imagem img={img} sizes={tamanho} prioridade={prioridade} className={recorte ? `${recorte} w-full object-cover` : "w-full"} />
       </button>
     </li>
   );
