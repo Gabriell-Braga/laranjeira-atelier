@@ -57,6 +57,7 @@ export function FormularioContato({ assuntoInicial = "" }: { assuntoInicial?: st
         widget.current = t.render(caixaTurnstile.current, {
           sitekey: c.siteKey,
           language: "pt-br",
+          theme: "light", // o padrão segue o tema escuro do sistema e destoa da página clara
           callback: (v: string) => (token.current = v),
           "expired-callback": () => (token.current = ""),
         });
