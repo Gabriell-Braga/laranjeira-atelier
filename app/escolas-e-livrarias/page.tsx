@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type React from "react";
 import { metadados } from "@/lib/meta";
 import { Paragrafos, Texto } from "@/components/Blocos";
 import { CartaoLivro } from "@/components/CartaoLivro";
@@ -24,8 +25,8 @@ export default function EscolasELivrarias() {
 
       <section className="faixa border-t border-linha bg-surface" aria-label="Os volumes da coleção">
         <ul className="conteudo grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-4">
-          {volumes.map((l) => (
-            <li key={l.slug}>
+          {volumes.map((l, i) => (
+            <li key={l.slug} className="entrar" style={{ "--i": 4 + i } as React.CSSProperties}>
               <CartaoLivro livro={l} amazon={site.amazon[l.slug]} />
             </li>
           ))}

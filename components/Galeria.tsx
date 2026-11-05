@@ -112,7 +112,7 @@ export function Galeria({
   };
 
   const miniatura = (img: ImagemGaleria, i: number, tamanho: string, className = "", prioridade = false) => (
-    <li key={img.slug} className={`${variante === "livro" ? "" : "revelar"} ${className}`} style={{ "--i": i % 4 } as React.CSSProperties}>
+    <li key={img.slug} className={`${variante === "livro" ? "" : "revelar"} ${className}`} style={{ "--i": variante === "livro" ? i + 3 : i % 4 } as React.CSSProperties}>
       <button
         type="button"
         data-indice={i}
@@ -137,7 +137,7 @@ export function Galeria({
         <ul ref={lista} className="grid list-none grid-cols-4 gap-3 p-0">
           {/* capa grande: primeira imagem da página, carrega sem esperar (LCP) */}
           {miniatura(imagens[0], 0, "(min-width: 1264px) 600px, (min-width: 768px) 50vw, calc(100vw - 40px)", "col-span-4", true)}
-          {imagens.slice(1).map((img, i) => miniatura(img, i + 1, "(min-width: 768px) 12vw, 25vw"))}
+          {imagens.slice(1).map((img, i) => miniatura(img, i + 1, "(min-width: 768px) 12vw, 25vw", "entrar"))}
         </ul>
       ) : variante === "faixa" ? (
         <>

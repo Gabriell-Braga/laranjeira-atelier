@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type React from "react";
 import { metadados } from "@/lib/meta";
 import { Faixa, FichaTecnica, Texto } from "@/components/Blocos";
 import { Botao } from "@/components/Botao";
@@ -30,7 +31,7 @@ export default function Livros() {
         <ul className="grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-4">
           {/* sem animação de entrada: as capas estão na primeira tela (LCP) */}
           {volumes.map((l, i) => (
-            <li key={l.slug}>
+            <li key={l.slug} className="entrar" style={{ "--i": 3 + i } as React.CSSProperties}>
               <CartaoLivro livro={l} amazon={site.amazon[l.slug]} prioridade={i === 0} />
             </li>
           ))}

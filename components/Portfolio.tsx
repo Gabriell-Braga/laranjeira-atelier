@@ -69,6 +69,13 @@ export function Portfolio({ inicial, total, tipos, tecnicas, series }: Props) {
   const [abertoSlug, setAbertoSlug] = useState<string | null>(null);
   const [anuncio, setAnuncio] = useState("");
   const [painel, setPainel] = useState(false);
+  // Entrada da primeira tela (barra, contagem e primeiros trabalhos); depois disso, só o FLIP anima.
+  const [primeira, setPrimeira] = useState(true);
+  useEffect(() => {
+    const t = setTimeout(() => setPrimeira(false), 2500);
+    return () => clearTimeout(t);
+  }, []);
+  const entrar = (i: number) => (primeira ? { className: "entrar", style: { "--i": i } as React.CSSProperties } : {});
   const area = useRef<HTMLUListElement>(null);
   // FLIP: posições antes de trocar o filtro e itens que já estavam na grade
   const antes = useRef<Map<string, { x: number; y: number }> | null>(null);
@@ -240,6 +247,7 @@ export function Portfolio({ inicial, total, tipos, tecnicas, series }: Props) {
     <>
       {/* Barra de filtros: fica presa logo abaixo do cabeçalho ao rolar a grade */}
       <div className="barra-presa sticky top-16 z-30">
+        <div {...entrar(2)}>
         <div className="conteudo flex items-center gap-3 py-3">
           <div
             role="group"
@@ -281,6 +289,7 @@ export function Portfolio({ inicial, total, tipos, tecnicas, series }: Props) {
           </button>
         </div>
 
+        </div>
         {/* Painel que abre por altura (0fr -> 1fr) e com os grupos entrando em sequência; fechado fica inert */}
         <div id="painel-filtros" inert={!painel} data-aberto={painel || undefined} className="painel-filtros">
           <div className="min-h-0 overflow-hidden">
@@ -341,7 +350,7 @@ export function Portfolio({ inicial, total, tipos, tecnicas, series }: Props) {
       </div>
 
       <div className="conteudo">
-      <p className="mt-6 text-[15px] text-ink-muted" aria-live="polite">
+      <p className={`mt-6 text-[15px] text-ink-muted ${primeira ? "entrar" : ""}`} style={{ "--i": 3 } as React.CSSProperties} aria-live="polite">
         {[...(resumo.length ? resumo : ["Todos"]), plural(totalLista)].join(" · ")}
       </p>
 
@@ -368,7 +377,12 @@ export function Portfolio({ inicial, total, tipos, tecnicas, series }: Props) {
               );
               const classe = "obra relative block h-full w-full rounded-[4px]";
               return (
-                <li key={it.slug} data-item={it.slug} className="alvenaria-item" style={estiloItem(layouts, i, it.altura / it.largura)}>
+                <li
+                  key={it.slug}
+                  data-item={it.slug}
+                  className={`alvenaria-item ${primeira && i < 9 ? "entrar" : ""}`}
+                  style={{ ...estiloItem(layouts, i, it.altura / it.largura), "--i": 2.5 + i * 0.45 } as React.CSSProperties}
+                >
                   {it.href ? (
                     <Link
                       href={it.href}
