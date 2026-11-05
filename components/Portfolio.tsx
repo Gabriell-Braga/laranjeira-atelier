@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import type React from "react";
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { calcularLayouts, estiloArea, estiloItem } from "@/lib/alvenaria";
 import {
   buscaDosFiltros,
@@ -42,29 +43,23 @@ const baixarIndice = () =>
 
 const plural = (n: number) => `${n} ${n === 1 ? "trabalho" : "trabalhos"}`;
 
-function Pilulas({ rotulo, opcoes, atual, aoEscolher }: { rotulo: string; opcoes: Opcao[]; atual?: string; aoEscolher: (v?: string) => void }) {
+function Pilula({ ativo, onClick, children }: { ativo: boolean; onClick: () => void; children: React.ReactNode }) {
   return (
-    <div role="group" aria-label={rotulo} className="flex flex-wrap items-center gap-2">
-      <span className="mr-1 text-[15px] font-bold text-ink-muted">{rotulo}</span>
-      {opcoes.map((o) => {
-        const ativo = atual === o.valor;
-        return (
-          <button
-            key={o.valor}
-            type="button"
-            aria-pressed={ativo}
-            onClick={() => aoEscolher(ativo ? undefined : o.valor)}
-            className={`rounded-full border-2 border-vereda px-4 py-1.5 text-[16px] font-bold transition-colors ${
-              ativo ? "bg-vereda text-white" : "text-vereda hover:bg-vereda/10"
-            }`}
-          >
-            {o.rotulo}
-          </button>
-        );
-      })}
-    </div>
+    <button
+      type="button"
+      aria-pressed={ativo}
+      onClick={onClick}
+      className={`shrink-0 whitespace-nowrap rounded-full border px-4 py-2 text-[15px] font-bold transition-colors duration-200 ${
+        ativo ? "border-vereda bg-vereda text-paper" : "border-linha bg-surface text-ink hover:border-vereda hover:text-vereda"
+      }`}
+    >
+      {children}
+    </button>
   );
 }
+
+const reduzMovimento = () => typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const EASE = "cubic-bezier(0.22, 1, 0.36, 1)";
 
 export function Portfolio({ inicial, total, tipos, tecnicas, series }: Props) {
   const [indice, setIndice] = useState<ItemIndice[] | null>(null);
@@ -73,6 +68,11 @@ export function Portfolio({ inicial, total, tipos, tecnicas, series }: Props) {
   const [levasAuto, setLevasAuto] = useState(0);
   const [abertoSlug, setAbertoSlug] = useState<string | null>(null);
   const [anuncio, setAnuncio] = useState("");
+  const [painel, setPainel] = useState(false);
+  const area = useRef<HTMLUListElement>(null);
+  // FLIP: posições antes de trocar o filtro e itens que já estavam na grade
+  const antes = useRef<Map<string, { x: number; y: number }> | null>(null);
+  const jaVistos = useRef<Set<string>>(new Set(inicial.map((i) => i.slug)));
   const focarIndice = useRef<number | null>(null);
   const ultimoVisto = useRef<string | null>(null);
   const scrollPendente = useRef<number | null>(null);
@@ -143,8 +143,44 @@ export function Portfolio({ inicial, total, tipos, tecnicas, series }: Props) {
     return () => window.removeEventListener("pagehide", salvarEstado);
   }, [salvarEstado]);
 
+  const fotografar = () => {
+    const mapa = new Map<string, { x: number; y: number }>();
+    area.current?.querySelectorAll<HTMLElement>("[data-item]").forEach((el) => mapa.set(el.dataset.item!, { x: el.offsetLeft, y: el.offsetTop }));
+    return mapa;
+  };
+
+  // Ao trocar o filtro, quem fica desliza da posição antiga para a nova (só transform);
+  // quem entra aparece com fade e leve subida. "Carregar mais": só os novos aparecem.
+  useLayoutEffect(() => {
+    const ul = area.current;
+    const velhas = antes.current;
+    antes.current = null;
+    if (!ul) return;
+    const vistos = jaVistos.current;
+    const animar = !reduzMovimento();
+    let novos = 0;
+    ul.querySelectorAll<HTMLElement>("[data-item]").forEach((el) => {
+      const slug = el.dataset.item!;
+      const v = velhas?.get(slug);
+      if (animar && v) {
+        const dx = v.x - el.offsetLeft;
+        const dy = v.y - el.offsetTop;
+        if (dx || dy) el.animate([{ transform: `translate(${dx}px, ${dy}px)` }, { transform: "none" }], { duration: 550, easing: EASE });
+      } else if (animar && (velhas || !vistos.has(slug))) {
+        el.animate([{ opacity: 0, transform: "translateY(14px)" }, { opacity: 1, transform: "none" }], {
+          duration: 500,
+          easing: EASE,
+          delay: Math.min(novos++, 8) * 45,
+          fill: "backwards",
+        });
+      }
+      vistos.add(slug);
+    });
+  }, [exibidos]);
+
   const mudarFiltros = (novo: Filtros) => {
     carregarIndice().then(() => {
+      antes.current = fotografar();
       setFiltros(novo);
       setVisiveis(POR_LEVA);
       setLevasAuto(0);
@@ -197,50 +233,112 @@ export function Portfolio({ inicial, total, tipos, tecnicas, series }: Props) {
   ].filter(Boolean);
   const seriesDoTipo = series.filter((s) => !filtros.tipo || s.tipo === filtros.tipo);
 
+  const ativosNoPainel = [filtros.tecnica, filtros.serie, filtros.ordem !== "destaques" ? filtros.ordem : undefined].filter(Boolean).length;
+  const limpar = () => mudarFiltros({ ordem: "destaques", tipo: filtros.tipo });
+
   return (
     <>
-      <div className="space-y-4 border-y border-linha py-6">
-        <Pilulas rotulo="Tipo" opcoes={tipos} atual={filtros.tipo} aoEscolher={(tipo) => mudarFiltros({ ...filtros, tipo, serie: undefined })} />
-        <Pilulas rotulo="Técnica" opcoes={tecnicas} atual={filtros.tecnica} aoEscolher={(tecnica) => mudarFiltros({ ...filtros, tecnica })} />
-        <div className="flex flex-wrap gap-x-8 gap-y-3 text-[16px]">
-          <label className="flex items-center gap-2">
-            <span className="font-bold text-ink-muted">Série</span>
-            <select
-              value={filtros.serie ?? ""}
-              onChange={(e) => mudarFiltros({ ...filtros, serie: e.target.value || undefined })}
-              className="rounded-full border-2 border-linha bg-surface px-4 py-1.5"
-            >
-              <option value="">Todas</option>
-              {seriesDoTipo.map((s) => (
-                <option key={s.valor} value={s.valor}>
-                  {s.rotulo}
-                </option>
-              ))}
-            </select>
-          </label>
-          <label className="flex items-center gap-2">
-            <span className="font-bold text-ink-muted">Ordem</span>
-            <select
-              value={filtros.ordem}
-              onChange={(e) => mudarFiltros({ ...filtros, ordem: e.target.value as Ordem })}
-              className="rounded-full border-2 border-linha bg-surface px-4 py-1.5"
-            >
-              {Object.entries(ORDENS).map(([v, r]) => (
-                <option key={v} value={v}>
-                  {r}
-                </option>
-              ))}
-            </select>
-          </label>
-          {temFiltro(filtros) && (
-            <button type="button" onClick={() => mudarFiltros({ ordem: "destaques" })} className="font-bold text-vereda underline underline-offset-4">
-              Limpar filtros
-            </button>
-          )}
+      {/* Barra de filtros: fica presa logo abaixo do cabeçalho ao rolar a grade */}
+      <div className="sticky top-[63px] z-30 border-y border-linha bg-paper/90 backdrop-blur-md">
+        <div className="conteudo flex items-center gap-3 py-3">
+          <div
+            role="group"
+            aria-label="Categoria"
+            className="-my-1 flex min-w-0 flex-1 gap-2 overflow-x-auto py-1 pr-6 [mask-image:linear-gradient(to_right,#000_calc(100%-28px),transparent)] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          >
+            <Pilula ativo={!filtros.tipo} onClick={() => mudarFiltros({ ...filtros, tipo: undefined, serie: undefined })}>
+              Todos
+            </Pilula>
+            {tipos.map((t) => (
+              <Pilula
+                key={t.valor}
+                ativo={filtros.tipo === t.valor}
+                onClick={() => mudarFiltros({ ...filtros, tipo: filtros.tipo === t.valor ? undefined : t.valor, serie: undefined })}
+              >
+                {t.rotulo}
+              </Pilula>
+            ))}
+          </div>
+          <button
+            type="button"
+            aria-expanded={painel}
+            aria-controls="painel-filtros"
+            onClick={() => setPainel((p) => !p)}
+            className={`inline-flex shrink-0 items-center gap-2 rounded-full border px-4 py-2 text-[15px] font-bold transition-colors duration-200 ${
+              painel || ativosNoPainel ? "border-vereda text-vereda" : "border-linha bg-surface text-ink hover:border-vereda hover:text-vereda"
+            }`}
+          >
+            <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+              <path d="M2 4h12M4.5 8h7M7 12h2" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+            </svg>
+            Filtros
+            {ativosNoPainel > 0 && (
+              <span className="grid h-5 min-w-5 place-items-center rounded-full bg-vereda px-1 text-[12px] text-paper">
+                {ativosNoPainel}
+                <span className="sr-only"> ativos</span>
+              </span>
+            )}
+          </button>
+        </div>
+
+        <div id="painel-filtros" hidden={!painel} className="border-t border-linha">
+          <div className="conteudo grid gap-x-10 gap-y-5 py-5 text-[15px] md:grid-cols-[auto_auto_auto_1fr] md:items-end">
+            <div role="group" aria-label="Técnica">
+              <p className="mb-2 font-bold text-ink-muted">Técnica</p>
+              <div className="flex flex-wrap gap-2">
+                {tecnicas.map((t) => (
+                  <Pilula
+                    key={t.valor}
+                    ativo={filtros.tecnica === t.valor}
+                    onClick={() => mudarFiltros({ ...filtros, tecnica: filtros.tecnica === t.valor ? undefined : t.valor })}
+                  >
+                    {t.rotulo}
+                  </Pilula>
+                ))}
+              </div>
+            </div>
+            {seriesDoTipo.length > 0 && (
+              <label className="block">
+                <span className="mb-2 block font-bold text-ink-muted">Série</span>
+                <select
+                  value={filtros.serie ?? ""}
+                  onChange={(e) => mudarFiltros({ ...filtros, serie: e.target.value || undefined })}
+                  className="w-full rounded-full border border-linha bg-surface px-4 py-2 md:w-auto"
+                >
+                  <option value="">Todas</option>
+                  {seriesDoTipo.map((s) => (
+                    <option key={s.valor} value={s.valor}>
+                      {s.rotulo}
+                    </option>
+                  ))}
+                </select>
+              </label>
+            )}
+            <label className="block">
+              <span className="mb-2 block font-bold text-ink-muted">Ordem</span>
+              <select
+                value={filtros.ordem}
+                onChange={(e) => mudarFiltros({ ...filtros, ordem: e.target.value as Ordem })}
+                className="w-full rounded-full border border-linha bg-surface px-4 py-2 md:w-auto"
+              >
+                {Object.entries(ORDENS).map(([v, r]) => (
+                  <option key={v} value={v}>
+                    {r}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <div className="md:text-right">
+              <button type="button" onClick={limpar} disabled={!ativosNoPainel} className="link-seta py-2 disabled:opacity-40">
+                Limpar filtros
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 
-      <p className="mt-6 font-display text-[24px]" aria-live="polite">
+      <div className="conteudo">
+      <p className="mt-6 text-[15px] text-ink-muted" aria-live="polite">
         {[...(resumo.length ? resumo : ["Todos"]), plural(totalLista)].join(" · ")}
       </p>
 
@@ -248,7 +346,7 @@ export function Portfolio({ inicial, total, tipos, tecnicas, series }: Props) {
         <p className="mt-6 text-ink-muted">Nenhum trabalho com esses filtros.</p>
       ) : (
         <div className="alvenaria mt-6">
-          <ul className="alvenaria-area list-none p-0" style={estiloArea(layouts)}>
+          <ul ref={area} className="alvenaria-area list-none p-0" style={estiloArea(layouts)}>
             {exibidos.map((it, i) => {
               const conteudo = (
                 <>
@@ -259,14 +357,15 @@ export function Portfolio({ inicial, total, tipos, tecnicas, series }: Props) {
                     prioridade={i < 3}
                     className="h-full w-full object-cover"
                   />
+                  {it.titulo && <span className="obra-legenda">{it.titulo}</span>}
                   {it.selo && (
                     <span className="absolute left-3 top-3 rounded-full bg-paper px-3 py-1 text-[14px] font-bold text-ink">{it.selo}</span>
                   )}
                 </>
               );
-              const classe = "relative block h-full w-full rounded-[4px]";
+              const classe = "obra relative block h-full w-full rounded-[4px]";
               return (
-                <li key={it.slug} className="alvenaria-item" style={estiloItem(layouts, i, it.altura / it.largura)}>
+                <li key={it.slug} data-item={it.slug} className="alvenaria-item" style={estiloItem(layouts, i, it.altura / it.largura)}>
                   {it.href ? (
                     <Link
                       href={it.href}
@@ -297,18 +396,15 @@ export function Portfolio({ inicial, total, tipos, tecnicas, series }: Props) {
         </div>
       )}
 
+      </div>
       <div ref={sentinela} aria-hidden="true" />
       <p className="sr-only" aria-live="polite">
         {anuncio}
       </p>
 
-      <div className="mt-10 text-center">
+      <div className="conteudo mt-12 text-center">
         {restam ? (
-          <button
-            type="button"
-            onClick={() => carregarMais(false)}
-            className="rounded-full border-2 border-vereda px-6 py-3 text-[17px] font-bold text-vereda hover:bg-vereda hover:text-white"
-          >
+          <button type="button" onClick={() => carregarMais(false)} className="botao border-2 border-vereda text-vereda hover:bg-vereda hover:text-paper">
             Carregar mais trabalhos
           </button>
         ) : (

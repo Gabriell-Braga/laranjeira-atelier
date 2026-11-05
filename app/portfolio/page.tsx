@@ -19,13 +19,12 @@ export default function PaginaPortfolio() {
 
   return (
     <>
-      <div className="conteudo pb-10 pt-10 md:pt-16">
-        <p className="sobretitulo">{pagina.campo("sobretitulo")}</p>
-        <h1 className="titulo-display mt-3">{pagina.campo("titulo")}</h1>
-        <Texto html={pagina.html} className="leitura mt-6 text-ink-muted" />
+      <div className="conteudo pb-6 pt-8 md:pb-10 md:pt-14">
+        <h1 className="titulo-display">{pagina.campo("titulo")}</h1>
+        <Texto html={pagina.html} className="leitura mt-4 text-ink-muted" />
       </div>
 
-      <section className="conteudo pb-[56px] md:pb-[88px]" aria-label="Trabalhos">
+      <section className="pb-[var(--espaco-secao)]" aria-label="Trabalhos">
         <Portfolio
           inicial={indice.slice(0, POR_LEVA)}
           total={indice.length}
@@ -35,8 +34,10 @@ export default function PaginaPortfolio() {
           tecnicas={Object.entries(GRUPOS_TECNICA)
             .filter(([v]) => presentes(v, "grupos"))
             .map(([valor, rotulo]) => ({ valor, rotulo }))}
+          // Séries que são a única do seu tipo (ex.: Coleção Sertão Vivo = Livros autorais) repetiriam a categoria.
           series={series
             .filter((s) => indice.some((i) => i.serie === s.slug))
+            .filter((s, _, todas) => todas.filter((o) => o.tipo === s.tipo && indice.some((i) => i.serie === o.slug)).length > 1)
             .map((s) => ({ valor: s.slug, rotulo: s.titulo, tipo: s.tipo }))}
         />
       </section>
@@ -48,7 +49,7 @@ export default function PaginaPortfolio() {
             <p className="leitura mt-4">{pagina.campo("chamadaTexto")}</p>
           </div>
           <div className="md:text-right">
-            <Botao href="/contato/" variante="vereda">Fale comigo</Botao>
+            <Botao href="/contato/" variante="vereda" seta>Fale comigo</Botao>
           </div>
         </div>
       </section>
