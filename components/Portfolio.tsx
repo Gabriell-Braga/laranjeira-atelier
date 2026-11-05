@@ -239,7 +239,7 @@ export function Portfolio({ inicial, total, tipos, tecnicas, series }: Props) {
   return (
     <>
       {/* Barra de filtros: fica presa logo abaixo do cabeçalho ao rolar a grade */}
-      <div className="barra-presa sticky top-[63px] z-30 bg-paper/90 backdrop-blur-md">
+      <div className="barra-presa sticky top-16 z-30">
         <div className="conteudo flex items-center gap-3 py-3">
           <div
             role="group"

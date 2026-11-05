@@ -47,7 +47,10 @@
 
   --cabecalho: 76px; /* altura do cabeçalho; encolhido ele parece ter 64px */
   --duracao: 0.6s;
-  --hover: 0.4s; /* transição de cor nos hovers (botões, links, filtros) */
+  --hover: 0.4s;
+  /* "vidro" do cabeçalho e da barra de filtros presa: os dois precisam ser idênticos para parecer um bloco só */
+  --vidro: rgb(247 244 238 / 0.92);
+  --vidro-desfoque: blur(14px) saturate(1.2); /* transição de cor nos hovers (botões, links, filtros) */
 }
 
 /* ---------- Tipografia ---------- */
@@ -337,15 +340,17 @@
   .cabecalho > * {
     pointer-events: auto;
   }
+  /* O fundo encolhe pela altura (não por transform: escalar um elemento com backdrop-filter
+     estraga o desfoque e deixa uma borda clara). É um pseudo-elemento absoluto: nada abaixo se mexe. */
   .cabecalho::before {
     content: "";
     position: absolute;
-    inset: 0;
-    transform-origin: top;
+    inset: 0 0 auto 0;
+    height: var(--cabecalho);
     background: var(--color-paper);
     border-bottom: 1px solid transparent;
     transition:
-      transform 0.4s var(--ease-natural),
+      height 0.4s var(--ease-natural),
       background-color 0.4s var(--ease-natural),
       border-color 0.4s var(--ease-natural),
       box-shadow 0.4s var(--ease-natural);
@@ -358,12 +363,12 @@
     transition: transform 0.4s var(--ease-natural);
   }
   .cabecalho[data-rolado]::before {
-    transform: scaleY(calc(64 / 76));
-    background: rgb(247 244 238 / 0.9);
+    height: 64px;
+    background: var(--vidro);
     border-color: var(--color-linha);
     box-shadow: 0 8px 24px -18px rgb(42 38 32 / 0.4);
-    backdrop-filter: blur(14px) saturate(1.2);
-    -webkit-backdrop-filter: blur(14px) saturate(1.2);
+    backdrop-filter: var(--vidro-desfoque);
+    -webkit-backdrop-filter: var(--vidro-desfoque);
   }
   .cabecalho[data-rolado] .cabecalho-linha {
     transform: translateY(-6px);
@@ -758,6 +763,9 @@
 
 /* Barra de filtros presa no topo: sombra leve só enquanto está presa */
 .barra-presa {
+  background: var(--vidro);
+  backdrop-filter: var(--vidro-desfoque);
+  -webkit-backdrop-filter: var(--vidro-desfoque);
   transition: box-shadow 0.4s var(--ease-natural);
 }
 .barra-presa[data-presa] {
