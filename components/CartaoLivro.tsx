@@ -8,37 +8,43 @@ type Props = {
   amazon?: string;
   /** nível do título no contexto da página */
   nivel?: "h2" | "h3";
+  /** capa na primeira tela: carrega sem lazy loading */
+  prioridade?: boolean;
 };
 
-export function CartaoLivro({ livro, amazon, nivel: Titulo = "h3" }: Props) {
+// O cartão inteiro leva à página do livro (o link do título cobre o cartão);
+// o único botão é o de compra, que fica por cima.
+export function CartaoLivro({ livro, amazon, nivel: Titulo = "h3", prioridade }: Props) {
   const href = `/livros/${livro.slug}/`;
   return (
-    <article className="flex h-full flex-col">
-      <Link href={href} tabIndex={-1} aria-hidden="true" className="block">
+    <article className="cartao relative flex h-full flex-col">
+      <div className="cartao-capa">
         <Imagem
           img={info(livro.capa.arquivo, livro.capa.alt)}
           sizes="(min-width: 1024px) 280px, (min-width: 640px) 45vw, calc(100vw - 40px)"
-          className="w-full"
+          prioridade={prioridade}
+          className="w-full rounded-none"
         />
-      </Link>
-      <p className="sobretitulo mt-5">
+      </div>
+      <p className="sobretitulo mt-6">
         {livro.volume} · {livro.paginas} páginas
       </p>
-      <Titulo className="titulo-3 mt-1">
-        <Link href={href} className="text-ink no-underline hover:underline">
+      <Titulo className="titulo-3 mt-2">
+        <Link href={href} className="text-ink no-underline after:absolute after:inset-0 after:rounded-[4px] hover:text-vereda">
           {livro.titulo}
         </Link>
       </Titulo>
       <p className="legenda mt-1 flex-1">{livro.subtitulo}</p>
-      <div className="mt-5 flex flex-wrap gap-3">
-        {amazon && (
+      <div className="relative mt-5 flex items-center gap-4">
+        {amazon ? (
           <Botao href={amazon} variante="vereda" aria-label={`Comprar na Amazon: ${livro.titulo} (abre em nova aba)`}>
             Comprar na Amazon
           </Botao>
+        ) : (
+          <span className="link-seta" aria-hidden="true">
+            Conhecer o livro
+          </span>
         )}
-        <Botao href={href} variante="contorno" aria-label={`Conhecer: ${livro.titulo}`}>
-          Conhecer
-        </Botao>
       </div>
     </article>
   );

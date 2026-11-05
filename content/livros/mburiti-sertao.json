@@ -10,7 +10,7 @@
   "paginas": 200,
   "formato": "18 × 22 cm",
   "encadernacao": "Costurada",
-  "isbn": "[PREENCHER: ISBN do Livro III]",
+  "isbn13": "[PREENCHER: ISBN-13 978-65-...]",
   "ficha": [
     {
       "rotulo": "Projeto gráfico, diagramação e ilustrações",
@@ -18,7 +18,7 @@
     }
   ],
   "descricao": [
-    "[PREENCHER: descrição oficial do livro (Gabriel vai trazer da Amazon)]"
+    "[PREENCHER: TEXTO DA AUTORA — sinopse do livro, 1 a 3 parágrafos]"
   ],
   "capa": {
     "arquivo": "wix/colecao-sertao-vivo/imagem-29cf2d65.jpg",

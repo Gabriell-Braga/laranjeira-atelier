@@ -51,6 +51,8 @@ const site = z.object({
     instagram: z.string(),
   }),
   amazon: z.record(z.string(), z.string()),
+  // outras redes além do Instagram; as que estiverem com [PREENCHER] não aparecem no site
+  redes: z.array(z.object({ nome: z.string(), url: z.string() })).default([]),
   mostrarAgenda: z.boolean(),
   // token do Cloudflare Web Analytics (público). Vazio = sem estatísticas.
   analyticsToken: z.string().default(""),
@@ -69,7 +71,8 @@ const livro = z.object({
   paginas: z.number().int().positive(),
   formato: z.string(),
   encadernacao: z.string(),
-  isbn: z.string(),
+  // ISBN-13 do livro impresso (o código de 10 dígitos da Amazon é o ISBN-10 antigo)
+  isbn13: z.string(),
   ficha: z.array(z.object({ rotulo: z.string(), valor: z.string() })).default([]),
   descricao: z.array(z.string()).min(1),
   capa: imagem,

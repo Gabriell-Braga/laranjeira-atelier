@@ -1,5 +1,7 @@
 "use client";
 
+import type React from "react";
+
 import { useEffect, useRef, useState } from "react";
 import type { ImagemGaleria } from "@/lib/imagem";
 import { Imagem } from "./Imagem";
@@ -8,8 +10,11 @@ import { VisualizadorSobDemanda as Visualizador } from "./VisualizadorSobDemanda
 
 type Props = {
   imagens: ImagemGaleria[];
-  /** "grade": miniaturas iguais. "livro": a primeira grande, as demais em miniatura. */
-  variante?: "grade" | "livro";
+  /**
+   * "grade": miniaturas iguais. "livro": a primeira grande, as demais em miniatura.
+   * "faixa": rolagem horizontal com encaixe, arrastável com o mouse.
+   */
+  variante?: "grade" | "livro" | "faixa";
   /** sizes das miniaturas */
   sizes?: string;
   /** classes da grade de miniaturas (variante "grade") */
@@ -27,6 +32,40 @@ export function Galeria({
   const [indice, setIndice] = useState(-1);
   const ultimo = useRef(-1); // última imagem vista: recebe o foco quando o lightbox fecha
   const lista = useRef<HTMLUListElement>(null);
+  const arrasto = useRef({ x: 0, inicio: 0, moveu: false });
+
+  // Faixa: arrastar com o mouse (no toque, a rolagem nativa já funciona).
+  const arrastar = {
+    onPointerDown: (e: React.PointerEvent<HTMLUListElement>) => {
+      if (e.pointerType !== "mouse" || e.button !== 0) return;
+      arrasto.current = { x: e.clientX, inicio: e.currentTarget.scrollLeft, moveu: false };
+      const el = e.currentTarget;
+      const mover = (ev: PointerEvent) => {
+        const dx = ev.clientX - arrasto.current.x;
+        if (Math.abs(dx) > 5) {
+          arrasto.current.moveu = true;
+          el.setAttribute("data-arrastando", "");
+        }
+        el.scrollLeft = arrasto.current.inicio - dx;
+      };
+      const soltar = () => {
+        el.removeAttribute("data-arrastando");
+        window.removeEventListener("pointermove", mover);
+        window.removeEventListener("pointerup", soltar);
+      };
+      window.addEventListener("pointermove", mover);
+      window.addEventListener("pointerup", soltar);
+    },
+    // depois de arrastar, o clique que vem junto não abre o lightbox
+    onClickCapture: (e: React.MouseEvent) => {
+      if (arrasto.current.moveu) {
+        e.stopPropagation();
+        e.preventDefault();
+        arrasto.current.moveu = false;
+      }
+    },
+    onDragStart: (e: React.DragEvent) => e.preventDefault(),
+  };
 
   useEffect(() => {
     const slug = slugDaUrl();
@@ -41,12 +80,12 @@ export function Galeria({
   };
 
   const miniatura = (img: ImagemGaleria, i: number, tamanho: string, className = "", prioridade = false) => (
-    <li key={img.slug} className={className}>
+    <li key={img.slug} className={`${variante === "livro" ? "" : "revelar"} ${className}`} style={{ "--i": i % 4 } as React.CSSProperties}>
       <button
         type="button"
         data-indice={i}
         onClick={() => abrir(i)}
-        className="block w-full cursor-zoom-in rounded-[4px]"
+        className="obra relative block w-full cursor-zoom-in rounded-[4px]"
         aria-label={`Ampliar: ${img.titulo ?? img.alt}`}
       >
         <Imagem img={img} sizes={tamanho} prioridade={prioridade} className="w-full" />
@@ -61,6 +100,10 @@ export function Galeria({
           {/* capa grande: primeira imagem da página, carrega sem esperar (LCP) */}
           {miniatura(imagens[0], 0, "(min-width: 1264px) 600px, (min-width: 768px) 50vw, calc(100vw - 40px)", "col-span-4", true)}
           {imagens.slice(1).map((img, i) => miniatura(img, i + 1, "(min-width: 768px) 12vw, 25vw"))}
+        </ul>
+      ) : variante === "faixa" ? (
+        <ul ref={lista} className="faixa-rolagem list-none" aria-label="Imagens (role para o lado)" {...arrastar}>
+          {imagens.map((img, i) => miniatura(img, i, sizes))}
         </ul>
       ) : (
         <ul ref={lista} className={`grid list-none items-start gap-4 p-0 ${grade}`}>{imagens.map((img, i) => miniatura(img, i, sizes))}</ul>

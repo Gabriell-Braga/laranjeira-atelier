@@ -121,6 +121,7 @@ export function Visualizador({ imagens, indice, aoVer, aoFechar, aoSair }: Props
       labels={ROTULOS}
       // preload também define quantas miniaturas aparecem na faixa (2 × preload + 1).
       // Com 7 imagens ou menos o carrossel não dá a volta, senão a faixa repete miniaturas.
+      animation={{ fade: 350, swipe: 450, easing: { fade: "cubic-bezier(0.22, 1, 0.36, 1)", swipe: "cubic-bezier(0.22, 1, 0.36, 1)" } }}
       carousel={{ preload: 3, finite: imagens.length <= 7 }}
       zoom={{ maxZoomPixelRatio: razaoZoom, scrollToZoom: true }}
       thumbnails={{ showToggle: true, vignette: false, border: 0, borderRadius: 4 }}

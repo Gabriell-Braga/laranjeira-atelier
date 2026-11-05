@@ -10,16 +10,16 @@ export const metadata: Metadata = { title: pagina.campo("titulo"), robots: { ind
 export default function NaoEncontrada() {
   const imagem = paraGaleria(pagina.imagens("imagem")[0]);
   return (
-    <div className="conteudo grid items-center gap-10 pb-[56px] pt-10 md:grid-cols-2 md:gap-16 md:pb-[88px] md:pt-16">
+    <div className="conteudo grid items-center gap-10 topo pb-[var(--espaco-secao)] md:grid-cols-2 md:gap-16">
       <div>
         <p className="sobretitulo">Erro 404</p>
-        <h1 className="titulo-display mt-3">{pagina.campo("titulo")}</h1>
+        <h1 className="titulo-display mt-4">{pagina.campo("titulo")}</h1>
         <p className="mt-6 text-[20px]">{pagina.campo("frase")}</p>
-        <div className="mt-8 flex flex-wrap gap-3">
+        <div className="acoes mt-9">
           <Botao href="/">Ir para o início</Botao>
-          <Botao href="/livros/" variante="contorno">Livros</Botao>
-          <Botao href="/portfolio/" variante="contorno">Portfólio</Botao>
-          <Botao href="/contato/" variante="contorno">Contato</Botao>
+          <Botao href="/livros/" variante="texto">Livros</Botao>
+          <Botao href="/portfolio/" variante="texto">Portfólio</Botao>
+          <Botao href="/contato/" variante="texto">Contato</Botao>
         </div>
       </div>
       <Imagem img={imagem} sizes="(min-width: 768px) 40vw, calc(100vw - 40px)" className="mx-auto w-full max-w-[420px]" />

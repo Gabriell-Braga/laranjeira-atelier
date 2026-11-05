@@ -24,7 +24,7 @@ export const websiteEPessoa = (site: Site) => ({
   ],
 });
 
-const ISBN = /^(97[89])?\d{9}[\dX]$/;
+const ISBN13 = /^97[89]\d{10}$/;
 
 export function livroLd(livro: Livro, site: Site) {
   const url = abs(site, `/livros/${livro.slug}/`);
@@ -46,7 +46,7 @@ export function livroLd(livro: Livro, site: Site) {
     "@type": "Book",
     illustrator: autora,
     numberOfPages: livro.paginas,
-    ...(ISBN.test(livro.isbn) ? { isbn: livro.isbn } : {}),
+    ...(ISBN13.test(livro.isbn13.replace(/-/g, "")) ? { isbn: livro.isbn13.replace(/-/g, "") } : {}),
     isPartOf: { "@type": "BookSeries", name: "Coleção Sertão Vivo", url: abs(site, "/livros/colecao-sertao-vivo/") },
   };
 }

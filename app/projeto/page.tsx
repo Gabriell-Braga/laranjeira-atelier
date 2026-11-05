@@ -14,27 +14,27 @@ export default function Projeto() {
   const c = pagina.campo;
   return (
     <>
-      <header className="conteudo pb-10 pt-10 md:pt-16">
+      <header className="conteudo topo pb-[var(--espaco-bloco)]">
         <p className="sobretitulo">{c("sobretitulo")}</p>
-        <h1 className="titulo-display mt-3">{c("titulo")}</h1>
+        <h1 className="titulo-display mt-4">{c("titulo")}</h1>
       </header>
 
       <Citacao texto={c("citacao")} fonte={c("citacaoFonte")} />
 
       <article className="conteudo faixa">
         <Texto html={pagina.html} className="leitura mx-auto" />
-        <div className="leitura mx-auto mt-10 flex flex-wrap gap-3">
+        <div className="acoes leitura mx-auto mt-12">
           <Botao href="/livros/">Conhecer os livros</Botao>
-          <Botao href={site.amazon["colecao-sertao-vivo"]} variante="vereda" aria-label="Comprar na Amazon: Coleção Sertão Vivo (abre em nova aba)">
-            Comprar na Amazon
+          <Botao href={site.amazon["colecao-sertao-vivo"]} variante="texto" aria-label="Comprar a coleção na Amazon (abre em nova aba)">
+            Comprar a coleção
           </Botao>
         </div>
       </article>
 
       <section className="faixa border-t border-linha bg-surface" aria-labelledby="titulo-pranchas">
         <div className="conteudo">
-          <h2 id="titulo-pranchas" className="titulo-2">{c("pranchasTitulo")}</h2>
-          <div className="mt-10">
+          <h2 id="titulo-pranchas" className="titulo-2 revelar">{c("pranchasTitulo")}</h2>
+          <div className="mt-[var(--espaco-bloco)]">
             <Galeria
               imagens={pagina.imagens("pranchas").map(paraGaleria)}
               grade="sm:grid-cols-2 lg:grid-cols-3 gap-6"

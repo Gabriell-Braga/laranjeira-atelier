@@ -12,9 +12,9 @@ export const metadata: Metadata = metadados({ titulo: pagina.campo("titulo"), de
 export default function Contato() {
   const c = pagina.campo;
   return (
-    <div className="conteudo pb-[56px] pt-10 md:pb-[88px] md:pt-16">
+    <div className="conteudo topo pb-[var(--espaco-secao)]">
       <p className="sobretitulo">{c("sobretitulo")}</p>
-      <h1 className="titulo-display mt-3">{c("titulo")}</h1>
+      <h1 className="titulo-display mt-4">{c("titulo")}</h1>
       <Texto html={pagina.html} className="leitura mt-6 text-[20px]" />
       <div className="mt-12 grid gap-14 md:grid-cols-[3fr_2fr]">
         <section aria-labelledby="titulo-formulario">

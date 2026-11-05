@@ -15,9 +15,9 @@ export default function EscolasELivrarias() {
   const c = pagina.campo;
   return (
     <>
-      <div className="conteudo pb-12 pt-10 md:pt-16">
+      <div className="conteudo topo pb-12">
         <p className="sobretitulo">{c("sobretitulo")}</p>
-        <h1 className="titulo-display mt-3">{c("titulo")}</h1>
+        <h1 className="titulo-display mt-4">{c("titulo")}</h1>
         <Texto html={pagina.html} className="leitura mt-6" />
         <Paragrafos textos={[c("condicoes")]} className="leitura mt-6" />
       </div>

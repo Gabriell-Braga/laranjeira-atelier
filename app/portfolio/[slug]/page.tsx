@@ -32,7 +32,7 @@ export default async function Projeto({ params }: Props) {
 
   return (
     <>
-      <div className="conteudo pb-10 pt-10 md:pt-16">
+      <div className="conteudo topo pb-10">
         <VoltarAoPortfolio />
         <p className="sobretitulo mt-6">
           {TIPOS[serie.tipo]} · Projeto{anos.length ? ` · ${anos.join(", ")}` : ""}
@@ -40,11 +40,11 @@ export default async function Projeto({ params }: Props) {
         <h1 className="titulo-display mt-3">{serie.titulo}</h1>
         {serie.texto && <p className="leitura mt-6 text-ink-muted">{serie.texto}</p>}
       </div>
-      <section className="conteudo pb-[56px] md:pb-[88px]" aria-label="Imagens do projeto">
+      <section className="conteudo pb-[var(--espaco-secao)]" aria-label="Imagens do projeto">
         <Galeria imagens={itens.map((i) => paraGaleria(paraImagem(i)))} grade="grid-cols-1 sm:grid-cols-2 lg:grid-cols-3" sizes="(min-width: 1024px) 384px, (min-width: 640px) 50vw, 100vw" />
-        <div className="mt-14 flex flex-wrap gap-3">
-          <Botao href="/contato/">Tem um projeto parecido? Fale comigo</Botao>
-          <Botao href="/portfolio/" variante="contorno">Ver todo o portfólio</Botao>
+        <div className="acoes mt-14">
+          <Botao href="/contato/">Fale comigo sobre um projeto</Botao>
+          <Botao href="/portfolio/" variante="texto">Ver todo o portfólio</Botao>
         </div>
       </section>
     </>

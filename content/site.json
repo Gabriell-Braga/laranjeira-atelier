@@ -9,6 +9,11 @@
     "whatsappMensagem": "Olá, Dilce! Vim pelo site do Laranjeira Atelier.",
     "instagram": "[PREENCHER: endereço do Instagram]"
   },
+  "redes": [
+    { "nome": "Behance", "url": "[PREENCHER: endereço do Behance, se houver]" },
+    { "nome": "LinkedIn", "url": "[PREENCHER: endereço do LinkedIn, se houver]" },
+    { "nome": "Facebook", "url": "[PREENCHER: endereço do Facebook, se houver]" }
+  ],
   "amazon": {
     "_nota": "Links importados do site atual (página Livros Sertão Vivo). Confirmar se continuam sendo as ofertas certas.",
     "ave-sertao": "https://www.amazon.com.br/dp/6501834376",

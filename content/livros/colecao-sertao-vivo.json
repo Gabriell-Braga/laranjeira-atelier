@@ -10,7 +10,7 @@
   "paginas": 728,
   "formato": "18 × 22 cm",
   "encadernacao": "Costurada",
-  "isbn": "[PREENCHER: ISBN da coleção, se houver]",
+  "isbn13": "[PREENCHER: ISBN-13 978-65-...]",
   "ficha": [
     {
       "rotulo": "Volumes",
@@ -30,7 +30,7 @@
     }
   ],
   "descricao": [
-    "[PREENCHER: descrição oficial do livro (Gabriel vai trazer da Amazon)]"
+    "[PREENCHER: TEXTO DA AUTORA — sinopse do livro, 1 a 3 parágrafos]"
   ],
   "capa": {
     "arquivo": "wix/colecao-sertao-vivo/colecao-sertao-vivo1-aed3af15.png",
