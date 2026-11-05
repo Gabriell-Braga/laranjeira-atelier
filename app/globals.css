@@ -605,6 +605,8 @@
   box-shadow: 0 30px 60px -30px rgb(0 0 0 / 0.6);
   animation: vz-imagem 0.45s var(--ease-natural);
   user-select: none;
+  touch-action: none; /* a pinça amplia só a imagem (components/Visualizador.tsx), não a página */
+  transform-origin: center;
 }
 @keyframes vz-imagem {
   from {

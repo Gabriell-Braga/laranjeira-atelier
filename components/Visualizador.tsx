@@ -103,6 +103,74 @@ export function Visualizador({ imagens, indice, aoVer, aoFechar, aoSair }: Props
     aoSair?.();
   };
 
+  // ---------- Pinça no celular: amplia só a imagem (a página não dá zoom) ----------
+  // Dois dedos ampliam (até 4x); com a imagem ampliada, um dedo arrasta; toque duplo alterna 1x/2,5x.
+  const dedos = useRef(new Map<number, { x: number; y: number }>());
+  const zoom = useRef({ escala: 1, x: 0, y: 0, inicioDist: 0, inicioEscala: 1, ultimoToque: 0 });
+  const aplicarZoom = (el: HTMLElement, animar = false) => {
+    const z = zoom.current;
+    el.style.transition = animar ? "transform 0.3s cubic-bezier(0.22, 1, 0.36, 1)" : "none";
+    el.style.transform = z.escala === 1 ? "" : `translate(${z.x}px, ${z.y}px) scale(${z.escala})`;
+  };
+  useEffect(() => {
+    zoom.current = { escala: 1, x: 0, y: 0, inicioDist: 0, inicioEscala: 1, ultimoToque: 0 };
+    dedos.current.clear();
+  }, [indice]);
+  const distancia = () => {
+    const [a, b] = [...dedos.current.values()];
+    return Math.hypot(a.x - b.x, a.y - b.y);
+  };
+  const tocar = (e: React.PointerEvent<HTMLImageElement>) => {
+    if (e.pointerType === "mouse") return;
+    try {
+      e.currentTarget.setPointerCapture(e.pointerId);
+    } catch {}
+    dedos.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    const z = zoom.current;
+    if (dedos.current.size === 2) {
+      toque.current = null; // pinça não conta como arrastar para trocar de imagem
+      z.inicioDist = distancia();
+      z.inicioEscala = z.escala;
+    } else if (dedos.current.size === 1) {
+      const agora = Date.now();
+      if (agora - z.ultimoToque < 300) {
+        z.escala = z.escala > 1 ? 1 : 2.5;
+        z.x = z.y = 0;
+        aplicarZoom(e.currentTarget, true);
+        z.ultimoToque = 0;
+      } else z.ultimoToque = agora;
+    }
+  };
+  const arrastarZoom = (e: React.PointerEvent<HTMLImageElement>) => {
+    if (e.pointerType === "mouse") return moverLupa(e);
+    const antes = dedos.current.get(e.pointerId);
+    if (!antes) return;
+    dedos.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    const z = zoom.current;
+    if (dedos.current.size === 2 && z.inicioDist > 0) {
+      z.escala = Math.min(4, Math.max(1, (z.inicioEscala * distancia()) / z.inicioDist));
+      if (z.escala === 1) z.x = z.y = 0;
+      aplicarZoom(e.currentTarget);
+    } else if (dedos.current.size === 1 && z.escala > 1) {
+      const r = e.currentTarget.getBoundingClientRect();
+      // limita o arraste para a imagem não sair da tela
+      const maxX = (r.width - r.width / z.escala) / 2;
+      const maxY = (r.height - r.height / z.escala) / 2;
+      z.x = Math.min(maxX, Math.max(-maxX, z.x + e.clientX - antes.x));
+      z.y = Math.min(maxY, Math.max(-maxY, z.y + e.clientY - antes.y));
+      aplicarZoom(e.currentTarget);
+    }
+  };
+  const soltar = (e: React.PointerEvent<HTMLImageElement>) => {
+    dedos.current.delete(e.pointerId);
+    const z = zoom.current;
+    if (z.escala < 1.05 && z.escala !== 1) {
+      z.escala = 1;
+      z.x = z.y = 0;
+      aplicarZoom(e.currentTarget, true);
+    }
+  };
+
   const moverLupa = (e: React.PointerEvent<HTMLImageElement>) => {
     if (e.pointerType !== "mouse" || !lupa.current || !img) return;
     const r = e.currentTarget.getBoundingClientRect();
@@ -141,9 +209,15 @@ export function Visualizador({ imagens, indice, aoVer, aoFechar, aoSair }: Props
 
           <div
             className="vz-palco"
-            onPointerDown={(e) => e.pointerType !== "mouse" && (toque.current = e.clientX)}
+            onPointerDown={(e) => {
+              // arrastar para o lado troca de imagem, mas não durante a pinça nem com a imagem ampliada
+              if (e.pointerType !== "mouse" && dedos.current.size <= 1) toque.current = e.clientX;
+            }}
             onPointerUp={(e) => {
-              if (toque.current === null) return;
+              if (toque.current === null || zoom.current.escala > 1) {
+                toque.current = null;
+                return;
+              }
               const dx = e.clientX - toque.current;
               toque.current = null;
               if (Math.abs(dx) > 50) ir(dx < 0 ? 1 : -1);
@@ -165,7 +239,10 @@ export function Visualizador({ imagens, indice, aoVer, aoFechar, aoSair }: Props
                 height={img.altura}
                 alt={img.alt}
                 className="vz-imagem"
-                onPointerMove={moverLupa}
+                onPointerDown={tocar}
+                onPointerMove={arrastarZoom}
+                onPointerUp={soltar}
+                onPointerCancel={soltar}
                 onPointerLeave={() => setLupaAtiva(false)}
                 draggable={false}
               />
