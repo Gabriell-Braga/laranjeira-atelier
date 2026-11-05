@@ -1,41 +1,12 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
-import Lightbox from "yet-another-react-lightbox";
-import Captions from "yet-another-react-lightbox/plugins/captions";
-import Counter from "yet-another-react-lightbox/plugins/counter";
-import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
-import Zoom from "yet-another-react-lightbox/plugins/zoom";
-import "yet-another-react-lightbox/styles.css";
-import "yet-another-react-lightbox/plugins/captions.css";
-import "yet-another-react-lightbox/plugins/counter.css";
-import "yet-another-react-lightbox/plugins/thumbnails.css";
-import { urlImagem, type ImagemGaleria } from "@/lib/imagem";
+import type React from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { srcSet, urlImagem, type ImagemGaleria } from "@/lib/imagem";
 import { atualizarUrlImagem } from "@/lib/url-imagem";
 
-const ROTULOS = {
-  Lightbox: "Visualizador de imagens",
-  Carousel: "Carrossel",
-  Slide: "Imagem",
-  "Photo gallery": "Galeria de imagens",
-  "{index} of {total}": "{index} de {total}",
-  Previous: "Anterior",
-  Next: "Próxima",
-  Close: "Fechar",
-  Loading: "Carregando",
-  Error: "Não foi possível carregar a imagem",
-  "Zoom in": "Ampliar",
-  "Zoom out": "Reduzir",
-  "Show thumbnails": "Mostrar miniaturas",
-  "Hide thumbnails": "Esconder miniaturas",
-  Thumbnails: "Miniaturas",
-  Caption: "Legenda",
-  "Show captions": "Mostrar legenda",
-  "Hide captions": "Esconder legenda",
-};
-
-const ZOOM_MAXIMO = 3;
-const FUNDO = "rgba(17, 24, 20, 0.96)"; // #111814 a 96%
+const LUPA = 220; // diâmetro da lupa, em px
+const AUMENTO = 2.6; // aumento dentro da lupa, em relação à imagem na tela
 
 function Legenda({ img }: { img: ImagemGaleria }) {
   const partes = [img.tecnica, img.origem, img.descricao].filter(Boolean);
@@ -49,86 +20,198 @@ function Legenda({ img }: { img: ImagemGaleria }) {
   );
 }
 
+const Seta = ({ esquerda }: { esquerda?: boolean }) => (
+  <svg width="22" height="22" viewBox="0 0 16 16" aria-hidden="true" className={esquerda ? "rotate-180" : ""}>
+    <path d="M2 8h11M9 4l4 4-4 4" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
 
 type Props = {
   imagens: ImagemGaleria[];
   /** índice aberto; -1 = fechado */
   indice: number;
-  /** chamado ao navegar dentro do lightbox */
+  /** chamado ao navegar dentro do visualizador */
   aoVer: (indice: number) => void;
   aoFechar: () => void;
-  /** chamado quando a animação de fechar termina (bom momento para mover o foco) */
+  /** chamado depois de fechar (bom momento para devolver o foco) */
   aoSair?: () => void;
 };
 
-// Lightbox com zoom até 3x na tela, legenda, contador, miniaturas e ?imagem=slug na URL.
+// Visualizador de imagens em <dialog> nativo (foco preso, Esc e aria-modal vêm do navegador).
+// Nada fica por cima da obra: contador e fechar em cima, legenda e miniaturas embaixo.
+// Com mouse, uma lupa redonda acompanha o cursor e mostra a imagem ampliada.
 export function Visualizador({ imagens, indice, aoVer, aoFechar, aoSair }: Props) {
-  // O Zoom da biblioteca limita pelo tamanho do arquivo (pixels × maxZoomPixelRatio).
-  // Para o limite ser 3x do tamanho na tela, calculamos a razão para a imagem atual.
-  const [razaoZoom, setRazaoZoom] = useState(1);
-  useEffect(() => {
-    if (indice < 0 || !imagens[indice]) return;
-    const img = imagens[indice];
-    const medir = () => {
-      const slide = document.querySelector<HTMLElement>(".yarl__slide_current");
-      if (!slide) return;
-      const cs = getComputedStyle(slide);
-      const w = slide.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
-      const h = slide.clientHeight - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom);
-      const exibida = Math.min(w, (h * img.largura) / img.altura, img.largura);
-      setRazaoZoom((ZOOM_MAXIMO * exibida) / img.largura);
-    };
-    const quadro = requestAnimationFrame(medir);
-    window.addEventListener("resize", medir);
-    return () => {
-      cancelAnimationFrame(quadro);
-      window.removeEventListener("resize", medir);
-    };
-  }, [indice, imagens]);
+  const dialogo = useRef<HTMLDialogElement>(null);
+  const lupa = useRef<HTMLDivElement>(null);
+  const toque = useRef<number | null>(null);
+  const [lupaAtiva, setLupaAtiva] = useState(false);
+  const aberto = indice >= 0 && !!imagens[indice];
+  const img = aberto ? imagens[indice] : null;
+  const total = imagens.length;
 
-  const slides = useMemo(
-    () =>
-      imagens.map((img) => ({
-        src: urlImagem(img, img.larguras[img.larguras.length - 1]),
-        width: img.largura,
-        height: img.altura,
-        alt: img.alt,
-        title: img.titulo,
-        description: <Legenda img={img} />,
-        srcSet: img.larguras.map((l) => ({ src: urlImagem(img, l), width: l, height: Math.round((img.altura * l) / img.largura) })),
-      })),
-    [imagens],
+  const ir = useCallback(
+    (passo: number) => {
+      if (total < 2) return;
+      const novo = (indice + passo + total) % total;
+      atualizarUrlImagem(imagens[novo].slug);
+      aoVer(novo);
+    },
+    [indice, total, imagens, aoVer],
   );
 
+  // Abre/fecha o <dialog> conforme o índice e trava a rolagem da página por baixo.
+  useEffect(() => {
+    const d = dialogo.current;
+    if (!d) return;
+    if (aberto && !d.open) {
+      d.showModal();
+      document.documentElement.style.overflow = "hidden";
+    }
+    if (!aberto && d.open) d.close();
+  }, [aberto]);
+
+  useEffect(() => {
+    if (!aberto) return;
+    const teclas = (e: KeyboardEvent) => {
+      if (e.key === "ArrowRight") ir(1);
+      if (e.key === "ArrowLeft") ir(-1);
+    };
+    window.addEventListener("keydown", teclas);
+    return () => window.removeEventListener("keydown", teclas);
+  }, [aberto, ir]);
+
+  // A miniatura atual fica sempre visível na faixa de baixo.
+  useEffect(() => {
+    if (!aberto) return;
+    dialogo.current?.querySelector('[aria-current="true"]')?.scrollIntoView({ block: "nearest", inline: "center" });
+  }, [aberto, indice]);
+
+  // Pré-carrega a vizinha seguinte para a navegação não piscar.
+  useEffect(() => {
+    if (!aberto || total < 2) return;
+    const prox = imagens[(indice + 1) % total];
+    const pre = new Image();
+    pre.sizes = "100vw";
+    pre.srcset = srcSet(prox);
+  }, [aberto, indice, imagens, total]);
+
+  const aoFecharDialogo = () => {
+    document.documentElement.style.overflow = "";
+    setLupaAtiva(false);
+    atualizarUrlImagem(null);
+    aoFechar();
+    aoSair?.();
+  };
+
+  const moverLupa = (e: React.PointerEvent<HTMLImageElement>) => {
+    if (e.pointerType !== "mouse" || !lupa.current || !img) return;
+    const r = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - r.left;
+    const y = e.clientY - r.top;
+    // a lupa é posicionada no quadro (maior que a imagem); o fundo, pela posição na imagem
+    const q = e.currentTarget.parentElement!.getBoundingClientRect();
+    const l = lupa.current.style;
+    l.transform = `translate(${e.clientX - q.left - LUPA / 2}px, ${e.clientY - q.top - LUPA / 2}px)`;
+    l.backgroundSize = `${r.width * AUMENTO}px ${r.height * AUMENTO}px`;
+    l.backgroundPosition = `${-(x * AUMENTO - LUPA / 2)}px ${-(y * AUMENTO - LUPA / 2)}px`;
+    if (!lupaAtiva) setLupaAtiva(true);
+  };
+
   return (
-    <Lightbox
-      open={indice >= 0}
-      index={Math.max(indice, 0)}
-      close={() => {
-        atualizarUrlImagem(null);
-        aoFechar();
-      }}
-      on={{
-        view: ({ index }) => {
-          if (!imagens[index]) return;
-          atualizarUrlImagem(imagens[index].slug);
-          aoVer(index);
-        },
-        exited: () => aoSair?.(),
-      }}
-      slides={slides}
-      plugins={[Captions, Counter, Thumbnails, Zoom]}
-      labels={ROTULOS}
-      // preload também define quantas miniaturas aparecem na faixa (2 × preload + 1).
-      // Com 7 imagens ou menos o carrossel não dá a volta, senão a faixa repete miniaturas.
-      animation={{ fade: 350, swipe: 450, easing: { fade: "cubic-bezier(0.22, 1, 0.36, 1)", swipe: "cubic-bezier(0.22, 1, 0.36, 1)" } }}
-      carousel={{ preload: 3, finite: imagens.length <= 7 }}
-      zoom={{ maxZoomPixelRatio: razaoZoom, scrollToZoom: true }}
-      thumbnails={{ showToggle: true, vignette: false, border: 0, borderRadius: 4 }}
-      captions={{ descriptionTextAlign: "start", descriptionMaxLines: 4 }}
-      counter={{ separator: "/", container: { style: { top: "unset", bottom: 0, left: "auto", right: 0 } } }}
-      styles={{ container: { backgroundColor: FUNDO }, thumbnailsContainer: { backgroundColor: FUNDO } }}
-      render={imagens.length <= 1 ? { buttonPrev: () => null, buttonNext: () => null } : undefined}
-    />
+    <dialog
+      ref={dialogo}
+      className="visualizador"
+      aria-label={img ? `Imagem ${indice + 1} de ${total}: ${img.titulo ?? img.alt}` : "Visualizador de imagens"}
+      onClose={aoFecharDialogo}
+      onClick={(e) => e.target === e.currentTarget && dialogo.current?.close()}
+    >
+      {img && (
+        <div className="vz-grade">
+          <div className="vz-topo">
+            <p className="text-[14px] tracking-[0.12em] text-paper/70" aria-hidden="true">
+              {total > 1 ? `${String(indice + 1).padStart(2, "0")} / ${String(total).padStart(2, "0")}` : ""}
+            </p>
+            <button type="button" autoFocus onClick={() => dialogo.current?.close()} className="vz-botao" aria-label="Fechar">
+              <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+                <path d="M4 4l12 12M16 4L4 16" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+              </svg>
+            </button>
+          </div>
+
+          <div
+            className="vz-palco"
+            onPointerDown={(e) => e.pointerType !== "mouse" && (toque.current = e.clientX)}
+            onPointerUp={(e) => {
+              if (toque.current === null) return;
+              const dx = e.clientX - toque.current;
+              toque.current = null;
+              if (Math.abs(dx) > 50) ir(dx < 0 ? 1 : -1);
+            }}
+          >
+            {total > 1 && (
+              <button type="button" onClick={() => ir(-1)} className="vz-botao vz-seta" aria-label="Imagem anterior">
+                <Seta esquerda />
+              </button>
+            )}
+            <div className="vz-quadro">
+              {/* key: a troca de imagem refaz a animação de entrada */}
+              <img
+                key={img.slug}
+                src={urlImagem(img, img.larguras.find((l) => l >= 1200) ?? img.larguras[img.larguras.length - 1])}
+                srcSet={srcSet(img)}
+                sizes="(min-width: 768px) calc(100vw - 180px), 100vw"
+                width={img.largura}
+                height={img.altura}
+                alt={img.alt}
+                className="vz-imagem"
+                onPointerMove={moverLupa}
+                onPointerLeave={() => setLupaAtiva(false)}
+                draggable={false}
+              />
+              <div
+                ref={lupa}
+                aria-hidden="true"
+                className="vz-lupa"
+                data-ativa={lupaAtiva || undefined}
+                style={{ width: LUPA, height: LUPA, backgroundImage: `url(${urlImagem(img, img.larguras[img.larguras.length - 1])})` }}
+              />
+            </div>
+            {total > 1 && (
+              <button type="button" onClick={() => ir(1)} className="vz-botao vz-seta" aria-label="Próxima imagem">
+                <Seta />
+              </button>
+            )}
+          </div>
+
+          <div className="vz-legenda">
+            {img.titulo && <p className="font-display text-[22px] leading-tight text-paper">{img.titulo}</p>}
+            <p className="mt-1 text-[14px] text-paper/70">
+              <Legenda img={img} />
+            </p>
+          </div>
+
+          {total > 1 && (
+            <ul className="vz-miniaturas" aria-label="Miniaturas">
+              {imagens.map((m, i) => (
+                <li key={m.slug}>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      atualizarUrlImagem(m.slug);
+                      aoVer(i);
+                    }}
+                    aria-label={`Ver ${m.titulo ?? m.alt}`}
+                    aria-current={i === indice || undefined}
+                    className="vz-miniatura"
+                  >
+                    <img src={urlImagem(m, m.larguras[0])} alt="" width={m.largura} height={m.altura} loading="lazy" decoding="async" />
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      )}
+    </dialog>
   );
 }
