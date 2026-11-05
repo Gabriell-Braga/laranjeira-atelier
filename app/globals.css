@@ -349,7 +349,7 @@
   }
   .cabecalho[data-rolado]::before {
     transform: scaleY(calc(64 / 76));
-    background: rgb(247 244 238 / 0.82);
+    background: rgb(247 244 238 / 0.9);
     border-color: var(--color-linha);
     box-shadow: 0 8px 24px -18px rgb(42 38 32 / 0.4);
     backdrop-filter: blur(14px) saturate(1.2);
@@ -360,6 +360,59 @@
   }
   .cabecalho[data-rolado] .cabecalho-logo {
     transform: scale(0.86);
+  }
+  /* Menu do celular: cortina que desce, links entram em sequência */
+  .menu-painel {
+    visibility: hidden;
+    opacity: 0;
+    clip-path: inset(0 0 100% 0);
+    transition:
+      clip-path 0.45s var(--ease-natural),
+      opacity 0.3s var(--ease-natural),
+      transform 0.4s var(--ease-natural),
+      visibility 0s linear 0.45s;
+  }
+  .menu-painel[data-aberto] {
+    visibility: visible;
+    opacity: 1;
+    clip-path: inset(0 0 -40px 0); /* deixa a sombra aparecer */
+    transition:
+      clip-path 0.5s var(--ease-natural),
+      opacity 0.2s var(--ease-natural),
+      transform 0.4s var(--ease-natural),
+      visibility 0s;
+  }
+  .menu-item {
+    opacity: 0;
+    transform: translateY(-8px);
+    transition:
+      opacity 0.2s var(--ease-natural),
+      transform 0.2s var(--ease-natural);
+  }
+  .menu-painel[data-aberto] .menu-item {
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity 0.4s var(--ease-natural),
+      transform 0.4s var(--ease-natural);
+    transition-delay: calc(80ms + var(--i, 0) * 45ms);
+  }
+  .icone-menu path {
+    transform-box: fill-box;
+    transform-origin: center;
+    transition:
+      transform 0.35s var(--ease-natural),
+      opacity 0.2s var(--ease-natural);
+  }
+  .icone-menu[data-aberto] path:nth-child(1) {
+    transform: translateY(5px) rotate(45deg);
+  }
+  .icone-menu[data-aberto] path:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0.2);
+  }
+  .icone-menu[data-aberto] path:nth-child(3) {
+    transform: translateY(-5px) rotate(-45deg);
   }
   .cabecalho[data-rolado] #menu-celular {
     transform: translateY(-6px); /* a linha já subiu 6px */
@@ -440,6 +493,27 @@
     radial-gradient(ellipse 70% 60% at 42% 52%, #000 calc(var(--tinta) - 18%), transparent var(--tinta)),
     radial-gradient(ellipse 55% 70% at 64% 44%, #000 calc(var(--tinta) - 26%), transparent calc(var(--tinta) - 4%));
   animation: tinta 1.6s var(--ease-natural) 0.15s backwards;
+}
+
+/* Leque de capas (Sobre a coleção): cada capa girada; no hover o leque abre um pouco
+   e a capa apontada sobe. O giro fica no link, a entrada (.entrar) no item. */
+.leque-capa {
+  transform: rotate(var(--giro));
+  transform-origin: 50% 100%;
+  border-radius: var(--radius-imagem);
+  box-shadow: 0 18px 36px -20px rgb(42 38 32 / 0.55);
+  transition:
+    transform 0.5s var(--ease-natural),
+    box-shadow 0.5s var(--ease-natural);
+}
+@media (hover: hover) {
+  .leque:hover .leque-capa {
+    transform: translateX(var(--abre)) rotate(var(--giro));
+  }
+  .leque .leque-capa:is(:hover, :focus-visible) {
+    transform: translateX(var(--abre)) translateY(-14px) rotate(calc(var(--giro) * 0.5));
+    box-shadow: 0 28px 44px -22px rgb(42 38 32 / 0.6);
+  }
 }
 
 /* Lightbox: abre com fade + leve escala */
@@ -560,14 +634,20 @@
   scroll-snap-type: x mandatory;
   scroll-padding-inline: 20px;
   padding-inline: 20px;
-  padding-bottom: 1rem;
-  scrollbar-width: thin;
-  scrollbar-color: var(--color-ocre) transparent;
+  scrollbar-width: none; /* no lugar da barra: progresso e setas (components/Galeria.tsx) */
   cursor: grab;
   @media (width >= 48rem) {
     padding-inline: max(32px, calc((100vw - 1200px) / 2));
     scroll-padding-inline: max(32px, calc((100vw - 1200px) / 2));
   }
+}
+.faixa-rolagem::-webkit-scrollbar {
+  display: none;
+}
+.faixa-progresso {
+  transform-origin: left;
+  transform: scaleX(0.3);
+  transition: transform 0.25s var(--ease-natural);
 }
 .faixa-rolagem > * {
   scroll-snap-align: start;

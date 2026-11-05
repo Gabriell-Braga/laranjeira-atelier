@@ -1,5 +1,6 @@
 "use client";
 
+import type React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
@@ -11,10 +12,10 @@ const ativo = (pathname: string, href: string) => pathname === href || pathname.
 function Links({ itens, pathname, vertical }: { itens: ItemMenu[]; pathname: string; vertical?: boolean }) {
   return (
     <ul className={vertical ? "flex flex-col gap-1" : "flex items-center gap-6 xl:gap-8"}>
-      {itens.map((item) => {
+      {itens.map((item, i) => {
         const atual = ativo(pathname, item.href);
         return (
-          <li key={item.href}>
+          <li key={item.href} className={vertical ? "menu-item" : undefined} style={vertical ? ({ "--i": i } as React.CSSProperties) : undefined}>
             <Link
               href={item.href}
               aria-current={atual ? "page" : undefined}
@@ -72,12 +73,11 @@ export function Menu({ itens, compra }: { itens: ItemMenu[]; compra: React.React
         aria-controls="menu-celular"
         onClick={() => setAberto((a) => !a)}
       >
-        <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
-          {aberto ? (
-            <path d="M3 3l12 12M15 3L3 15" stroke="currentColor" strokeWidth="2" />
-          ) : (
-            <path d="M2 4h14M2 9h14M2 14h14" stroke="currentColor" strokeWidth="2" />
-          )}
+        {/* três traços que viram um X (animação em globals.css, .icone-menu) */}
+        <svg className="icone-menu" data-aberto={aberto || undefined} width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+          <path d="M2 4h14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+          <path d="M2 9h14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+          <path d="M2 14h14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
         </svg>
         {aberto ? "Fechar" : "Menu"}
       </button>
@@ -86,11 +86,15 @@ export function Menu({ itens, compra }: { itens: ItemMenu[]; compra: React.React
         ref={painel}
         id="menu-celular"
         aria-label="Principal"
-        hidden={!aberto}
-        className="absolute inset-x-0 top-full border-t border-linha bg-paper px-5 pb-6 pt-2 transition-transform duration-300 shadow-[0_12px_24px_rgba(42,38,32,0.12)] lg:hidden"
+        // inert em vez de hidden: o painel continua no DOM para animar, mas fechado não recebe foco nem leitor de tela
+        inert={!aberto}
+        data-aberto={aberto || undefined}
+        className="menu-painel absolute inset-x-0 top-full border-t border-linha bg-paper px-5 pb-6 pt-2 shadow-[0_12px_24px_rgba(42,38,32,0.12)] lg:hidden"
       >
         <Links itens={itens} pathname={pathname} vertical />
-        <div className="mt-4">{compra}</div>
+        <div className="menu-item mt-4" style={{ "--i": itens.length } as React.CSSProperties}>
+          {compra}
+        </div>
       </nav>
     </>
   );
