@@ -199,7 +199,7 @@ export function FormularioContato({ assuntoInicial = "" }: { assuntoInicial?: st
       <button
         type="submit"
         disabled={enviando}
-        className="inline-flex items-center justify-center rounded-full bg-laranja px-7 py-3 text-[17px] font-bold text-ink transition-colors hover:bg-[#f39448] disabled:opacity-60"
+        className="inline-flex items-center justify-center rounded-full bg-laranja px-7 py-3 text-[17px] font-bold text-ink transition-colors duration-[400ms] hover:bg-[#f39448] disabled:opacity-60"
       >
         {enviando ? "Enviando…" : "Enviar mensagem"}
       </button>

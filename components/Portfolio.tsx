@@ -49,7 +49,7 @@ function Pilula({ ativo, onClick, children }: { ativo: boolean; onClick: () => v
       type="button"
       aria-pressed={ativo}
       onClick={onClick}
-      className={`shrink-0 whitespace-nowrap rounded-full border px-4 py-2 text-[15px] font-bold transition-colors duration-200 ${
+      className={`shrink-0 whitespace-nowrap rounded-full border px-4 py-2 text-[15px] font-bold transition-colors duration-[400ms] ${
         ativo ? "border-vereda bg-vereda text-paper" : "border-linha bg-surface text-ink hover:border-vereda hover:text-vereda"
       }`}
     >
@@ -264,7 +264,7 @@ export function Portfolio({ inicial, total, tipos, tecnicas, series }: Props) {
             aria-expanded={painel}
             aria-controls="painel-filtros"
             onClick={() => setPainel((p) => !p)}
-            className={`inline-flex shrink-0 items-center gap-2 rounded-full border px-4 py-2 text-[15px] font-bold transition-colors duration-200 ${
+            className={`inline-flex shrink-0 items-center gap-2 rounded-full border px-4 py-2 text-[15px] font-bold transition-colors duration-[400ms] ${
               painel || ativosNoPainel ? "border-vereda text-vereda" : "border-linha bg-surface text-ink hover:border-vereda hover:text-vereda"
             }`}
           >

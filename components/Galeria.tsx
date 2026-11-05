@@ -156,7 +156,7 @@ export function Galeria({
                   type="button"
                   onClick={() => passar(dir)}
                   aria-label={dir < 0 ? "Imagens anteriores" : "Próximas imagens"}
-                  className="seta-faixa grid h-11 w-11 place-items-center rounded-full border border-linha bg-surface text-vereda transition-[background-color,color,border-color,transform] duration-200 hover:border-vereda hover:bg-vereda hover:text-paper active:scale-95 disabled:pointer-events-none disabled:opacity-35"
+                  className="seta-faixa grid h-11 w-11 place-items-center rounded-full border border-linha bg-surface text-vereda transition-[background-color,color,border-color,transform] duration-[400ms] hover:border-vereda hover:bg-vereda hover:text-paper active:scale-95 disabled:pointer-events-none disabled:opacity-35"
                 >
                   <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" className={dir < 0 ? "rotate-180" : ""}>
                     <path d="M2 8h11M9 4l4 4-4 4" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />

@@ -16,7 +16,7 @@ const CORES = [
   ["laranja", "#ED7F29", "filetes, menu ativo, botão principal"],
   ["laranja-escuro", "#D9701C", "botão principal pressionado"],
   ["vereda", "#2F4A2A", "verde-cerrado: compra, links, faixa da citação"],
-  ["vereda-claro", "#3D5E37", "botão de compra no hover"],
+  ["vereda-claro", "#4A6F43", "botão de compra no hover"],
   ["rio", "#34507A", "azul para texto, se precisar"],
   ["ink", "#2A2620", "texto principal"],
   ["ink-muted", "#5E574C", "texto secundário e legendas"],

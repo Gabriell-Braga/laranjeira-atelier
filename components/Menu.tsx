@@ -68,7 +68,7 @@ export function Menu({ itens, compra }: { itens: ItemMenu[]; compra: React.React
       <button
         ref={botao}
         type="button"
-        className="inline-flex items-center gap-2 rounded-full border-2 border-ink px-4 py-2 text-[16px] font-bold transition-colors hover:bg-ink hover:text-paper lg:hidden"
+        className="inline-flex items-center gap-2 rounded-full border-2 border-ink px-4 py-2 text-[16px] font-bold transition-colors duration-[400ms] hover:bg-ink hover:text-paper lg:hidden"
         aria-expanded={aberto}
         aria-controls="menu-celular"
         onClick={() => setAberto((a) => !a)}
