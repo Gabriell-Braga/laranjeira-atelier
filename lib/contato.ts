@@ -1,4 +1,4 @@
-// Validação do formulário de contato. Sem dependências: roda no Worker e no Node (teste no fim).
+// Validação do formulário de contato. Sem dependências: roda na rota /api/contato e no Node (teste no fim).
 
 export const ASSUNTOS = ["Encomenda de ilustração", "Projeto editorial", "Compra para escola ou livraria", "Outro"] as const;
 
@@ -20,7 +20,7 @@ export function validar(entrada: Record<string, unknown>): Resultado {
   return Object.keys(erros).length ? { ok: false, erros } : { ok: true, dados };
 }
 
-// Teste rápido: node worker/contato.ts
+// Teste rápido: node lib/contato.ts
 if (typeof process !== "undefined" && process.argv?.[1]?.endsWith("contato.ts")) {
   const ok = validar({ nome: "Ana", email: "ana@exemplo.com", assunto: "Outro", mensagem: "Olá, gostaria de saber mais." });
   console.assert(ok.ok, "mensagem válida deve passar");

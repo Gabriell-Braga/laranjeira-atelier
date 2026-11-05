@@ -9,11 +9,12 @@ content/originais/
 
 .env
 .env.local
-.dev.vars
 .DS_Store
 Thumbs.db
 revisao/
 content/imagens-para-substituir.html
 content/imagens-para-substituir.pdf
-.wrangler/
+.vercel/
 public/og/
+.wrangler/
+.dev.vars

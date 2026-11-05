@@ -32,7 +32,7 @@ export default async function Projeto({ params }: Props) {
 
   return (
     <>
-      <div className="conteudo topo pb-10">
+      <div className="entrada conteudo topo pb-10">
         <VoltarAoPortfolio />
         <p className="sobretitulo mt-6">
           {TIPOS[serie.tipo]} · Projeto{anos.length ? ` · ${anos.join(", ")}` : ""}

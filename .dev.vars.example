@@ -1,8 +1,0 @@
-# Copie para .dev.vars para testar o formulário com "npm run dev:worker".
-# Chaves de TESTE do Turnstile (sempre aprovam); não use em produção.
-TURNSTILE_SITE_KEY=1x00000000000000000000AA
-TURNSTILE_SECRET=1x0000000000000000000000000000000AA
-# Deixe as três abaixo vazias para o modo de teste (não envia e-mail).
-RESEND_API_KEY=
-CONTATO_PARA=
-CONTATO_DE=

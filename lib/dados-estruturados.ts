@@ -2,7 +2,7 @@
 import type { Livro } from "./conteudo";
 import { pendente } from "./pendencias";
 
-type Site = { nome: string; autora: string; url: string; contato: { email: string; instagram: string }; amazonDireto: Record<string, string> };
+type Site = { nome: string; autora: string; url: string; contato: { email: string; instagram: string }; amazon: Record<string, string> };
 
 const abs = (site: Site, caminho: string) => new URL(caminho, site.url).toString();
 
@@ -29,7 +29,7 @@ const ISBN13 = /^97[89]\d{10}$/;
 export function livroLd(livro: Livro, site: Site) {
   const url = abs(site, `/livros/${livro.slug}/`);
   const autora = { "@id": abs(site, "/sobre/#dilce"), "@type": "Person", name: livro.autora };
-  const oferta = site.amazonDireto[livro.slug];
+  const oferta = site.amazon[livro.slug];
   const comum = {
     "@context": "https://schema.org",
     name: livro.titulo,

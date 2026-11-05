@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useId, useRef, useState } from "react";
-import { ASSUNTOS, validar, type Mensagem } from "@/worker/contato";
+import { ASSUNTOS, validar, type Mensagem } from "@/lib/contato";
 
 type Erros = Partial<Record<keyof Mensagem | "geral", string>>;
 type Turnstile = {
@@ -47,7 +47,7 @@ export function FormularioContato({ assuntoInicial = "" }: { assuntoInicial?: st
   // Busca a chave pública do Turnstile no Worker e monta o desafio.
   useEffect(() => {
     let cancelado = false;
-    fetch("/api/contato")
+    fetch("/api/contato/")
       .then((r) => (r.ok ? r.json() : Promise.reject()))
       .then(async (c: { siteKey: string | null; ativo: boolean }) => {
         if (cancelado) return;
@@ -98,7 +98,7 @@ export function FormularioContato({ assuntoInicial = "" }: { assuntoInicial?: st
     setErros({});
     try {
       const site = (e.currentTarget.elements.namedItem("site") as HTMLInputElement | null)?.value ?? "";
-      const resp = await fetch("/api/contato", {
+      const resp = await fetch("/api/contato/", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ ...valores, site, turnstile: token.current }),

@@ -126,12 +126,13 @@ export function Visualizador({ imagens, indice, aoVer, aoFechar, aoSair }: Props
       onClick={(e) => e.target === e.currentTarget && dialogo.current?.close()}
     >
       {img && (
-        <div className="vz-grade">
+        // O foco inicial vai para a própria grade (sem anel visível); Tab leva ao botão Fechar.
+        <div className="vz-grade outline-none" tabIndex={-1} autoFocus>
           <div className="vz-topo">
             <p className="text-[14px] tracking-[0.12em] text-paper/70" aria-hidden="true">
               {total > 1 ? `${String(indice + 1).padStart(2, "0")} / ${String(total).padStart(2, "0")}` : ""}
             </p>
-            <button type="button" autoFocus onClick={() => dialogo.current?.close()} className="vz-botao" aria-label="Fechar">
+            <button type="button" onClick={() => dialogo.current?.close()} className="vz-botao" aria-label="Fechar">
               <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
                 <path d="M4 4l12 12M16 4L4 16" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
               </svg>

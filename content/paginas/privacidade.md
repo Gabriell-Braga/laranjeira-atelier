@@ -24,9 +24,10 @@ Quando você pede um orçamento, uma encomenda ou informações sobre compra, us
 
 ## Com quem os dados são compartilhados
 
-Usamos dois serviços para o site funcionar:
+Usamos três serviços para o site funcionar:
 
-- **Cloudflare**: hospeda o site, faz a verificação anti-robô do formulário (Turnstile) e conta as visitas (Web Analytics).
+- **Vercel**: hospeda o site e conta as visitas (Web Analytics).
+- **Cloudflare**: faz a verificação anti-robô do formulário (Turnstile).
 - **Resend**: entrega por e-mail a mensagem que você escreve no formulário.
 
 Essas empresas tratam os dados só para essas funções. Elas podem processar e guardar dados em servidores fora do Brasil.
@@ -42,7 +43,7 @@ A mensagem fica na caixa de e-mail da Dilce enquanto for útil para a conversa. 
 - **O site não grava cookies.**
 - **Página do portfólio:** para você voltar de um projeto e encontrar a página como deixou, o site guarda no seu próprio navegador o filtro escolhido e a posição na página. Esse registro não é enviado a ninguém e é apagado quando você fecha a aba.
 - **Verificação anti-robô (Turnstile):** aparece só no formulário. Ela analisa dados técnicos do navegador, como endereço de IP e tipo de navegador, apenas para diferenciar pessoas de robôs. Do jeito que usamos, ela gera um código de uso único para o envio e não grava cookie. O cookie que o Turnstile pode gravar (chamado `cf_clearance`) só aparece com um recurso que não usamos.
-- **Estatísticas (Cloudflare Web Analytics):** contam visitas de forma geral, sem cookies e sem guardar nada no seu navegador.
+- **Estatísticas (Vercel Web Analytics):** contam visitas de forma geral, sem cookies e sem guardar nada no seu navegador.
 
 ## Seus direitos
 

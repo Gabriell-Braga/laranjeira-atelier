@@ -1,6 +1,7 @@
 # Fase 7: migração do domínio (roteiro)
 
-Anotado em 05/11/2026. Executar só quando o Gabriel pedir.
+Atualizado em 05/11/2026: hospedagem na **Vercel** e DNS no **Registro.br** (decisão do Gabriel).
+Executar só quando o Gabriel pedir.
 
 ## Situação conferida em 04/11/2026
 
@@ -10,8 +11,13 @@ Anotado em 05/11/2026. Executar só quando o Gabriel pedir.
 - **Nenhum registro MX nem TXT**: o domínio não tem e-mail próprio. O Gmail da Dilce (dillaranjeira@gmail.com) não é afetado.
 - Sem DNSSEC (não precisa desligar nada antes da troca).
 - Registro.br: domínio ativo, registrado em 22/05/2025, **vence em 22/05/2027**.
-- Domínio canônico: **www.laranjeiraatelier.com.br**. O domínio sem www redireciona (301) para o com www.
-- Site hoje: Worker `laranjeira-atelier`, em https://laranjeira-atelier.hub-villa-deli.workers.dev (conta Cloudflare `1078752fdb2ad1e73785039e4c3c958e`).
+- Domínio canônico: **www.laranjeiraatelier.com.br**. O domínio sem www redireciona para o com www.
+
+## Como fica
+
+- **Registro do domínio:** continua da Dilce, no Registro.br.
+- **DNS:** sai do Wix e passa para o DNS do próprio Registro.br (grátis). A Dilce (ou o Gabriel, com acesso dela) cria os registros lá.
+- **Site:** projeto `laranjeira-atelier` na Vercel do Gabriel.
 
 ## Antes do dia (combinar com a Dilce)
 
@@ -22,62 +28,52 @@ Anotado em 05/11/2026. Executar só quando o Gabriel pedir.
 
 ## No dia
 
-### 1. Cloudflare (Gabriel)
-1. https://dash.cloudflare.com → Add a domain → `laranjeiraatelier.com.br` → plano Free.
-2. Nos registros importados, apagar os que apontam para o Wix: os A do domínio sem www (`185.230.63.x`) e o CNAME do `www` (`cdn3.wixdns.net`).
-3. Anotar os 2 servidores DNS que o Cloudflare mostrar (`xxx.ns.cloudflare.com`, `yyy.ns.cloudflare.com`).
+### 1. Vercel: adicionar os domínios (Gabriel)
+1. Vercel → laranjeira-atelier → Settings → Domains → Add → `www.laranjeiraatelier.com.br`.
+2. Add de novo → `laranjeiraatelier.com.br`, escolhendo **redirecionar para** `www.laranjeiraatelier.com.br` (308).
+3. Anotar os registros que a Vercel pedir para cada um (normalmente um **A** para o domínio sem www e um **CNAME** para o `www`). Usar sempre os valores que aparecem na tela, não os de exemplo.
 
-### 2. Registro.br (Dilce)
-1. https://registro.br → Entrar.
-2. Clicar no domínio `laranjeiraatelier.com.br`.
-3. Na seção DNS → Alterar servidores DNS.
-4. Trocar `ns10.wixdns.net` e `ns11.wixdns.net` pelos 2 servidores do Cloudflare → Salvar.
-5. Vale em minutos no Registro.br; propagação completa em até 24 horas.
+### 2. Registro.br: trocar o DNS do Wix pelo do Registro.br (Dilce)
+1. https://registro.br → Entrar → clicar no domínio `laranjeiraatelier.com.br`.
+2. Seção DNS → **Alterar servidores DNS** → escolher **Utilizar os servidores DNS do Registro.br** → Salvar.
+3. Ainda na seção DNS → **Configurar zona DNS** (ou "Editar zona") → Nova entrada:
+   - tipo **A**, nome vazio (o próprio domínio), valor = o IP que a Vercel mostrou;
+   - tipo **CNAME**, nome `www`, valor = o endereço que a Vercel mostrou.
+4. Salvar. Vale em minutos; propagação completa em até 24 horas.
 
-### 3. Esperar o Cloudflare ativar (Gabriel)
-Chega um e-mail dizendo que o domínio está ativo (minutos a algumas horas).
+### 3. Esperar a Vercel validar (Gabriel)
+Em Settings → Domains, os dois domínios ficam com "Valid Configuration". O certificado HTTPS é emitido sozinho.
 
-### 4. Ligar o site ao domínio (Claude, pelo terminal, com o ok do Gabriel)
-- Acrescentar ao `wrangler.jsonc`: `"routes": [{ "pattern": "www.laranjeiraatelier.com.br", "custom_domain": true }]` e publicar.
-- O certificado HTTPS é emitido automaticamente.
+### 4. Site público para o Google (Claude, com o ok do Gabriel)
+1. Vercel → Settings → Environment Variables → `SITE_PUBLICO` = `sim`, **só no ambiente Production** → Redeploy.
+   Tira o `noindex` do domínio; os endereços `.vercel.app` continuam com `noindex` (`next.config.ts`).
+2. Vercel → Analytics → Enable (se ainda não estiver ligado).
 
-### 5. Domínio sem www → www (Gabriel, no painel)
-1. DNS → Records → Add record: tipo `AAAA`, nome `@`, endereço `100::`, Proxied ligado (endereço técnico só para o redirecionamento).
-2. Rules → Redirect Rules → Create rule:
-   - quando o hostname for igual a `laranjeiraatelier.com.br`;
-   - redirecionamento dinâmico para `concat("https://www.laranjeiraatelier.com.br", http.request.uri.path)`;
-   - código 301, mantendo a query string.
-
-### 6. Site público para o Google (Claude, com o ok do Gabriel)
-1. Criar a variável de build `SITE_PUBLICO = sim` (Workers & Pages → laranjeira-atelier → Settings → Build → Variables) e publicar. Tira o `noindex`; o `.workers.dev` continua com `noindex` pelo `public/_headers`.
-2. Web Analytics (Gabriel): Analytics & Logs → Web Analytics → Add a site → `www.laranjeiraatelier.com.br`, configuração manual (JS snippet) → copiar o valor `token` → colar em `content/site.json`, campo `analyticsToken`.
-
-### 7. Envio do formulário pelo Resend (Gabriel e Claude)
+### 5. Envio do formulário pelo Resend (Gabriel e Claude)
 1. resend.com → Domains → Add Domain → `laranjeiraatelier.com.br`.
-2. Copiar para o DNS do Cloudflare os registros que o Resend mostrar (TXT e MX de um subdomínio de envio) → Verify. Esse MX não afeta o Gmail.
-3. Criar uma API Key só com permissão de envio. No PowerShell do Gabriel, na pasta do projeto:
-   - `npx wrangler secret put RESEND_API_KEY`
-   - `npx wrangler secret put CONTATO_DE` → `Site Laranjeira Atelier <site@laranjeiraatelier.com.br>`
-   - `CONTATO_PARA` já está gravado (dillaranjeira@gmail.com).
-4. Turnstile: conferir se `laranjeiraatelier.com.br` e `www.laranjeiraatelier.com.br` estão nos hostnames do widget.
+2. Copiar para a zona DNS do Registro.br os registros que o Resend mostrar (TXT e MX de um subdomínio de envio) → Verify. Esse MX não afeta o Gmail.
+3. Criar uma API Key só com permissão de envio. Na Vercel → Settings → Environment Variables (Production):
+   - `RESEND_API_KEY` = a chave
+   - `CONTATO_DE` = `Site Laranjeira Atelier <site@laranjeiraatelier.com.br>`
+   - `CONTATO_PARA` = `dillaranjeira@gmail.com`
+   - Redeploy.
+4. Turnstile (dash.cloudflare.com → Turnstile): conferir se `laranjeiraatelier.com.br` e `www.laranjeiraatelier.com.br` estão nos hostnames do widget.
 
-### 8. Search Console (Gabriel)
+### 6. Search Console (Gabriel)
 1. Adicionar propriedade → Domínio → `laranjeiraatelier.com.br`.
-2. Criar no DNS do Cloudflare o TXT `google-site-verification=…` → Verificar.
+2. Criar na zona DNS do Registro.br o TXT `google-site-verification=…` → Verificar.
 3. Sitemaps → enviar `https://www.laranjeiraatelier.com.br/sitemap.xml`.
 4. Inspeção de URL → solicitar indexação da Início e de cada livro.
 
 ## Checklist final (Claude confere)
 
 - HTTPS ativo em `www` e no domínio sem www (que redireciona para o www).
-- Os 14 endereços antigos do Wix (`public/_redirects`) dando 301 no domínio real.
+- Os endereços antigos do Wix (`next.config.ts`) redirecionando no domínio real.
 - Formulário enviando de verdade: teste até o Gmail da Dilce, e o "Responder" indo para quem escreveu.
-- `/comprar/` e `/painel/` funcionando no domínio.
-- `noindex` só no `.workers.dev`, não no domínio.
+- `noindex` só no `.vercel.app`, não no domínio.
 - Lighthouse de novo no domínio real.
 
 ## Depois
 
 - Em 1–2 semanas: Search Console → relatório de páginas e erros de rastreamento.
 - Só então cancelar o plano do Wix.
-- Pendências que não dependem da migração: painel (`CF_ANALYTICS_TOKEN`, `PAINEL_SENHA`), wrangler 4.153.0 a partir de 09/11/2026.

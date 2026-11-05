@@ -54,8 +54,6 @@ const site = z.object({
   // outras redes além do Instagram; as que estiverem com [PREENCHER] não aparecem no site
   redes: z.array(z.object({ nome: z.string(), url: z.string() })).default([]),
   mostrarAgenda: z.boolean(),
-  // token do Cloudflare Web Analytics (público). Vazio = sem estatísticas.
-  analyticsToken: z.string().default(""),
 });
 
 const livro = z.object({
@@ -100,18 +98,13 @@ const lerJson = (rel: string) => JSON.parse(fs.readFileSync(path.join(CONTENT, r
 const listar = (pasta: string, ext: string) =>
   fs.readdirSync(path.join(CONTENT, pasta)).filter((f) => f.endsWith(ext)).sort();
 
-/**
- * Dados do site. Os links de compra (`amazon`) apontam para /comprar/<livro>/, que conta o clique
- * e redireciona para a Amazon (worker/metricas.ts). O link direto fica em `amazonDireto`
- * (usado nos dados estruturados para o Google).
- */
+/** Dados do site. `amazon` traz só as ofertas válidas (links https), por livro. */
 export function lerSite() {
   const dados = validar(site, lerJson("site.json"), "content/site.json");
   const ofertas = Object.entries(dados.amazon).filter(([k, v]) => !k.startsWith("_") && /^https:\/\//.test(v));
   return {
     ...dados,
-    amazon: Object.fromEntries(ofertas.map(([k]) => [k, `/comprar/${k}/`])) as Record<string, string>,
-    amazonDireto: Object.fromEntries(ofertas) as Record<string, string>,
+    amazon: Object.fromEntries(ofertas) as Record<string, string>,
   };
 }
 

@@ -40,9 +40,9 @@ export function Botao({ variante = "laranja", className = "", children, seta = v
     );
   }
   const { href, ...props } = resto as { href: string } & ComponentProps<"a">;
-  // Externo, ou /comprar/ (conta o clique e vai para a Amazon): nova aba, sem seguir para buscadores.
-  if (/^https?:\/\//.test(href) || href.startsWith("/comprar/")) {
-    const rel = href.startsWith("/comprar/") ? "noopener nofollow" : "noopener";
+  // Externo: nova aba. Lojas (Amazon) com nofollow, para os buscadores não seguirem.
+  if (/^https?:\/\//.test(href)) {
+    const rel = /amazon\./.test(href) ? "noopener nofollow" : "noopener";
     return (
       <a href={href} target="_blank" rel={rel} {...props} className={classes}>
         {conteudo}

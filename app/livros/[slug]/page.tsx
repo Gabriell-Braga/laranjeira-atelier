@@ -45,7 +45,7 @@ export default async function PaginaLivro({ params }: Props) {
         <section aria-label="Imagens do livro">
           <Galeria variante="livro" imagens={imagensDoLivro(livro).map(paraGaleria)} />
         </section>
-        <div>
+        <div className="entrada">
           <p className="sobretitulo">
             {livro.volume} · {livro.paginas} páginas
           </p>

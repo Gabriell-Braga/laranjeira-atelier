@@ -10,7 +10,7 @@ export const metadata: Metadata = metadados({ titulo: pagina.campo("titulo"), de
 
 export default function Privacidade() {
   return (
-    <div className="conteudo topo pb-[var(--espaco-secao)]">
+    <div className="entrada conteudo topo pb-[var(--espaco-secao)]">
       <h1 className="titulo-display">{pagina.campo("titulo")}</h1>
       <p className="legenda mt-3">
         <Pendente valor={pagina.campo("atualizacao")}>Atualizada em {pagina.campo("atualizacao")}</Pendente>

@@ -6,6 +6,7 @@ import { Rodape } from "@/components/Rodape";
 import { lerSite } from "@/lib/conteudo";
 import { movimento } from "@/lib/movimento";
 import { SITE_PUBLICO } from "@/lib/publico";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const cormorant = Cormorant({
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: { default: site.nome, template: `%s | ${site.nome}` },
   description: site.descricao,
-  // Enquanto SITE_PUBLICO não for "sim" (variável de build no Cloudflare, lib/publico.ts), nenhuma página é indexada.
+  // Enquanto SITE_PUBLICO não for "sim" (variável na Vercel, lib/publico.ts), nenhuma página é indexada.
   robots: SITE_PUBLICO ? undefined : { index: false, follow: false },
 };
 
@@ -56,10 +57,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           {children}
         </main>
         <Rodape />
-        {/* Cloudflare Web Analytics: sem cookies; só no site público e com token em content/site.json */}
-        {site.analyticsToken && SITE_PUBLICO && (
-          <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon={JSON.stringify({ token: site.analyticsToken })} />
-        )}
+        {/* Vercel Web Analytics: visitas por página, sem cookies (ligar em Vercel > Analytics) */}
+        <Analytics />
       </body>
     </html>
   );

@@ -383,7 +383,7 @@ export function Portfolio({ inicial, total, tipos, tecnicas, series }: Props) {
                       data-pos={i}
                       data-slug={it.slug}
                       onClick={() => abrir(it.slug)}
-                      className={`${classe} cursor-zoom-in`}
+                      className={`${classe} cursor-pointer`}
                       aria-label={`Ampliar: ${it.titulo || it.alt}`}
                     >
                       {conteudo}

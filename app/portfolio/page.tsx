@@ -19,7 +19,7 @@ export default function PaginaPortfolio() {
 
   return (
     <>
-      <div className="conteudo pb-6 pt-8 md:pb-10 md:pt-14">
+      <div className="entrada conteudo pb-6 pt-8 md:pb-10 md:pt-14">
         <h1 className="titulo-display">{pagina.campo("titulo")}</h1>
         <Texto html={pagina.html} className="leitura mt-4 text-ink-muted" />
       </div>

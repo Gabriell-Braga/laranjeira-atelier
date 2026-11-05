@@ -1,8 +1,0 @@
-# Cabeçalhos dos arquivos estáticos no Cloudflare.
-# Os endereços técnicos do Cloudflare nunca devem aparecer no Google,
-# nem depois que o domínio laranjeiraatelier.com.br estiver no ar.
-https://laranjeira-atelier.hub-villa-deli.workers.dev/*
-  X-Robots-Tag: noindex, nofollow
-
-# Enquanto SITE_PUBLICO não for "sim", scripts/verificar-build.mjs acrescenta aqui
-# uma regra que bloqueia a indexação de todos os endereços.

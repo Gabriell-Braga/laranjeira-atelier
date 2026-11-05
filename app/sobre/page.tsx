@@ -18,7 +18,7 @@ export default function Sobre() {
     <div className="conteudo topo pb-[var(--espaco-secao)]">
       <JsonLd dados={{ "@context": "https://schema.org", ...pessoa(lerSite()) }} />
       <div className="grid gap-12 md:grid-cols-[3fr_2fr] md:gap-16">
-        <div>
+        <div className="entrada">
           <p className="sobretitulo">{c("sobretitulo")}</p>
           <h1 className="titulo-display mt-4">{c("titulo")}</h1>
           <Texto html={pagina.html} className="leitura mt-8" />
@@ -32,7 +32,7 @@ export default function Sobre() {
         </div>
         <div className="md:pt-24">
           <Pendente valor={c("retrato")}>{null}</Pendente>
-          <Imagem img={imagem} sizes="(min-width: 768px) 40vw, 100vw" prioridade className="w-full" />
+          <Imagem img={imagem} sizes="(min-width: 768px) 40vw, 100vw" prioridade className="tinta w-full" />
           {imagem.titulo && <p className="legenda mt-3">{imagem.titulo} · {imagem.origem} · © Dilce Laranjeira</p>}
         </div>
       </div>

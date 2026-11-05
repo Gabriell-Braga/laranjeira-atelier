@@ -164,6 +164,20 @@
   img {
     border-radius: var(--radius-imagem);
   }
+  /* O Tailwind 4 deixa botões com o cursor padrão: aqui tudo que é clicável ganha a mãozinha */
+  button:not(:disabled),
+  [role="button"],
+  select,
+  summary,
+  label:has(> input[type="checkbox"], > input[type="radio"]),
+  input[type="checkbox"],
+  input[type="radio"],
+  input[type="submit"] {
+    cursor: pointer;
+  }
+  :disabled {
+    cursor: not-allowed;
+  }
   ::selection {
     background: var(--color-areia);
   }
@@ -185,19 +199,14 @@
     text-decoration: none;
     white-space: nowrap;
     transition:
-      background-color 0.22s var(--ease-natural),
-      color 0.22s var(--ease-natural),
-      border-color 0.22s var(--ease-natural),
-      box-shadow 0.22s var(--ease-natural),
-      transform 0.22s var(--ease-natural);
+      background-color 0.25s var(--ease-natural),
+      color 0.25s var(--ease-natural),
+      border-color 0.25s var(--ease-natural),
+      transform 0.15s var(--ease-natural);
   }
-  .botao:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 22px -10px rgb(42 38 32 / 0.45);
-  }
+  /* Hover: só a cor muda (transição suave); o clique dá um leve afundar */
   .botao:active {
-    transform: translateY(0);
-    box-shadow: none;
+    transform: scale(0.98);
   }
   /* Ação secundária: texto com seta, sublinhado aparece no hover */
   .link-seta {
@@ -473,6 +482,16 @@
   animation-delay: calc(120ms + var(--i, 0) * 110ms);
 }
 
+/* Cabeçalho de qualquer página: filhos entram em sequência (sobretítulo, título, texto, ações...) */
+.entrada > * {
+  animation: subir 0.7s var(--ease-natural) backwards;
+  animation-delay: 680ms;
+}
+.entrada > :nth-child(1) { animation-delay: 120ms; }
+.entrada > :nth-child(2) { animation-delay: 230ms; }
+.entrada > :nth-child(3) { animation-delay: 340ms; }
+.entrada > :nth-child(4) { animation-delay: 450ms; }
+.entrada > :nth-child(5) { animation-delay: 560ms; }
 /* Ilustração do destaque revelada como tinta se espalhando no papel */
 @property --tinta {
   syntax: "<percentage>";
@@ -585,10 +604,8 @@
     transform: scale(0.97);
   }
 }
-@media (hover: hover) and (pointer: fine) {
-  .vz-imagem {
-    cursor: none;
-  }
+.vz-imagem {
+  cursor: pointer;
 }
 /* Lupa: posicionada por transform em relação à imagem, que fica no centro do quadro */
 .vz-lupa {
@@ -652,6 +669,9 @@
   scrollbar-width: none;
   justify-content: safe center;
 }
+.vz-miniaturas > li {
+  flex: none; /* sem isso, com muitas imagens, as miniaturas encolhem até virar fios */
+}
 .vz-miniatura {
   display: block;
   height: 56px;
@@ -663,6 +683,7 @@
 .vz-miniatura img {
   height: 100%;
   width: auto;
+  max-width: none;
   border-radius: 3px;
 }
 .vz-miniatura:hover,

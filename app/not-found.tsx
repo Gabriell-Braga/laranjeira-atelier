@@ -11,7 +11,7 @@ export default function NaoEncontrada() {
   const imagem = paraGaleria(pagina.imagens("imagem")[0]);
   return (
     <div className="conteudo grid items-center gap-10 topo pb-[var(--espaco-secao)] md:grid-cols-2 md:gap-16">
-      <div>
+      <div className="entrada">
         <p className="sobretitulo">Erro 404</p>
         <h1 className="titulo-display mt-4">{pagina.campo("titulo")}</h1>
         <p className="mt-6 text-[20px]">{pagina.campo("frase")}</p>
@@ -22,7 +22,7 @@ export default function NaoEncontrada() {
           <Botao href="/contato/" variante="texto">Contato</Botao>
         </div>
       </div>
-      <Imagem img={imagem} sizes="(min-width: 768px) 40vw, calc(100vw - 40px)" className="mx-auto w-full max-w-[420px]" />
+      <Imagem img={imagem} sizes="(min-width: 768px) 40vw, calc(100vw - 40px)" className="tinta mx-auto w-full max-w-[420px]" />
     </div>
   );
 }

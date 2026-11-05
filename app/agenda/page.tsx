@@ -10,7 +10,7 @@ export const metadata: Metadata = metadados({ titulo: pagina.campo("titulo"), de
 
 export default function Agenda() {
   return (
-    <div className="conteudo topo pb-[var(--espaco-secao)]">
+    <div className="entrada conteudo topo pb-[var(--espaco-secao)]">
       <p className="sobretitulo">{pagina.campo("sobretitulo")}</p>
       <h1 className="titulo-display mt-4">{pagina.campo("titulo")}</h1>
       <Texto html={pagina.html} className="leitura mt-8" />

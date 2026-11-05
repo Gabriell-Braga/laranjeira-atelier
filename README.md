@@ -1,21 +1,19 @@
 # Laranjeira Atelier
 
 Site de Dilce Laranjeira: ilustração, design gráfico e a coleção Sertão Vivo.
-Next.js com exportação estática, publicado no Cloudflare (Worker com arquivos estáticos).
+Next.js publicado na Vercel. As páginas são geradas no build (estáticas); só o formulário (`/api/contato`) roda no servidor.
 
 ## Rodar no computador
 
 ```sh
 npm install
 npm run dev       # desenvolvimento, com recarga automática: http://localhost:3000
-npm run preview   # gera o site estático (out/) e serve como ficará publicado: http://localhost:3000
+npm run preview   # build de produção servido com next start, como na Vercel: http://localhost:3000
 ```
-
-Com `output: "export"`, o `next start` não serve o site; para ver a versão final use `npm run preview`.
 
 Outros comandos:
 
-- `npm run build`: gera as imagens e o site estático em `out/` (é o que o Cloudflare roda).
+- `npm run build`: gera as imagens e o build de produção (é o que a Vercel roda).
 - `npm run imagens`: gera as versões web das imagens em `public/img`. Só reprocessa o que mudou.
 - `node scripts/baixa-resolucao.mjs`: atualiza a lista `content/imagens-baixa-resolucao.md`.
 - `/componentes/`: página interna com todos os componentes (fora do menu).
@@ -38,56 +36,44 @@ Os arquivos em alta resolução ficam em `content/originais/`. Essa pasta **não
 
 Guarde a pasta `content/originais` inteira no Google Drive da Dilce, por exemplo em `Laranjeira Atelier/Site/originais`. Para trabalhar em outro computador, baixe a pasta do Drive para `content/originais/`.
 
-Depois de colocar ou trocar um original, rode `npm run imagens` e faça commit de `public/img`. O build do Cloudflare não tem os originais e usa as versões já geradas. Para remover do site as imagens cujo original foi apagado: `node scripts/imagens.mjs --limpar`.
+Depois de colocar ou trocar um original, rode `npm run imagens` e faça commit de `public/img`. O build da Vercel não tem os originais e usa as versões já geradas. Para remover do site as imagens cujo original foi apagado: `node scripts/imagens.mjs --limpar`.
 
 Para trazer de novo as imagens do site antigo: `node scripts/importar-wix.mjs`. O script nunca sobrescreve um arquivo existente.
 
 ## Publicação (deploy)
 
-O site é um **Worker do Cloudflare com arquivos estáticos**, ligado ao repositório do GitHub (Workers Builds).
-A configuração fica em `wrangler.jsonc`: publica a pasta `out/`, usa `out/404.html` para páginas inexistentes e põe barra no fim das URLs.
+O site está na **Vercel**, ligado ao repositório do GitHub.
 
-- **Push na `main`**: o Cloudflare roda `npm run build` e `npx wrangler deploy` e atualiza
-  https://laranjeira-atelier.hub-villa-deli.workers.dev (leva cerca de 1 minuto).
-- **Push em outra branch**: o Cloudflare gera uma prévia separada, sem mexer na versão principal:
-  `https://<branch>-laranjeira-atelier.hub-villa-deli.workers.dev`.
-  ```sh
-  git switch -c previa-dilce
-  # ... alterações e commits ...
-  git push -u origin previa-dilce
-  ```
-  Se a prévia não aparecer, confira no painel: Workers & Pages > laranjeira-atelier > Settings > Build >
-  "Builds for non-production branches" deve estar ligado.
-- **Publicar pelo terminal** (sem esperar o GitHub): `npm run build` e depois `npx wrangler deploy`.
-  Precisa de `npx wrangler login` uma vez nesta máquina.
-- **Ver deploys:** `npx wrangler deployments list`.
+- **Push na `main`**: a Vercel roda `npm run build` e atualiza a versão de produção (a prévia `.vercel.app`, e o domínio depois da migração).
+- **Push em outra branch**: a Vercel gera uma prévia separada com endereço próprio, sem mexer na produção.
+  O link aparece no GitHub (no commit ou no pull request) e no painel da Vercel, em Deployments.
+- O Node 22 vem de `engines` no `package.json` (e do `.nvmrc` no computador).
 
 ### Indexação no Google
 Enquanto a variável `SITE_PUBLICO` não for `sim`, o site inteiro sai com `noindex`
-(meta nas páginas e cabeçalho `X-Robots-Tag` em todos os arquivos). Ela só será ligada na migração do domínio,
-em Workers & Pages > laranjeira-atelier > Settings > Build > Variables and secrets.
-O endereço `.workers.dev` continua com `noindex` para sempre (regra em `public/_headers`).
-O interruptor fica num lugar só, `lib/publico.ts` (lido pelo layout); `scripts/verificar-build.mjs` usa a mesma variável para o cabeçalho.
+(meta nas páginas e cabeçalho `X-Robots-Tag`). Ela só será ligada na migração do domínio,
+em Vercel > laranjeira-atelier > Settings > Environment Variables (ambiente Production), seguida de um novo deploy.
+Os endereços `.vercel.app` continuam com `noindex` para sempre (regra em `next.config.ts`).
+O interruptor fica num lugar só, `lib/publico.ts`, lido pelo layout e pelo `next.config.ts`.
 
-### Formulário de contato (Worker)
-O site é estático, mas `/api/contato` passa pelo código em `worker/index.ts` (ver `run_worker_first` em `wrangler.jsonc`).
-Ele valida os campos (`worker/contato.ts`; teste: `node worker/contato.ts`), confere o Turnstile, ignora robôs pelo
-campo escondido e envia pelo Resend.
+### Formulário de contato
+`/api/contato` é uma função da Vercel (`app/api/contato/route.ts`). Ela valida os campos (`lib/contato.ts`;
+teste: `node lib/contato.ts`), confere o Turnstile, ignora robôs pelo campo escondido e envia pelo Resend.
 
-Segredos do Worker (cada um com `npx wrangler secret put NOME`; o valor é digitado no terminal e não fica em arquivo):
+Variáveis de ambiente (Vercel > Settings > Environment Variables; no computador, em `.env.local`, que fica fora do git):
 
 | Nome | O que é |
 |---|---|
-| `TURNSTILE_SITE_KEY` | chave pública do widget Turnstile |
+| `TURNSTILE_SITE_KEY` | chave pública do widget Turnstile (Cloudflare Turnstile funciona em qualquer hospedagem) |
 | `TURNSTILE_SECRET` | chave secreta do Turnstile |
 | `RESEND_API_KEY` | chave da API do Resend |
 | `CONTATO_PARA` | e-mail da Dilce que recebe as mensagens |
 | `CONTATO_DE` | remetente no domínio verificado, ex.: `Site Laranjeira Atelier <site@laranjeiraatelier.com.br>` |
 
 Sem `RESEND_API_KEY`, `CONTATO_PARA` ou `CONTATO_DE`, o formulário fica em **modo de teste**: valida tudo, não envia e avisa na tela.
+No Turnstile, o widget precisa listar os domínios onde aparece (o `.vercel.app` e, depois, `www.laranjeiraatelier.com.br`).
 
-Testar no computador: copie `.dev.vars.example` para `.dev.vars` (chaves de teste do Turnstile) e rode `npm run dev:worker`
-(site e formulário em http://127.0.0.1:8787). O Node 22 vem do `.nvmrc`.
+Testar no computador: copie `.env.example` para `.env.local` (já vem com as chaves de teste do Turnstile) e rode `npm run dev`.
 
 ## Portfólio
 
@@ -113,27 +99,15 @@ Trabalhos novos:
 Séries com `"pagina": true` aparecem na grade como um cartão de projeto e ganham a página `/portfolio/<serie>/`.
 O build gera `/portfolio/indice.json` (metadados de todos os itens), que o navegador só baixa quando a pessoa rola, filtra ou abre o lightbox.
 
-## Pendências com data
-
-- **A partir de 09/11/2026:** atualizar o `wrangler` de 4.151.3 para **4.153.0** (aprovado). Essa versão resolve os 3 alertas do
-  `npm audit` (undici, via miniflare), que afetam só a ferramenta de deploy, não o site publicado. Ela só completa
-  duas semanas de publicada nessa data. Comando: `npm install -D wrangler@4.153.0`, depois `npm audit` deve dar 0.
-
 ## Medição (sem cookies)
 
-- **Cliques para comprar:** todo botão "Comprar na Amazon" leva a `/comprar/<livro>/`, que conta o clique e redireciona (302)
-  para o link do `content/site.json`. Guarda só o livro e a página de origem; nada de IP ou identificador. Robôs não contam.
-- **Mensagens do formulário:** cada envio bem-sucedido conta por assunto.
-- Os números ficam no **Workers Analytics Engine** (grátis no plano Free), dataset `laranjeira_atelier`.
-- **Para ver:** https://laranjeira-atelier.hub-villa-deli.workers.dev/painel/ (depois da migração, `/painel/` no domínio).
-  Pede usuário e senha: o usuário pode ser qualquer um; a senha é a do segredo `PAINEL_SENHA`.
-  Mostra 7, 30 ou 90 dias.
-- Segredos: `PAINEL_SENHA` e `CF_ANALYTICS_TOKEN` (token de API com a permissão "Account Analytics: Read").
+- **Vercel Web Analytics**: visitas por página, sem cookies. Ligar uma vez em Vercel > laranjeira-atelier > Analytics > Enable.
+  Os números aparecem nessa mesma aba.
+- No plano grátis da Vercel não há contagem de eventos, então os cliques em "Comprar na Amazon" não são contados.
 
 ## SEO
 
 - Metadados, endereço canônico e imagem de compartilhamento por página (`lib/meta.tsx`); imagens em `/og/`, geradas no build (`scripts/og.mjs`).
 - JSON-LD: WebSite e Person (Início e Sobre), Book em cada livro e BookSeries na coleção (`lib/dados-estruturados.ts`).
 - `/sitemap.xml` e `/robots.txt` gerados no build. Título e descrição de cada livro para o Google: `seoTitulo` e `seoDescricao` em `content/livros/*.json`.
-- Redirecionamentos do Wix (301): `public/_redirects`.
-- Cloudflare Web Analytics: cole o token em `content/site.json` (`analyticsToken`); o script só entra no site público (`SITE_PUBLICO=sim`).
+- Redirecionamentos dos endereços do Wix (permanentes): `next.config.ts`.

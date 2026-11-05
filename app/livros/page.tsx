@@ -19,7 +19,7 @@ export default function Livros() {
 
   return (
     <>
-      <header className="conteudo topo pb-[var(--espaco-bloco)]">
+      <header className="entrada conteudo topo pb-[var(--espaco-bloco)]">
         <p className="sobretitulo">{c("sobretitulo")}</p>
         <h1 className="titulo-display mt-4">{c("titulo")}</h1>
         <Texto html={pagina.html} className="leitura mt-6" />

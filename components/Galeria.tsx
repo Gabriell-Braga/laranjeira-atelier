@@ -117,10 +117,16 @@ export function Galeria({
         type="button"
         data-indice={i}
         onClick={() => abrir(i)}
-        className="obra relative block w-full cursor-zoom-in rounded-[4px]"
+        className="obra relative block w-full cursor-pointer rounded-[4px]"
         aria-label={`Ampliar: ${img.titulo ?? img.alt}`}
       >
-        <Imagem img={img} sizes={tamanho} prioridade={prioridade} className={recorte ? `${recorte} w-full object-cover` : "w-full"} />
+        <Imagem
+          img={img}
+          sizes={tamanho}
+          prioridade={prioridade}
+          // capa grande da página do livro: revelada como tinta, igual ao destaque da Início
+          className={`${recorte ? `${recorte} object-cover` : ""} ${variante === "livro" && i === 0 ? "tinta" : ""} w-full`}
+        />
       </button>
     </li>
   );

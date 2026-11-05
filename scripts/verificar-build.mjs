@@ -1,17 +1,18 @@
-// Roda depois do next build: falha se algum [PREENCHER] vazou para out/
+// Roda depois do next build: falha se algum [PREENCHER] vazou para as páginas geradas (.next/)
 // e lista o que ainda está pendente em content/ (só informativo).
-import { appendFileSync, copyFileSync, readFileSync, readdirSync } from "node:fs";
+import { readFileSync, readdirSync } from "node:fs";
 import path from "node:path";
 
 const RAIZ = path.resolve(import.meta.dirname, "..");
-const TEXTO = /\.(html|txt|json|js|xml|css|rsc)$/;
+const TEXTO = /\.(html|txt|json|js|xml|css|rsc|body|meta)$/;
 
 const arquivos = (dir) =>
   readdirSync(dir, { withFileTypes: true, recursive: true })
     .filter((d) => d.isFile())
     .map((d) => path.join(d.parentPath, d.name));
 
-const vazados = arquivos(path.join(RAIZ, "out"))
+const vazados = [".next/server/app", ".next/static"]
+  .flatMap((d) => arquivos(path.join(RAIZ, d)))
   .filter((f) => TEXTO.test(f) && readFileSync(f, "utf8").includes("[PREENCHER"))
   .map((f) => path.relative(RAIZ, f));
 
@@ -31,25 +32,3 @@ if (vazados.length) {
   process.exit(1);
 }
 console.log("\nverificar-build: nenhum [PREENCHER] no site gerado.");
-
-// O Next grava os dados de pré-carregamento em pastas (livros/__next.livros/__PAGE__.txt), mas o
-// navegador pede o nome com pontos (livros/__next.livros.__PAGE__.txt). Sem servidor do Next para
-// traduzir, criamos também a versão com pontos; senão o pré-carregamento dá 404.
-{
-  let copiados = 0;
-  for (const f of arquivos(path.join(RAIZ, "out"))) {
-    const partes = path.relative(path.join(RAIZ, "out"), f).split(path.sep);
-    const i = partes.findIndex((p) => p.startsWith("__next.") && p !== partes.at(-1));
-    if (i < 0) continue;
-    const plano = path.join(RAIZ, "out", ...partes.slice(0, i), partes.slice(i).join("."));
-    copyFileSync(f, plano);
-    copiados++;
-  }
-  console.log(`verificar-build: ${copiados} arquivos de pré-carregamento com nome plano.`);
-}
-
-// Prévia: enquanto o site não for público, nenhum endereço deve ser indexado.
-if (process.env.SITE_PUBLICO !== "sim") {
-  appendFileSync(path.join(RAIZ, "out/_headers"), "\n/*\n  X-Robots-Tag: noindex, nofollow\n");
-  console.log("verificar-build: prévia (SITE_PUBLICO diferente de sim), noindex em todos os endereços.");
-}

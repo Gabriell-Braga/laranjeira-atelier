@@ -1,41 +1,26 @@
-// Worker do site. Os arquivos estáticos (out/) são servidos direto pelo Cloudflare;
-// este código só roda para /api/*, /comprar/* e /painel/ (ver run_worker_first em wrangler.jsonc).
-//
-// /comprar/<livro>/  conta o clique (sem dados pessoais) e redireciona para a Amazon (worker/metricas.ts)
-// /painel/           números de cliques e mensagens, com senha (PAINEL_SENHA)
-//
-// /api/contato
+// Formulário de contato (Vercel Function).
 //   GET  -> { siteKey, ativo } para o formulário montar o Turnstile
 //   POST -> valida, confere o Turnstile e envia o e-mail pelo Resend
 //
-// Variáveis (segredos, com "npx wrangler secret put NOME"; em desenvolvimento, no arquivo .dev.vars):
-//   TURNSTILE_SITE_KEY, TURNSTILE_SECRET  anti-spam
+// Variáveis de ambiente (Vercel > Project > Settings > Environment Variables; no computador, .env.local):
+//   TURNSTILE_SITE_KEY, TURNSTILE_SECRET  anti-spam (Cloudflare Turnstile, funciona fora do Cloudflare)
 //   RESEND_API_KEY                        envio de e-mail
 //   CONTATO_PARA                          e-mail da Dilce que recebe as mensagens
 //   CONTATO_DE                            remetente verificado no Resend (ex.: Site Laranjeira Atelier <site@laranjeiraatelier.com.br>)
 // Sem RESEND_API_KEY, CONTATO_PARA ou CONTATO_DE, o formulário funciona em MODO DE TESTE:
 // valida tudo, mas não envia, e avisa isso na tela.
-import { validar } from "./contato";
-import { comprar, painel, registrar, type EnvMetricas } from "./metricas";
+import { validar } from "@/lib/contato";
 
-type Env = EnvMetricas & {
-  ASSETS: { fetch(req: Request): Promise<Response> };
-  TURNSTILE_SITE_KEY?: string;
-  TURNSTILE_SECRET?: string;
-  RESEND_API_KEY?: string;
-  CONTATO_PARA?: string;
-  CONTATO_DE?: string;
-};
+export const dynamic = "force-dynamic";
+
+const env = process.env;
 
 const json = (dados: unknown, status = 200) =>
-  new Response(JSON.stringify(dados), {
-    status,
-    headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store", "x-robots-tag": "noindex" },
-  });
+  Response.json(dados, { status, headers: { "cache-control": "no-store", "x-robots-tag": "noindex" } });
 
-const envioAtivo = (env: Env) => Boolean(env.RESEND_API_KEY && env.CONTATO_PARA && env.CONTATO_DE);
+const envioAtivo = () => Boolean(env.RESEND_API_KEY && env.CONTATO_PARA && env.CONTATO_DE);
 
-async function turnstileOk(env: Env, token: string, ip: string | null) {
+async function turnstileOk(token: string, ip: string | null) {
   if (!env.TURNSTILE_SECRET) return false;
   const corpo = new FormData();
   corpo.append("secret", env.TURNSTILE_SECRET);
@@ -46,10 +31,11 @@ async function turnstileOk(env: Env, token: string, ip: string | null) {
   return d.success === true;
 }
 
-async function contato(req: Request, env: Env): Promise<Response> {
-  if (req.method === "GET") return json({ siteKey: env.TURNSTILE_SITE_KEY ?? null, ativo: envioAtivo(env) });
-  if (req.method !== "POST") return json({ ok: false, erros: { geral: "Método não permitido." } }, 405);
+export function GET() {
+  return json({ siteKey: env.TURNSTILE_SITE_KEY ?? null, ativo: envioAtivo() });
+}
 
+export async function POST(req: Request) {
   let entrada: Record<string, unknown>;
   try {
     entrada = (await req.json()) as Record<string, unknown>;
@@ -65,13 +51,13 @@ async function contato(req: Request, env: Env): Promise<Response> {
   if (!v.ok) return json({ ok: false, erros: v.erros }, 422);
 
   const token = typeof entrada.turnstile === "string" ? entrada.turnstile : "";
-  if (!token || !(await turnstileOk(env, token, req.headers.get("cf-connecting-ip")))) {
+  const ip = req.headers.get("x-real-ip") ?? req.headers.get("x-forwarded-for")?.split(",")[0].trim() ?? null;
+  if (!token || !(await turnstileOk(token, ip))) {
     return json({ ok: false, erros: { geral: "Não conseguimos confirmar que você não é um robô. Recarregue a página e tente de novo." } }, 403);
   }
 
-  if (!envioAtivo(env)) {
+  if (!envioAtivo()) {
     console.log("[contato] modo de teste: mensagem validada e não enviada", { assunto: v.dados.assunto });
-    registrar(env, "contato", v.dados.assunto, "teste");
     return json({ ok: true, teste: true });
   }
 
@@ -91,18 +77,5 @@ async function contato(req: Request, env: Env): Promise<Response> {
     console.error("[contato] Resend respondeu", r.status, await r.text());
     return json({ ok: false, erros: { geral: "Não foi possível enviar agora. Tente de novo em alguns minutos ou escreva direto para o e-mail da página." } }, 502);
   }
-  registrar(env, "contato", assunto, "enviado");
   return json({ ok: true });
 }
-
-export default {
-  async fetch(req: Request, env: Env): Promise<Response> {
-    const url = new URL(req.url);
-    if (url.pathname === "/api/contato" || url.pathname === "/api/contato/") return contato(req, env);
-    if (url.pathname.startsWith("/api/")) return json({ ok: false }, 404);
-    const compra = url.pathname.match(/^\/comprar\/([a-z0-9-]+)\/?$/);
-    if (compra) return comprar(req, env, compra[1]);
-    if (url.pathname === "/painel" || url.pathname === "/painel/") return painel(req, env);
-    return env.ASSETS.fetch(req);
-  },
-};
