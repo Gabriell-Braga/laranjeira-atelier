@@ -239,7 +239,7 @@ export function Portfolio({ inicial, total, tipos, tecnicas, series }: Props) {
   return (
     <>
       {/* Barra de filtros: fica presa logo abaixo do cabeçalho ao rolar a grade */}
-      <div className="sticky top-[63px] z-30 border-y border-linha bg-paper/90 backdrop-blur-md">
+      <div className="sticky top-[63px] z-30 bg-paper/90 backdrop-blur-md">
         <div className="conteudo flex items-center gap-3 py-3">
           <div
             role="group"
@@ -281,9 +281,11 @@ export function Portfolio({ inicial, total, tipos, tecnicas, series }: Props) {
           </button>
         </div>
 
-        <div id="painel-filtros" hidden={!painel} className="border-t border-linha">
-          <div className="conteudo grid gap-x-10 gap-y-5 py-5 text-[15px] md:grid-cols-[auto_auto_auto_1fr] md:items-end">
-            <div role="group" aria-label="Técnica">
+        {/* Painel que abre por altura (0fr -> 1fr) e com os grupos entrando em sequência; fechado fica inert */}
+        <div id="painel-filtros" inert={!painel} data-aberto={painel || undefined} className="painel-filtros">
+          <div className="min-h-0 overflow-hidden">
+          <div className="conteudo grid gap-x-10 gap-y-5 pb-5 pt-2 text-[15px] md:grid-cols-[auto_auto_auto_1fr] md:items-end">
+            <div role="group" aria-label="Técnica" className="painel-item" style={{ "--i": 0 } as React.CSSProperties}>
               <p className="mb-2 font-bold text-ink-muted">Técnica</p>
               <div className="flex flex-wrap gap-2">
                 {tecnicas.map((t) => (
@@ -298,7 +300,7 @@ export function Portfolio({ inicial, total, tipos, tecnicas, series }: Props) {
               </div>
             </div>
             {seriesDoTipo.length > 0 && (
-              <label className="block">
+              <label className="painel-item block" style={{ "--i": 1 } as React.CSSProperties}>
                 <span className="mb-2 block font-bold text-ink-muted">Série</span>
                 <select
                   value={filtros.serie ?? ""}
@@ -314,7 +316,7 @@ export function Portfolio({ inicial, total, tipos, tecnicas, series }: Props) {
                 </select>
               </label>
             )}
-            <label className="block">
+            <label className="painel-item block" style={{ "--i": 2 } as React.CSSProperties}>
               <span className="mb-2 block font-bold text-ink-muted">Ordem</span>
               <select
                 value={filtros.ordem}
@@ -328,11 +330,12 @@ export function Portfolio({ inicial, total, tipos, tecnicas, series }: Props) {
                 ))}
               </select>
             </label>
-            <div className="md:text-right">
+            <div className="painel-item md:text-right" style={{ "--i": 3 } as React.CSSProperties}>
               <button type="button" onClick={limpar} disabled={!ativosNoPainel} className="link-seta py-2 disabled:opacity-40">
                 <span>Limpar filtros</span>
               </button>
             </div>
+          </div>
           </div>
         </div>
       </div>

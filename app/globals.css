@@ -756,6 +756,29 @@
   }
 }
 
+/* Painel de filtros do portfólio: abre pela altura, grupos entram em sequência */
+.painel-filtros {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.5s var(--ease-natural);
+}
+.painel-filtros[data-aberto] {
+  grid-template-rows: 1fr;
+}
+.painel-item {
+  opacity: 0;
+  transform: translateY(-8px);
+  transition:
+    opacity 0.3s var(--ease-natural),
+    transform 0.3s var(--ease-natural);
+}
+.painel-filtros[data-aberto] .painel-item {
+  opacity: 1;
+  transform: none;
+  transition-duration: 0.45s;
+  transition-delay: calc(120ms + var(--i, 0) * 70ms);
+}
+
 /* Legenda discreta no hover (só com mouse) */
 .obra {
   overflow: hidden;
