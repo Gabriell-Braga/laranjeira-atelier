@@ -30,7 +30,8 @@ export default function Colecao() {
   const volumes = livros.filter((l) => l !== colecao);
   const pranchas = pagina.imagens("pranchas").map(paraGaleria);
   // Trechos do texto separados por *** no markdown
-  const [contexto, vive, ave, producao, objetivos] = pagina.html.split(/<hr\s*\/?>/);
+  // o 4º trecho (produção da coleção) fica no markdown, fora da página
+  const [contexto, vive, ave, , objetivos] = pagina.html.split(/<hr\s*\/?>/);
   const ficha = (rotulo: string) => colecao.ficha.find((f) => f.rotulo === rotulo)?.valor ?? "";
   // Números da ficha técnica da coleção (content/livros/colecao-sertao-vivo.json)
   const numeros: [string, string][] = [
@@ -155,7 +156,6 @@ export default function Colecao() {
             </li>
           ))}
         </ul>
-        <Texto html={producao} className="leitura revelar mt-[var(--espaco-bloco)]" />
       </Faixa>
 
       {/* Objetivos escondidos (display: none) a pedido do Gabriel; para voltar, tire "hidden" da classe */}
