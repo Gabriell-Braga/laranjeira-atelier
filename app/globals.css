@@ -318,10 +318,20 @@
     padding-left: 1em;
   }
 
+  /* Contexto curto no alto da página Sobre a coleção: texto maior, centrado */
+  .contexto {
+    margin-inline: auto;
+    font-size: clamp(1.125rem, 1.05rem + 0.4vw, 1.3rem);
+    line-height: 1.7;
+  }
+
   /* Objetivos do projeto (página Sobre a coleção): lista numerada em grade */
   .objetivos h2 {
     margin-top: 0;
     font-size: var(--texto-h2);
+  }
+  .objetivos p {
+    max-width: 62ch;
   }
   .objetivos ul {
     list-style: none;
