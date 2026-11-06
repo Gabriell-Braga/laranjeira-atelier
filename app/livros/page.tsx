@@ -31,6 +31,14 @@ export default function Colecao() {
   const pranchas = pagina.imagens("pranchas").map(paraGaleria);
   // Trechos do texto separados por *** no markdown
   const [contexto, vive, ave, producao, objetivos] = pagina.html.split(/<hr\s*\/?>/);
+  const ficha = (rotulo: string) => colecao.ficha.find((f) => f.rotulo === rotulo)?.valor ?? "";
+  // Números da ficha técnica da coleção (content/livros/colecao-sertao-vivo.json)
+  const numeros: [string, string][] = [
+    [String(volumes.length), "volumes"],
+    [String(colecao.paginas), "páginas"],
+    [ficha("Imagens").replace(/^Mais de /, "+"), "imagens"],
+    [String(ficha("Ilustrações").split(/, | e /).length), ficha("Ilustrações").toLowerCase()],
+  ];
 
   return (
     <>
@@ -76,9 +84,22 @@ export default function Colecao() {
         </ul>
       </header>
 
-      {/* Contexto curto antes da compra */}
+      {/* Contexto curto antes da compra: uma frase da autora e os números da coleção */}
       <section className="faixa border-t border-linha bg-surface" aria-label="Sobre o projeto">
-        <Texto html={contexto} className="contexto leitura revelar" />
+        <div className="conteudo">
+          <figure className="revelar mx-auto max-w-[46rem] text-center">
+            <Texto html={contexto} className="contexto" />
+            <figcaption className="mt-5 text-[15px] tracking-wide text-ink-muted">Dilce Laranjeira</figcaption>
+          </figure>
+          <ul className="numeros mx-auto mt-[var(--espaco-bloco)] grid max-w-[60rem] grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-4">
+            {numeros.map(([n, rotulo], i) => (
+              <li key={rotulo} className="revelar" style={{ "--i": i } as CSSProperties}>
+                <span className="numero">{n}</span>
+                <span className="mt-2 block text-[15px] text-ink-muted">{rotulo}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
       </section>
 
       <Faixa rotulo="titulo-compra">
@@ -134,8 +155,15 @@ export default function Colecao() {
         <Texto html={producao} className="leitura revelar mt-[var(--espaco-bloco)]" />
       </Faixa>
 
-      <section className="faixa border-t border-linha bg-surface" aria-label="Objetivos do projeto">
-        <Texto html={objetivos} className="objetivos conteudo revelar" />
+      {/* Objetivos fechados por padrão: a página fica leve, quem quiser abre */}
+      <section className="faixa border-t border-linha bg-surface" aria-labelledby="titulo-objetivos">
+        <div className="conteudo">
+          <h2 id="titulo-objetivos" className="titulo-2 revelar">{c("objetivosTitulo")}</h2>
+          <details className="objetivos revelar mt-6">
+            <summary className="link-seta cursor-pointer py-2">{c("objetivosAbrir")}</summary>
+            <Texto html={objetivos} />
+          </details>
+        </div>
       </section>
 
       <section className="faixa border-t border-linha" aria-labelledby="titulo-pranchas">
