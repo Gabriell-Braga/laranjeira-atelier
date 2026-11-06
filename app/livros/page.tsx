@@ -83,8 +83,9 @@ export default function Colecao() {
         </ul>
       </header>
 
+      {/* Fundos alternam (papel / superfície) sem linhas entre seções; seções de texto curto usam espaço menor */}
       {/* Introdução de Vive, Sertão! ao lado da prancha de bichos; faixa mais baixa que as outras */}
-      <section className="border-t border-linha bg-surface py-[var(--espaco-bloco)]" aria-label="Introdução de Vive, Sertão!">
+      <section className="bg-surface py-[var(--espaco-bloco)]" aria-label="Introdução de Vive, Sertão!">
         <div className="conteudo grid items-center gap-10 lg:grid-cols-[minmax(0,62ch)_1fr] lg:gap-16">
           <Texto html={vive} className="revelar" />
           <div className="na-tela mx-auto w-full max-w-[460px]">
@@ -94,13 +95,13 @@ export default function Colecao() {
       </section>
 
       {/* Contexto curto antes da compra: uma frase da autora e os números da coleção */}
-      <section className="faixa border-t border-linha" aria-label="Sobre o projeto">
+      <section className="py-[var(--espaco-bloco)]" aria-label="Sobre o projeto">
         <div className="conteudo">
           <figure className="revelar mx-auto max-w-[46rem] text-center">
             <Texto html={contexto} className="contexto" />
             <figcaption className="mt-5 text-[15px] tracking-wide text-ink-muted">Dilce Laranjeira</figcaption>
           </figure>
-          <ul className="numeros mx-auto mt-[var(--espaco-bloco)] grid max-w-[46rem] grid-cols-3 gap-x-6">
+          <ul className="numeros mx-auto mt-10 grid max-w-[46rem] grid-cols-3 gap-x-6">
             {numeros.map(([n, rotulo], i) => (
               <li key={rotulo} className="revelar" style={{ "--i": i } as CSSProperties}>
                 <span className="numero">{n}</span>
@@ -111,7 +112,7 @@ export default function Colecao() {
         </div>
       </section>
 
-      <Faixa rotulo="titulo-compra" className="border-t border-linha">
+      <Faixa rotulo="titulo-compra" className="bg-surface">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
           <Imagem
             img={info(colecao.capa.arquivo, colecao.capa.alt)}
@@ -134,7 +135,7 @@ export default function Colecao() {
       </Faixa>
 
       {/* Introdução de Ave, Sertão! ao lado da prancha de aves; faixa mais baixa que as outras */}
-      <section className="border-t border-linha bg-surface py-[var(--espaco-bloco)]" aria-label="Introdução de Ave, Sertão!">
+      <section className="py-[var(--espaco-bloco)]" aria-label="Introdução de Ave, Sertão!">
         <div className="conteudo grid items-center gap-10 lg:grid-cols-[1fr_minmax(0,62ch)] lg:gap-16">
           <div className="na-tela order-last mx-auto w-full max-w-[460px] lg:order-first">
             <Galeria imagens={pranchas.slice(1, 2)} grade="grid-cols-1" sizes="(min-width: 1024px) 460px, 90vw" />
@@ -158,7 +159,7 @@ export default function Colecao() {
       </Faixa>
 
       {/* Objetivos escondidos (display: none) a pedido do Gabriel; para voltar, tire "hidden" da classe */}
-      <section className="hidden faixa border-t border-linha bg-surface" aria-labelledby="titulo-objetivos">
+      <section className="hidden faixa bg-surface" aria-labelledby="titulo-objetivos">
         <div className="conteudo">
           <h2 id="titulo-objetivos" className="titulo-2 revelar">{c("objetivosTitulo")}</h2>
           <details className="objetivos revelar mt-6">
@@ -168,7 +169,7 @@ export default function Colecao() {
         </div>
       </section>
 
-      <section className="faixa border-t border-linha" aria-labelledby="titulo-pranchas">
+      <section className="faixa bg-surface" aria-labelledby="titulo-pranchas">
         <div className="conteudo revelar">
           <h2 id="titulo-pranchas" className="titulo-2">{c("pranchasTitulo")}</h2>
         </div>
