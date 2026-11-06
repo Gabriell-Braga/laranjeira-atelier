@@ -155,8 +155,8 @@ export default function Colecao() {
         <Texto html={producao} className="leitura revelar mt-[var(--espaco-bloco)]" />
       </Faixa>
 
-      {/* Objetivos fechados por padrão: a página fica leve, quem quiser abre */}
-      <section className="faixa border-t border-linha bg-surface" aria-labelledby="titulo-objetivos">
+      {/* Objetivos escondidos (display: none) a pedido do Gabriel; para voltar, tire "hidden" da classe */}
+      <section className="hidden faixa border-t border-linha bg-surface" aria-labelledby="titulo-objetivos">
         <div className="conteudo">
           <h2 id="titulo-objetivos" className="titulo-2 revelar">{c("objetivosTitulo")}</h2>
           <details className="objetivos revelar mt-6">
