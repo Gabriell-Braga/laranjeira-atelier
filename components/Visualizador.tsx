@@ -44,6 +44,7 @@ export function Visualizador({ imagens, indice, aoVer, aoFechar, aoSair }: Props
   const dialogo = useRef<HTMLDialogElement>(null);
   const lupa = useRef<HTMLDivElement>(null);
   const toque = useRef<number | null>(null);
+  const inicioClique = useRef({ x: 0, y: 0 });
   const [lupaAtiva, setLupaAtiva] = useState(false);
   const aberto = indice >= 0 && !!imagens[indice];
   const img = aberto ? imagens[indice] : null;
@@ -191,7 +192,14 @@ export function Visualizador({ imagens, indice, aoVer, aoFechar, aoSair }: Props
       className="visualizador"
       aria-label={img ? `Imagem ${indice + 1} de ${total}: ${img.titulo ?? img.alt}` : "Visualizador de imagens"}
       onClose={aoFecharDialogo}
-      onClick={(e) => e.target === e.currentTarget && dialogo.current?.close()}
+      // Clique na área vazia (fora da imagem, botões, legenda e miniaturas) fecha; arrastar não conta como clique.
+      onPointerDown={(e) => (inicioClique.current = { x: e.clientX, y: e.clientY })}
+      onClick={(e) => {
+        const { x, y } = inicioClique.current;
+        if (Math.hypot(e.clientX - x, e.clientY - y) > 10) return;
+        if ((e.target as HTMLElement).closest("img, button, p, .vz-lupa, .vz-miniaturas")) return;
+        dialogo.current?.close();
+      }}
     >
       {img && (
         // O foco inicial vai para a própria grade (sem anel visível); Tab leva ao botão Fechar.
