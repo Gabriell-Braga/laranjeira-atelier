@@ -37,7 +37,7 @@ export function Rodape() {
                 <Link className={link} href={`/livros/${l.slug}/`}>{l.titulo}</Link>
               </li>
             ))}
-            <li><Link className={link} href="/projeto/">Sobre a coleção</Link></li>
+            <li><Link className={link} href="/livros/">Sobre a coleção</Link></li>
           </ul>
         </nav>
 

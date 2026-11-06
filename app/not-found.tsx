@@ -17,7 +17,7 @@ export default function NaoEncontrada() {
         <p className="mt-6 text-[20px]">{pagina.campo("frase")}</p>
         <div className="acoes mt-9">
           <Botao href="/">Ir para o início</Botao>
-          <Botao href="/livros/" variante="texto">Livros</Botao>
+          <Botao href="/livros/" variante="texto">Sobre a coleção</Botao>
           <Botao href="/portfolio/" variante="texto">Portfólio</Botao>
           <Botao href="/contato/" variante="texto">Contato</Botao>
         </div>

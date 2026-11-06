@@ -7,8 +7,8 @@ import { Menu, type ItemMenu } from "./Menu";
 export function Cabecalho() {
   const site = lerSite();
   const itens: ItemMenu[] = [
-    { href: "/livros/", rotulo: "Livros" },
-    { href: "/projeto/", rotulo: "Sobre a coleção" },
+    { href: "/", rotulo: "Início" },
+    { href: "/livros/", rotulo: "Sobre a coleção" },
     { href: "/portfolio/", rotulo: "Portfólio" },
     { href: "/sobre/", rotulo: "Sobre" },
     ...(site.mostrarAgenda ? [{ href: "/agenda/", rotulo: "Agenda" }] : []),

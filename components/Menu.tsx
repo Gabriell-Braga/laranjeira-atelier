@@ -7,7 +7,7 @@ import { useEffect, useRef, useState } from "react";
 
 export type ItemMenu = { href: string; rotulo: string };
 
-const ativo = (pathname: string, href: string) => pathname === href || pathname.startsWith(href);
+const ativo = (pathname: string, href: string) => (href === "/" ? pathname === href : pathname.startsWith(href));
 
 function Links({ itens, pathname, vertical }: { itens: ItemMenu[]; pathname: string; vertical?: boolean }) {
   return (
