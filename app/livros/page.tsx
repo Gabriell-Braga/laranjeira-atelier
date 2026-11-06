@@ -84,8 +84,16 @@ export default function Colecao() {
         </ul>
       </header>
 
+      {/* Introdução de Vive, Sertão! ao lado das suas pranchas */}
+      <section className="faixa border-t border-linha bg-surface" aria-label="Introdução de Vive, Sertão!">
+        <div className="conteudo grid items-center gap-14 lg:grid-cols-[minmax(0,62ch)_1fr] lg:gap-20">
+          <Texto html={vive} className="revelar" />
+          <Galeria imagens={pranchas.slice(2, 4)} grade="grid-cols-2 gap-4 lg:grid-cols-1 lg:gap-6" sizes="(min-width: 1024px) 480px, 45vw" />
+        </div>
+      </section>
+
       {/* Contexto curto antes da compra: uma frase da autora e os números da coleção */}
-      <section className="faixa border-t border-linha bg-surface" aria-label="Sobre o projeto">
+      <section className="faixa border-t border-linha" aria-label="Sobre o projeto">
         <div className="conteudo">
           <figure className="revelar mx-auto max-w-[46rem] text-center">
             <Texto html={contexto} className="contexto" />
@@ -102,7 +110,7 @@ export default function Colecao() {
         </div>
       </section>
 
-      <Faixa rotulo="titulo-compra">
+      <Faixa rotulo="titulo-compra" className="border-t border-linha">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
           <Imagem
             img={info(colecao.capa.arquivo, colecao.capa.alt)}
@@ -124,15 +132,7 @@ export default function Colecao() {
         </div>
       </Faixa>
 
-      {/* Introduções dos livros, cada uma ao lado das suas pranchas */}
-      <section className="faixa border-t border-linha bg-surface" aria-label="Introdução de Vive, Sertão!">
-        <div className="conteudo grid items-center gap-14 lg:grid-cols-[minmax(0,62ch)_1fr] lg:gap-20">
-          <Texto html={vive} className="revelar" />
-          <Galeria imagens={pranchas.slice(2, 4)} grade="grid-cols-2 gap-4 lg:grid-cols-1 lg:gap-6" sizes="(min-width: 1024px) 480px, 45vw" />
-        </div>
-      </section>
-
-      <section className="faixa" aria-label="Introdução de Ave, Sertão!">
+      <section className="faixa border-t border-linha bg-surface" aria-label="Introdução de Ave, Sertão!">
         <div className="conteudo grid items-center gap-14 lg:grid-cols-[1fr_minmax(0,62ch)] lg:gap-20">
           <div className="order-last lg:order-first">
             <Galeria imagens={pranchas.slice(0, 2)} grade="grid-cols-2 gap-4 lg:grid-cols-1 lg:gap-6" sizes="(min-width: 1024px) 480px, 45vw" />
