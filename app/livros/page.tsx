@@ -134,10 +134,11 @@ export default function Colecao() {
         </div>
       </Faixa>
 
-      <section className="faixa border-t border-linha bg-surface" aria-label="Introdução de Ave, Sertão!">
-        <div className="conteudo grid items-center gap-14 lg:grid-cols-[1fr_minmax(0,62ch)] lg:gap-20">
-          <div className="order-last lg:order-first">
-            <Galeria imagens={pranchas.slice(0, 2)} grade="grid-cols-2 gap-4 lg:grid-cols-1 lg:gap-6" sizes="(min-width: 1024px) 480px, 45vw" />
+      {/* Introdução de Ave, Sertão! ao lado da prancha de aves; faixa mais baixa que as outras */}
+      <section className="border-t border-linha bg-surface py-[var(--espaco-bloco)]" aria-label="Introdução de Ave, Sertão!">
+        <div className="conteudo grid items-center gap-10 lg:grid-cols-[1fr_minmax(0,62ch)] lg:gap-16">
+          <div className="order-last mx-auto w-full max-w-[460px] lg:order-first">
+            <Galeria imagens={pranchas.slice(1, 2)} grade="grid-cols-1" sizes="(min-width: 1024px) 460px, 90vw" />
           </div>
           <Texto html={ave} className="revelar" />
         </div>
