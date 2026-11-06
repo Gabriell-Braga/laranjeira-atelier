@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import { metadados } from "@/lib/meta";
-import { Faixa, FichaTecnica, Texto } from "@/components/Blocos";
+import { Citacao, Faixa, FichaTecnica, Texto } from "@/components/Blocos";
 import { Botao } from "@/components/Botao";
 import { CartaoLivro } from "@/components/CartaoLivro";
 import { Galeria } from "@/components/Galeria";
@@ -29,7 +29,8 @@ export default function Colecao() {
   const colecao = livros.find((l) => l.slug === "colecao-sertao-vivo")!;
   const volumes = livros.filter((l) => l !== colecao);
   const pranchas = pagina.imagens("pranchas").map(paraGaleria);
-  const [lateral, resto] = [pranchas.slice(0, 2), pranchas.slice(2)];
+  // Trechos do texto separados por *** no markdown
+  const [abertura, projeto, objetivos, producao] = pagina.html.split(/<hr\s*\/?>/);
 
   return (
     <>
@@ -75,37 +76,7 @@ export default function Colecao() {
         </ul>
       </header>
 
-      {/* Texto com pranchas presas ao lado enquanto se lê */}
-      <article className="faixa border-t border-linha bg-surface">
-        <div className="conteudo grid gap-14 lg:grid-cols-[minmax(0,62ch)_1fr] lg:gap-20">
-          <Texto html={pagina.html} className="revelar" />
-          <aside aria-label="Pranchas dos livros" className="lg:sticky lg:top-28 lg:self-start">
-            <Galeria imagens={lateral} grade="grid-cols-2 gap-4 lg:grid-cols-1 lg:gap-6" sizes="(min-width: 1024px) 480px, 45vw" />
-          </aside>
-        </div>
-      </article>
-
-      <Faixa rotulo="volumes">
-        <h2 id="volumes" className="titulo-2 revelar scroll-mt-28">Os volumes</h2>
-        <ul className="mt-[var(--espaco-bloco)] grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-4">
-          {volumes.map((l) => (
-            <li key={l.slug} className="revelar">
-              <CartaoLivro livro={l} amazon={site.amazon[l.slug]} />
-            </li>
-          ))}
-        </ul>
-      </Faixa>
-
-      <section className="faixa border-t border-linha bg-surface" aria-labelledby="titulo-pranchas">
-        <div className="conteudo revelar">
-          <h2 id="titulo-pranchas" className="titulo-2">{c("pranchasTitulo")}</h2>
-        </div>
-        <div className="mt-[var(--espaco-bloco)]">
-          <Galeria variante="faixa" imagens={resto} sizes="(min-width: 768px) 520px, 82vw" />
-        </div>
-      </section>
-
-      <Faixa rotulo="titulo-compra">
+      <Faixa rotulo="titulo-compra" className="border-t border-linha">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
           <Imagem
             img={info(colecao.capa.arquivo, colecao.capa.alt)}
@@ -126,6 +97,52 @@ export default function Colecao() {
           </div>
         </div>
       </Faixa>
+
+      {/* Texto em trechos, intercalado com pranchas, citação, objetivos e volumes */}
+      <article className="faixa border-t border-linha bg-surface">
+        <div className="conteudo grid gap-14 lg:grid-cols-[minmax(0,62ch)_1fr] lg:gap-20">
+          <Texto html={abertura} className="revelar" />
+          <aside aria-label="Pranchas de Ave, Sertão!" className="lg:sticky lg:top-28 lg:self-start">
+            <Galeria imagens={pranchas.slice(0, 2)} grade="grid-cols-2 gap-4 lg:grid-cols-1 lg:gap-6" sizes="(min-width: 1024px) 480px, 45vw" />
+          </aside>
+        </div>
+      </article>
+
+      <Citacao texto={c("citacao")} fonte={c("citacaoFonte")} />
+
+      <section className="faixa" aria-label="O projeto">
+        <div className="conteudo grid gap-14 lg:grid-cols-[1fr_minmax(0,62ch)] lg:gap-20">
+          <aside aria-label="Pranchas de Vive, Sertão!" className="order-last lg:order-first lg:sticky lg:top-28 lg:self-start">
+            <Galeria imagens={pranchas.slice(2, 4)} grade="grid-cols-2 gap-4 lg:grid-cols-1 lg:gap-6" sizes="(min-width: 1024px) 480px, 45vw" />
+          </aside>
+          <Texto html={projeto} className="revelar" />
+        </div>
+      </section>
+
+      <section className="faixa border-t border-linha bg-surface" aria-label="Objetivos do projeto">
+        <Texto html={objetivos} className="objetivos conteudo revelar" />
+      </section>
+
+      <Faixa rotulo="volumes">
+        <h2 id="volumes" className="titulo-2 revelar scroll-mt-28">{c("colecaoTitulo")}</h2>
+        <ul className="mt-[var(--espaco-bloco)] grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-4">
+          {volumes.map((l) => (
+            <li key={l.slug} className="revelar">
+              <CartaoLivro livro={l} amazon={site.amazon[l.slug]} />
+            </li>
+          ))}
+        </ul>
+        <Texto html={producao} className="leitura revelar mt-[var(--espaco-bloco)]" />
+      </Faixa>
+
+      <section className="faixa border-t border-linha bg-surface" aria-labelledby="titulo-pranchas">
+        <div className="conteudo revelar">
+          <h2 id="titulo-pranchas" className="titulo-2">{c("pranchasTitulo")}</h2>
+        </div>
+        <div className="mt-[var(--espaco-bloco)]">
+          <Galeria variante="faixa" imagens={pranchas.slice(4)} sizes="(min-width: 768px) 520px, 82vw" />
+        </div>
+      </section>
     </>
   );
 }

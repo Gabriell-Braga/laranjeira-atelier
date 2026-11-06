@@ -318,6 +318,39 @@
     padding-left: 1em;
   }
 
+  /* Objetivos do projeto (página Sobre a coleção): lista numerada em grade */
+  .objetivos h2 {
+    margin-top: 0;
+    font-size: var(--texto-h2);
+  }
+  .objetivos ul {
+    list-style: none;
+    padding: 0;
+    margin-top: var(--espaco-bloco);
+    display: grid;
+    gap: 2.5rem 3rem;
+    counter-reset: objetivo;
+    @media (width >= 48rem) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  .objetivos li,
+  .objetivos li + li {
+    counter-increment: objetivo;
+    margin-top: 0;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-linha);
+  }
+  .objetivos li::before {
+    content: counter(objetivo, decimal-leading-zero);
+    display: block;
+    font-family: var(--font-display);
+    font-size: 2rem;
+    line-height: 1;
+    color: var(--color-ocre);
+    margin-bottom: 0.75rem;
+  }
+
   /* Conteúdo que ainda falta: visível de propósito (só em desenvolvimento) */
   .preencher {
     background: #fff3b0;

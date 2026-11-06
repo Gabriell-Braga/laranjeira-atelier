@@ -5,6 +5,9 @@ fichaTitulo: "Ficha técnica da coleção"
 compraTitulo: "Comprar a coleção completa"
 compraTexto: "Clique nos links para adquirir um dos volumes ou toda a coleção."
 sobretitulo: "Coleção Sertão Vivo · Dilce Laranjeira"
+citacao: "Primeiro e maior personagem em Grande sertão: veredas, o sertão se faz presente a cada passo da jornada de Riobaldo."
+citacaoFonte: "Dilce Laranjeira, introdução de Vive, Sertão!"
+colecaoTitulo: "A coleção"
 pranchasTitulo: "Imagens de capas, ilustrações, pranchas e páginas de miolo"
 pranchas:
   - "wix/projeto-sertao-vivo/livro-ave-sertao-capa-e-miolo-5d1c5f1a.jpg"
@@ -26,11 +29,15 @@ Grande sertão: veredas é fascinante obra magna da literatura brasileira e mund
 
 Quando li Grande sertão, desde a primeira vez me chamou atenção a presença, profusão e diversidade de citações de espécies de fauna e flora, que permeiam a narrativa ao longo de todo o romance.
 
+***
+
 > Já na primeira experiência com o texto de Guimarães Rosa, a percepção do sertão como o principal e maior personagem do romance, naturalmente se incorpora na leitura. Na verdade, são muitos e vários personagens, das paisagens áridas e angustiantes do Liso do Sussuarão, às veredas verdejantes das beiras do São Francisco; dos onipresentes buritizais, aos rios, numerosos rios, que acompanham o itinerário dos pelejantes. De todos esses personagens, matéria viva do sertão, as plantas e os bichos têm um protagonismo superlativo na literatura brasileira. Não apenas em Grande sertão: veredas, em toda a obra de Guimarães Rosa. E dos bichos habitantes do grande sertão, os pássaros são como as constelações em noites de céu limpo: impossível ignorar a presença, a recorrência, a diversidade.
 
 O texto acima faz parte da introdução ao livro *Ave, Sertão! Aves em Grande sertão: veredas*.
 
 Esse projeto, em seus três primeiros livros, tem como objetivo trazer à luz, através de pesquisa assessorada por especialistas, profissionais, aficionados e conhecedores das diversas áreas, as espécies citadas no romance Grande sertão: veredas, no intuito de dar a conhecer e apresentar um registro iconográfico e textual dessas espécies. A exposição através de imagens visa representá-las em seus detalhes e características morfológicas e ensejar a fruição estética e diversidade de formas, texturas, movimento e cores, através do olhar da autora na técnica de pintura em aquarela. Os textos e artigos que acompanharão as imagens pretendem, além de informar dados objetivos sobre as espécies e seu ambiente, suscitar reflexões em torno da sua presença na obra de Guimarães Rosa e a necessidade de preservação dos ambientes naturais e (re)conhecimento de seus habitantes, tão urgente no mundo instável e inseguro em que vivemos, frente às instâncias imperativas das questões ambientais.
+
+***
 
 ## O projeto tem como objetivos
 
@@ -43,12 +50,7 @@ Esse projeto, em seus três primeiros livros, tem como objetivo trazer à luz, a
 - Levar ao conhecimento, através do intermédio da obra literária, a ciência e consciência da diversidade e riqueza dos ambientes naturais do país e a necessidade de reflexões sobre o cuidado com o meio ambiente.
 - Trazer à luz uma obra visual, conseguinte ao trabalho de pesquisa com as espécies, da imersão em inúmeras leituras, releituras, encontros, diálogos e reflexões acerca dos olhares diversos sobre o romance. Esse objetivo refere-se à publicação do quarto volume da coleção – Sertão Sem Fim! – um livro de imagens sobre o Grande Sertão, na visão da autora.
 
-## A coleção
-
-- Livro I – Ave, Sertão! Aves em Grande sertão: veredas
-- Livro II – Vive, Sertão! Bichos em Grande sertão: veredas
-- Livro III – Mbur’iti, Sertão! Flora em Grande sertão: veredas
-- Livro IV – Sertão Sem Fim! Visões do Grande Sertão
+***
 
 A produção editorial, projeto gráfico, diagramação, imagens e editoração eletrônica da coleção são da autora.
 
