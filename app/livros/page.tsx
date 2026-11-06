@@ -37,7 +37,6 @@ export default function Colecao() {
     [String(volumes.length), "volumes"],
     [String(colecao.paginas), "páginas"],
     [ficha("Imagens").replace(/^Mais de /, "+"), "imagens"],
-    [String(ficha("Ilustrações").split(/, | e /).length), ficha("Ilustrações").toLowerCase()],
   ];
 
   return (
@@ -101,7 +100,7 @@ export default function Colecao() {
             <Texto html={contexto} className="contexto" />
             <figcaption className="mt-5 text-[15px] tracking-wide text-ink-muted">Dilce Laranjeira</figcaption>
           </figure>
-          <ul className="numeros mx-auto mt-[var(--espaco-bloco)] grid max-w-[60rem] grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-4">
+          <ul className="numeros mx-auto mt-[var(--espaco-bloco)] grid max-w-[46rem] grid-cols-3 gap-x-6">
             {numeros.map(([n, rotulo], i) => (
               <li key={rotulo} className="revelar" style={{ "--i": i } as CSSProperties}>
                 <span className="numero">{n}</span>
