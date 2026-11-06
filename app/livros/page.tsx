@@ -88,7 +88,7 @@ export default function Colecao() {
       <section className="border-t border-linha bg-surface py-[var(--espaco-bloco)]" aria-label="Introdução de Vive, Sertão!">
         <div className="conteudo grid items-center gap-10 lg:grid-cols-[minmax(0,62ch)_1fr] lg:gap-16">
           <Texto html={vive} className="revelar" />
-          <div className="mx-auto w-full max-w-[460px]">
+          <div className="na-tela mx-auto w-full max-w-[460px]">
             <Galeria imagens={pranchas.slice(3, 4)} grade="grid-cols-1" sizes="(min-width: 1024px) 460px, 90vw" />
           </div>
         </div>
@@ -137,7 +137,7 @@ export default function Colecao() {
       {/* Introdução de Ave, Sertão! ao lado da prancha de aves; faixa mais baixa que as outras */}
       <section className="border-t border-linha bg-surface py-[var(--espaco-bloco)]" aria-label="Introdução de Ave, Sertão!">
         <div className="conteudo grid items-center gap-10 lg:grid-cols-[1fr_minmax(0,62ch)] lg:gap-16">
-          <div className="order-last mx-auto w-full max-w-[460px] lg:order-first">
+          <div className="na-tela order-last mx-auto w-full max-w-[460px] lg:order-first">
             <Galeria imagens={pranchas.slice(1, 2)} grade="grid-cols-1" sizes="(min-width: 1024px) 460px, 90vw" />
           </div>
           <Texto html={ave} className="revelar" />
