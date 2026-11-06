@@ -638,6 +638,8 @@
   touch-action: pan-y pinch-zoom;
 }
 .vz-quadro {
+  /* sempre na coluna do meio, mesmo sem setas (uma imagem só) */
+  grid-column: 2;
   position: relative;
   display: grid;
   place-items: center;
