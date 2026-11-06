@@ -84,11 +84,13 @@ export default function Colecao() {
         </ul>
       </header>
 
-      {/* Introdução de Vive, Sertão! ao lado das suas pranchas */}
-      <section className="faixa border-t border-linha bg-surface" aria-label="Introdução de Vive, Sertão!">
-        <div className="conteudo grid items-center gap-14 lg:grid-cols-[minmax(0,62ch)_1fr] lg:gap-20">
+      {/* Introdução de Vive, Sertão! ao lado da prancha de bichos; faixa mais baixa que as outras */}
+      <section className="border-t border-linha bg-surface py-[var(--espaco-bloco)]" aria-label="Introdução de Vive, Sertão!">
+        <div className="conteudo grid items-center gap-10 lg:grid-cols-[minmax(0,62ch)_1fr] lg:gap-16">
           <Texto html={vive} className="revelar" />
-          <Galeria imagens={pranchas.slice(2, 4)} grade="grid-cols-2 gap-4 lg:grid-cols-1 lg:gap-6" sizes="(min-width: 1024px) 480px, 45vw" />
+          <div className="mx-auto w-full max-w-[460px]">
+            <Galeria imagens={pranchas.slice(3, 4)} grade="grid-cols-1" sizes="(min-width: 1024px) 460px, 90vw" />
+          </div>
         </div>
       </section>
 
