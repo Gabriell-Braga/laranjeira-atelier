@@ -1067,13 +1067,13 @@
 }
 /* Progresso da faixa: a pincelada laranja se pinta conforme a rolagem (Galeria.tsx muda o clip-path) */
 .faixa-progresso {
-  height: 14px;
+  height: 8px;
   background: var(--risco) center / 100% 100% no-repeat;
   clip-path: inset(0 70% 0 0);
   transition: clip-path 0.25s var(--ease-natural);
 }
 .faixa-trilho {
-  height: 14px;
+  height: 8px;
   background: var(--risco) center / 100% 100% no-repeat;
   opacity: 0.15;
 }
