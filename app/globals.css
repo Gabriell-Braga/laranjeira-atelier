@@ -905,6 +905,8 @@
   grid-auto-columns: min(82%, 520px);
   gap: 1.25rem;
   overflow-x: auto;
+  /* sem isso o navegador torna o eixo vertical rolável e a roda do mouse fica presa na faixa */
+  overflow-y: hidden;
   overscroll-behavior-x: contain;
   scroll-snap-type: x mandatory;
   scroll-padding-inline: 20px;
