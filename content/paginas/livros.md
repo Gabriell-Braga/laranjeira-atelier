@@ -16,10 +16,19 @@ pranchas:
   - "livros/ave-sertao/ararauna.jpg"
   - "livros/vive-sertao/prancha-lobo-guara.jpg"
   - "livros/vive-sertao/onca.jpg"
-  - "livros/mburiti-sertao/prancha-pequi.jpg"
+  - "livros/ave-sertao/tucano.jpg"
+  - "livros/mburiti-sertao/buriti.jpg"
+  - "livros/vive-sertao/lobo-guara.jpg"
+  - "livros/ave-sertao/suindara.jpg"
   - "livros/mburiti-sertao/caraiba.jpg"
-  - "livros/sertao-sem-fim/travessia.jpg"
-  - "livros/sertao-sem-fim/nonada.jpg"
+  - "livros/vive-sertao/tamandua.jpg"
+  - "livros/ave-sertao/acaua.jpg"
+  - "livros/mburiti-sertao/pequi.jpg"
+  - "livros/vive-sertao/anta.jpg"
+  - "livros/ave-sertao/papagaio-vermelho.jpg"
+  - "livros/mburiti-sertao/maracuja-do-mato.jpg"
+  - "livros/vive-sertao/borboleta.jpg"
+  - "livros/mburiti-sertao/goiabeira.jpg"
 ---
 
 Quando li Grande sertão, desde a primeira vez me chamou atenção a presença, profusão e diversidade de citações de espécies de fauna e flora, que permeiam a narrativa ao longo de todo o romance.

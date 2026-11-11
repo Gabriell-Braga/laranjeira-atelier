@@ -15,34 +15,32 @@
   "placeholder": "data:image/webp;base64,UklGRqAAAABXRUJQVlA4IJQAAADwBACdASoYABUAPu1qq1EppaOiqAqpMB2JZQDA3A9CCWWibLd1ogDxPILC6FddJAAA/sPxsUyI1RppnEEd417au+ijLau0AETMAg1FjEDWCgHeoOtlI8wZYdWUwrP6btNb/oPScYw/ZPvlKlCDavlVrmrd3gLyoUsyaSupEVyWUdO0Ki9gJBGA0NsD9dmSWHP9AAAA"
  },
  "livros/ave-sertao/acaua.jpg": {
-  "hash": "a69ad68ede05",
-  "largura": 1965,
-  "altura": 2401,
+  "hash": "ee6e30644ab9",
+  "largura": 1436,
+  "altura": 1968,
   "larguras": [
    480,
    720,
    960,
-   1600,
-   1965
+   1436
   ],
   "cor": "#f8f8f8",
   "transparente": false,
-  "placeholder": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAADQBACdASoYAB0APuVepE2pJSMiMAwBIByJZQDQGCHfxyrVgZU5ybBJCoYBdzEuAAD+82vHWDvU0pTHo+76JOw0pyV4h8vuelOOwmOHwncF0GMJ114nlqkZ1MSXuIymBfhJjqytmRbBNNw6S/nilAf4GgzZ19+1QD1wAA=="
+  "placeholder": "data:image/webp;base64,UklGRsYAAABXRUJQVlA4ILoAAABwBQCdASoYACEAPu1gqU2ppaQiMBVdUTAdiWUA0YAubQOPvH+xPqKeD6PywWCN/TMbDzwAAP73CH4DVRDa7+fGe9lvCiP9Z1H8xaYq+R99T7mGRqZ6+DfcP9Bhz58vErxtsPJj2rhM+klYTitZY2veHBdyTf1Px1ino1yeuxMCGaNBQ9o4JtiBR0Pygf/d3nmqC53aBIJtzCnUFN1qFQSXICVKT3JEHKjoNjkeXGyc4HiORecPuWAAAAA="
  },
  "livros/ave-sertao/ararauna.jpg": {
-  "hash": "2d6d5bfd4790",
-  "largura": 1965,
-  "altura": 2401,
+  "hash": "2cc982b3d0a7",
+  "largura": 1588,
+  "altura": 2233,
   "larguras": [
    480,
    720,
    960,
-   1600,
-   1965
+   1588
   ],
   "cor": "#f8f8f8",
   "transparente": false,
-  "placeholder": "data:image/webp;base64,UklGRqgAAABXRUJQVlA4IJwAAAAQBQCdASoYAB0APulep02pJSOiN/VYASAdCWIAygARACkmrkxduAg4LfFI+TsAVMIAAP7zfw8YDmYwF51akeqMTlIif7mRanD7PoOE0+YCR5RL70jm8DjPr91isF1C+6DDwQRu+KbLmsiE9ut+dptPBUY1/ZMpzHLxLM8YvXJMcogJz4dFeARKM9b5wBWQa+FDHJH/ckojeO0AAAA="
+  "placeholder": "data:image/webp;base64,UklGRswAAABXRUJQVlA4IMAAAADQBQCdASoYACIAPu1gqE4ppSOiMBVdUTAdiWgAVf0CkoOr4iIkeT5wStYgDNeVna4W9UKqgzwAAP7xzcbOaEm3t04yd5Usdu+3dA5c6WcjnN/yhff6vVOP5CL60Q8d+LxqVw3+HiOPiylbQgdtY6MWNnzSSRpRuSLAT5Im1CbaC8uLg12N8s+FLaNhghN2snJcl+pNZo8p1asffkV+DQVCJyYMI7RuFK6la2MVoA+QeWdg4bkjBGtoTFv+5NAJQAA="
  },
  "livros/ave-sertao/mapa.jpg": {
   "hash": "832ead8b6d8a",
@@ -75,19 +73,19 @@
   "placeholder": "data:image/webp;base64,UklGRqYAAABXRUJQVlA4IJoAAABQBACdASoYAB0APuVcp02pJSOiMAwBIByJYmfkTuFWoSevIsBknEuerlUAAP7uoA0K//udppCvXR8N43HRW76+XvzvGqTS66xbQS2fLjcpj9j9Mz+ZRE6lM8oZ0oPsMWJfJwuYjfjaS08k8o9akqjYZKUIFFhXNkxi6C5uHu67noJe5sJ+yxps195K5rTb3RFiVsZTBeFAAAAA"
  },
  "livros/ave-sertao/papagaio-vermelho.jpg": {
-  "hash": "eea19831ec92",
-  "largura": 1965,
-  "altura": 2401,
+  "hash": "c701b0809133",
+  "largura": 1704,
+  "altura": 2214,
   "larguras": [
    480,
    720,
    960,
    1600,
-   1965
+   1704
   ],
   "cor": "#f8f8f8",
   "transparente": false,
-  "placeholder": "data:image/webp;base64,UklGRp4AAABXRUJQVlA4IJIAAACwBACdASoYAB0APt1apE2opSOiN/qoARAbiWYAzjgh4Am3CzTaFq5C7vzKDJMAAP702+KV7RMv25Yz3tMdG635J2vERia/O1pSGJbnf9R1LT5+K49Tgyu3bqO4AJTUFXi+abm4M1m1UFOq+hqGp2kx1zH0CjNMANVcbJUBPduZ6MJBiUZi/4eSrec7vx7tqKsAAA=="
+  "placeholder": "data:image/webp;base64,UklGRrAAAABXRUJQVlA4IKQAAAAwBQCdASoYAB8APulep02pJSOiN/VYASAdCWoAUwADyQjCX6glU7fSB3KCxjIM7Wi4AAD+83RmdU2253WjWJz5fSipAKLnURmOhyl2ZRh+PZBUw4U03T7FQGBaK/FnWFq7LfzKqDt94qwfXK6f5AsVG5yAiZ8xFxnC1Sc65s3RqXC1+J0gOXDPhnRop54d3F1X4rUY9Ai2ncfLgMn2v0WUYCQAAA=="
  },
  "livros/ave-sertao/prancha-tucano.jpg": {
   "hash": "eafa8c8fdabf",
@@ -120,19 +118,19 @@
   "placeholder": "data:image/webp;base64,UklGRqgAAABXRUJQVlA4IJwAAADwBACdASoYAB0APu1wsFIppiSiqAgBMB2JYwDN/FbQIIx47GUAvwKFP7YWg1xQngAA/vui/0UgQiMETkSoSKp5OqMPhoUkxUvwiVgYgnZp9/ee/oz2im/+ttvkjoscNwwE68VXvXyJiLSiUprKR0FG6vuTQ7xk8HKvSFTMTWBhCAVJa3ech1YvJLUgTKob0Z3q6MlkxSoT58nAAAA="
  },
  "livros/ave-sertao/suindara.jpg": {
-  "hash": "39538aafa953",
-  "largura": 1965,
-  "altura": 2401,
+  "hash": "4f78cf1e8114",
+  "largura": 1783,
+  "altura": 2113,
   "larguras": [
    480,
    720,
    960,
    1600,
-   1965
+   1783
   ],
   "cor": "#f8f8f8",
   "transparente": false,
-  "placeholder": "data:image/webp;base64,UklGRpYAAABXRUJQVlA4IIoAAAAwBQCdASoYAB0APu1ip04ppaMiMBgMATAdiWMAzNA0b7OLzJ2sZhpklfwKrKkYKS7quAD+9w50whjpJENdO0rYzEmfJe65QBS5Z5sMnZB9UKjIxixoIezJa4VKS42iCQ7iFz1abo1KkSXLpVZtZCD9NFR3gyA6v9W7YJs5N7sxrd86ZSnLITQAAAA="
+  "placeholder": "data:image/webp;base64,UklGRqoAAABXRUJQVlA4IJ4AAABwBQCdASoYAB0APu1kq06ppaQiKA1RMB2JYwDKAdwB9E8FUY/7HdZ6qy0XKnxRsGKfr0wAAP75c/hCdzdShr0HCKp6yiwsnrFm14WeJaw3JUY/kOAksu6rhLG5QolLymKSYGAIxiZI7ZSXR1FffnJXFdZXZNdDwhrO/ACEjiLqVM8xx76MIfT70umShw4ZO+9M0pSfNPyY8T5ADtQAAA=="
  },
  "livros/ave-sertao/tucano-destaque.jpg": {
   "hash": "da9c20c0244a",
@@ -150,39 +148,39 @@
   "placeholder": "data:image/webp;base64,UklGRrYAAABXRUJQVlA4IKoAAAAQBQCdASoYABgAPu1sqlEppaOiqAqpMB2JZQDNhYu4cZntra4jmF2OtYIqP/JQehAAAP7zflkwdagVaRkb2QNJdf0SvcvhJXB0wjpzZ9V+mfXSrVExDCmilPGrl8Y0LuB48xUm+Lw0qq0XEVB0QA+R8oN2WwH8eLUaYFIAztW1Z44YwHUex4wOOl/cFmgVr249V/lR1f2ILOYhE3j2pINBpJv+WEqN6AAAAA=="
  },
  "livros/ave-sertao/tucano.jpg": {
-  "hash": "a0969c10bd04",
-  "largura": 1965,
-  "altura": 2401,
+  "hash": "301cb5b43f13",
+  "largura": 1692,
+  "altura": 2021,
   "larguras": [
    480,
    720,
    960,
    1600,
-   1965
+   1692
   ],
   "cor": "#f8f8f8",
   "transparente": false,
-  "placeholder": "data:image/webp;base64,UklGRrYAAABXRUJQVlA4IKoAAADwBACdASoYAB0APu1srVEppiQiqAqpMB2JZQAD5aEK//z0g5UKlcopUhERzWssKAAA/vNr+Uu8fPNXe1sYreI/0Q0mPNQItjEive9qLTTKvLx4GlVyUjUZQQH+0urA8u8xbPUjuBTivXcAV8OVqRkhvu3ehu2QPe/im/IEQshPBMVMxUPysiNiLOG3lCj+djmGQI4ZFLeZyIBVqsF/wW7pbEs/tR8mcAAAAA=="
+  "placeholder": "data:image/webp;base64,UklGRtQAAABXRUJQVlA4IMgAAADQBQCdASoYAB0APu1wsFKppiSiqAgBMB2JZQDKIDZguAv93ClkmSkFfNunsXZHnhdXL/VDPneAAP7zdBw9ablr8qzNnKERIjU2mokZP9jd33dgUfaMLq7KNbbOa6oDSCqtb+tNAedf0evGyYGteozSW/IDi+vurwcfwpbAeeNbYHqeTBg+LnSstw62v13IgfAXYTtxqDbtb8UMy2gki2Gqpf5K5b1zb15M70Kjtbm7yDzDXG2mwL3qS3E3AfQ5NppBh8FZIkgAAA=="
  },
  "livros/mburiti-sertao/buriti.jpg": {
-  "hash": "512ecc19bd61",
-  "largura": 1965,
-  "altura": 2401,
+  "hash": "78fe71ed9ebd",
+  "largura": 1947,
+  "altura": 2233,
   "larguras": [
    480,
    720,
    960,
    1600,
-   1965
+   1947
   ],
   "cor": "#f8f8f8",
   "transparente": false,
-  "placeholder": "data:image/webp;base64,UklGRrAAAABXRUJQVlA4IKQAAABwBQCdASoYAB0APu1orE+ppiQiMBgIATAdiUAYG4Id75Z5c5K0iN9fX3dspnS1qZASDMIAAP7x0JaU8bdQHJ7Jo7bRIzs1fKvCfPvVbSx0pR4CVzlWlNtRGIwj+7ks85LE4089S6J6xIspwlcRFaLPMoBGuJ5vwWdIyzO2h5FRucbExc1B/4DRTqReDR8Et3mzfNFvr0ZU47NbT5Q7GiDCLbgAAA=="
+  "placeholder": "data:image/webp;base64,UklGRqwAAABXRUJQVlA4IKAAAAAwBQCdASoYABwAPu1kqE4ppaOiMAgBMB2JYgDA3CHe/bnjdOL0YwUC/+2o9RI5mO6QAAD+8dCf6Jw6rSW6YdHsXY2klIBhH6IC9odio11mmnHT5NsOW7CdM+pT7tbp/hiyd3uL+pk7S/vEZoZ3Ew7E5gny6xwE4Xwe/ykfh7Z0rpLeBAB7mRjsXESwd2g5v7pEwWAqUS5bpMOH2yTJxUAA"
  },
  "livros/mburiti-sertao/caraiba.jpg": {
-  "hash": "1fa4dff5371a",
+  "hash": "1273e5cf7ba4",
   "largura": 1461,
-  "altura": 2401,
+  "altura": 2233,
   "larguras": [
    480,
    720,
@@ -191,12 +189,12 @@
   ],
   "cor": "#f8f8f8",
   "transparente": false,
-  "placeholder": "data:image/webp;base64,UklGRswAAABXRUJQVlA4IMAAAABQBgCdASoYACgAPu1op1AppaMiqqoBMB2JbADImBZtpliIN2Y18uF8Lg1hBR0cIhYZmHgnfp+3O/NLgAD+8fSlLYAFR+2pqrfPW910PYnYKrNZzS/epEyT9th/Qa4yJi8Il29bKY5+bYDko4yAk1OiSaiZz7efZq7Ip37xQt/F+7VKJ3oA6fb+QaqIkaBPtvTmVoYNg0xdb6zvJVmvh/CQBm4FJw9OquuCSLIrmwrA8+hCkJ48BaZd2GVOdQgAAAA="
+  "placeholder": "data:image/webp;base64,UklGRsYAAABXRUJQVlA4ILoAAABwBgCdASoYACUAPu1mp08ppSMiKqwBMB2JbADImBZuz70MkFHFuLQL9TgZvITJ9cZGL/8xItlOeQCAxgAA/vH11cmQG84tURaNSSklyjKMXgmYHrMnnPLpjwmlkq3GetUUCN5I35Yr0QYZMqejv8PepcYD8+B+kMOOMDYFtxEKqAlGXkDwKCAh4S8Bu44JSeQI5y7Kt4EtN1StDmUsvllgVbvP99lTrYPgjpFPNo9GNieClVtBOMwAAAA="
  },
  "livros/mburiti-sertao/goiabeira.jpg": {
-  "hash": "5bfaee99d789",
+  "hash": "c29892234e00",
   "largura": 1457,
-  "altura": 2401,
+  "altura": 2233,
   "larguras": [
    480,
    720,
@@ -205,7 +203,7 @@
   ],
   "cor": "#f8f8f8",
   "transparente": false,
-  "placeholder": "data:image/webp;base64,UklGRtAAAABXRUJQVlA4IMQAAACwBgCdASoYACgAPu1oqlGppSOiqrgKATAdiUAXZCyYICBNfhk0eahtD7vfwvenlVTO4h5JmY69tJY6E4BEAAD+8D1f+X7V2lkH+w8lgq3sbmaJuV/sCKt5CHbc+TAk87+C3q+avz0hTGFwcVlIPyeBd/9eZ1Rm+aSWV0z+bmb/RC9+LYkvrvcDU0JZAJwpAOD+MTC3Akm3i4hOag2t381W4WNY0bw2YmhPddf98m2w1ZJswsjKRbsArwRza7FKf+maAAAA"
+  "placeholder": "data:image/webp;base64,UklGRtIAAABXRUJQVlA4IMYAAAAQBgCdASoYACUAPu1oqVCppaOiqrgMATAdiUAWcAFnjsFtvC1zr8jAwthD6jVwB2Fv9uESkaUqKAAA/vA9X/l2HLUJtYKHayyxK124Zy0m8PXIanRPDMLr6id/6usQYK3rYXqPlrAGLZn17NtEjkQc7ErcxVIZrFuYnn0PdeL3W8YGWkhr4hT/fHv1BoyfNclOBVzoKbyyNaDEfu46WTPfTOdWOETNJIGOmZKj+YNDH8PoB8FQIzFzEfpFkk9rssTgNhbsAAA="
  },
  "livros/mburiti-sertao/mapa.jpg": {
   "hash": "208b6406c225",
@@ -223,18 +221,18 @@
   "placeholder": "data:image/webp;base64,UklGRu4AAABXRUJQVlA4IOIAAAAwBgCdASoYAB0APu1qrlCppaQiqAqpMB2JagCpFNqIAAV19nu/ZpthNPhy0ihTEL/4+lQzm50iGYgAAP7v15Nf4YwZkvJtVyo8uERrG+ai4KC51TVWMKXD9wpMWIBkomTI0djC7VPJN4knC26VZIPWietfedQV/zYPTVNXrfUje3nhYm/57OIoRcvnR2Zabo47svfZSe1tZ4q387es0gwHG1BqJ2e9orlaM0DXHrinkG+BtQWSO4F7hNFZq2ms/awg96CQnZLhMf9UmQjS6CaXgma6BiDaYcbmKOOThTIJqgAA"
  },
  "livros/mburiti-sertao/maracuja-do-mato.jpg": {
-  "hash": "f480417ef037",
-  "largura": 1457,
-  "altura": 2401,
+  "hash": "7ed1747103ae",
+  "largura": 1452,
+  "altura": 2233,
   "larguras": [
    480,
    720,
    960,
-   1457
+   1452
   ],
   "cor": "#f8f8f8",
   "transparente": false,
-  "placeholder": "data:image/webp;base64,UklGRswAAABXRUJQVlA4IMAAAAAwBQCdASoYACgAPu1kqk6ppaQiKqwBMB2JQArYAKQyDACix73ea4GqoKBi+hu+rulsAAD+7XpOYcs8yG893Qx4okjbCKr97NYIiqsJwrourdqa/ZwBNV3XVBaL4ApoL/83dDKZ1YBgEvf+thIwtLfez0nTRrtOWZGHD9xM9ntUKnyCZ4k9MzqQ68Uo3nf2MsbMaRYDWfcfdSNvGodJEQpc0/czr6uYYCE1XJ4SdWChkh7m9ZyvVT5y6nSmcXF2AAA="
+  "placeholder": "data:image/webp;base64,UklGRsoAAABXRUJQVlA4IL4AAADQBQCdASoYACUAPu1uqk+ppqOiKrgMATAdiUAY/IFmPKDeTYgnFlJpgvBr9pjr7C8c4bXwnbQAAP7tek5hy2qYcJTY0lG09kuFTjuEqrUcGJpS0WgAw+rgLZwBNV0joL2lSYb1LR9YeP+usBjDNohjE55csRtkn5gCQ76Mfv0/eALVIdUg9zaxB12Tnzg2OcKN55rAaNfQPh3eOEzmUt1rH838Dihir2+LXjpfxUDxiND4tUIZP7ezRcbuIgAA"
  },
  "livros/mburiti-sertao/paisagem.jpg": {
   "hash": "7510cd62b04d",
@@ -252,9 +250,9 @@
   "placeholder": "data:image/webp;base64,UklGRrgAAABXRUJQVlA4IKwAAADQBQCdASoYAB0APu1irFAppSQisBgIATAdiUAVyqgALFax58EQjWv1tQlahIK/CZJxIoRbPAMAAP7zafHZ4TaS/545e0QlHHxtfxwHbm5EuLT5kdLUkPXP/pkD9LmUuVZ12k1xH37Ywrx6k8TC5Mf0hIjdUneE0cUqi/51U3mr/5PRJN2xxX62CdvaeESt/Hp5SQerQKP6dNuxs8PR79UzGyHAcQPD77AmmLAA"
  },
  "livros/mburiti-sertao/pequi.jpg": {
-  "hash": "9c3ebb8e6f78",
+  "hash": "2e5aaf84e40b",
   "largura": 1467,
-  "altura": 2401,
+  "altura": 2233,
   "larguras": [
    480,
    720,
@@ -263,7 +261,7 @@
   ],
   "cor": "#f8f8f8",
   "transparente": false,
-  "placeholder": "data:image/webp;base64,UklGRswAAABXRUJQVlA4IMAAAADQBQCdASoYACcAPu1qrVCppaQipWzJMB2JZADLpAt59CVuxCeajGB8iBDzc6rKUNYPW6oJHa3AAP7wQKm0LmG8VffVU7Bsxi5nW1a6U5UVjGnOtKC1B6POS3F3IS7yGNoHcofPE63B69I7YRoxDeIb4mnKMYbiL8latGa2lX5wcRcs4xM0qs2DSSlZlhysn6wbEibW1dkV1FSeJulHmobvPOwI8BE5DwDfqWecuvawmxFxaygQwdfaC2wxoWN0gAA="
+  "placeholder": "data:image/webp;base64,UklGRtIAAABXRUJQVlA4IMYAAAAQBgCdASoYACUAPu1qrVCppaQipWzJMB2JYgAAH0m032n4Cibah13r5A4WwwDE70kj8HuCBmIrhfgA/vBApdhcw2BSj7O9t2Vd/M7hJZi/pMh7noxQZFDJTM/TpdTIDa6QJX7d3BOCll7FsUmvAL5BjA1Bp2Ev0Cc3E+Im6ICKqvbQ43oR1nG1yghElwVScuW26vupa6nGCO/BXUVNevejckVKrnCo95yQ/d3Hk2hny9ORBYVXS3YwTLJswIw0VYIPsTYgAAA="
  },
  "livros/mburiti-sertao/prancha-pequi.jpg": {
   "hash": "53fddff0ae73",
@@ -431,49 +429,49 @@
   "placeholder": "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAABwBACdASoYAA8APu1iqU2ppaOiMAgBMB2JQBOmUI+PBTkQ54GamNBfsa+cAAD+42y5+ztDMYzSQ+YReK2tkpEFT9FmnCy7kxfPlqgb3T/aLXx3Z5kz3Xxieuh5JvPDeKumqKPlZ2uJqIrxKGIIcDesT4qgAA=="
  },
  "livros/vive-sertao/anta.jpg": {
-  "hash": "756ad18a017d",
-  "largura": 1965,
-  "altura": 2401,
+  "hash": "1ce4f1fbc544",
+  "largura": 1686,
+  "altura": 2070,
   "larguras": [
    480,
    720,
    960,
    1600,
-   1965
+   1686
   ],
   "cor": "#f8f8f8",
   "transparente": false,
-  "placeholder": "data:image/webp;base64,UklGRpwAAABXRUJQVlA4IJAAAABQBQCdASoYAB0APu1srFEppiQiqAqpMB2JZQDHMGlfx2VblBjLCbgB7PCy+SUHsjRYbgAA/vwRIqH+dQUDE5fWodMaIKxjrB4PyS259N5XK0WuY/tZIXIBkRkgBWzps+CbCDzmznvCaWTimWIDuKcLRJHMgvr5F3v5GfYVR8YtnxbTG/8QmA1mOmOWUcp2AAA="
+  "placeholder": "data:image/webp;base64,UklGRp4AAABXRUJQVlA4IJIAAAAwBQCdASoYAB0APu1srVEppaQiqAqpMB2JQBlWjSvxKhEe+iKIUonLPIQk4y1FimMs0AD+/BLusnVuzTD12kIqfP4xDh0r5I2Sy5xeB8/fYKx7/bFkKfJgQFc/dCoSysZ/H7Z57KMNsji+T1o7nE899qC2REOdKbAsseLMOLdf7Y/joR3NgPhrEu1thmG8KrSAAA=="
  },
  "livros/vive-sertao/borboleta.jpg": {
-  "hash": "dffb8c1b8fb3",
-  "largura": 1965,
-  "altura": 2401,
+  "hash": "9c4dd1458d4a",
+  "largura": 1636,
+  "altura": 2102,
   "larguras": [
    480,
    720,
    960,
    1600,
-   1965
+   1636
   ],
   "cor": "#f8f8f8",
   "transparente": false,
-  "placeholder": "data:image/webp;base64,UklGRqwAAABXRUJQVlA4IKAAAAAQBQCdASoYAB0APtlcok2oJaMiN/qoAQAbCWYAygBXcAU1/DlXejxlMuo27tyaLCwAAP737tQv7nCXmHr7xu+RIvZNkuh9XZfIbt9eN1BHilkQhb4+cLKNEa37oniB5lj1xR/tLMkfMFFabo5gZExr9znNzc8IaUeGLKSUpESPs+AcU6Wk6+xUaOlhLgmdqlwP1UoZIAZ15HPKvIa50pgA"
+  "placeholder": "data:image/webp;base64,UklGRtYAAABXRUJQVlA4IMoAAADwBQCdASoYAB8APu1qqVAppiOiqA1RMB2JaAC/WTuqQPdLD3tu9JVBQthWB+rdwWF2MaDHJ4bywAD++ZYXAkzbT8x2RsMwYRHt2AdB12cb40VryRPbMqmg/DoLTyLWqQEgEAbJrTpL6SIzE2Ex2vD1TBP9Y+UUo+6zn1J4VzT0GgEaWox9aMK0kwGkBck9xc07sUMZg/GZFkHe2Luv5PjfeoI8EFQAKAGCBWGAVsAOWPmyhOV97PJZXzuvVNmp01M5yORx1/ecPgAA"
  },
  "livros/vive-sertao/lobo-guara.jpg": {
-  "hash": "273d9b1189f0",
-  "largura": 1965,
-  "altura": 2401,
+  "hash": "9bb971352407",
+  "largura": 1903,
+  "altura": 1674,
   "larguras": [
    480,
    720,
    960,
    1600,
-   1965
+   1903
   ],
   "cor": "#f8f8f8",
   "transparente": false,
-  "placeholder": "data:image/webp;base64,UklGRqQAAABXRUJQVlA4IJgAAADQBACdASoYAB0APu1qrFEppaQiqAqpMB2JaAAD5M5l/H+vfuHzcdMU+JqfN5twAAD+/BCQ6SRHLpQdKzCGS5uYtn4lk28MonbtAuoGk/h4NneTCna2FiczplMjn4RqZTPaMkMHykZCKklXmpfK1GxiG6w3Gkx6NmBxOutT/a2tD2SgIuwYj9g6tM8amFNMjDBAs4S3FWAQAA=="
+  "placeholder": "data:image/webp;base64,UklGRp4AAABXRUJQVlA4IJIAAAAwBQCdASoYABUAPu1opU2ppiMiMBgMATAdiWQAuwAQ75rI2o8cmqIifXvkySG0T7EAAAD+8edohiBV/0Jpm7U3NKZUDJBGIkMlT754rqaGeUm/rwxhW5M84aYeWcwXUkrYao/D4Bs/oeE7GJ6ZgFzijxtI34T1NlzgKsCo7xlzLeDd3eeBciRa1Amqf1JJGk5gAA=="
  },
  "livros/vive-sertao/mapa.jpg": {
   "hash": "339922f78d9e",
@@ -491,19 +489,19 @@
   "placeholder": "data:image/webp;base64,UklGRuoAAABXRUJQVlA4IN4AAADQBQCdASoYAB0APu1crE2ppKSiMBgMATAdiWoAnTLSoYADOamw0llhKvYTNjRvGCRfDQ3FrE8AAP7v81nQL7CJsl3tHpbhpVzgDJ1HOn2BPrRRrWYlBjF6jZOerbT7wPolZmGPJo12lVO4Q6JQYxhv6WCXMKVqJHuLCLds3gX1F/Z3ymhTB3Yr/Fu/Ac/7R23KRDzrOPRLpHb8OXM4bt/9Sa/rXcCFnnD4GCAKYUR4wJ/fQ/XVDEqH1+ozijvQUAGgymC1mNkOkLnZwDli/TzKYNKvLZxHqlGP+MRzAAA="
  },
  "livros/vive-sertao/onca.jpg": {
-  "hash": "47c53660abe4",
-  "largura": 1965,
-  "altura": 2401,
+  "hash": "aa89d16b96dc",
+  "largura": 1897,
+  "altura": 1524,
   "larguras": [
    480,
    720,
    960,
    1600,
-   1965
+   1897
   ],
   "cor": "#f8f8f8",
   "transparente": false,
-  "placeholder": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAAAQBQCdASoYAB0APu1mqE2ppaOiMBgMATAdiWUAw6xX7+Iq9qm+teirOnkhad6YWDKAAP76EKiQQq+G2d8d6nQTwiOzMFaq16ydUMGrc69jea1gkSEZA3heX6HPH5VMAgxPRORbGzrIAAAA"
+  "placeholder": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAABQBACdASoYABMAPu1kqE2ppaQiMBgMATAdiWMAAC51IldPz/IWlhSo8RZAAP7xz07dsiDANQZf0BCcjfSF/zVOgyKm4lAPRUrVxIL4jYfZjq9aSHxctcDtGK2j7CF7TnnNd/398b9fS0e5F/xwJRoCgAA="
  },
  "livros/vive-sertao/paisagem.jpg": {
   "hash": "ac450320fb3e",
@@ -551,19 +549,19 @@
   "placeholder": "data:image/webp;base64,UklGRqoAAABXRUJQVlA4IJ4AAAAQBQCdASoYAB0APu1wsFIppiSiqAgBMB2JQBjAitoOUKYlsieUY9GV+rW2Gt2sOZkAAP77omIB52zJHAj9srNxnKjtX7W/WABHnKI0puGfzpTaPx+8drHGEPyJbfVl8+9obzRJJTleUAqE7q2jiV1SLTQ8Q4lT2nqQIYnL3q0IE1ffw2EeQt3X7qBZvlI0efzTSA62wvn4MJjGdQAAAA=="
  },
  "livros/vive-sertao/tamandua.jpg": {
-  "hash": "316e738d4970",
-  "largura": 1965,
-  "altura": 2401,
+  "hash": "be1e1bf40de0",
+  "largura": 1872,
+  "altura": 1528,
   "larguras": [
    480,
    720,
    960,
    1600,
-   1965
+   1872
   ],
   "cor": "#f8f8f8",
   "transparente": false,
-  "placeholder": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAACQBACdASoYAB0APu1oqk+ppiOiKA1RMB2JYwAAveqqneS7LeSdoSepOhjJ0AAA/vlpNvrpAD7obo8la1Tx79D+QqSj7ZB7sfHtNkmAufj3+c+gKYhn6XZeTzxDCCjzoNciWctOI8QpsLMa4fuE8OnLPvrIYItMKO4zwAAA"
+  "placeholder": "data:image/webp;base64,UklGRowAAABXRUJQVlA4IIAAAABwBACdASoYABQAPu1erE2ppSSiMBgMATAdiWUAAC52V+LA6DB2hDXiT6ujAAD+83T9muWcVxPgU2Kvdt+x72IeK50iSbAipNlqKjrbVDA5BNanaUPAXaj63PDtRNfY/dP5g5v/caNcLsBeSIWPaF8uFXNnWIWn53+PyhSyWhwAAA=="
  },
  "wix/colecao-sertao-vivo/capa-ave-281d710e.jpg": {
   "hash": "da6dd3c28630",

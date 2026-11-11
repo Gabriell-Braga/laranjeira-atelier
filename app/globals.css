@@ -935,7 +935,7 @@
   align-items: start;
 }
 .faixa-rolagem img {
-  height: clamp(220px, 36vw, 380px);
+  height: clamp(180px, 24vw, 280px);
   width: auto;
   max-width: calc(100vw - 40px);
   object-fit: contain;
