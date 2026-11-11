@@ -123,7 +123,8 @@
 
 /* ---------- Fios desenhados ----------
    traco-t / traco-b / traco-l: fio torto em cima, embaixo ou à esquerda (fundo, não borda).
-   traco-ocre troca a cor da linha pelo ocre. */
+   traco-ocre troca a cor da linha pelo ocre. Só em blocos da largura do conteúdo: esticado na
+   tela inteira (cabeçalho, rodapé, menu) o fio torto parece desalinhado, então lá fica o reto. */
 @utility traco-t {
   background-image: var(--traco-h);
   background-position: top left;

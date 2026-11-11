@@ -89,7 +89,7 @@ export function Menu({ itens, compra }: { itens: ItemMenu[]; compra: React.React
         // inert em vez de hidden: o painel continua no DOM para animar, mas fechado não recebe foco nem leitor de tela
         inert={!aberto}
         data-aberto={aberto || undefined}
-        className="menu-painel absolute inset-x-0 top-full traco-t bg-paper px-5 pb-6 pt-2 shadow-[0_12px_24px_rgba(42,38,32,0.12)] lg:hidden"
+        className="menu-painel absolute inset-x-0 top-full border-t border-linha bg-paper px-5 pb-6 pt-2 shadow-[0_12px_24px_rgba(42,38,32,0.12)] lg:hidden"
       >
         <Links itens={itens} pathname={pathname} vertical />
         <div className="menu-item mt-4" style={{ "--i": itens.length } as React.CSSProperties}>

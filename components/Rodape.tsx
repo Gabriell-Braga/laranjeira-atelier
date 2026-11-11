@@ -10,7 +10,7 @@ export function Rodape() {
   const whatsapp = `https://wa.me/${contato.whatsapp}?text=${encodeURIComponent(contato.whatsappMensagem)}`;
 
   return (
-    <footer className="traco-t bg-areia-clara">
+    <footer className="border-t border-linha bg-areia-clara">
       <div className="conteudo grid gap-x-10 gap-y-12 py-[var(--espaco-bloco)] sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr] lg:py-20">
         <div>
           <p className="font-display text-[30px] font-medium leading-none">Laranjeira Atelier</p>
@@ -59,7 +59,7 @@ export function Rodape() {
           </ul>
         </div>
       </div>
-      <div className="traco-t">
+      <div className="border-t border-linha/80">
         <div className="conteudo flex flex-col gap-2 py-6 text-[14px] text-ink-muted sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} Dilce Laranjeira. Todas as ilustrações são de autoria de Dilce Laranjeira.</p>
           <Link className="text-ink-muted no-underline hover:underline" href="/privacidade/">Privacidade</Link>
