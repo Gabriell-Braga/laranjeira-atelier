@@ -88,7 +88,7 @@
   text-wrap: pretty;
 }
 
-/* Sobretítulo em versalete espaçado, com um fio de ocre à esquerda */
+/* Sobretítulo em versalete espaçado (sem fio: o site evita traços retos) */
 @utility sobretitulo {
   display: flex;
   align-items: center;
@@ -99,13 +99,6 @@
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--color-terra);
-  &::before {
-    content: "";
-    width: 28px;
-    height: 1px;
-    flex: none;
-    background: var(--color-ocre);
-  }
 }
 
 @utility legenda {
@@ -154,6 +147,11 @@
     background: var(--color-paper);
     -webkit-font-smoothing: antialiased;
   }
+  /* Grão de papel de aquarela nas faixas coloridas (no papel do fundo, não: marcaria a borda das imagens) */
+  .bg-surface,
+  .bg-areia {
+    background-image: url(/img/manchas/grao.svg);
+  }
   :focus-visible {
     outline: 3px solid var(--color-laranja);
     outline-offset: 3px;
@@ -188,6 +186,41 @@
 }
 
 @layer components {
+  /* ---------- Manchas de aquarela ----------
+     Atrás de cada título grande fica uma lavagem como a das pranchas da Dilce
+     (SVGs gerados por scripts/manchas.mjs). A cor muda de uma faixa para a outra. */
+  .titulo-display,
+  .titulo-2 {
+    position: relative;
+    isolation: isolate;
+  }
+  .titulo-display::before,
+  .titulo-2::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: -2.5rem;
+    top: 50%;
+    translate: 0 -50%;
+    width: min(calc(100% + 2.5rem), 34rem); /* não passa da borda direita: sem rolagem lateral */
+    height: max(calc(100% + 1.6em), 10rem);
+    background: var(--mancha, url(/img/manchas/areia.svg)) center / 100% 100% no-repeat;
+    opacity: 0.8;
+    pointer-events: none;
+  }
+  main > section:nth-of-type(4n + 2) {
+    --mancha: url(/img/manchas/ceu.svg);
+  }
+  main > section:nth-of-type(4n + 3) {
+    --mancha: url(/img/manchas/vereda.svg);
+  }
+  main > section:nth-of-type(4n) {
+    --mancha: url(/img/manchas/lilas.svg);
+  }
+  .bg-areia {
+    --mancha: url(/img/manchas/lilas.svg);
+  }
+
   /* ---------- Botões ---------- */
   .botao {
     display: inline-flex;
@@ -251,10 +284,10 @@
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 2px;
-    height: 2px;
-    border-radius: 2px;
-    background: var(--color-laranja);
+    bottom: 0;
+    height: 6px;
+    /* pincelada: começa fina, engrossa e termina afinando */
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 6' preserveAspectRatio='none'%3E%3Cpath d='M1 4.2C20 3 45 2.2 70 2.6S94 3.4 99 2.4C96 4.4 80 4.6 60 4.4S18 5.4 1 4.2Z' fill='%23ed7f29'/%3E%3C/svg%3E") center/100% 100% no-repeat;
     transform: scaleX(0);
     transition: transform 0.35s var(--ease-natural);
   }

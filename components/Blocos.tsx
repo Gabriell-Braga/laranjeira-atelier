@@ -39,8 +39,7 @@ export function Citacao({ texto, fonte }: { texto: string; fonte: string }) {
         <blockquote className="citacao leitura revelar revelar-lento">
           <p>“{texto}”</p>
         </blockquote>
-        <figcaption className="revelar revelar-lento mt-8 flex items-center gap-3 text-[15px] tracking-wide text-paper/85" style={{ "--i": 4 } as React.CSSProperties}>
-          <span aria-hidden="true" className="h-px w-8 bg-laranja" />
+        <figcaption className="revelar revelar-lento mt-8 text-[15px] tracking-wide text-paper/85" style={{ "--i": 4 } as React.CSSProperties}>
           {fonte}
         </figcaption>
       </figure>

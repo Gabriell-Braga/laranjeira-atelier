@@ -37,7 +37,7 @@ export function CartaoLivro({ livro, amazon, nivel: Titulo = "h3", prioridade }:
       <p className="legenda mt-1 flex-1">{livro.subtitulo}</p>
       <div className="relative mt-5 flex items-center gap-4">
         {amazon ? (
-          <Botao href={amazon} variante="vereda" aria-label={`Comprar na Amazon: ${livro.titulo} (abre em nova aba)`}>
+          <Botao href={amazon} variante="vereda" className="w-full" aria-label={`Comprar na Amazon: ${livro.titulo} (abre em nova aba)`}>
             Comprar na Amazon
           </Botao>
         ) : (
