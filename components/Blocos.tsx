@@ -13,6 +13,18 @@ export function Faixa({ children, className = "", id, rotulo }: { children: Reac
   );
 }
 
+// Título com a última palavra marcada pela pincelada laranja (marca-texto), como "aquarela" no Início.
+export function Marcado({ texto }: { texto: string }) {
+  const m = texto.match(/^(.*\s)?(\S+)$/s);
+  if (!m || pendente(texto)) return texto;
+  return (
+    <>
+      {m[1]}
+      <span className="pincelado inline-block">{m[2]}</span>
+    </>
+  );
+}
+
 // HTML vindo do markdown de content/paginas.
 export function Texto({ html, className = "" }: { html: string; className?: string }) {
   return <div className={`texto ${className}`} dangerouslySetInnerHTML={{ __html: html }} />;

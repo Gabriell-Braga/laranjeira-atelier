@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { metadados } from "@/lib/meta";
-import { Texto } from "@/components/Blocos";
+import { Texto, Marcado } from "@/components/Blocos";
 import { Botao } from "@/components/Botao";
 import { Portfolio } from "@/components/Portfolio";
 import { indicePortfolio, lerPagina, lerPortfolio } from "@/lib/conteudo";
@@ -20,7 +20,7 @@ export default function PaginaPortfolio() {
   return (
     <>
       <div className="entrada conteudo pb-6 pt-8 md:pb-10 md:pt-14">
-        <h1 className="titulo-display">{pagina.campo("titulo")}</h1>
+        <h1 className="titulo-display"><Marcado texto={pagina.campo("titulo")} /></h1>
         <Texto html={pagina.html} className="leitura mt-4 text-ink-muted" />
       </div>
 
@@ -45,7 +45,7 @@ export default function PaginaPortfolio() {
       <section className="faixa bg-areia" aria-labelledby="titulo-chamada">
         <div className="conteudo grid items-center gap-8 md:grid-cols-[3fr_2fr]">
           <div>
-            <h2 id="titulo-chamada" className="titulo-2">{pagina.campo("chamadaTitulo")}</h2>
+            <h2 id="titulo-chamada" className="titulo-2"><Marcado texto={pagina.campo("chamadaTitulo")} /></h2>
             <p className="leitura mt-4">{pagina.campo("chamadaTexto")}</p>
           </div>
           <div className="md:text-right">

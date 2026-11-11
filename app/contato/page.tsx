@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { metadados } from "@/lib/meta";
-import { Texto } from "@/components/Blocos";
+import { Texto, Marcado } from "@/components/Blocos";
 import { ContatosDiretos } from "@/components/ContatosDiretos";
 import { FormularioContato } from "@/components/FormularioContato";
 import { lerPagina } from "@/lib/conteudo";
@@ -14,7 +14,7 @@ export default function Contato() {
   return (
     <div className="entrada conteudo topo pb-[var(--espaco-secao)]">
       <p className="sobretitulo">{c("sobretitulo")}</p>
-      <h1 className="titulo-display mt-4">{c("titulo")}</h1>
+      <h1 className="titulo-display mt-4"><Marcado texto={c("titulo")} /></h1>
       <Texto html={pagina.html} className="leitura mt-6 text-[20px]" />
       <div className="mt-12 grid gap-14 md:grid-cols-[3fr_2fr]">
         <section aria-labelledby="titulo-formulario">

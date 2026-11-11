@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { pessoa } from "@/lib/dados-estruturados";
 import { JsonLd, metadados } from "@/lib/meta";
-import { Texto } from "@/components/Blocos";
+import { Texto, Marcado } from "@/components/Blocos";
 import { Botao } from "@/components/Botao";
 import { Imagem } from "@/components/Imagem";
 import { Pendente } from "@/components/Pendente";
@@ -20,7 +20,7 @@ export default function Sobre() {
       <div className="grid gap-12 md:grid-cols-[3fr_2fr] md:gap-16">
         <div className="entrada">
           <p className="sobretitulo">{c("sobretitulo")}</p>
-          <h1 className="titulo-display mt-4">{c("titulo")}</h1>
+          <h1 className="titulo-display mt-4"><Marcado texto={c("titulo")} /></h1>
           <Texto html={pagina.html} className="leitura mt-8" />
           <div className="acoes mt-12">
             <Botao href="/contato/">Fale comigo</Botao>

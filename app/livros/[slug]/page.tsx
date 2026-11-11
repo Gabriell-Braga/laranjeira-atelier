@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import type React from "react";
 import { notFound } from "next/navigation";
-import { Faixa, FichaTecnica, Paragrafos } from "@/components/Blocos";
+import { Faixa, FichaTecnica, Paragrafos, Marcado } from "@/components/Blocos";
 import { Botao } from "@/components/Botao";
 import { CartaoLivro } from "@/components/CartaoLivro";
 import { Galeria } from "@/components/Galeria";
@@ -49,7 +49,7 @@ export default async function PaginaLivro({ params }: Props) {
           <p className="sobretitulo">
             {livro.volume} · {livro.paginas} páginas
           </p>
-          <h1 className="titulo-display mt-4">{livro.titulo}</h1>
+          <h1 className="titulo-display mt-4"><Marcado texto={livro.titulo} /></h1>
           <p className="mt-3 font-italico text-[24px] italic leading-snug md:text-[28px]">{livro.subtitulo}</p>
           <p className="mt-4 text-ink-muted">{livro.autora}</p>
           {amazon && (
@@ -70,7 +70,7 @@ export default async function PaginaLivro({ params }: Props) {
 
       <Faixa className="bg-surface" rotulo="titulo-outros">
         <h2 id="titulo-outros" className="titulo-2 revelar">
-          {livro.slug === "colecao-sertao-vivo" ? "Os volumes da coleção" : "Outros livros da coleção"}
+          <Marcado texto={livro.slug === "colecao-sertao-vivo" ? "Os volumes da coleção" : "Outros livros da coleção"} />
         </h2>
         <ul className="mt-[var(--espaco-bloco)] grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-4">
           {outros.map((l, i) => (

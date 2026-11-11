@@ -633,7 +633,8 @@
   animation-delay: calc(120ms + var(--i, 0) * 110ms);
 }
 
-/* Palavra do título do Início com uma pincelada que se pinta embaixo, depois que ela aparece */
+/* Última palavra dos títulos (Marcado, em Blocos.tsx; no Início, "aquarela") com uma pincelada
+   que se pinta embaixo depois que o título aparece. Em blocos que entram ao rolar, espera aparecer. */
 @keyframes pintar {
   from {
     clip-path: inset(0 100% 0 0);
@@ -658,6 +659,9 @@
   opacity: 0.6;
   animation: pintar 0.9s var(--ease-natural) both;
   animation-delay: calc(120ms + var(--i, 0) * 110ms + 550ms);
+}
+.anim .revelar:not(.visivel) .pincelado::after {
+  animation-play-state: paused;
 }
 
 /* Cabeçalho de qualquer página: filhos entram em sequência (sobretítulo, título, texto, ações...) */

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Fragment, type CSSProperties } from "react";
 import { websiteEPessoa } from "@/lib/dados-estruturados";
 import { JsonLd, metadados } from "@/lib/meta";
-import { Citacao, Faixa, Texto } from "@/components/Blocos";
+import { Citacao, Faixa, Texto, Marcado } from "@/components/Blocos";
 import { Botao } from "@/components/Botao";
 import { CartaoLivro } from "@/components/CartaoLivro";
 import { Galeria } from "@/components/Galeria";
@@ -74,7 +74,7 @@ export default function Inicio() {
       <Faixa className="bg-surface" rotulo="titulo-colecao">
         <div className="revelar flex flex-wrap items-end justify-between gap-x-10 gap-y-4">
           <div className="max-w-[38rem]">
-            <h2 id="titulo-colecao" className="titulo-2">{c("colecaoTitulo")}</h2>
+            <h2 id="titulo-colecao" className="titulo-2"><Marcado texto={c("colecaoTitulo")} /></h2>
             <p className="mt-4 text-ink-muted">{c("colecaoTexto")}</p>
           </div>
           <Botao href="/livros/" variante="texto">Ver a coleção</Botao>
@@ -91,7 +91,7 @@ export default function Inicio() {
       {/* Por dentro dos livros: faixa que rola para o lado */}
       <section className="faixa" aria-labelledby="titulo-pranchas">
         <div className="conteudo revelar">
-          <h2 id="titulo-pranchas" className="titulo-2">{c("pranchasTitulo")}</h2>
+          <h2 id="titulo-pranchas" className="titulo-2"><Marcado texto={c("pranchasTitulo")} /></h2>
           <p className="leitura mt-4 text-ink-muted">{c("pranchasTexto")}</p>
         </div>
         <div className="mt-[var(--espaco-bloco)]">
@@ -109,7 +109,7 @@ export default function Inicio() {
       <Faixa rotulo="titulo-ilustracao">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <div className="revelar">
-            <h2 id="titulo-ilustracao" className="titulo-2">{c("ilustracaoTitulo")}</h2>
+            <h2 id="titulo-ilustracao" className="titulo-2"><Marcado texto={c("ilustracaoTitulo")} /></h2>
             <Texto html={pagina.html} className="leitura mt-6" />
             <div className="acoes mt-9">
               <Botao href="/contato/">Encomendar uma ilustração</Botao>
@@ -148,7 +148,7 @@ export default function Inicio() {
       {/* Depoimentos: só aparecem os que já têm texto */}
       {depoimentos.length > 0 && (
         <Faixa rotulo="titulo-depoimentos">
-          <h2 id="titulo-depoimentos" className="titulo-2 revelar">{c("depoimentosTitulo")}</h2>
+          <h2 id="titulo-depoimentos" className="titulo-2 revelar"><Marcado texto={c("depoimentosTitulo")} /></h2>
           <ul className="mt-[var(--espaco-bloco)] grid gap-10 md:grid-cols-3 md:gap-12">
             {depoimentos.map((d, i) => (
               <li key={i} className="revelar traco-t traco-ocre pt-6" style={atraso(i)}>
@@ -178,7 +178,7 @@ export default function Inicio() {
       <section className="faixa bg-areia" aria-labelledby="titulo-contato">
         <div className="conteudo revelar flex flex-wrap items-center justify-between gap-8">
           <div>
-            <h2 id="titulo-contato" className="titulo-2">{c("contatoTitulo")}</h2>
+            <h2 id="titulo-contato" className="titulo-2"><Marcado texto={c("contatoTitulo")} /></h2>
             <p className="mt-4">{c("contatoTexto")}</p>
             <p className="mt-2">
               <a href={`mailto:${site.contato.email}`}>{site.contato.email}</a>

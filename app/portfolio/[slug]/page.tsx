@@ -6,6 +6,7 @@ import { Galeria } from "@/components/Galeria";
 import { VoltarAoPortfolio } from "@/components/VoltarAoPortfolio";
 import { lerLivro, lerPortfolio, paraGaleria, paraImagem } from "@/lib/conteudo";
 import { TIPOS } from "@/lib/portfolio-dados";
+import { Marcado } from "@/components/Blocos";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -38,7 +39,7 @@ export default async function Projeto({ params }: Props) {
         <p className="sobretitulo mt-6">
           {TIPOS[serie.tipo]} · Projeto{anos.length ? ` · ${anos.join(", ")}` : ""}
         </p>
-        <h1 className="titulo-display mt-3">{serie.titulo}</h1>
+        <h1 className="titulo-display mt-3"><Marcado texto={serie.titulo} /></h1>
         {serie.texto && <p className="leitura mt-6 text-ink-muted">{serie.texto}</p>}
       </div>
       <section className="conteudo pb-[var(--espaco-secao)]" aria-label="Imagens do projeto">

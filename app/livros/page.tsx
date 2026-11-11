@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import { metadados } from "@/lib/meta";
-import { Citacao, Faixa, FichaTecnica, Texto } from "@/components/Blocos";
+import { Citacao, Faixa, FichaTecnica, Texto, Marcado } from "@/components/Blocos";
 import { Botao } from "@/components/Botao";
 import { CartaoLivro } from "@/components/CartaoLivro";
 import { Galeria } from "@/components/Galeria";
@@ -47,7 +47,7 @@ export default function Colecao() {
         <div>
           <p className="sobretitulo entrar">{c("sobretitulo")}</p>
           <h1 className="titulo-display entrar mt-5" style={{ "--i": 1 } as CSSProperties}>
-            {c("titulo")}
+            <Marcado texto={c("titulo")} />
           </h1>
           <p className="entrar mt-6 max-w-[34rem] text-[clamp(1.125rem,1.05rem+0.4vw,1.3rem)] leading-relaxed text-ink-muted" style={{ "--i": 2 } as CSSProperties}>
             {lerPagina("inicio").campo("colecaoTexto")}
@@ -121,7 +121,7 @@ export default function Colecao() {
             className="revelar mx-auto w-full max-w-[460px]"
           />
           <div>
-            <h2 id="titulo-compra" className="titulo-2">{c("compraTitulo")}</h2>
+            <h2 id="titulo-compra" className="titulo-2"><Marcado texto={c("compraTitulo")} /></h2>
             <p className="mt-4">{c("compraTexto")}</p>
             <div className="acoes mt-8">
               <Botao href={site.amazon[colecao.slug]} variante="vereda" aria-label="Comprar a coleção na Amazon (abre em nova aba)">
@@ -148,7 +148,7 @@ export default function Colecao() {
       <Citacao texto={c("citacao")} fonte={c("citacaoFonte")} />
 
       <Faixa rotulo="volumes">
-        <h2 id="volumes" className="titulo-2 revelar scroll-mt-28">{c("colecaoTitulo")}</h2>
+        <h2 id="volumes" className="titulo-2 revelar scroll-mt-28"><Marcado texto={c("colecaoTitulo")} /></h2>
         <ul className="mt-[var(--espaco-bloco)] grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-4">
           {volumes.map((l) => (
             <li key={l.slug} className="revelar">
@@ -161,7 +161,7 @@ export default function Colecao() {
       {/* Objetivos escondidos (display: none) a pedido do Gabriel; para voltar, tire "hidden" da classe */}
       <section className="hidden faixa bg-surface" aria-labelledby="titulo-objetivos">
         <div className="conteudo">
-          <h2 id="titulo-objetivos" className="titulo-2 revelar">{c("objetivosTitulo")}</h2>
+          <h2 id="titulo-objetivos" className="titulo-2 revelar"><Marcado texto={c("objetivosTitulo")} /></h2>
           <details className="objetivos revelar mt-6">
             <summary className="link-seta cursor-pointer py-2">{c("objetivosAbrir")}</summary>
             <Texto html={objetivos} />
@@ -171,7 +171,7 @@ export default function Colecao() {
 
       <section className="faixa bg-surface" aria-labelledby="titulo-pranchas">
         <div className="conteudo revelar">
-          <h2 id="titulo-pranchas" className="titulo-2">{c("pranchasTitulo")}</h2>
+          <h2 id="titulo-pranchas" className="titulo-2"><Marcado texto={c("pranchasTitulo")} /></h2>
         </div>
         <div className="mt-[var(--espaco-bloco)]">
           <Galeria variante="faixa" imagens={pranchas.slice(4)} sizes="(min-width: 768px) 520px, 82vw" />
