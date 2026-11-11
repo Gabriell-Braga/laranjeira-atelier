@@ -929,6 +929,17 @@
 .faixa-rolagem > * {
   scroll-snap-align: start;
 }
+/* Mesma altura para todas: imagem vertical não estica a faixa */
+.faixa-rolagem {
+  grid-auto-columns: max-content;
+  align-items: start;
+}
+.faixa-rolagem img {
+  height: clamp(220px, 36vw, 380px);
+  width: auto;
+  max-width: calc(100vw - 40px);
+  object-fit: contain;
+}
 .faixa-rolagem[data-arrastando] {
   cursor: grabbing;
   scroll-snap-type: none;
