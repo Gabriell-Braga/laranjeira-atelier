@@ -18,6 +18,8 @@ const SAIDA = path.join(RAIZ, "public/img");
 const MANIFEST = path.join(SAIDA, "manifest.json");
 // 720: celulares comuns (360–412 pontos × densidade ~2) não precisam baixar a de 960.
 const LARGURAS = [480, 720, 960, 1600, 2400];
+// Ilustrações dos livros (aquarela com detalhe fino) saem com compressão mais leve.
+const qualidadePara = (arquivo) => (arquivo.startsWith("livros/") ? 90 : 82);
 const larguraPara = (w) => {
   const l = LARGURAS.filter((x) => x < w);
   if (l.length < LARGURAS.length) l.push(Math.min(w, 2400)); // inclui o tamanho original (se < 2400)
@@ -58,7 +60,8 @@ for (const arquivo of arquivos) {
   const hash = createHash("sha1").update(buffer).digest("hex").slice(0, 12);
   const antes = manifest[arquivo];
   // pula se o original e a lista de larguras não mudaram
-  if (antes?.hash === hash && JSON.stringify(antes.larguras) === JSON.stringify(larguraPara(antes.largura))) continue;
+  const qualidade = qualidadePara(arquivo);
+  if (antes?.hash === hash && (antes.qualidade ?? 82) === qualidade && JSON.stringify(antes.larguras) === JSON.stringify(larguraPara(antes.largura))) continue;
 
   const img = sharp(buffer).rotate(); // respeita a orientação EXIF
   const meta = await img.metadata();
@@ -68,7 +71,7 @@ for (const arquivo of arquivos) {
   const destino = path.join(SAIDA, semExtensao(arquivo));
   await mkdir(path.dirname(destino), { recursive: true });
   for (const l of larguras) {
-    await img.clone().resize({ width: l }).webp({ quality: 82, effort: 5 }).toFile(`${destino}-${l}.webp`);
+    await img.clone().resize({ width: l }).webp({ quality: qualidade, effort: 5 }).toFile(`${destino}-${l}.webp`);
   }
 
   const { dominant } = await img.clone().stats();
@@ -78,6 +81,7 @@ for (const arquivo of arquivos) {
     largura: w,
     altura: h,
     larguras,
+    qualidade,
     cor: "#" + [dominant.r, dominant.g, dominant.b].map((c) => c.toString(16).padStart(2, "0")).join(""),
     transparente: Boolean(meta.hasAlpha),
     placeholder: "data:image/webp;base64," + placeholder.toString("base64"),

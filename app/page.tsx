@@ -62,7 +62,7 @@ export default function Inicio() {
           <div data-parallax="0.06">
             <Imagem
               img={info(c("imagemDestaque"), c("imagemDestaqueAlt"))}
-              sizes="(min-width: 1264px) 960px, (min-width: 1024px) 76vw, calc(100vw - 40px)"
+              sizes="(min-width: 1264px) 1320px, (min-width: 1024px) 100vw, 130vw"
               prioridade
               className="tinta w-full"
             />
