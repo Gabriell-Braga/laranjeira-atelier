@@ -210,7 +210,7 @@ export function Visualizador({ imagens, indice, aoVer, aoFechar, aoSair }: Props
             </p>
             <button type="button" onClick={() => dialogo.current?.close()} className="vz-botao" aria-label="Fechar">
               <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
-                <path d="M4 4l12 12M16 4L4 16" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+                <path d="M4.3 4.7c3.5 3.2 7.3 7 11.3 11.1M15.7 4.1c-3.9 3.7-7.7 7.6-11.3 11.7" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
               </svg>
             </button>
           </div>

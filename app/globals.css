@@ -49,7 +49,11 @@
   --pincel: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 6' preserveAspectRatio='none'%3E%3Cpath d='M1 4.2C20 3 45 2.2 70 2.6S94 3.4 99 2.4C96 4.4 80 4.6 60 4.4S18 5.4 1 4.2Z' fill='%23ed7f29'/%3E%3C/svg%3E");
 
   /* aspas de pincel da citação */
-  --aspas: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 48'%3E%3Cpath d='M24 6C12 10 4 19 5 30c.6 7 5.6 11 11 10.6 5.4-.4 8.6-4.6 8.2-9.4-.4-5-4.6-8-9.6-7.4 1.4-6 5.6-10.8 11.4-13.6L24 6Zm32 0C44 10 36 19 37 30c.6 7 5.6 11 11 10.6 5.4-.4 8.6-4.6 8.2-9.4-.4-5-4.6-8-9.6-7.4 1.4-6 5.6-10.8 11.4-13.6L56 6Z' fill='%23ed7f29'/%3E%3C/svg%3E");
+  --aspas: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 48'%3E%3Cg fill='none' stroke='%23ed7f29' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M25.5 7.5C17 10.5 9.8 17.6 8.6 26.4c-.9 6.6 2.6 11.4 7.6 11.6 4.6.2 7.6-3.3 7.2-7.4-.4-4.1-3.9-6.3-7.6-5.6' stroke-width='4.6'/%3E%3Cpath d='M21.8 11.6c-4 2.6-7 6.4-8.4 10.6' stroke-width='1.6' opacity='.7'/%3E%3Cpath d='M55.5 6.8C47.4 10 40.2 17.4 39.3 26c-.7 6.8 2.8 11.6 7.8 11.6 4.5 0 7.4-3.5 6.9-7.6-.5-4-4-6.1-7.6-5.3' stroke-width='4.2'/%3E%3Cpath d='M51.6 11c-3.8 2.4-6.6 6-8 10' stroke-width='1.4' opacity='.7'/%3E%3C/g%3E%3C/svg%3E");
+  /* risco largo de pincel, com marcas de cerda (progresso da faixa de pranchas) */
+  --risco: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 16' preserveAspectRatio='none'%3E%3Cg fill='%23ed7f29'%3E%3Cpath d='M4 9.6C40 7 110 6.6 200 6.2S360 4.6 470 5.4 650 3.8 760 4.6 920 4 996 5.6C985 8 930 9.4 850 9.6S700 11.2 600 10.8 430 12.6 320 11.8 150 13 70 12.2 10 11.6 4 9.6Z'/%3E%3Cpath d='M30 13.6c90-.8 200-.2 300-1.2s190 .4 260-.6' fill='none' stroke='%23ed7f29' stroke-width='1.1' stroke-linecap='round' opacity='.55'/%3E%3Cpath d='M260 3.6c80-.6 150-1 240-.8M640 2.8c70-.4 140-.6 220 .2' fill='none' stroke='%23ed7f29' stroke-width='.9' stroke-linecap='round' opacity='.5'/%3E%3C/g%3E%3Cg fill='%23f7f4ee' opacity='.55'%3E%3Cpath d='M380 8.2c40-.3 80-.2 120-.6-30 .9-80 1.1-120 .6ZM700 7c30-.2 60-.1 90-.5-25 .8-60 .9-90 .5Z'/%3E%3C/g%3E%3C/svg%3E");
+  /* sublinhado de pincel verde dos links dentro do texto */
+  --pincel-verde: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 6' preserveAspectRatio='none'%3E%3Cpath d='M1 4.2C20 3 45 2.2 70 2.6S94 3.4 99 2.4C96 4.4 80 4.6 60 4.4S18 5.4 1 4.2Z' fill='%232f4a2a' fill-opacity='.75'/%3E%3C/svg%3E");
 
   /* fios desenhados à mão (no lugar das bordas retas): horizontal e vertical, cor de linha ou ocre */
   --traco-h: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 6' preserveAspectRatio='none'%3E%3Cpath d='M2 3.4C40 1.9 75 4.6 120 3.2S205 1.6 250 3.6 330 4.4 398 2.6' fill='none' stroke='%23d9cfbe' stroke-width='1.4' stroke-linecap='round' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
@@ -201,6 +205,14 @@
     text-decoration-thickness: 1px;
     text-underline-offset: 3px;
     transition: color var(--hover) var(--ease-natural), text-decoration-color var(--hover) var(--ease-natural);
+  }
+  /* Links soltos no texto (e-mails, links do markdown): sublinhado de pincel verde, fixo */
+  a:not([class]) {
+    text-decoration: none;
+    background: var(--pincel-verde) left bottom / 100% 5px no-repeat;
+    padding-bottom: 3px;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
   }
   img {
     border-radius: var(--radius-imagem);
@@ -1055,15 +1067,15 @@
 }
 /* Progresso da faixa: a pincelada laranja se pinta conforme a rolagem (Galeria.tsx muda o clip-path) */
 .faixa-progresso {
-  height: 6px;
-  background: var(--pincel) center / 100% 100% no-repeat;
+  height: 14px;
+  background: var(--risco) center / 100% 100% no-repeat;
   clip-path: inset(0 70% 0 0);
   transition: clip-path 0.25s var(--ease-natural);
 }
 .faixa-trilho {
-  height: 6px;
-  background: var(--pincel) center / 100% 100% no-repeat;
-  opacity: 0.18;
+  height: 14px;
+  background: var(--risco) center / 100% 100% no-repeat;
+  opacity: 0.15;
 }
 .faixa-rolagem > * {
   scroll-snap-align: start;
