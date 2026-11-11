@@ -107,36 +107,6 @@
   color: var(--color-ink-muted);
 }
 
-/* ---------- Manchas de aquarela ----------
-   Lavagens recortadas das pranchas da Dilce (scripts/manchas.mjs). Como nas pranchas dela,
-   a mancha fica atrás da ilustração, nunca atrás de texto. Centrada no elemento, sem esticar
-   (todas são 2:1); ajuste com --mancha-x, --mancha-y e --mancha-largura. */
-@utility mancha {
-  position: relative;
-  isolation: isolate;
-  &::before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    left: var(--mancha-x, 50%);
-    top: var(--mancha-y, 50%);
-    translate: -50% -50%;
-    width: var(--mancha-largura, 125%);
-    aspect-ratio: 2;
-    background: var(--mancha, url(/img/manchas/lilas.webp)) center / contain no-repeat;
-    pointer-events: none;
-  }
-}
-@utility mancha-verde {
-  --mancha: url(/img/manchas/verde.webp);
-}
-@utility mancha-cinza {
-  --mancha: url(/img/manchas/cinza.webp);
-}
-@utility mancha-pincel {
-  --mancha: url(/img/manchas/pincel.webp);
-}
-
 /* ---------- Espaçamento ---------- */
 
 @utility conteudo {
@@ -209,9 +179,6 @@
   }
   :disabled {
     cursor: not-allowed;
-  }
-  main {
-    overflow-x: clip; /* manchas maiores que a ilustração não criam rolagem lateral */
   }
   ::selection {
     background: var(--color-areia);

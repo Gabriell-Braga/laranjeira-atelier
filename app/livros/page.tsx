@@ -60,7 +60,7 @@ export default function Colecao() {
           </div>
         </div>
 
-        <ul className="leque mancha mancha-verde mx-auto [--mancha-largura:135%] [--mancha-x:58%] [--mancha-y:58%] aspect-[16/11] w-full max-w-[660px] list-none p-0" aria-label="Os quatro volumes">
+        <ul className="leque relative mx-auto aspect-[16/11] w-full max-w-[660px] list-none p-0" aria-label="Os quatro volumes">
           {volumes.map((l, i) => {
             const [esq, topo, giro] = LEQUE[i];
             return (
