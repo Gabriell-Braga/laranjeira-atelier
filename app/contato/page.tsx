@@ -21,7 +21,7 @@ export default function Contato() {
           <h2 id="titulo-formulario" className="titulo-3 mb-6">{c("formularioTitulo")}</h2>
           <FormularioContato />
         </section>
-        <aside className="md:border-l md:border-linha md:pl-10">
+        <aside className="md:traco-l md:pl-10">
           <ContatosDiretos titulo={c("diretosTitulo")} />
         </aside>
       </div>

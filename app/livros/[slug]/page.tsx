@@ -58,7 +58,7 @@ export default async function PaginaLivro({ params }: Props) {
             </Botao>
           )}
           {temSinopse && (
-            <section aria-labelledby="titulo-sobre" className="mt-12 border-t border-linha pt-10">
+            <section aria-labelledby="titulo-sobre" className="traco-t mt-12 pt-10">
               <h2 id="titulo-sobre" className="titulo-3">Sobre o livro</h2>
               <Paragrafos textos={livro.descricao} className="leitura mt-4" />
             </section>

@@ -57,13 +57,13 @@ export function FichaTecnica({ livro, className = "" }: { livro: Livro; classNam
     ...livro.ficha.map((f): [string, string] => [f.rotulo, f.valor]),
   ];
   return (
-    <dl className={`grid grid-cols-[minmax(6.5rem,42%)_1fr] gap-x-6 border-t border-linha text-[16px] ${className}`}>
+    <dl className={`grid grid-cols-[minmax(6.5rem,42%)_1fr] gap-x-6 traco-t text-[16px] ${className}`}>
       {linhas
         .filter(([, valor]) => MOSTRAR_PENDENCIAS || !pendente(valor))
         .map(([rotulo, valor]) => (
           <div key={rotulo} className="contents">
-            <dt className="border-b border-linha py-2.5 font-bold">{rotulo}</dt>
-            <dd className="border-b border-linha py-2.5 text-ink-muted">
+            <dt className="traco-b py-2.5 font-bold">{rotulo}</dt>
+            <dd className="traco-b py-2.5 text-ink-muted">
               {pendente(valor) ? <mark className="preencher">{valor}</mark> : valor}
             </dd>
           </div>

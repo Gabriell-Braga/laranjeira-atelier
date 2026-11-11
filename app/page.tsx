@@ -151,7 +151,7 @@ export default function Inicio() {
           <h2 id="titulo-depoimentos" className="titulo-2 revelar">{c("depoimentosTitulo")}</h2>
           <ul className="mt-[var(--espaco-bloco)] grid gap-10 md:grid-cols-3 md:gap-12">
             {depoimentos.map((d, i) => (
-              <li key={i} className="revelar border-t border-ocre pt-6" style={atraso(i)}>
+              <li key={i} className="revelar traco-t traco-ocre pt-6" style={atraso(i)}>
                 <figure>
                   <blockquote className="font-display text-[22px] leading-snug">
                     <Pendente valor={d.texto}>

@@ -53,6 +53,12 @@
   /* aspas de pincel da citação */
   --aspas: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 48'%3E%3Cpath d='M24 6C12 10 4 19 5 30c.6 7 5.6 11 11 10.6 5.4-.4 8.6-4.6 8.2-9.4-.4-5-4.6-8-9.6-7.4 1.4-6 5.6-10.8 11.4-13.6L24 6Zm32 0C44 10 36 19 37 30c.6 7 5.6 11 11 10.6 5.4-.4 8.6-4.6 8.2-9.4-.4-5-4.6-8-9.6-7.4 1.4-6 5.6-10.8 11.4-13.6L56 6Z' fill='%23ed7f29'/%3E%3C/svg%3E");
 
+  /* fios desenhados à mão (no lugar das bordas retas): horizontal e vertical, cor de linha ou ocre */
+  --traco-h: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 6' preserveAspectRatio='none'%3E%3Cpath d='M2 3.4C40 1.9 75 4.6 120 3.2S205 1.6 250 3.6 330 4.4 398 2.6' fill='none' stroke='%23d9cfbe' stroke-width='1.4' stroke-linecap='round' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
+  --traco-vert: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 6 400' preserveAspectRatio='none'%3E%3Cpath d='M3.4 2C1.9 40 4.6 75 3.2 120S1.6 205 3.6 250 4.4 330 2.6 398' fill='none' stroke='%23d9cfbe' stroke-width='1.4' stroke-linecap='round' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
+  --traco-h-ocre: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 6' preserveAspectRatio='none'%3E%3Cpath d='M2 3.4C40 1.9 75 4.6 120 3.2S205 1.6 250 3.6 330 4.4 398 2.6' fill='none' stroke='%23c48a3a' stroke-width='1.7' stroke-linecap='round' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
+  --traco-vert-ocre: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 6 400' preserveAspectRatio='none'%3E%3Cpath d='M3.4 2C1.9 40 4.6 75 3.2 120S1.6 205 3.6 250 4.4 330 2.6 398' fill='none' stroke='%23c48a3a' stroke-width='2.2' stroke-linecap='round' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
+
   --cabecalho: 76px; /* altura do cabeçalho; encolhido ele parece ter 64px */
   --duracao: 0.6s;
   --hover: 0.4s;
@@ -113,6 +119,32 @@
   font-size: 15px;
   line-height: 1.5;
   color: var(--color-ink-muted);
+}
+
+/* ---------- Fios desenhados ----------
+   traco-t / traco-b / traco-l: fio torto em cima, embaixo ou à esquerda (fundo, não borda).
+   traco-ocre troca a cor da linha pelo ocre. */
+@utility traco-t {
+  background-image: var(--traco-h);
+  background-position: top left;
+  background-size: 100% 6px;
+  background-repeat: no-repeat;
+}
+@utility traco-b {
+  background-image: var(--traco-h);
+  background-position: bottom left;
+  background-size: 100% 6px;
+  background-repeat: no-repeat;
+}
+@utility traco-l {
+  background-image: var(--traco-vert);
+  background-position: top left;
+  background-size: 6px 100%;
+  background-repeat: no-repeat;
+}
+@utility traco-ocre {
+  --traco-h: var(--traco-h-ocre);
+  --traco-vert: var(--traco-vert-ocre);
 }
 
 /* ---------- Espaçamento ---------- */
@@ -374,7 +406,7 @@
     font-size: 22px;
     line-height: 1.45;
     /* sem itálico: o briefing proíbe parágrafos inteiros em itálico */
-    border-left: 2px solid var(--color-ocre);
+    background: var(--traco-vert-ocre) top left / 6px 100% no-repeat; /* fio torto de ocre à esquerda */
     padding-left: 1em;
   }
 
@@ -416,7 +448,7 @@
     counter-increment: objetivo;
     margin-top: 0;
     padding-top: 1rem;
-    border-top: 1px solid var(--color-linha);
+    background: var(--traco-h) top left / 100% 6px no-repeat;
   }
   .objetivos li::before {
     content: counter(objetivo, decimal-leading-zero);
@@ -475,7 +507,10 @@
   .cabecalho[data-rolado]::before {
     height: 64px;
     background: var(--vidro);
-    border-color: var(--color-linha);
+    background-image: var(--traco-h); /* fio torto embaixo do cabeçalho */
+    background-position: bottom left;
+    background-size: 100% 6px;
+    background-repeat: no-repeat;
     box-shadow: 0 8px 24px -18px rgb(42 38 32 / 0.4);
     backdrop-filter: var(--vidro-desfoque);
     -webkit-backdrop-filter: var(--vidro-desfoque);
