@@ -507,10 +507,7 @@
   .cabecalho[data-rolado]::before {
     height: 64px;
     background: var(--vidro);
-    background-image: var(--traco-h); /* fio torto embaixo do cabeçalho */
-    background-position: bottom left;
-    background-size: 100% 6px;
-    background-repeat: no-repeat;
+    border-color: var(--color-linha); /* fio reto: o torto, esticado na tela inteira, ficou estranho */
     box-shadow: 0 8px 24px -18px rgb(42 38 32 / 0.4);
     backdrop-filter: var(--vidro-desfoque);
     -webkit-backdrop-filter: var(--vidro-desfoque);
