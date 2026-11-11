@@ -232,7 +232,7 @@
     color: var(--color-vereda);
     text-decoration: none;
   }
-  /* Sublinhado de pincel (o mesmo do menu) que se pinta da esquerda para a direita (links de texto, rodapé) */
+  /* Sublinhado de pincel (o mesmo do menu, na cor do texto) que se pinta da esquerda para a direita (links de texto, rodapé) */
   .link-seta > :first-child,
   .sublinhado {
     position: relative;
@@ -247,7 +247,9 @@
     right: 0;
     bottom: -5px;
     height: 6px;
-    background: var(--pincel) center/100% 100% no-repeat;
+    /* a pincelada como máscara: pinta na cor do texto do link */
+    background: currentColor;
+    mask: var(--pincel) center/100% 100% no-repeat;
     clip-path: inset(0 100% 0 0);
     transition: clip-path 0.5s var(--ease-natural);
     pointer-events: none;
