@@ -26,24 +26,49 @@
   },
   "imagens": [
     {
-      "arquivo": "wix/colecao-sertao-vivo/imagem-6e4b1316.jpg",
-      "alt": "Página de rosto de Sertão Sem Fim!, com paisagem em aquarela",
+      "arquivo": "livros/sertao-sem-fim/rosto.jpg",
+      "alt": "Página de rosto de Sertão Sem Fim!, com paisagem em aquarela de árvores, sol e raízes",
       "titulo": "Página de rosto"
     },
     {
-      "arquivo": "wix/projeto-sertao-vivo/livro-sertao-sem-fim-capa-e-miolo-70c3eec1.jpg",
-      "alt": "Montagem com a capa e páginas internas de Sertão Sem Fim!",
-      "titulo": "Capa e miolo"
+      "arquivo": "livros/sertao-sem-fim/travessia.jpg",
+      "alt": "Página dupla com a palavra Travessia sobre paisagem noturna de buritis e lua",
+      "titulo": "Travessia"
     },
     {
-      "arquivo": "wix/projeto-sertao-vivo/imagens-das-pranchas-de15269e.jpg",
-      "alt": "Montagem com paisagens em aquarela do livro",
-      "titulo": "Imagens do livro"
+      "arquivo": "livros/sertao-sem-fim/cavaleiros.jpg",
+      "alt": "Página dupla com dois cavaleiros na paisagem seca do sertão sob o sol",
+      "titulo": "Página dupla"
     },
     {
-      "arquivo": "wix/projeto-sertao-vivo/imagens-das-pranchas-e90daac5.jpg",
-      "alt": "Montagem com imagens digitais e paisagens noturnas do livro",
-      "titulo": "Imagens do livro"
+      "arquivo": "livros/sertao-sem-fim/constelacoes.jpg",
+      "alt": "Página dupla com céu estrelado e constelações sobre árvores do Cerrado",
+      "titulo": "Página dupla"
+    },
+    {
+      "arquivo": "livros/sertao-sem-fim/passaro.jpg",
+      "alt": "Página dupla com pássaro colorido em voo sobre aquarela azul",
+      "titulo": "Página dupla"
+    },
+    {
+      "arquivo": "livros/sertao-sem-fim/colhereiro.jpg",
+      "alt": "Página dupla com colhereiro esboçado e manchas de aquarela rosa",
+      "titulo": "Página dupla"
+    },
+    {
+      "arquivo": "livros/sertao-sem-fim/borboletas.jpg",
+      "alt": "Página dupla com borboletas coloridas sobre aquarela verde e azul",
+      "titulo": "Página dupla"
+    },
+    {
+      "arquivo": "livros/sertao-sem-fim/rio.jpg",
+      "alt": "Página dupla com rio, buritis e canoa em aquarela",
+      "titulo": "Página dupla"
+    },
+    {
+      "arquivo": "livros/sertao-sem-fim/nonada.jpg",
+      "alt": "Página dupla com homem sentado sob céu noturno e a palavra Nonada",
+      "titulo": "Nonada"
     }
   ]
 }

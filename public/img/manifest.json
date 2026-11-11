@@ -1,4 +1,570 @@
 {
+ "dilce/ilustracao/infancia.jpg": {
+  "hash": "2aa8ee8af62b",
+  "largura": 2400,
+  "altura": 2123,
+  "larguras": [
+   480,
+   720,
+   960,
+   1600,
+   2400
+  ],
+  "cor": "#f8f8e8",
+  "transparente": false,
+  "placeholder": "data:image/webp;base64,UklGRqAAAABXRUJQVlA4IJQAAADwBACdASoYABUAPu1qq1EppaOiqAqpMB2JZQDA3A9CCWWibLd1ogDxPILC6FddJAAA/sPxsUyI1RppnEEd417au+ijLau0AETMAg1FjEDWCgHeoOtlI8wZYdWUwrP6btNb/oPScYw/ZPvlKlCDavlVrmrd3gLyoUsyaSupEVyWUdO0Ki9gJBGA0NsD9dmSWHP9AAAA"
+ },
+ "livros/ave-sertao/acaua.jpg": {
+  "hash": "a69ad68ede05",
+  "largura": 1965,
+  "altura": 2401,
+  "larguras": [
+   480,
+   720,
+   960,
+   1600,
+   1965
+  ],
+  "cor": "#f8f8f8",
+  "transparente": false,
+  "placeholder": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAADQBACdASoYAB0APuVepE2pJSMiMAwBIByJZQDQGCHfxyrVgZU5ybBJCoYBdzEuAAD+82vHWDvU0pTHo+76JOw0pyV4h8vuelOOwmOHwncF0GMJ114nlqkZ1MSXuIymBfhJjqytmRbBNNw6S/nilAf4GgzZ19+1QD1wAA=="
+ },
+ "livros/ave-sertao/ararauna.jpg": {
+  "hash": "2d6d5bfd4790",
+  "largura": 1965,
+  "altura": 2401,
+  "larguras": [
+   480,
+   720,
+   960,
+   1600,
+   1965
+  ],
+  "cor": "#f8f8f8",
+  "transparente": false,
+  "placeholder": "data:image/webp;base64,UklGRqgAAABXRUJQVlA4IJwAAAAQBQCdASoYAB0APulep02pJSOiN/VYASAdCWIAygARACkmrkxduAg4LfFI+TsAVMIAAP7zfw8YDmYwF51akeqMTlIif7mRanD7PoOE0+YCR5RL70jm8DjPr91isF1C+6DDwQRu+KbLmsiE9ut+dptPBUY1/ZMpzHLxLM8YvXJMcogJz4dFeARKM9b5wBWQa+FDHJH/ckojeO0AAAA="
+ },
+ "livros/ave-sertao/mapa.jpg": {
+  "hash": "832ead8b6d8a",
+  "largura": 1965,
+  "altura": 2401,
+  "larguras": [
+   480,
+   720,
+   960,
+   1600,
+   1965
+  ],
+  "cor": "#e8e8b8",
+  "transparente": false,
+  "placeholder": "data:image/webp;base64,UklGRuIAAABXRUJQVlA4INYAAACQBQCdASoYAB0APu1oqU+ppiOiKA1RMB2JagCdMtU8L9ABqTWHGJL/Zbm8o/D9Cem3LChwsAD+79c1MUuX9qXMh/rE5yZ7Ii8dAF4eVSXcQDk1DhmpxqGg2k8RpPlAfo6xihQz9mPqliYFCE1Xx1y26pD9hse1oh/vku7WdxEIRrsWK3MjSF+chDioFf31lnqEL8WCI8DLfpOqqdyGW+fNRhA68fWVstkqG/W/U2iHQQ3y3GrcUCa4VRexTPbp3wCZCpuEV4dFuvNgUvR7ENlFsVkTegAA"
+ },
+ "livros/ave-sertao/paisagem.jpg": {
+  "hash": "c0c1ec898696",
+  "largura": 1965,
+  "altura": 2401,
+  "larguras": [
+   480,
+   720,
+   960,
+   1600,
+   1965
+  ],
+  "cor": "#f8e8b8",
+  "transparente": false,
+  "placeholder": "data:image/webp;base64,UklGRqYAAABXRUJQVlA4IJoAAABQBACdASoYAB0APuVcp02pJSOiMAwBIByJYmfkTuFWoSevIsBknEuerlUAAP7uoA0K//udppCvXR8N43HRW76+XvzvGqTS66xbQS2fLjcpj9j9Mz+ZRE6lM8oZ0oPsMWJfJwuYjfjaS08k8o9akqjYZKUIFFhXNkxi6C5uHu67noJe5sJ+yxps195K5rTb3RFiVsZTBeFAAAAA"
+ },
+ "livros/ave-sertao/papagaio-vermelho.jpg": {
+  "hash": "eea19831ec92",
+  "largura": 1965,
+  "altura": 2401,
+  "larguras": [
+   480,
+   720,
+   960,
+   1600,
+   1965
+  ],
+  "cor": "#f8f8f8",
+  "transparente": false,
+  "placeholder": "data:image/webp;base64,UklGRp4AAABXRUJQVlA4IJIAAACwBACdASoYAB0APt1apE2opSOiN/qoARAbiWYAzjgh4Am3CzTaFq5C7vzKDJMAAP702+KV7RMv25Yz3tMdG635J2vERia/O1pSGJbnf9R1LT5+K49Tgyu3bqO4AJTUFXi+abm4M1m1UFOq+hqGp2kx1zH0CjNMANVcbJUBPduZ6MJBiUZi/4eSrec7vx7tqKsAAA=="
+ },
+ "livros/ave-sertao/prancha-tucano.jpg": {
+  "hash": "eafa8c8fdabf",
+  "largura": 2402,
+  "altura": 1467,
+  "larguras": [
+   480,
+   720,
+   960,
+   1600,
+   2400
+  ],
+  "cor": "#f8f8f8",
+  "transparente": false,
+  "placeholder": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAAAwBACdASoYAA8APu1iqU2ppaOiMAgBMB2JZwABHuzT6BQRvLulJ3nEUAAA/v4yF1hwqon/Sc7f3BdFewsPPLf2Yt+IcTavH6GuIpbBynoNl7WJ3eAqf+KMu6Gi1VVMDyeO7A5gAAA="
+ },
+ "livros/ave-sertao/rosto.jpg": {
+  "hash": "9c9efd6b05c7",
+  "largura": 1965,
+  "altura": 2401,
+  "larguras": [
+   480,
+   720,
+   960,
+   1600,
+   1965
+  ],
+  "cor": "#f8f8f8",
+  "transparente": false,
+  "placeholder": "data:image/webp;base64,UklGRqgAAABXRUJQVlA4IJwAAADwBACdASoYAB0APu1wsFIppiSiqAgBMB2JYwDN/FbQIIx47GUAvwKFP7YWg1xQngAA/vui/0UgQiMETkSoSKp5OqMPhoUkxUvwiVgYgnZp9/ee/oz2im/+ttvkjoscNwwE68VXvXyJiLSiUprKR0FG6vuTQ7xk8HKvSFTMTWBhCAVJa3ech1YvJLUgTKob0Z3q6MlkxSoT58nAAAA="
+ },
+ "livros/ave-sertao/suindara.jpg": {
+  "hash": "39538aafa953",
+  "largura": 1965,
+  "altura": 2401,
+  "larguras": [
+   480,
+   720,
+   960,
+   1600,
+   1965
+  ],
+  "cor": "#f8f8f8",
+  "transparente": false,
+  "placeholder": "data:image/webp;base64,UklGRpYAAABXRUJQVlA4IIoAAAAwBQCdASoYAB0APu1ip04ppaMiMBgMATAdiWMAzNA0b7OLzJ2sZhpklfwKrKkYKS7quAD+9w50whjpJENdO0rYzEmfJe65QBS5Z5sMnZB9UKjIxixoIezJa4VKS42iCQ7iFz1abo1KkSXLpVZtZCD9NFR3gyA6v9W7YJs5N7sxrd86ZSnLITQAAAA="
+ },
+ "livros/ave-sertao/tucano-destaque.jpg": {
+  "hash": "da9c20c0244a",
+  "largura": 1965,
+  "altura": 1965,
+  "larguras": [
+   480,
+   720,
+   960,
+   1600,
+   1965
+  ],
+  "cor": "#f8f8f8",
+  "transparente": false,
+  "placeholder": "data:image/webp;base64,UklGRrYAAABXRUJQVlA4IKoAAAAQBQCdASoYABgAPu1sqlEppaOiqAqpMB2JZQDNhYu4cZntra4jmF2OtYIqP/JQehAAAP7zflkwdagVaRkb2QNJdf0SvcvhJXB0wjpzZ9V+mfXSrVExDCmilPGrl8Y0LuB48xUm+Lw0qq0XEVB0QA+R8oN2WwH8eLUaYFIAztW1Z44YwHUex4wOOl/cFmgVr249V/lR1f2ILOYhE3j2pINBpJv+WEqN6AAAAA=="
+ },
+ "livros/ave-sertao/tucano.jpg": {
+  "hash": "a0969c10bd04",
+  "largura": 1965,
+  "altura": 2401,
+  "larguras": [
+   480,
+   720,
+   960,
+   1600,
+   1965
+  ],
+  "cor": "#f8f8f8",
+  "transparente": false,
+  "placeholder": "data:image/webp;base64,UklGRrYAAABXRUJQVlA4IKoAAADwBACdASoYAB0APu1srVEppiQiqAqpMB2JZQAD5aEK//z0g5UKlcopUhERzWssKAAA/vNr+Uu8fPNXe1sYreI/0Q0mPNQItjEive9qLTTKvLx4GlVyUjUZQQH+0urA8u8xbPUjuBTivXcAV8OVqRkhvu3ehu2QPe/im/IEQshPBMVMxUPysiNiLOG3lCj+djmGQI4ZFLeZyIBVqsF/wW7pbEs/tR8mcAAAAA=="
+ },
+ "livros/mburiti-sertao/buriti.jpg": {
+  "hash": "512ecc19bd61",
+  "largura": 1965,
+  "altura": 2401,
+  "larguras": [
+   480,
+   720,
+   960,
+   1600,
+   1965
+  ],
+  "cor": "#f8f8f8",
+  "transparente": false,
+  "placeholder": "data:image/webp;base64,UklGRrAAAABXRUJQVlA4IKQAAABwBQCdASoYAB0APu1orE+ppiQiMBgIATAdiUAYG4Id75Z5c5K0iN9fX3dspnS1qZASDMIAAP7x0JaU8bdQHJ7Jo7bRIzs1fKvCfPvVbSx0pR4CVzlWlNtRGIwj+7ks85LE4089S6J6xIspwlcRFaLPMoBGuJ5vwWdIyzO2h5FRucbExc1B/4DRTqReDR8Et3mzfNFvr0ZU47NbT5Q7GiDCLbgAAA=="
+ },
+ "livros/mburiti-sertao/caraiba.jpg": {
+  "hash": "1fa4dff5371a",
+  "largura": 1461,
+  "altura": 2401,
+  "larguras": [
+   480,
+   720,
+   960,
+   1461
+  ],
+  "cor": "#f8f8f8",
+  "transparente": false,
+  "placeholder": "data:image/webp;base64,UklGRswAAABXRUJQVlA4IMAAAABQBgCdASoYACgAPu1op1AppaMiqqoBMB2JbADImBZtpliIN2Y18uF8Lg1hBR0cIhYZmHgnfp+3O/NLgAD+8fSlLYAFR+2pqrfPW910PYnYKrNZzS/epEyT9th/Qa4yJi8Il29bKY5+bYDko4yAk1OiSaiZz7efZq7Ip37xQt/F+7VKJ3oA6fb+QaqIkaBPtvTmVoYNg0xdb6zvJVmvh/CQBm4FJw9OquuCSLIrmwrA8+hCkJ48BaZd2GVOdQgAAAA="
+ },
+ "livros/mburiti-sertao/goiabeira.jpg": {
+  "hash": "5bfaee99d789",
+  "largura": 1457,
+  "altura": 2401,
+  "larguras": [
+   480,
+   720,
+   960,
+   1457
+  ],
+  "cor": "#f8f8f8",
+  "transparente": false,
+  "placeholder": "data:image/webp;base64,UklGRtAAAABXRUJQVlA4IMQAAACwBgCdASoYACgAPu1oqlGppSOiqrgKATAdiUAXZCyYICBNfhk0eahtD7vfwvenlVTO4h5JmY69tJY6E4BEAAD+8D1f+X7V2lkH+w8lgq3sbmaJuV/sCKt5CHbc+TAk87+C3q+avz0hTGFwcVlIPyeBd/9eZ1Rm+aSWV0z+bmb/RC9+LYkvrvcDU0JZAJwpAOD+MTC3Akm3i4hOag2t381W4WNY0bw2YmhPddf98m2w1ZJswsjKRbsArwRza7FKf+maAAAA"
+ },
+ "livros/mburiti-sertao/mapa.jpg": {
+  "hash": "208b6406c225",
+  "largura": 1965,
+  "altura": 2401,
+  "larguras": [
+   480,
+   720,
+   960,
+   1600,
+   1965
+  ],
+  "cor": "#e8e8b8",
+  "transparente": false,
+  "placeholder": "data:image/webp;base64,UklGRu4AAABXRUJQVlA4IOIAAAAwBgCdASoYAB0APu1qrlCppaQiqAqpMB2JagCpFNqIAAV19nu/ZpthNPhy0ihTEL/4+lQzm50iGYgAAP7v15Nf4YwZkvJtVyo8uERrG+ai4KC51TVWMKXD9wpMWIBkomTI0djC7VPJN4knC26VZIPWietfedQV/zYPTVNXrfUje3nhYm/57OIoRcvnR2Zabo47svfZSe1tZ4q387es0gwHG1BqJ2e9orlaM0DXHrinkG+BtQWSO4F7hNFZq2ms/awg96CQnZLhMf9UmQjS6CaXgma6BiDaYcbmKOOThTIJqgAA"
+ },
+ "livros/mburiti-sertao/maracuja-do-mato.jpg": {
+  "hash": "f480417ef037",
+  "largura": 1457,
+  "altura": 2401,
+  "larguras": [
+   480,
+   720,
+   960,
+   1457
+  ],
+  "cor": "#f8f8f8",
+  "transparente": false,
+  "placeholder": "data:image/webp;base64,UklGRswAAABXRUJQVlA4IMAAAAAwBQCdASoYACgAPu1kqk6ppaQiKqwBMB2JQArYAKQyDACix73ea4GqoKBi+hu+rulsAAD+7XpOYcs8yG893Qx4okjbCKr97NYIiqsJwrourdqa/ZwBNV3XVBaL4ApoL/83dDKZ1YBgEvf+thIwtLfez0nTRrtOWZGHD9xM9ntUKnyCZ4k9MzqQ68Uo3nf2MsbMaRYDWfcfdSNvGodJEQpc0/czr6uYYCE1XJ4SdWChkh7m9ZyvVT5y6nSmcXF2AAA="
+ },
+ "livros/mburiti-sertao/paisagem.jpg": {
+  "hash": "7510cd62b04d",
+  "largura": 1965,
+  "altura": 2401,
+  "larguras": [
+   480,
+   720,
+   960,
+   1600,
+   1965
+  ],
+  "cor": "#f8e8b8",
+  "transparente": false,
+  "placeholder": "data:image/webp;base64,UklGRrgAAABXRUJQVlA4IKwAAADQBQCdASoYAB0APu1irFAppSQisBgIATAdiUAVyqgALFax58EQjWv1tQlahIK/CZJxIoRbPAMAAP7zafHZ4TaS/545e0QlHHxtfxwHbm5EuLT5kdLUkPXP/pkD9LmUuVZ12k1xH37Ywrx6k8TC5Mf0hIjdUneE0cUqi/51U3mr/5PRJN2xxX62CdvaeESt/Hp5SQerQKP6dNuxs8PR79UzGyHAcQPD77AmmLAA"
+ },
+ "livros/mburiti-sertao/pequi.jpg": {
+  "hash": "9c3ebb8e6f78",
+  "largura": 1467,
+  "altura": 2401,
+  "larguras": [
+   480,
+   720,
+   960,
+   1467
+  ],
+  "cor": "#f8f8f8",
+  "transparente": false,
+  "placeholder": "data:image/webp;base64,UklGRswAAABXRUJQVlA4IMAAAADQBQCdASoYACcAPu1qrVCppaQipWzJMB2JZADLpAt59CVuxCeajGB8iBDzc6rKUNYPW6oJHa3AAP7wQKm0LmG8VffVU7Bsxi5nW1a6U5UVjGnOtKC1B6POS3F3IS7yGNoHcofPE63B69I7YRoxDeIb4mnKMYbiL8latGa2lX5wcRcs4xM0qs2DSSlZlhysn6wbEibW1dkV1FSeJulHmobvPOwI8BE5DwDfqWecuvawmxFxaygQwdfaC2wxoWN0gAA="
+ },
+ "livros/mburiti-sertao/prancha-pequi.jpg": {
+  "hash": "53fddff0ae73",
+  "largura": 2402,
+  "altura": 1467,
+  "larguras": [
+   480,
+   720,
+   960,
+   1600,
+   2400
+  ],
+  "cor": "#f8f8f8",
+  "transparente": false,
+  "placeholder": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAADwAwCdASoYAA8APu1iqk4ppaQiMAgBMB2JZwAAW+qxn973KQA9WHwAAP7zfkB7pRZW4B5KYsIhKHwvyoiwIvE5Vyhj0/9+KJwGksa7W3gTsBlkqxMViiCc/AmpMgKlXUkGOEz6NcEpwOc9K21HAAUxAAA="
+ },
+ "livros/mburiti-sertao/rosto.jpg": {
+  "hash": "ccdfba304ce3",
+  "largura": 1965,
+  "altura": 2401,
+  "larguras": [
+   480,
+   720,
+   960,
+   1600,
+   1965
+  ],
+  "cor": "#f8f8f8",
+  "transparente": false,
+  "placeholder": "data:image/webp;base64,UklGRrAAAABXRUJQVlA4IKQAAAAQBQCdASoYAB0APuVeo02pJSMiMAwBIByJYwAAW+vJzOoq3ttkIGNZJMkcTc5ZrPcAAP7zcDyy8qBDksG+9qfVMG73UWvofp9g0DxTpdThp4IMRbNGsMykkpUeuwB/q2KWOfCimNgpl1qYO3NAiH9mldjq+dEz5/9yq0qKQ/zvpUkPJSv66lzeshYWXAlsHmzZ+LB+H9AKAVKzf2ICKEBmvnbAAA=="
+ },
+ "livros/sertao-sem-fim/borboletas.jpg": {
+  "hash": "2fdab58857a6",
+  "largura": 2400,
+  "altura": 1516,
+  "larguras": [
+   480,
+   720,
+   960,
+   1600,
+   2400
+  ],
+  "cor": "#5898a8",
+  "transparente": false,
+  "placeholder": "data:image/webp;base64,UklGRpYAAABXRUJQVlA4IIoAAACwAwCdASoYAA8APu1iqU2ppaOiMAgBMB2JaACdMoACrrnd1Ru5AADdkzkQtg1MKm5/2SADgYgnjOgGiqWu+PCyTtvD5fqupYiCIG9N09id9gjcH3qX3HSzjjV6rHjJuBeTk0Gj4IFjUD4aRBcabLEzi7VmvLX0RQUykAGofiGa0gySiU2AAOXeAAA="
+ },
+ "livros/sertao-sem-fim/cavaleiros.jpg": {
+  "hash": "47278faa9e0e",
+  "largura": 2400,
+  "altura": 1516,
+  "larguras": [
+   480,
+   720,
+   960,
+   1600,
+   2400
+  ],
+  "cor": "#f8e8a8",
+  "transparente": false,
+  "placeholder": "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAAAwBACdASoYAA8APu1iqU2ppaOiMAgBMB2JZACdMoKP+AsigHQV1b1deeAA/ucqmIIyH0/ekp9mjlb4jvw9yi6nolb6+V3h2RjcutIYoLcaLZMcsm43G9PToquJ6y0abgYojyVFuLZ94VKW31uhZWeAJPeAAA=="
+ },
+ "livros/sertao-sem-fim/colhereiro.jpg": {
+  "hash": "b0c2a8686daf",
+  "largura": 2400,
+  "altura": 1516,
+  "larguras": [
+   480,
+   720,
+   960,
+   1600,
+   2400
+  ],
+  "cor": "#f8f8f8",
+  "transparente": false,
+  "placeholder": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAAAQBACdASoYAA8APu1iqU2ppaOiMAgBMB2JaAAAXKOtOpI6lIK8o+JMAAD+7d7ScKk9TbgYNiYfuEl4bDFAm7CJ9r091iG6IVCn/E1Mnuck3Yk2nn5OYGH0K3EkGbBSoc1hMvCBRqRI9SSKdEsEIDzv/BskU26Ih+8FgAAA"
+ },
+ "livros/sertao-sem-fim/constelacoes.jpg": {
+  "hash": "03f3d86b1740",
+  "largura": 2400,
+  "altura": 1516,
+  "larguras": [
+   480,
+   720,
+   960,
+   1600,
+   2400
+  ],
+  "cor": "#4858a8",
+  "transparente": false,
+  "placeholder": "data:image/webp;base64,UklGRqQAAABXRUJQVlA4IJgAAAAwBACdASoYAA8APu1iqU2ppaOiMAgBMB2JbACdMoLT9A5HHArsJdQuBegA/PafLjEL7xDVHXfV2h1VN1pPXuylp6BBicF0j6lz0goYrclPAduqicopg2YhuLXozZK/TGZo1rSxXitLsKp9zoBOnYMPh6VuxbSyfrr1GVW/yNn3HsXIS4OF0qAfI8CGYY/SGSJqdzi9wEAAAA=="
+ },
+ "livros/sertao-sem-fim/nonada.jpg": {
+  "hash": "c5252322e8c7",
+  "largura": 2400,
+  "altura": 1516,
+  "larguras": [
+   480,
+   720,
+   960,
+   1600,
+   2400
+  ],
+  "cor": "#083858",
+  "transparente": false,
+  "placeholder": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAAAwBACdASoYAA8APu1iqU2ppaOiMAgBMB2JZACdACHfLxrpZnGAEbxKJwAA/uj7JlGjIyXujAOQqfF57ODkJJD6tHYBYcl+w0SSzp4LuBjEJGrCM/6krBdUeNx9Bqv9nyCPaE2xPg0ZdKcpvgB0QA4gAAA="
+ },
+ "livros/sertao-sem-fim/passaro.jpg": {
+  "hash": "658462d723d5",
+  "largura": 2400,
+  "altura": 1516,
+  "larguras": [
+   480,
+   720,
+   960,
+   1600,
+   2400
+  ],
+  "cor": "#c8e8e8",
+  "transparente": false,
+  "placeholder": "data:image/webp;base64,UklGRrAAAABXRUJQVlA4IKQAAABwBACdASoYAA8APu1kqk4ppaQiMAgBMB2JZgCdMoEUeAaXAvqp547HrI//gAD+1L/UYvxyBkTuF7Y+L98sqkDa4XU1QT1/ClG+b1Iye9DItLBdB/6pSMqPhc1TpwWq3NIwb/X/0+6I76PFf5ur0aNabCeCoh06WOdayng4x7njovU4F+x7WHLPQtgVE/pM7H1nqVQr963B6BavDg0vzeUERlAAAA=="
+ },
+ "livros/sertao-sem-fim/rio.jpg": {
+  "hash": "26500b621d20",
+  "largura": 2400,
+  "altura": 1516,
+  "larguras": [
+   480,
+   720,
+   960,
+   1600,
+   2400
+  ],
+  "cor": "#c8e8e8",
+  "transparente": false,
+  "placeholder": "data:image/webp;base64,UklGRqQAAABXRUJQVlA4IJgAAAAwBACdASoYAA8APu1iqU2ppaOiMAgBMB2JYgCdMoADTfZxccpFVabWwwAA/usJ9g+QWYamzu96DTaurB606kTrjdBLUrFr+MsuEChrzvo29fkYTpQHFXXHnweIIo0t4BRAftRhYagAwEJi3qIMkUyo1iG340uYUyK8EmBW/F8qPLzdAyvVtYpM9i1Xy6x0KNYEoSs9+IrgAA=="
+ },
+ "livros/sertao-sem-fim/rosto.jpg": {
+  "hash": "541eab2e8370",
+  "largura": 1880,
+  "altura": 2400,
+  "larguras": [
+   480,
+   720,
+   960,
+   1600,
+   1880
+  ],
+  "cor": "#f8f8f8",
+  "transparente": false,
+  "placeholder": "data:image/webp;base64,UklGRtYAAABXRUJQVlA4IMoAAAAQBgCdASoYAB8APu1sqlEppaOiqAqpMB2JbACxCYCDAEN6vHdJ8A6QUuaQOKwkc/FSuOvomz5jagAA/vlu/rB+lu2EvrkSrKH3Ocg4JBcEzxPKpvW4xvhwK4Oj7Kvx3ma4SAZmdbUtSHmwx5Ui7PtjnthBu6DsAmtUD2YLTofrR5TeiK1QqQj687Mnat7m71ZaIBZq8e9lwY8sL8R+ho2xImj2iqkwoMUB750XowQ4obejEaKPpS9LG2PeosSZGgOc8JUAL+ZobgAA"
+ },
+ "livros/sertao-sem-fim/travessia.jpg": {
+  "hash": "6afb0722dc68",
+  "largura": 2400,
+  "altura": 1516,
+  "larguras": [
+   480,
+   720,
+   960,
+   1600,
+   2400
+  ],
+  "cor": "#385868",
+  "transparente": false,
+  "placeholder": "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAABwBACdASoYAA8APu1iqU2ppaOiMAgBMB2JQBOmUI+PBTkQ54GamNBfsa+cAAD+42y5+ztDMYzSQ+YReK2tkpEFT9FmnCy7kxfPlqgb3T/aLXx3Z5kz3Xxieuh5JvPDeKumqKPlZ2uJqIrxKGIIcDesT4qgAA=="
+ },
+ "livros/vive-sertao/anta.jpg": {
+  "hash": "756ad18a017d",
+  "largura": 1965,
+  "altura": 2401,
+  "larguras": [
+   480,
+   720,
+   960,
+   1600,
+   1965
+  ],
+  "cor": "#f8f8f8",
+  "transparente": false,
+  "placeholder": "data:image/webp;base64,UklGRpwAAABXRUJQVlA4IJAAAABQBQCdASoYAB0APu1srFEppiQiqAqpMB2JZQDHMGlfx2VblBjLCbgB7PCy+SUHsjRYbgAA/vwRIqH+dQUDE5fWodMaIKxjrB4PyS259N5XK0WuY/tZIXIBkRkgBWzps+CbCDzmznvCaWTimWIDuKcLRJHMgvr5F3v5GfYVR8YtnxbTG/8QmA1mOmOWUcp2AAA="
+ },
+ "livros/vive-sertao/borboleta.jpg": {
+  "hash": "dffb8c1b8fb3",
+  "largura": 1965,
+  "altura": 2401,
+  "larguras": [
+   480,
+   720,
+   960,
+   1600,
+   1965
+  ],
+  "cor": "#f8f8f8",
+  "transparente": false,
+  "placeholder": "data:image/webp;base64,UklGRqwAAABXRUJQVlA4IKAAAAAQBQCdASoYAB0APtlcok2oJaMiN/qoAQAbCWYAygBXcAU1/DlXejxlMuo27tyaLCwAAP737tQv7nCXmHr7xu+RIvZNkuh9XZfIbt9eN1BHilkQhb4+cLKNEa37oniB5lj1xR/tLMkfMFFabo5gZExr9znNzc8IaUeGLKSUpESPs+AcU6Wk6+xUaOlhLgmdqlwP1UoZIAZ15HPKvIa50pgA"
+ },
+ "livros/vive-sertao/lobo-guara.jpg": {
+  "hash": "273d9b1189f0",
+  "largura": 1965,
+  "altura": 2401,
+  "larguras": [
+   480,
+   720,
+   960,
+   1600,
+   1965
+  ],
+  "cor": "#f8f8f8",
+  "transparente": false,
+  "placeholder": "data:image/webp;base64,UklGRqQAAABXRUJQVlA4IJgAAADQBACdASoYAB0APu1qrFEppaQiqAqpMB2JaAAD5M5l/H+vfuHzcdMU+JqfN5twAAD+/BCQ6SRHLpQdKzCGS5uYtn4lk28MonbtAuoGk/h4NneTCna2FiczplMjn4RqZTPaMkMHykZCKklXmpfK1GxiG6w3Gkx6NmBxOutT/a2tD2SgIuwYj9g6tM8amFNMjDBAs4S3FWAQAA=="
+ },
+ "livros/vive-sertao/mapa.jpg": {
+  "hash": "339922f78d9e",
+  "largura": 1965,
+  "altura": 2401,
+  "larguras": [
+   480,
+   720,
+   960,
+   1600,
+   1965
+  ],
+  "cor": "#e8e8b8",
+  "transparente": false,
+  "placeholder": "data:image/webp;base64,UklGRuoAAABXRUJQVlA4IN4AAADQBQCdASoYAB0APu1crE2ppKSiMBgMATAdiWoAnTLSoYADOamw0llhKvYTNjRvGCRfDQ3FrE8AAP7v81nQL7CJsl3tHpbhpVzgDJ1HOn2BPrRRrWYlBjF6jZOerbT7wPolZmGPJo12lVO4Q6JQYxhv6WCXMKVqJHuLCLds3gX1F/Z3ymhTB3Yr/Fu/Ac/7R23KRDzrOPRLpHb8OXM4bt/9Sa/rXcCFnnD4GCAKYUR4wJ/fQ/XVDEqH1+ozijvQUAGgymC1mNkOkLnZwDli/TzKYNKvLZxHqlGP+MRzAAA="
+ },
+ "livros/vive-sertao/onca.jpg": {
+  "hash": "47c53660abe4",
+  "largura": 1965,
+  "altura": 2401,
+  "larguras": [
+   480,
+   720,
+   960,
+   1600,
+   1965
+  ],
+  "cor": "#f8f8f8",
+  "transparente": false,
+  "placeholder": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAAAQBQCdASoYAB0APu1mqE2ppaOiMBgMATAdiWUAw6xX7+Iq9qm+teirOnkhad6YWDKAAP76EKiQQq+G2d8d6nQTwiOzMFaq16ydUMGrc69jea1gkSEZA3heX6HPH5VMAgxPRORbGzrIAAAA"
+ },
+ "livros/vive-sertao/paisagem.jpg": {
+  "hash": "ac450320fb3e",
+  "largura": 1965,
+  "altura": 2401,
+  "larguras": [
+   480,
+   720,
+   960,
+   1600,
+   1965
+  ],
+  "cor": "#f8e8b8",
+  "transparente": false,
+  "placeholder": "data:image/webp;base64,UklGRqgAAABXRUJQVlA4IJwAAAAQBQCdASoYAB0APt1Yo02opSMjN/qoARAbiUAYUAQ75cLPcMlTwMRr2QqMZx2qgeFsAP7nPrRGuJlE/BXVEdhj7Q6NjVrFIqmzooML4sd+Zsu5TbifvEVN/DkNWkxZYTYzkJLPbvLLyMvVibfgnwlmm3zgyvYUVaPR1NKyaSireeFM9UFP00HoyBCHeKLjB9ixkeI2ylRPQBLAAAA="
+ },
+ "livros/vive-sertao/prancha-lobo-guara.jpg": {
+  "hash": "652eff2e323c",
+  "largura": 2402,
+  "altura": 1467,
+  "larguras": [
+   480,
+   720,
+   960,
+   1600,
+   2400
+  ],
+  "cor": "#f8f8f8",
+  "transparente": false,
+  "placeholder": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAACwAwCdASoYAA8ALrV2u12jqampiYC0SxgGB94AMB4ejExZ9FiGgAD++Bnj5K2mZu89y1HVC7ODugYQbbuDlE4X6i0fSFLPY6r++aXB///hX0TLHDunHnRQwNj9y2y8ltOtihEAAAA="
+ },
+ "livros/vive-sertao/rosto.jpg": {
+  "hash": "27779f7b91b4",
+  "largura": 1965,
+  "altura": 2401,
+  "larguras": [
+   480,
+   720,
+   960,
+   1600,
+   1965
+  ],
+  "cor": "#f8f8f8",
+  "transparente": false,
+  "placeholder": "data:image/webp;base64,UklGRqoAAABXRUJQVlA4IJ4AAAAQBQCdASoYAB0APu1wsFIppiSiqAgBMB2JQBjAitoOUKYlsieUY9GV+rW2Gt2sOZkAAP77omIB52zJHAj9srNxnKjtX7W/WABHnKI0puGfzpTaPx+8drHGEPyJbfVl8+9obzRJJTleUAqE7q2jiV1SLTQ8Q4lT2nqQIYnL3q0IE1ffw2EeQt3X7qBZvlI0efzTSA62wvn4MJjGdQAAAA=="
+ },
+ "livros/vive-sertao/tamandua.jpg": {
+  "hash": "316e738d4970",
+  "largura": 1965,
+  "altura": 2401,
+  "larguras": [
+   480,
+   720,
+   960,
+   1600,
+   1965
+  ],
+  "cor": "#f8f8f8",
+  "transparente": false,
+  "placeholder": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAACQBACdASoYAB0APu1oqk+ppiOiKA1RMB2JYwAAveqqneS7LeSdoSepOhjJ0AAA/vlpNvrpAD7obo8la1Tx79D+QqSj7ZB7sfHtNkmAufj3+c+gKYhn6XZeTzxDCCjzoNciWctOI8QpsLMa4fuE8OnLPvrIYItMKO4zwAAA"
+ },
  "wix/colecao-sertao-vivo/capa-ave-281d710e.jpg": {
   "hash": "da6dd3c28630",
   "largura": 2263,
@@ -217,15 +783,19 @@
   "placeholder": "data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAADwBACdASoYABgAPu1qr1CppaQiqAqpMB2JaQALAAFrSZG7ySJZVVhWuURUKWo+SaAA/vHgw5t9yVFzCDJfzlIXcfTb2rKSJ9o/rdN6CoUn+Q31XmP9rFLyCQTG+Nj1X18G5og5rqID64YyG1tbtu4qzgy5523Vuroh7Ul7DO+ILRhpJp1scAAA"
  },
  "wix/design-grafico/guia-gravura-em-metal-9db9940f.jpg": {
-  "hash": "f28b9fc80636",
-  "largura": 430,
-  "altura": 408,
+  "hash": "d789755f95fd",
+  "largura": 1948,
+  "altura": 2400,
   "larguras": [
-   430
+   480,
+   720,
+   960,
+   1600,
+   1948
   ],
   "cor": "#f8f8f8",
   "transparente": false,
-  "placeholder": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAABQBACdASoYABcAPuFcqU2opSQiMAwBEBwJaQAAXBuQ2gnI/NE1mctczRgAAP7zdQj/P9Gty+YiGl5pnW9ASGNAVe2snQIwDiP35611JfMRpOO2a1qMkEb7v/I1xX+Rx3NyowkOmdtFuoUAAAA="
+  "placeholder": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAACwBACdASoYAB4APuVepk2pJSOiN/VYASAciWkAALvrX/3rR93+BK63DPiDqYQAAP735Cl1UVjvxKUY5odY6nFpadyedxVQTRBcF9hzr3sjRBpryoDXdUtxq55TDCh7kNLbwtdM+tAdPD6Cwg73IqMgAAA="
  },
  "wix/design-grafico/guia-gravura-em-metal-ea8b5a6b.jpg": {
   "hash": "677fb0f8e21c",
@@ -242,15 +812,19 @@
   "placeholder": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAADwAwCdASoYABgAPu1ur1IppiQiqAgBMB2JaQAAKdIqmhQl8OanF2AAAP7zgs1wJE4Dc49jy0qw18sbRVvW7zwudOe0axmrEMWH3OiY7oYD+uBqO6EqezCZHy4i1aqe+5ay+Yw9m9ozS6ttT8LjPLx0UeIaQAAA"
  },
  "wix/design-grafico/guia-gravura-em-metal-ef8aad7d.jpg": {
-  "hash": "c973d6312a4d",
-  "largura": 430,
-  "altura": 408,
+  "hash": "86e55841b488",
+  "largura": 1948,
+  "altura": 2400,
   "larguras": [
-   430
+   480,
+   720,
+   960,
+   1600,
+   1948
   ],
   "cor": "#f8f8f8",
   "transparente": false,
-  "placeholder": "data:image/webp;base64,UklGRpYAAABXRUJQVlA4IIoAAADQBACdASoYABcAPu1mq08ppaOiKA1RMB2JaQAIEAH0eyHUR2TGwLOVLd+rXIDNgAD+8c+LUeSJUH2moVeKhbNplIKLOVROETVqtSVtvh0jlzVTKmMbVEZYjw/LjXRnxqxy6/JvT7siO/Y8KOMaJHzV4COSxhufn/goo0MKz6zhgPdCxDMgD2QAAAA="
+  "placeholder": "data:image/webp;base64,UklGRqwAAABXRUJQVlA4IKAAAAAQBQCdASoYAB4APu1mqU2ppaOiMAgBMB2JaQAAW+pIDzgdBxtL3udltr4hKCEGUcAAAP7ze/Bovr2SDEJh1gPMI+nnEioxiqvLWKquhhkvjhvEvhtoofMNVb69P9iWjuMdAKVmxTuiZixauKV3SrqNOPtg7hBeAlJrh2vao428d4DtZFFzOKzhHYS/wtLA/f5H17zT1ds78z/59HAQAAAA"
  },
  "wix/design-grafico/livro-a-guerra-do-cachoeirao-69996b41.jpg": {
   "hash": "84562a069d4d",
@@ -265,16 +839,19 @@
   "placeholder": "data:image/webp;base64,UklGRtoAAABXRUJQVlA4IM4AAABQBgCdASoYACIAPu1iq02ppaQiMBqqqTAdiUAQKmHQRt4s9XyscXz1dmCn/PjkC0bSG9lMNK7NCZ/gAAD+52qHvOUp8/5yzFLgSkDF9SwtHBMaHX468vy2REjOHq1H/qoRfTXzfkMPmnRKSG8zrySsWccxpXR37HMGaBxW2mMrmfJBm+aT3VZAweDQylx5qksn0p1k6wTsSQ7vz+B3GNgNUiGtCVArVJg9K8UtkxtMmukNp/1+Z0jPMnbc6m8lZLGoENih0ojwriluPwAAAA=="
  },
  "wix/design-grafico/livro-a-magia-das-cores-da06452d.jpg": {
-  "hash": "3db66b525d32",
-  "largura": 567,
-  "altura": 568,
+  "hash": "6209ef804d01",
+  "largura": 2400,
+  "altura": 2400,
   "larguras": [
    480,
-   567
+   720,
+   960,
+   1600,
+   2400
   ],
-  "cor": "#3898b8",
+  "cor": "#0878b8",
   "transparente": false,
-  "placeholder": "data:image/webp;base64,UklGRs4AAABXRUJQVlA4IMIAAADwBQCdASoYABgAPu1urlKppiQiqAgBMB2JbACdMoRwN6Bw7oIl4Zjamhn9a9DnZkBeYvlnby7QAAD7ZfpVtGaYKCD7nMsFZSbdFwheTOWHxP7hXxsNRaQbKe96/zPC1hmghIzChiGGWe/G0oKW21cvhjwroFQLv37ashqJBi17moVTzZ/JK+m6GnxDvLq7IFqmeMJmNH7w4XfA7bZ72dm3+56maac3PBxUVfFFGQNX7ay+W6I+w+kHnp3L+GVbj/QMAA=="
+  "placeholder": "data:image/webp;base64,UklGRtgAAABXRUJQVlA4IMwAAABQBgCdASoYABgAPu1urlIppiQiqAgBMB2JbACdMoRwN4txqu7rYKNuAR3eogFnwAN6mKTnId53O2WrAAD72r8h09Yk5zHQbgamv67otvYOl817392y3I/Fm5izBv/ArJiiyA79Ya531hhxuGjAPwvOB5ygy0nxPXs2z7jNtKF+xRb+svK7f5Nst8aWLNtQ+GT/g8xrqRWlE9cL1b0wz/4d+Q0LTyYyGM7uaCvf+hwGw70WQFAb+bhBBl348bCcVjzTF/Eo94BwPh7AAAA="
  },
  "wix/design-grafico/livro-a-minha-floresta-8357ae03.jpg": {
   "hash": "354111e8555e",
@@ -301,17 +878,19 @@
   "placeholder": "data:image/webp;base64,UklGRhIBAABXRUJQVlA4IAYBAADQBQCdASoYAB4APu1iqE2ppaOiMAgBMB2JQBZw71sWjjA0qDRodWEMLSu5Rp/BUOxHrCN9PlYAAP3iHN7jqAreJLwco76Yx8qQBI7hFHuA3F5AwAgjiWcidazu35Suycx5dcF0vuuYPZjzo+2m3CrdcO9OOh1C/FgYoIb0CBz0Z9bKF5EyZH5tTt9ZXgboe/XmJqxdOPtSUY4NQHmXMl9ivrLthUWLipW7EnN4LAlq8lDhtVEXzjVTPyZNrc2ZrO9r/gR83g2sYI2U+kxRRUKTIzWTrd6COhZKtJ3Mg7bfneWhGWUJNtS/x5T47YFluF5XFS1s769dYc3zMl4KX57YFXwB1AAA"
  },
  "wix/design-grafico/livro-aquarela-e-sabores-f85f16fc.jpg": {
-  "hash": "e430e65231aa",
-  "largura": 950,
-  "altura": 644,
+  "hash": "7162e934086a",
+  "largura": 1951,
+  "altura": 2400,
   "larguras": [
    480,
    720,
-   950
+   960,
+   1600,
+   1951
   ],
-  "cor": "#c8d8f8",
+  "cor": "#f8f8f8",
   "transparente": false,
-  "placeholder": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAADwAwCdASoYABAAPu1kq04ppaQiMAgBMB2JQBfnDUIleotxX5Ie8sUAAP70BPKkUjSJA25h/nYTxSX9x/sTJ/vvDAlkBDUXmmG6Va0Rhn1JEt/R/x4TBp/YqZYaH9LlRaNQEExHdNIjW0mjtM5qESyW6Vlunhr3Xa7AAA=="
+  "placeholder": "data:image/webp;base64,UklGRpgAAABXRUJQVlA4IIwAAADwBACdASoYAB4APuleo02pJSMiMAwBIB0JagDN4MggrRf68GWfi4SjcxbWMHse8AAA/vNr1CzZ0AlaC9qd41JfEFzJ1B57sSjsjBYTMEgEyZxg8kAiSxJi+KXRj1guff7odZhHZFwHxlwn0BytWrhZwtctNnNyl4cTO3r82dj9FwWe0/zg6yx1MpgAAA=="
  },
  "wix/design-grafico/livro-ave-sertao-criacao-de-capa-99effdb3.jpg": {
   "hash": "1772d12d7a5f",
@@ -421,15 +1000,19 @@
   "placeholder": "data:image/webp;base64,UklGRsgAAABXRUJQVlA4ILwAAAAwBgCdASoYACQAPu1mqk6ppaOiKqwBMB2JYgCsM5IEXDCFMEyCqdZiIJkXzQZ4jypu/zgXh8m9slgAAP644AIRAcLKYrT9nxjqTJmaVWwDMXmwz5Ua8Rvw7S18mS4cTsuvdk/v/6wiYDz5ztwrLK89/TUlfQ3v1eK8u4XSpBo30c+Lg3xtUKmcfb+M8si5/QmQ+eK+ct+l8isLAgE30c9nw+AHcHNyWA3/gI9qvaD6663UvFc/OFA8AAAAAA=="
  },
  "wix/design-grafico/livro-poetando-a176eaa9.jpg": {
-  "hash": "1553b1d2493d",
-  "largura": 443,
-  "altura": 483,
+  "hash": "c0d362a86ed8",
+  "largura": 2287,
+  "altura": 2400,
   "larguras": [
-   443
+   480,
+   720,
+   960,
+   1600,
+   2287
   ],
-  "cor": "#f8f8e8",
+  "cor": "#f8e8d8",
   "transparente": false,
-  "placeholder": "data:image/webp;base64,UklGRgIBAABXRUJQVlA4IPYAAADwBQCdASoYABoAPu1qqlEppaOiqAqpMB2JbACdMoSCm8AV0gc+EUxGTjOXFYBLbHIWXOgITckCQAD+79pxWlCmCEr0xdW05+lLWS6cRJ9Q2F/xM5+ZEZWWSHqFFX9tc+bIu+fJ83xTsK80K0Xbe/Muop81jfxQe7/toK7eRYHiAbmY/ptgFEE9akgMNvK3v3oKnISjFzCjUQR/t2RrRj60ALcN6OXIPjOjRhA0p7dKLXt9DlsxzJdM8eExOgdlN65+V8M7OBk8x+14EO1ki58PspycUh/F0Nr+PbB/a2ibcyz5Gzg9kwkQXiABPlSKgfVlMP0AAAA="
+  "placeholder": "data:image/webp;base64,UklGRuAAAABXRUJQVlA4INQAAADQBQCdASoYABkAPu1or1AppaSiqAqpMB2JbACdMtVBSBXSql3JRmjfmm5uGkHBdCpIMc3vbHHwAP7v2mIBkrXk5ddUQI3QpA7TibxOuIfTQ0DOzI7dEcZLU6n7OhCAN8Ca2ldcae03MrnqJ/u5FsejMI9cOaAOFpuMJhb1wl6yyPtdGGaXOX1BR1qh+3X+J1N2Dc5CnQIiZ98DXKGB+oeT9+bUo6wtnalZoWLciiguh5j8jf7LnbJ6YVP3t7QfdDugNhb4+wHaawEtpy4hPSQjAq4AAA=="
  },
  "wix/design-grafico/livro-preservando-os-raros-faveiros-46677d26.jpg": {
   "hash": "c794173fb977",
@@ -543,29 +1126,34 @@
   "placeholder": "data:image/webp;base64,UklGRhQBAABXRUJQVlA4IAgBAABQBQCdASoYABgAPu1urlIppiQiqAgBMB2JZgCsAdzdhyLjD5MirtNxWZni5wgKjOirAAAA/vOCzvxvRZcxkYYKVV9fbKx+Mqo2Ynq4xkvqwhgArflpTOO1RPiJgB2j2yGQcmEc9uuarcO/LKwb78E2wQMGLIWuUL4IT5ms2OH6HOOvenVxwooAOuIaScoA0oPfA+cf5rAVueryzrzY8W2tBS6SeLxcW9rE0U6+eO+Pxei5ezbbKFVQXvhVG2P9q2/R/y9PnW6IQ6ndQhPbk2JNev5swsZymhCuUqf4CUFrzSBsIOXVa2QbGFI1hqEcfBRgu0tFNj+nZ5n0X2xDBTWP7bLLHaRBgAA="
  },
  "wix/design-grafico/sera-que-foi-sequestro-05028f96.jpg": {
-  "hash": "f6d17fa4012a",
-  "largura": 550,
-  "altura": 784,
-  "larguras": [
-   480,
-   550
-  ],
-  "cor": "#a8b8c8",
-  "transparente": false,
-  "placeholder": "data:image/webp;base64,UklGRtQAAABXRUJQVlA4IMgAAADQBQCdASoYACMAPu1qr1GppaQipWsxMB2JYwDE2C4eSmu3K5qSxGxqL1fCmJ44oMkMM8ZNduSAAM48LwsYmVXT6/83SB5xGqsnltk7NvvwemEfyMQew5PX84o/VC+0SHFayHQEkHPH199vZk9X1617PINXWEAvuhRqRZh5BPS9sqWXRgJS67JtIsshpjxp13gIkIF1G8MrwzKW4VdREa+vAWcZYPNeYK9N00CeelAogKjiYL6gMTXaXnoNR1qIYJogEBt9UAAAAA=="
- },
- "wix/design-grafico/sketchbooks-f040e960.jpg": {
-  "hash": "4fede6390a2e",
-  "largura": 885,
-  "altura": 511,
+  "hash": "3342665fc6d3",
+  "largura": 1692,
+  "altura": 2400,
   "larguras": [
    480,
    720,
-   885
+   960,
+   1600,
+   1692
+  ],
+  "cor": "#4868b8",
+  "transparente": false,
+  "placeholder": "data:image/webp;base64,UklGRsQAAABXRUJQVlA4ILgAAADQBQCdASoYACIAPu1iqE2ppaOiMBVdUTAdiUAVw4XNvmv+ys769p9JXBFE+BK2ED4TjIoz3CWAAM48Jry2oOG2Guyxz68egKO1eXFJ60kI23ruXNXINpTT/s+enniBYptkhQGju8PIHrMbe/4uw3M/I4j+pjRAgLw3Ad1ObV5G6xGb172LcLMmGUAY0G0sLvlcn4cNqZx8eh9mas+IstgrdSnpvcFieMdIOz5UlxgVTTFlRfXaAAAA"
+ },
+ "wix/design-grafico/sketchbooks-f040e960.jpg": {
+  "hash": "2fb5256ab7d1",
+  "largura": 2400,
+  "altura": 1650,
+  "larguras": [
+   480,
+   720,
+   960,
+   1600,
+   2400
   ],
   "cor": "#b8b8b8",
   "transparente": false,
-  "placeholder": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAACwAwCdASoYAA4APu1iqk4ppaQiMAgBMB2JZQAAPp22qMR0yPVQAAD+V3J0Qb1VvEt0qOpaF3ZX8/Cx/sH3i2UGKHuU8JVz6YtGOjMs/8snrfcHnUr5nwrtwbMPj8Dlw6YSfyDDQAeMgdMOnbYJHRYAAAA="
+  "placeholder": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAAAwAwCdASoYABAAPu1iqk2ppaQiMAgBMB2JZwAAetGsaerQAP7jpGHg/RnhV57bXFRRxgLdkZ/MRTFabL27vT5WwsY3lCOBDJZq4AIzMiyIQ/e2Vx/ismLRnCf8agWAAAA="
  },
  "wix/design-grafico/um-livro-voador-e5ad7d73.jpg": {
   "hash": "3fa71927de28",
@@ -1017,16 +1605,19 @@
   "placeholder": "data:image/webp;base64,UklGRvIAAABXRUJQVlA4IOYAAAAwBQCdASoYABoAPu1ur1IppiQiqAgBMB2JQAB86iFh1he1qJJCQBc0SnunbL0hCz6ggAD+7eqq8Syo29Dn260oIWNzFHsr0YwjQd17Zbx0z9gAwZ32NshZ2sTBYvH72PIr1aKrytywBVgQjAPkDfikKu3x1FYtQzuQt9lvOFACp5DZ6otboEw5+I6GXVIzVJl8OlPe/mFBO/N9efTPLwi8hmvL0NzwhLERn6rY+9ofvHewFMb+kOba1/zIIW9kqtLpjQ2adr1HIIGT3VRl1C912oCboNLQ4NiyBS3GA52bKDf/lkkAAA=="
  },
  "wix/ilustracao/cartas-d57af29d.jpg": {
-  "hash": "16bf7784e249",
-  "largura": 574,
-  "altura": 578,
+  "hash": "b73ce4247fa8",
+  "largura": 2316,
+  "altura": 2400,
   "larguras": [
    480,
-   574
+   720,
+   960,
+   1600,
+   2316
   ],
   "cor": "#f8f8f8",
   "transparente": false,
-  "placeholder": "data:image/webp;base64,UklGRrwAAABXRUJQVlA4ILAAAAAQBQCdASoYABgAPu1urlIppiQiqAgBMB2JYwAD5kkK5Z926KsQ4cTZfnRsspPXs+wAAP7x1AGmI9awp+jHlBi1UMtQQShQnXRx7DpdnYtojdiJnOc4LkW6oXb7CBaneVN9sbMgCoJdh0tKUD6xCrLZ59ghCF7/TH+9tkf1O9Yc03xv+glv+W6VcwUPC92MoMMB44/l1DupULrp39hsRmoTUtPZv5mnCRqAD1B9F5egAA=="
+  "placeholder": "data:image/webp;base64,UklGRqwAAABXRUJQVlA4IKAAAABQBQCdASoYABkAPu1or1CppaQiqAqpMB2JYwDNwy5Y2ZmFv71N51rXIdavMu4gFA6R+QAA/vNwJY8ThS1lLt2ZtV7um6PfDbu7blazzOT+XCkNTX+oV4hRfUB5gWzqv7faGgVfTZtA7ye7MYyIvJA/hEH8JsvA2lBUJ/Xib8P3Cm93WYHNJyvP3uqY+zgeN/gnTMOlSbYxbu9KjgjQqtAA"
  },
  "wix/ilustracao/casa-de-fazenda-ffcbc4c9.jpg": {
   "hash": "731c90d39a5d",
@@ -1125,17 +1716,19 @@
   "placeholder": "data:image/webp;base64,UklGRqgAAABXRUJQVlA4IJwAAAAwBACdASoYAA0APu1iqU2ppaQiMAgBMB2JYwCw7YwI3VID2H06KPTbBkAA/mwGeBgmuTdxgUtCf2t6t4fPZg7kNzlIR+BGJjteBzKtzopr9gkHYu6rfZIeP9vG3X69aBunrUskzjjDvekTm7zdVrjuvqTP0SsRGS3YAU3L+u9gABqXcohKb6+W7KYqWofF1ZnQAdGIAZFfhQHlgAA="
  },
  "wix/ilustracao/dibi-4f9a250d.jpg": {
-  "hash": "641f0eb5a54c",
-  "largura": 800,
-  "altura": 442,
+  "hash": "457845086ce9",
+  "largura": 2400,
+  "altura": 1347,
   "larguras": [
    480,
    720,
-   800
+   960,
+   1600,
+   2400
   ],
   "cor": "#f8f8f8",
   "transparente": false,
-  "placeholder": "data:image/webp;base64,UklGRrgAAABXRUJQVlA4IKwAAADQBACdASoYAA0APu1iqU2ppaOiMAgBMB2JbACsIIp0AdP+A2hNTYaz3xv6BfrQAAD+7etmDxW7gVXaSJcOKac3HUrlDXieJN2WmmLRlwuI9OXdCqosvHI2Y5cqHA6Ao2AX1d3icIYGsvKL9K203XADKXS93QLF85D9yCt25wGDmbojTW6JmAe3joXibzit6rfl6E3+pc/9iU0GlhkJh3Sf0C5S9wp/y2JvkAAA"
+  "placeholder": "data:image/webp;base64,UklGRrQAAABXRUJQVlA4IKgAAADwBACdASoYAA0APu1iqk2ppaQiMAgBMB2JbACsIIp0AdP+LYJZK2nXGayeBBxR24AA/u3rXGWJhi/ICMttwitfbKU9W3//8KkGRKs8UywAa1rbL44RekgGIy0GyjcmvAUwgBERaGIju2srK+Z4ci8op7yiMYlb2zfmtsZQBfsCurZ2AD1t1wLyKgQs9x2VHDCx7zX7xKaDSwyEw7pP6Bcpe4U/5bE3yAA="
  },
  "wix/ilustracao/dibi-87d62e82.jpg": {
   "hash": "0d6068dff1bd",
@@ -1183,29 +1776,34 @@
   "placeholder": "data:image/webp;base64,UklGRr4AAABXRUJQVlA4ILIAAACQBACdASoYAA8APu1iqU2ppaOiMAgBMB2JagCdEf/gNW30h1YIkmefS9V2LWAA/t9pQMMb0iV5pFWlzp+AuyxSuG6aIkUMVP6nAjZdYE1yJEeR7P19My/hpeeptRD2goSK3KlAtJh1ArIizAOvIxlAlZs7JhaWsvQuNAYSmLt3tdzYLsqGb58PXJCwCCey2ffBTuXbTieRPiNCuJia/TYOgNFtu/fcJUvTGXWSCJkZgsAA"
  },
  "wix/ilustracao/dibi-b90758d1.jpg": {
-  "hash": "b3a37f8599c3",
-  "largura": 930,
-  "altura": 503,
+  "hash": "95c875468f4c",
+  "largura": 2400,
+  "altura": 1738,
   "larguras": [
    480,
    720,
-   930
-  ],
-  "cor": "#f8f8e8",
-  "transparente": false,
-  "placeholder": "data:image/webp;base64,UklGRpYAAABXRUJQVlA4IIoAAAAwBACdASoYAA0APu1iqU2ppaQiMAgBMB2JZwB//QIBN8V+qugSYU1NxwAA/uhmfqjYlEfXJfCjpVyTFE7iZBh5miEoYlX/cdvcULm/+TooV5hgwCQwddcPfCibzScsMdVizEaoIPf5EkBMCrJZkC97G06Tbkpk+IllbKOmtOdQs4GBzwQPG/kgAAA="
- },
- "wix/ilustracao/dibi-e2d20879.jpg": {
-  "hash": "57af8c920bc5",
-  "largura": 678,
-  "altura": 528,
-  "larguras": [
-   480,
-   678
+   960,
+   1600,
+   2400
   ],
   "cor": "#f8f8f8",
   "transparente": false,
-  "placeholder": "data:image/webp;base64,UklGRqIAAABXRUJQVlA4IJYAAACwBACdASoYABMAPu1mq08ppaOiKA1RMB2JagC7ABEdFRpBvxaOmYiAqUFAfQCAAP7zdIDQpJ6iENDllWp0Wo/SFpg3vHz4tjIlPApXixeGICLbwJatog1DZ5R9NGuQEbe/jSRbjstLgB/SZWRti6HPjxycEncaALmDm1L44ZzB3SFCb14OxdwX8d3fHOKnwhAkqxgAAAA="
+  "placeholder": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAAAQBACdASoYABEAPu1qrE8ppiQiMBgIATAdiWcAAC51M1Ql6CaWp2Nq1gD+84EHtuCqNJQ60CPk8XTTg6uscfXJ9PUjP8r7AKp0ZPBu0MCq7+oF6EhqaSA4AAA="
+ },
+ "wix/ilustracao/dibi-e2d20879.jpg": {
+  "hash": "a3c4c7ada20b",
+  "largura": 2400,
+  "altura": 1347,
+  "larguras": [
+   480,
+   720,
+   960,
+   1600,
+   2400
+  ],
+  "cor": "#f8f8f8",
+  "transparente": false,
+  "placeholder": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAAAQBACdASoYAA0APu1iqU2ppaOiMAgBMB2JQBOmUABp8/C1XpkOabXhAAD+6yXTK5ArOxulyNRT/MZGu8U6slMnl0CmhK7I+daQdmhrCldzyCOJ0oU7j5oMmnysNSIycWP5YRppKz8THwTIvXDgkSPB4eeDA9MoAAA="
  },
  "wix/ilustracao/epidendrum-s-c6eb186a.jpg": {
   "hash": "c9e36ffbe45c",
@@ -1350,29 +1948,34 @@
   "placeholder": "data:image/webp;base64,UklGRsQAAABXRUJQVlA4ILgAAACwBQCdASoYACIAPu1kqlCppSOiqrgMATAdiWMAzJQit1eXe2cv73Xj8RZID2mrfk8X8hsxNwAA/vYQnNhJYH5+BL7f8fyUW0QnzcsBYefTaRo+NUaAqlCmvxi5ShOZ/JXdK1b7GU+ySm6+PwHea7+2Bbnq9g//oeuDC6n5qIygLwdmQaEE0XDwUiGF7UBgrrBfEYLcoAVeZNtL+RPiy4fkdkYQJuf2ZD10Q/00UPutr0k36pThAAAA"
  },
  "wix/ilustracao/ilustracoes-c9c93de3.jpg": {
-  "hash": "55ffe0955a70",
-  "largura": 678,
-  "altura": 528,
-  "larguras": [
-   480,
-   678
-  ],
-  "cor": "#f8f8f8",
-  "transparente": false,
-  "placeholder": "data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAADQBACdASoYABMAPu1oqk+ppiOiKA1RMB2JYgDB0agWwAbQDw4f0d0qdr4g73usIAD+826UyukMAMB1H1HSF7O5qz0MunZrX6xEUZ+10Cf/957nCcVFGAQ8n9c2bz+qCrJrPeT6BzM6EXW3jFzYZuTpI9xKvoVoyBY/4Av+9SIdMM5/QBU1oAAA"
- },
- "wix/ilustracao/lagrima-de-cristo-c6c2a274.jpg": {
-  "hash": "e2bbfa7d387d",
-  "largura": 800,
-  "altura": 638,
+  "hash": "b5798672c751",
+  "largura": 2400,
+  "altura": 1869,
   "larguras": [
    480,
    720,
-   800
+   960,
+   1600,
+   2400
   ],
   "cor": "#f8f8f8",
   "transparente": false,
-  "placeholder": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAABwBACdASoYABMAPu1oqk+ppiOiKA1RMB2JZwAD5AkK/73tj1BxpJ884se6AAD+83SrxZmlkrum+fiIoEHGZ5J6wsWN6CDA547DaazSavXicXX9Ggsnu6On94MNNQCyUjqAAMFmERgVCCZ+fkWXE9RE2MB2kEnnLCKmIUAA"
+  "placeholder": "data:image/webp;base64,UklGRuwAAABXRUJQVlA4IOAAAAAwBQCdASoYABMAPu1sqlEppaOiqAqpMB2JYgCxDO6guAwDdVNIBQt64pm9sinOXdcTcAD+8D1/3mtTJlxTAmHbMuQ0iIb8G49LpbRPK2vh5m83ePGb/hNqj9DOi20s7KU52lnuY5pGHrkRSbaX1JAyeiXZldCBHGkzcbKk8E7GqAV/SBS/MVWsjZUh5r7J8zfEtziyQTOcLXBgxpgBHchz90h2X8KPpuvUa2YyHyaHWsvT56LQ8DMy3IGOBpBkbdR9l/xJfO1cuxv2xOU+T/U0kJFEfdDJ0ilbeLG01CAAAA=="
+ },
+ "wix/ilustracao/lagrima-de-cristo-c6c2a274.jpg": {
+  "hash": "7dcd82a76f46",
+  "largura": 2400,
+  "altura": 1915,
+  "larguras": [
+   480,
+   720,
+   960,
+   1600,
+   2400
+  ],
+  "cor": "#f8f8f8",
+  "transparente": false,
+  "placeholder": "data:image/webp;base64,UklGRqAAAABXRUJQVlA4IJQAAADQBACdASoYABMAPu1oqk+ppiOiKA1RMB2JZQDKeYwIbyib/Vprvg6m9xHVWQGmXAD+83TmUCHnEBvzlZaCOw/K6/jwLu3/phhsD4LK+i2B+9EDquwqKy8biFit+InBYXbcG9zPudp7stuIsMpV/i5239v0MbACJD0Hk7eXtmcMfMAFeork/I51m8GtujPsstGIagAA"
  },
  "wix/ilustracao/menina-pataxo-8ae94d08.jpg": {
   "hash": "168a5050d694",
@@ -1418,30 +2021,34 @@
   "placeholder": "data:image/webp;base64,UklGRuQAAABXRUJQVlA4INgAAABwBQCdASoYAB4APu1orFEppaQiqAqpMB2JQBjPgiOcIKtnCMwbUTUJcCn9XttfagsaiNwAAPlS5YfcCawHlzdtzDBhrlQPfFQrfzI+crA26V+QdGZWlmrqbWyNUzvsKCzoVN33fN+/0CbgvjHW1e0asXqq288bSr/6q8AsaZ4Y6NkxuqZGvdz3mywbHu5KUWE0KmyGVaSNMFTukwZi4qcUSBrkQXprrYR6lNkrkonxnABFMAxhBA8Bj4UvX88NDj00SPj7cJzzZX1N/4Ol9XKnoMEApYgAAAA="
  },
  "wix/ilustracao/natureza-c7587d69.jpg": {
-  "hash": "87bca2e97e20",
-  "largura": 1000,
-  "altura": 544,
+  "hash": "7dad5b73e4c5",
+  "largura": 2500,
+  "altura": 1524,
   "larguras": [
    480,
    720,
    960,
-   1000
+   1600,
+   2400
   ],
   "cor": "#f8f8f8",
   "transparente": false,
-  "placeholder": "data:image/webp;base64,UklGRqQAAABXRUJQVlA4IJgAAADQAwCdASoYAA0APu1iqU2ppaOiMAgBMB2JQBOgBCfat8U5p3Yo6AAA/uf/KL4jzQSynnWKOTwkVOWLO1fJxTOWuuy15NWv3fSQLKyGvAWJdtgTpvcZgBej04UTOiHgJ0WQS90CMsXfEeHUCw8XPk61my0216MY7sOUWUKaUAF19FtG/YCxBlv/ICmXGTxR6MLLZokfFv9oAA=="
+  "placeholder": "data:image/webp;base64,UklGRrAAAABXRUJQVlA4IKQAAADQAwCdASoYAA8APu1iqU2ppaOiMAgBMB2JQBWGUABfNF8YUm88GpwA+FpV4ejfQeJ5cu4Eky9ISFDVmqJpM24/n4JjvjKgvK/WZHrVdvoDoAIKLvWM3/NO1fiU4SCncyMTqJW+5ADtNSsvFf5RqJwZpy1CJChOQDjv+QyEpf6kO6yKpPfWmX6hgH+6inBuo+uXjg7VY7CwqPGBATOSnjIQlsAAAA=="
  },
  "wix/ilustracao/paisagem-urbana-2d6f1818.jpg": {
-  "hash": "5042220562b7",
-  "largura": 562,
-  "altura": 510,
+  "hash": "19a43f8548c9",
+  "largura": 2400,
+  "altura": 1892,
   "larguras": [
    480,
-   562
+   720,
+   960,
+   1600,
+   2400
   ],
   "cor": "#f8f8f8",
   "transparente": false,
-  "placeholder": "data:image/webp;base64,UklGRqIAAABXRUJQVlA4IJYAAACwBACdASoYABYAPu1kp02ppaMiMBgMATAdiWcAxNgQ7Nf11yARAB++X98KWk/gAP7zb3H2TFdQYGDcXkHGgn1QemWFO4Ngwdwfd7EdGYvsInOh9gjPASVZ6TKv9N2u11JFS5rKIhlwE4MxEdVsdmroE1tl6HQqAyQ/rdvQSpHmvtXfOrFB1o/SubztaKG3STa3sLLJgAA="
+  "placeholder": "data:image/webp;base64,UklGRpwAAABXRUJQVlA4IJAAAADQBACdASoYABMAPu1urlIppiQiqAgBMB2JZwDE2BGD9a7JGc9E9KM3W/ECJyS4AAD+64687oZgO+7Heix2/CcLmHbnieuIYUfbUxXbtvw6LGROMk0qZHWjFbyG0+dGQXnWh0N0VpuYYqtkw2s+lZbJgy/yqXUuGR4Q2GfbX3d1hIoAMblxkm78qDiTLaEAAAA="
  },
  "wix/ilustracao/paisagens-urbanas-1dd36cbe.jpg": {
   "hash": "41df23de3866",
@@ -1510,28 +2117,34 @@
   "placeholder": "data:image/webp;base64,UklGRsYAAABXRUJQVlA4ILoAAACQBACdASoYAB8APu1krE+ppSQiMBgIATAdiWMAA+OpBvpJIgZn0bjzxssTZ8AA/vN0q8jCWna0asE8lCX9NK0uo6H0YPUjq2wbLQCxMbGQGozRDyZo+6L+CkSqAh4cx7pp9zlilKfjkW2e1W+o+G8j/UzwlSo/S+JGT7CfwlkhZLiYT5nMVzeL3HvUUi9xdxhCzpaF3sx8oxX3w7DWRaeEhstu/GzYAWAN/UYW3r3E306czwXBBD4AAAA="
  },
  "wix/ilustracao/pisce-84500c03.jpg": {
-  "hash": "d0b20d89b75c",
-  "largura": 700,
-  "altura": 408,
+  "hash": "f8260052ac22",
+  "largura": 2400,
+  "altura": 1841,
   "larguras": [
    480,
-   700
+   720,
+   960,
+   1600,
+   2400
   ],
   "cor": "#180808",
   "transparente": false,
-  "placeholder": "data:image/webp;base64,UklGRqAAAABXRUJQVlA4IJQAAAAwBACdASoYAA4APu1iqU2ppaOiMAgBMB2JZAC7ACHht6H9EBOfEusU+QAA/vGAbqvVDNvESGY3fviHI4la7E/jqY3NyqwF17csv2gulHZmOXaKkdtKu3fj7WzT1karLC33aKqqmxIxh7Jovw42zLwxJLKE0BJMf7Z06JwtsfsLy4FLbtcEVJ1vM33CG1+TrYszIAAA"
+  "placeholder": "data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAAAwBACdASoYABIAPu1qrlCppaQiqAqpMB2JQBfJAiOj+Thln53XE38L0QAA/u9fk5EN+uJXcpDZUVIeB0D4AQ1UsJLQkV0OXd9NEdEMhRGtjjIIBIp+NPOKxBvBS+20ztRIl74fYdq5qFTTsMjWPL1XW5u2d0CZ+Mb14GN9GprJQ7IAAAA="
  },
  "wix/ilustracao/poema-da9f3397.jpg": {
-  "hash": "ecfbf8384aa1",
-  "largura": 529,
-  "altura": 652,
+  "hash": "6278bb834efb",
+  "largura": 1947,
+  "altura": 2400,
   "larguras": [
    480,
-   529
+   720,
+   960,
+   1600,
+   1947
   ],
   "cor": "#f8f8f8",
   "transparente": false,
-  "placeholder": "data:image/webp;base64,UklGRrQAAABXRUJQVlA4IKgAAAAQBQCdASoYAB0APu1mrVAppSQisBgIATAdiWUAxzBpO6OIVw7PSWAUJ459u3FYKzEAAP7810tLt/MYErdLmnmc6d86eOD+vpRZsCigpXzx1suVdv4ctcdZIea09oy03hBhIxKZcamXEABveu8C0veSYRlSJ3pvkxxG33LA87WzOssmxCkO+0ysQdDuxfoXVjK025Sl/aPaH2HWi7JPlu23UrGDjebsAAA="
+  "placeholder": "data:image/webp;base64,UklGRrwAAABXRUJQVlA4ILAAAAAwBQCdASoYAB4APu1kqE2ppaOiMAgBMB2JYwCB4RrvWjG2lmi184Fya1zn6rqAPMpUgAD+/jBnsM6q7vVSChCjDitQX6rZ+snVvbUkCgmiZ9X1+2skeV6QmwQlN7VkdnZ4LyjZBsMAYrguS9NTbRl2CL1G2eivD6+G41L+rq9st2ibB0MbnumXLUGAebijPnmRBvIC9L/zaPs5XPfJ+JmupG9AipHJW34ny41rwQHAAA=="
  },
  "wix/ilustracao/quero-quero-1362d8c7.jpg": {
   "hash": "db69c4780f90",

@@ -26,19 +26,49 @@
   },
   "imagens": [
     {
-      "arquivo": "wix/colecao-sertao-vivo/imagem-ab0e3df5.jpg",
+      "arquivo": "livros/mburiti-sertao/rosto.jpg",
       "alt": "Página de rosto de Mbur’iti, Sertão!, com um ramo florido em aquarela",
       "titulo": "Página de rosto"
     },
     {
-      "arquivo": "wix/projeto-sertao-vivo/livro-mbur-iti-sertao-capa-e-miolo-55168c81.jpg",
-      "alt": "Montagem com a capa e páginas internas de Mbur’iti, Sertão!",
-      "titulo": "Capa e miolo"
+      "arquivo": "livros/mburiti-sertao/prancha-pequi.jpg",
+      "alt": "Página dupla do livro com as pranchas do ouricurí e do pequí, texto e aquarelas",
+      "titulo": "Prancha do livro"
     },
     {
-      "arquivo": "wix/projeto-sertao-vivo/imagens-das-pranchas-plantas-3f80ddad.jpg",
-      "alt": "Montagem com aquarelas de plantas das pranchas do livro",
-      "titulo": "Imagens das pranchas"
+      "arquivo": "livros/mburiti-sertao/buriti.jpg",
+      "alt": "Buriti, palmeira com cachos de frutos, em aquarela",
+      "titulo": "Buriti"
+    },
+    {
+      "arquivo": "livros/mburiti-sertao/mapa.jpg",
+      "alt": "Mapa em aquarela do sertão entre Goiás, Bahia e Minas Gerais, com um ramo de maracujá",
+      "titulo": "O sertão geográfico"
+    },
+    {
+      "arquivo": "livros/mburiti-sertao/paisagem.jpg",
+      "alt": "Paisagem do Cerrado em tons de areia, com árvores secas e buritis",
+      "titulo": "Paisagem"
+    },
+    {
+      "arquivo": "livros/mburiti-sertao/caraiba.jpg",
+      "alt": "Caraíba em flor, árvore de flores rosa-violeta, e um galho florido, em aquarela",
+      "titulo": "Caraíba-de-flor-roxa"
+    },
+    {
+      "arquivo": "livros/mburiti-sertao/goiabeira.jpg",
+      "alt": "Goiabeira, ramo com goiabas e flores brancas, em aquarela",
+      "titulo": "Goiabeira"
+    },
+    {
+      "arquivo": "livros/mburiti-sertao/maracuja-do-mato.jpg",
+      "alt": "Maracujá-do-mato, flores lilases e frutos verdes, em aquarela",
+      "titulo": "Maracujá-do-mato"
+    },
+    {
+      "arquivo": "livros/mburiti-sertao/pequi.jpg",
+      "alt": "Pequizeiro, ramo com flor e frutos de pequi, em aquarela",
+      "titulo": "Pequí"
     }
   ]
 }

@@ -12,15 +12,14 @@ objetivosTitulo: "O projeto tem como objetivos"
 objetivosAbrir: "Ver os objetivos"
 pranchasTitulo: "Imagens de capas, ilustrações, pranchas e páginas de miolo"
 pranchas:
-  - "wix/projeto-sertao-vivo/livro-ave-sertao-capa-e-miolo-5d1c5f1a.jpg"
-  - "wix/projeto-sertao-vivo/imagens-das-pranchas-aves-e9509c2e.jpg"
-  - "wix/projeto-sertao-vivo/livro-vive-sertao-capa-e-miolo-01d2cff0.jpg"
-  - "wix/projeto-sertao-vivo/imagens-das-pranchas-bichos-8d1a8111.jpg"
-  - "wix/projeto-sertao-vivo/livro-mbur-iti-sertao-capa-e-miolo-55168c81.jpg"
-  - "wix/projeto-sertao-vivo/imagens-das-pranchas-plantas-3f80ddad.jpg"
-  - "wix/projeto-sertao-vivo/livro-sertao-sem-fim-capa-e-miolo-70c3eec1.jpg"
-  - "wix/projeto-sertao-vivo/imagens-das-pranchas-de15269e.jpg"
-  - "wix/projeto-sertao-vivo/imagens-das-pranchas-e90daac5.jpg"
+  - "livros/ave-sertao/prancha-tucano.jpg"
+  - "livros/ave-sertao/ararauna.jpg"
+  - "livros/vive-sertao/prancha-lobo-guara.jpg"
+  - "livros/vive-sertao/onca.jpg"
+  - "livros/mburiti-sertao/prancha-pequi.jpg"
+  - "livros/mburiti-sertao/caraiba.jpg"
+  - "livros/sertao-sem-fim/travessia.jpg"
+  - "livros/sertao-sem-fim/nonada.jpg"
 ---
 
 Quando li Grande sertão, desde a primeira vez me chamou atenção a presença, profusão e diversidade de citações de espécies de fauna e flora, que permeiam a narrativa ao longo de todo o romance.

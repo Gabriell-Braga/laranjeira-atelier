@@ -26,19 +26,49 @@
   },
   "imagens": [
     {
-      "arquivo": "wix/colecao-sertao-vivo/rosto-vive-sertao-429c3210.jpg",
+      "arquivo": "livros/vive-sertao/rosto.jpg",
       "alt": "Página de rosto de Vive, Sertão!, com uma jaguatirica em aquarela",
       "titulo": "Página de rosto"
     },
     {
-      "arquivo": "wix/projeto-sertao-vivo/livro-vive-sertao-capa-e-miolo-01d2cff0.jpg",
-      "alt": "Montagem com a capa e páginas internas de Vive, Sertão!",
-      "titulo": "Capa e miolo"
+      "arquivo": "livros/vive-sertao/prancha-lobo-guara.jpg",
+      "alt": "Página dupla do livro com o texto sobre o lobo-guará à esquerda e a aquarela à direita",
+      "titulo": "Prancha do livro"
     },
     {
-      "arquivo": "wix/projeto-sertao-vivo/imagens-das-pranchas-bichos-8d1a8111.jpg",
-      "alt": "Montagem com aquarelas de bichos das pranchas do livro",
-      "titulo": "Imagens das pranchas"
+      "arquivo": "livros/vive-sertao/mapa.jpg",
+      "alt": "Mapa em aquarela do sertão entre Goiás, Bahia e Minas Gerais, com uma onça-pintada",
+      "titulo": "O sertão geográfico"
+    },
+    {
+      "arquivo": "livros/vive-sertao/paisagem.jpg",
+      "alt": "Paisagem do Cerrado em tons de areia, com árvore seca, sol e um macaco no galho",
+      "titulo": "Paisagem"
+    },
+    {
+      "arquivo": "livros/vive-sertao/anta.jpg",
+      "alt": "Anta caminhando, em aquarela",
+      "titulo": "Anta"
+    },
+    {
+      "arquivo": "livros/vive-sertao/borboleta.jpg",
+      "alt": "Duas borboletas-monarca laranja e pretas, em aquarela",
+      "titulo": "Borboleta"
+    },
+    {
+      "arquivo": "livros/vive-sertao/onca.jpg",
+      "alt": "Onça-pintada caminhando, em aquarela",
+      "titulo": "Cangussú, onça"
+    },
+    {
+      "arquivo": "livros/vive-sertao/lobo-guara.jpg",
+      "alt": "Lobo-guará de pelo avermelhado e patas pretas caminhando, em aquarela",
+      "titulo": "Lobo guará"
+    },
+    {
+      "arquivo": "livros/vive-sertao/tamandua.jpg",
+      "alt": "Tamanduá-bandeira caminhando, em aquarela",
+      "titulo": "Tamanduá"
     }
   ]
 }
