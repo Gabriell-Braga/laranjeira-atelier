@@ -160,7 +160,7 @@ export function Galeria({
                   className="seta-faixa grid h-11 w-11 place-items-center rounded-full border border-linha bg-surface text-vereda transition-[background-color,color,border-color,transform] duration-[400ms] hover:border-vereda hover:bg-vereda hover:text-paper active:scale-95 disabled:pointer-events-none disabled:opacity-35"
                 >
                   <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" className={dir < 0 ? "rotate-180" : ""}>
-                    <path d="M2 8h11M9 4l4 4-4 4" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M1.6 8.7c3.1-.6 6.6-1 11.3-.5M9 4.4c1.5 1.3 2.8 2.5 3.9 3.8-1.3 1-2.5 2.3-3.6 3.7" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </button>
               ))}
