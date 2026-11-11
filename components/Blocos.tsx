@@ -36,8 +36,8 @@ export function Citacao({ texto, fonte }: { texto: string; fonte: string }) {
   return (
     <section className="faixa bg-vereda text-paper">
       <figure className="conteudo">
-        <blockquote className="citacao leitura revelar revelar-lento">
-          <p>“{texto}”</p>
+        <blockquote className="citacao aspas-pincel leitura revelar revelar-lento">
+          <p>{texto}</p>
         </blockquote>
         <figcaption className="revelar revelar-lento mt-8 text-[15px] tracking-wide text-paper/85" style={{ "--i": 4 } as React.CSSProperties}>
           {fonte}

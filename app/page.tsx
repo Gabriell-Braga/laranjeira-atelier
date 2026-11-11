@@ -37,7 +37,7 @@ export default function Inicio() {
           <h1 className="titulo-display mt-5">
             {palavras.map((p, i) => (
               <Fragment key={i}>
-                <span className="entrar inline-block" style={atraso(i * 0.45)}>
+                <span className={`entrar inline-block${i === palavras.length - 1 ? " pincelado" : ""}`} style={atraso(i * 0.45)}>
                   {p}
                 </span>{" "}
               </Fragment>

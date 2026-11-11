@@ -18,7 +18,7 @@ type Props = { variante?: Variante; children: ReactNode; className?: string; set
 
 const Seta = () => (
   <svg className="seta" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
-    <path d="M2 8h11M9 4l4 4-4 4" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M1.6 8.7c3.1-.6 6.6-1 11.3-.5M9 4.4c1.5 1.3 2.8 2.5 3.9 3.8-1.3 1-2.5 2.3-3.6 3.7" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
 

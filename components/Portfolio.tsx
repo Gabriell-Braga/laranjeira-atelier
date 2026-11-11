@@ -50,7 +50,7 @@ function Pilula({ ativo, onClick, children }: { ativo: boolean; onClick: () => v
       aria-pressed={ativo}
       onClick={onClick}
       className={`shrink-0 whitespace-nowrap rounded-full border px-4 py-2 text-[15px] font-bold transition-colors duration-[400ms] ${
-        ativo ? "border-vereda bg-vereda text-paper" : "border-linha bg-surface text-ink hover:border-vereda hover:text-vereda"
+        ativo ? "filtro-ativo border-transparent text-vereda" : "border-linha bg-surface text-ink hover:border-vereda hover:text-vereda"
       }`}
     >
       {children}

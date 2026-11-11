@@ -45,7 +45,7 @@ export function Galeria({
     const max = el.scrollWidth - el.clientWidth;
     const visivel = el.clientWidth / el.scrollWidth;
     const p = max > 0 ? el.scrollLeft / max : 1;
-    progresso.current.style.transform = `scaleX(${visivel + (1 - visivel) * p})`;
+    progresso.current.style.clipPath = `inset(0 ${(1 - (visivel + (1 - visivel) * p)) * 100}% 0 0)`;
     const botoes = el.parentElement?.querySelectorAll<HTMLButtonElement>(".seta-faixa");
     if (botoes) {
       botoes[0].disabled = el.scrollLeft <= 2;
@@ -146,8 +146,9 @@ export function Galeria({
           </ul>
           {/* Controles dentro da largura do conteúdo: linha de progresso e setas */}
           <div className="conteudo mt-6 flex items-center gap-6">
-            <div className="h-px flex-1 bg-linha" aria-hidden="true">
-              <div ref={progresso} className="faixa-progresso h-[2px] -translate-y-[0.5px] bg-ocre" />
+            <div className="relative flex-1" aria-hidden="true">
+              <div className="faixa-trilho" />
+              <div ref={progresso} className="faixa-progresso absolute inset-x-0 top-0" />
             </div>
             <div className="flex gap-2">
               {([-1, 1] as const).map((dir) => (
