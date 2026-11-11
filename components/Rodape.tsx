@@ -2,8 +2,7 @@ import { lerLivros, lerSite } from "@/lib/conteudo";
 import { LinkRodape } from "./LinkRodape";
 import { Pendente } from "./Pendente";
 
-// Rodapé em laranja queimado (o laranja da marca mais fundo), em contraste com o papel:
-// texto e logo em creme (contraste 5:1, AA). O laranja da marca puro com texto claro não passa.
+// Rodapé no verde-cerrado, em contraste com o papel: texto e logo em creme.
 const link = "sublinhado text-paper";
 
 export function Rodape() {
@@ -12,7 +11,7 @@ export function Rodape() {
   const whatsapp = `https://wa.me/${contato.whatsapp}?text=${encodeURIComponent(contato.whatsappMensagem)}`;
 
   return (
-    <footer className="rodape bg-laranja-fundo text-paper">
+    <footer className="rodape bg-vereda text-paper">
       <div className="conteudo grid gap-x-10 gap-y-12 py-[var(--espaco-bloco)] sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr] lg:py-20">
         <div>
           {/* eslint-disable-next-line @next/next/no-img-element -- logo pequeno, já no tamanho certo */}

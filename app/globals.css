@@ -14,7 +14,6 @@
   --color-laranja: #ed7f29;
   --color-laranja-claro: #f39448;
   --color-laranja-escuro: #d9701c;
-  --color-laranja-fundo: #a94f12; /* laranja queimado do rodapé: texto creme por cima passa AA */
   --color-vereda: #2f4a2a; /* verde-cerrado */
   --color-vereda-claro: #4a6f43;
   --color-vereda-escuro: #223620;
@@ -316,7 +315,7 @@
     background: var(--aspas) center / contain no-repeat;
   }
 
-  /* Rodapé laranja: o contorno de foco laranja sumiria, então ali ele é creme */
+  /* Rodapé verde: contorno de foco em creme, mais visível que o laranja ali */
   .rodape :focus-visible {
     outline-color: var(--color-paper);
   }
