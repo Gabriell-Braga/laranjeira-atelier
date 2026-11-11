@@ -187,8 +187,9 @@
 
 @layer components {
   /* ---------- Manchas de aquarela ----------
-     Atrás de cada título grande fica uma lavagem como a das pranchas da Dilce
-     (SVGs gerados por scripts/manchas.mjs). A cor muda de uma faixa para a outra. */
+     Atrás de cada título grande fica uma lavagem recortada das pranchas da Dilce
+     (scripts/manchas.mjs). A mancha nasce um pouco antes da primeira letra, cresce com o
+     tamanho da fonte e nunca é esticada (todas são 2:1). A cor muda de uma faixa para a outra. */
   .titulo-display,
   .titulo-2 {
     position: relative;
@@ -199,26 +200,29 @@
     content: "";
     position: absolute;
     z-index: -1;
-    left: -2.5rem;
-    top: 50%;
-    translate: 0 -50%;
-    width: min(calc(100% + 2.5rem), 34rem); /* não passa da borda direita: sem rolagem lateral */
-    height: max(calc(100% + 1.6em), 10rem);
-    background: var(--mancha, url(/img/manchas/areia.svg)) center / 100% 100% no-repeat;
-    opacity: 0.8;
+    left: -0.9em;
+    top: -1.2em;
+    width: 7.5em;
+    max-width: calc(100% + 0.9em); /* não passa da borda direita: sem rolagem lateral */
+    aspect-ratio: 2;
+    background: var(--mancha, url(/img/manchas/lilas.webp)) center / contain no-repeat;
     pointer-events: none;
   }
+  .titulo-display::before {
+    width: 8.5em;
+    top: -0.9em;
+  }
   main > section:nth-of-type(4n + 2) {
-    --mancha: url(/img/manchas/ceu.svg);
+    --mancha: url(/img/manchas/cinza.webp);
   }
   main > section:nth-of-type(4n + 3) {
-    --mancha: url(/img/manchas/vereda.svg);
+    --mancha: url(/img/manchas/verde.webp);
   }
   main > section:nth-of-type(4n) {
-    --mancha: url(/img/manchas/lilas.svg);
+    --mancha: url(/img/manchas/pincel.webp);
   }
   .bg-areia {
-    --mancha: url(/img/manchas/lilas.svg);
+    --mancha: url(/img/manchas/lilas.webp);
   }
 
   /* ---------- Botões ---------- */

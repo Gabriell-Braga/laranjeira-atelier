@@ -1,30 +1,54 @@
-// Gera as manchas de aquarela (SVG com filtro de ruído) usadas atrás de textos e imagens.
-// Cada mancha: duas lavagens que esmaecem para as bordas, contorno irregular pelo ruído grosso
-// e granulação (pigmento acumulado e falhas no papel) pelo ruído fino. Uso: node scripts/manchas.mjs
-import { writeFileSync } from "node:fs";
+// Manchas de aquarela atrás dos títulos: recortes de lavagens reais das pranchas da Dilce
+// (só fundo, sem bicho). O branco do papel vira transparência ("desmultiplica" do branco),
+// e as bordas do recorte esmaecem numa elipse para não aparecer o corte reto.
+// Uso: node scripts/manchas.mjs  (lê content/originais, grava public/img/manchas/*.webp)
+import sharp from "sharp";
 
-const cores = {
-  lilas: ["#b3a6c2", "#cdc4d8"], // a lavagem atrás do tucano
-  areia: ["#dcb58a", "#ead3b8"],
-  ceu: ["#a3afd3", "#c4cbe5"],
-  vereda: ["#a2b494", "#c6d2ba"],
+const L = 900;
+const A = 450; // todas 2:1, o CSS conta com isso
+
+// [arquivo, x, y, largura, altura] em frações da imagem original; girar = pinceladas na horizontal
+const manchas = {
+  lilas: ["ave-sertao/tucano-destaque", 0.5, 0, 0.5, 0.13],
+  verde: ["vive-sertao/onca", 0.04, 0.05, 0.55, 0.28],
+  cinza: ["vive-sertao/anta", 0, 0.04, 1, 0.42],
+  pincel: ["ave-sertao/suindara", 0.77, 0.02, 0.22, 0.48, true],
 };
 
-const svg = ([forte, fraca], seed) => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" preserveAspectRatio="none">
-<radialGradient id="a"><stop offset=".3" stop-color="${fraca}"/><stop offset=".75" stop-color="${fraca}" stop-opacity=".7"/><stop offset="1" stop-color="${fraca}" stop-opacity="0"/></radialGradient>
-<radialGradient id="b"><stop offset=".1" stop-color="${forte}"/><stop offset="1" stop-color="${forte}" stop-opacity="0"/></radialGradient>
-<filter id="f" x="0" y="0" width="100%" height="100%">
-<feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="4" seed="${seed}" result="r"/>
-<feDisplacementMap in="SourceGraphic" in2="r" scale="90" xChannelSelector="R" yChannelSelector="G" result="d"/>
-<feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="4" seed="${seed + 7}" result="g"/>
-<feColorMatrix in="g" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -1.6 1.55" result="m"/>
-<feComposite in="d" in2="m" operator="in"/>
-</filter>
-<g filter="url(#f)">
-<ellipse cx="300" cy="200" rx="245" ry="155" fill="url(#a)"/>
-<ellipse cx="${260 + (seed % 3) * 35}" cy="${185 + (seed % 2) * 30}" rx="170" ry="110" fill="url(#b)"/>
-</g>
-</svg>`;
+for (const [nome, [arq, x, y, w, h, girar]] of Object.entries(manchas)) {
+  const src = `content/originais/livros/${arq}.jpg`;
+  const { width, height } = await sharp(src).metadata();
+  let img = sharp(src).extract({
+    left: Math.round(x * width),
+    top: Math.round(y * height),
+    width: Math.min(Math.round(w * width), width - Math.round(x * width)),
+    height: Math.min(Math.round(h * height), height - Math.round(y * height)),
+  });
+  if (girar) img = sharp(await img.rotate(90).toBuffer());
+  const { data } = await img.resize(L, A, { fit: "cover" }).removeAlpha().raw().toBuffer({ resolveWithObject: true });
 
-let seed = 2;
-for (const [nome, par] of Object.entries(cores)) writeFileSync(`public/img/manchas/${nome}.svg`, svg(par, (seed += 3)));
+  const fase = nome.length * 1.7; // cada mancha com um contorno diferente, mas sempre o mesmo
+  const out = Buffer.alloc(L * A * 4);
+  for (let i = 0; i < L * A; i++) {
+    const [r, g, b] = [data[i * 3], data[i * 3 + 1], data[i * 3 + 2]];
+    // quanto de pigmento há no pixel (0 = papel branco)
+    let a = Math.max(255 - r, 255 - g, 255 - b) / 255;
+    const px = (i % L) / L - 0.5;
+    const py = Math.floor(i / L) / A - 0.5;
+    // distância "quase retangular" ao centro, com a borda ondulada por senos (contorno de poça, não de elipse)
+    const ang = Math.atan2(py, px);
+    const onda = 0.09 * Math.sin(3 * ang + fase) + 0.06 * Math.sin(5 * ang + 2 * fase) + 0.04 * Math.sin(9 * ang + 3 * fase);
+    const d = Math.pow(Math.abs(px * 2) ** 3 + Math.abs(py * 2) ** 3, 1 / 3) + onda; // 1 = borda do recorte
+    const borda = Math.min(1, Math.max(0, (1.02 - d) / 0.45));
+    const alfa = Math.min(1, a * 1.15) * borda * borda * (3 - 2 * borda);
+    // cor sem o branco: c = 255 - (255 - c_original) / a
+    const cor = (c) => (a > 0.01 ? Math.max(0, Math.round(255 - (255 - c) / a)) : 255);
+    out[i * 4] = cor(r);
+    out[i * 4 + 1] = cor(g);
+    out[i * 4 + 2] = cor(b);
+    out[i * 4 + 3] = Math.round(alfa * 255);
+  }
+  await sharp(out, { raw: { width: L, height: A, channels: 4 } })
+    .webp({ quality: 80, alphaQuality: 80 })
+    .toFile(`public/img/manchas/${nome}.webp`);
+}
