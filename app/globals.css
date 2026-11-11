@@ -288,7 +288,7 @@
     pointer-events: none;
   }
   .link-seta:is(:hover, :focus-visible) > :first-child::after,
-  .sublinhado:is(:hover, :focus-visible)::after {
+  .sublinhado:is(:hover, :focus-visible, [aria-current="page"])::after {
     clip-path: inset(0 0 0 0);
   }
 
@@ -313,6 +313,11 @@
     height: 39px;
     margin-bottom: 1.25rem;
     background: var(--aspas) center / contain no-repeat;
+  }
+
+  /* Rodapé laranja: o contorno de foco laranja sumiria, então ali ele é escuro */
+  .rodape :focus-visible {
+    outline-color: var(--color-ink);
   }
 
   /* Menu principal: fio laranja que cresce do centro; fica cheio na página atual */
