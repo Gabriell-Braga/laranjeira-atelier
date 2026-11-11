@@ -187,30 +187,34 @@
 
 @layer components {
   /* ---------- Manchas de aquarela ----------
-     Atrás de cada título grande fica uma lavagem recortada das pranchas da Dilce
-     (scripts/manchas.mjs). A mancha nasce um pouco antes da primeira letra, cresce com o
-     tamanho da fonte e nunca é esticada (todas são 2:1). A cor muda de uma faixa para a outra. */
-  .titulo-display,
-  .titulo-2 {
+     Lavagens recortadas das pranchas da Dilce (scripts/manchas.mjs), só onde não há texto:
+     cada faixa (menos a primeira) ganha uma mancha na borda de cima, metade no respiro dela,
+     metade no respiro da faixa anterior, saindo pela lateral da tela. Alterna direita/esquerda
+     e cor. A faixa verde-escura da citação e a seguinte ficam sem (aquarela clara no verde fica feia). */
+  main {
+    overflow-x: clip; /* a mancha sai pela lateral sem criar rolagem */
+  }
+  main > section:not(:first-of-type, .bg-vereda, .bg-vereda + section) {
     position: relative;
     isolation: isolate;
-  }
-  .titulo-display::before,
-  .titulo-2::before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    left: -0.9em;
-    top: -1.2em;
-    width: 7.5em;
-    max-width: calc(100% + 0.9em); /* não passa da borda direita: sem rolagem lateral */
-    aspect-ratio: 2;
-    background: var(--mancha, url(/img/manchas/lilas.webp)) center / contain no-repeat;
-    pointer-events: none;
-  }
-  .titulo-display::before {
-    width: 8.5em;
-    top: -0.9em;
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      right: -5vw;
+      translate: 0 -50%;
+      /* metade da altura (largura / 4) cabe no respiro da faixa (--espaco-secao): não encosta no texto */
+      width: clamp(220px, 32vw, 480px);
+      aspect-ratio: 2;
+      background: var(--mancha, url(/img/manchas/lilas.webp)) center / contain no-repeat;
+      pointer-events: none;
+    }
+    &:nth-of-type(even)::before {
+      right: auto;
+      left: -5vw;
+      scale: -1 1; /* espelhada, para a mesma lavagem não parecer repetida */
+    }
   }
   main > section:nth-of-type(4n + 2) {
     --mancha: url(/img/manchas/cinza.webp);
@@ -220,9 +224,6 @@
   }
   main > section:nth-of-type(4n) {
     --mancha: url(/img/manchas/pincel.webp);
-  }
-  .bg-areia {
-    --mancha: url(/img/manchas/lilas.webp);
   }
 
   /* ---------- Botões ---------- */

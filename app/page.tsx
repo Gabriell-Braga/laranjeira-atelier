@@ -71,7 +71,7 @@ export default function Inicio() {
       </section>
 
       {/* A coleção */}
-      <Faixa className="border-t border-linha bg-surface" rotulo="titulo-colecao">
+      <Faixa className="bg-surface" rotulo="titulo-colecao">
         <div className="revelar flex flex-wrap items-end justify-between gap-x-10 gap-y-4">
           <div className="max-w-[38rem]">
             <h2 id="titulo-colecao" className="titulo-2">{c("colecaoTitulo")}</h2>
@@ -126,7 +126,7 @@ export default function Inicio() {
       </Faixa>
 
       {/* Publicações e clientes (nomes do currículo) */}
-      <section className="faixa border-t border-linha bg-surface" aria-labelledby="titulo-clientes">
+      <section className="faixa bg-surface" aria-labelledby="titulo-clientes">
         <div className="conteudo">
           <div className="revelar text-center">
             <p className="sobretitulo justify-center">{c("clientesTitulo")}</p>

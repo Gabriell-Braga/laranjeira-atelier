@@ -23,7 +23,7 @@ export default function EscolasELivrarias() {
         <Paragrafos textos={[c("condicoes")]} className="leitura mt-6" />
       </div>
 
-      <section className="faixa border-t border-linha bg-surface" aria-label="Os volumes da coleção">
+      <section className="faixa bg-surface" aria-label="Os volumes da coleção">
         <ul className="conteudo grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-4">
           {volumes.map((l, i) => (
             <li key={l.slug} className="entrar" style={{ "--i": 4 + i } as React.CSSProperties}>

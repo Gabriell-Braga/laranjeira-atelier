@@ -68,7 +68,7 @@ export default async function PaginaLivro({ params }: Props) {
         </div>
       </div>
 
-      <Faixa className="border-t border-linha bg-surface" rotulo="titulo-outros">
+      <Faixa className="bg-surface" rotulo="titulo-outros">
         <h2 id="titulo-outros" className="titulo-2 revelar">
           {livro.slug === "colecao-sertao-vivo" ? "Os volumes da coleção" : "Outros livros da coleção"}
         </h2>
