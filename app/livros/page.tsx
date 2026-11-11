@@ -89,7 +89,7 @@ export default function Colecao() {
       <section className="bg-surface py-[var(--espaco-bloco)]" aria-label="Introdução de Vive, Sertão!">
         <div className="conteudo grid items-center gap-10 lg:grid-cols-[minmax(0,62ch)_1fr] lg:gap-16">
           <Texto html={vive} className="revelar" />
-          <div className="na-tela mx-auto w-full max-w-[460px]">
+          <div className="na-tela mx-auto w-full max-w-[460px] [--fundo-tela:var(--color-surface)]">
             <Galeria imagens={pranchas.slice(3, 4)} grade="grid-cols-1" sizes="(min-width: 1024px) 460px, 90vw" />
           </div>
         </div>

@@ -26,7 +26,7 @@
   },
   "imagens": [
     {
-      "arquivo": "livros/ave-sertao/rosto.jpg",
+      "arquivo": "livros/ave-sertao/rosto-ave.jpg",
       "alt": "Página de rosto de Ave, Sertão!, com um colhereiro rosa em aquarela",
       "titulo": "Página de rosto"
     },
@@ -36,12 +36,12 @@
       "titulo": "Prancha do livro"
     },
     {
-      "arquivo": "livros/ave-sertao/mapa.jpg",
+      "arquivo": "livros/ave-sertao/mapa-ave.jpg",
       "alt": "Mapa em aquarela do sertão entre Goiás, Bahia e Minas Gerais, com uma garça-branca",
       "titulo": "O sertão geográfico"
     },
     {
-      "arquivo": "livros/ave-sertao/paisagem.jpg",
+      "arquivo": "livros/ave-sertao/paisagem-ave.jpg",
       "alt": "Paisagem do Cerrado ao amanhecer, com árvores secas e pássaros em voo, em aquarela",
       "titulo": "Paisagem"
     },

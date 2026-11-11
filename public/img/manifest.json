@@ -42,7 +42,7 @@
   "transparente": false,
   "placeholder": "data:image/webp;base64,UklGRswAAABXRUJQVlA4IMAAAADQBQCdASoYACIAPu1gqE4ppSOiMBVdUTAdiWgAVf0CkoOr4iIkeT5wStYgDNeVna4W9UKqgzwAAP7xzcbOaEm3t04yd5Usdu+3dA5c6WcjnN/yhff6vVOP5CL60Q8d+LxqVw3+HiOPiylbQgdtY6MWNnzSSRpRuSLAT5Im1CbaC8uLg12N8s+FLaNhghN2snJcl+pNZo8p1asffkV+DQVCJyYMI7RuFK6la2MVoA+QeWdg4bkjBGtoTFv+5NAJQAA="
  },
- "livros/ave-sertao/mapa.jpg": {
+ "livros/ave-sertao/mapa-ave.jpg": {
   "hash": "832ead8b6d8a",
   "largura": 1965,
   "altura": 2401,
@@ -57,7 +57,7 @@
   "transparente": false,
   "placeholder": "data:image/webp;base64,UklGRuIAAABXRUJQVlA4INYAAACQBQCdASoYAB0APu1oqU+ppiOiKA1RMB2JagCdMtU8L9ABqTWHGJL/Zbm8o/D9Cem3LChwsAD+79c1MUuX9qXMh/rE5yZ7Ii8dAF4eVSXcQDk1DhmpxqGg2k8RpPlAfo6xihQz9mPqliYFCE1Xx1y26pD9hse1oh/vku7WdxEIRrsWK3MjSF+chDioFf31lnqEL8WCI8DLfpOqqdyGW+fNRhA68fWVstkqG/W/U2iHQQ3y3GrcUCa4VRexTPbp3wCZCpuEV4dFuvNgUvR7ENlFsVkTegAA"
  },
- "livros/ave-sertao/paisagem.jpg": {
+ "livros/ave-sertao/paisagem-ave.jpg": {
   "hash": "c0c1ec898696",
   "largura": 1965,
   "altura": 2401,
@@ -102,7 +102,7 @@
   "transparente": false,
   "placeholder": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAAAwBACdASoYAA8APu1iqU2ppaOiMAgBMB2JZwABHuzT6BQRvLulJ3nEUAAA/v4yF1hwqon/Sc7f3BdFewsPPLf2Yt+IcTavH6GuIpbBynoNl7WJ3eAqf+KMu6Gi1VVMDyeO7A5gAAA="
  },
- "livros/ave-sertao/rosto.jpg": {
+ "livros/ave-sertao/rosto-ave.jpg": {
   "hash": "9c9efd6b05c7",
   "largura": 1965,
   "altura": 2401,
@@ -205,7 +205,7 @@
   "transparente": false,
   "placeholder": "data:image/webp;base64,UklGRtIAAABXRUJQVlA4IMYAAAAQBgCdASoYACUAPu1oqVCppaOiqrgMATAdiUAWcAFnjsFtvC1zr8jAwthD6jVwB2Fv9uESkaUqKAAA/vA9X/l2HLUJtYKHayyxK124Zy0m8PXIanRPDMLr6id/6usQYK3rYXqPlrAGLZn17NtEjkQc7ErcxVIZrFuYnn0PdeL3W8YGWkhr4hT/fHv1BoyfNclOBVzoKbyyNaDEfu46WTPfTOdWOETNJIGOmZKj+YNDH8PoB8FQIzFzEfpFkk9rssTgNhbsAAA="
  },
- "livros/mburiti-sertao/mapa.jpg": {
+ "livros/mburiti-sertao/mapa-mburiti.jpg": {
   "hash": "208b6406c225",
   "largura": 1965,
   "altura": 2401,
@@ -234,7 +234,7 @@
   "transparente": false,
   "placeholder": "data:image/webp;base64,UklGRsoAAABXRUJQVlA4IL4AAADQBQCdASoYACUAPu1uqk+ppqOiKrgMATAdiUAY/IFmPKDeTYgnFlJpgvBr9pjr7C8c4bXwnbQAAP7tek5hy2qYcJTY0lG09kuFTjuEqrUcGJpS0WgAw+rgLZwBNV0joL2lSYb1LR9YeP+usBjDNohjE55csRtkn5gCQ76Mfv0/eALVIdUg9zaxB12Tnzg2OcKN55rAaNfQPh3eOEzmUt1rH838Dihir2+LXjpfxUDxiND4tUIZP7ezRcbuIgAA"
  },
- "livros/mburiti-sertao/paisagem.jpg": {
+ "livros/mburiti-sertao/paisagem-mburiti.jpg": {
   "hash": "7510cd62b04d",
   "largura": 1965,
   "altura": 2401,
@@ -278,7 +278,7 @@
   "transparente": false,
   "placeholder": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAADwAwCdASoYAA8APu1iqk4ppaQiMAgBMB2JZwAAW+qxn973KQA9WHwAAP7zfkB7pRZW4B5KYsIhKHwvyoiwIvE5Vyhj0/9+KJwGksa7W3gTsBlkqxMViiCc/AmpMgKlXUkGOEz6NcEpwOc9K21HAAUxAAA="
  },
- "livros/mburiti-sertao/rosto.jpg": {
+ "livros/mburiti-sertao/rosto-mburiti.jpg": {
   "hash": "ccdfba304ce3",
   "largura": 1965,
   "altura": 2401,
@@ -398,7 +398,7 @@
   "transparente": false,
   "placeholder": "data:image/webp;base64,UklGRqQAAABXRUJQVlA4IJgAAAAwBACdASoYAA8APu1iqU2ppaOiMAgBMB2JYgCdMoADTfZxccpFVabWwwAA/usJ9g+QWYamzu96DTaurB606kTrjdBLUrFr+MsuEChrzvo29fkYTpQHFXXHnweIIo0t4BRAftRhYagAwEJi3qIMkUyo1iG340uYUyK8EmBW/F8qPLzdAyvVtYpM9i1Xy6x0KNYEoSs9+IrgAA=="
  },
- "livros/sertao-sem-fim/rosto.jpg": {
+ "livros/sertao-sem-fim/rosto-sem-fim.jpg": {
   "hash": "541eab2e8370",
   "largura": 1880,
   "altura": 2400,
@@ -473,7 +473,7 @@
   "transparente": false,
   "placeholder": "data:image/webp;base64,UklGRp4AAABXRUJQVlA4IJIAAAAwBQCdASoYABUAPu1opU2ppiMiMBgMATAdiWQAuwAQ75rI2o8cmqIifXvkySG0T7EAAAD+8edohiBV/0Jpm7U3NKZUDJBGIkMlT754rqaGeUm/rwxhW5M84aYeWcwXUkrYao/D4Bs/oeE7GJ6ZgFzijxtI34T1NlzgKsCo7xlzLeDd3eeBciRa1Amqf1JJGk5gAA=="
  },
- "livros/vive-sertao/mapa.jpg": {
+ "livros/vive-sertao/mapa-vive.jpg": {
   "hash": "339922f78d9e",
   "largura": 1965,
   "altura": 2401,
@@ -503,7 +503,7 @@
   "transparente": false,
   "placeholder": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAABQBACdASoYABMAPu1kqE2ppaQiMBgMATAdiWMAAC51IldPz/IWlhSo8RZAAP7xz07dsiDANQZf0BCcjfSF/zVOgyKm4lAPRUrVxIL4jYfZjq9aSHxctcDtGK2j7CF7TnnNd/398b9fS0e5F/xwJRoCgAA="
  },
- "livros/vive-sertao/paisagem.jpg": {
+ "livros/vive-sertao/paisagem-vive.jpg": {
   "hash": "ac450320fb3e",
   "largura": 1965,
   "altura": 2401,
@@ -533,7 +533,7 @@
   "transparente": false,
   "placeholder": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAACwAwCdASoYAA8ALrV2u12jqampiYC0SxgGB94AMB4ejExZ9FiGgAD++Bnj5K2mZu89y1HVC7ODugYQbbuDlE4X6i0fSFLPY6r++aXB///hX0TLHDunHnRQwNj9y2y8ltOtihEAAAA="
  },
- "livros/vive-sertao/rosto.jpg": {
+ "livros/vive-sertao/rosto-vive.jpg": {
   "hash": "27779f7b91b4",
   "largura": 1965,
   "altura": 2401,
