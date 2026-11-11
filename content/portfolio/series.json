@@ -94,10 +94,43 @@
     "pagina": false
   },
   {
-    "slug": "sertao-vivo",
-    "titulo": "Coleção Sertão Vivo",
+    "slug": "ave-sertao",
+    "titulo": "Ave, Sertão!",
     "tipo": "livros-autorais",
     "ordem": 14,
-    "pagina": false
+    "pagina": true,
+    "texto": "Livro I da Coleção Sertão Vivo: Aves em Grande sertão: veredas. 192 páginas."
+  },
+  {
+    "slug": "vive-sertao",
+    "titulo": "Vive, Sertão!",
+    "tipo": "livros-autorais",
+    "ordem": 15,
+    "pagina": true,
+    "texto": "Livro II da Coleção Sertão Vivo: Bichos em Grande sertão: veredas. 168 páginas."
+  },
+  {
+    "slug": "mburiti-sertao",
+    "titulo": "Mbur’iti, Sertão!",
+    "tipo": "livros-autorais",
+    "ordem": 16,
+    "pagina": true,
+    "texto": "Livro III da Coleção Sertão Vivo: Flora em Grande sertão: veredas. 200 páginas."
+  },
+  {
+    "slug": "sertao-sem-fim",
+    "titulo": "Sertão Sem Fim!",
+    "tipo": "livros-autorais",
+    "ordem": 17,
+    "pagina": true,
+    "texto": "Livro IV da Coleção Sertão Vivo: Visões do Grande Sertão. 168 páginas."
+  },
+  {
+    "slug": "colecao-sertao-vivo",
+    "titulo": "Coleção Sertão Vivo",
+    "tipo": "livros-autorais",
+    "ordem": 18,
+    "pagina": true,
+    "texto": "Os quatro volumes da Coleção Sertão Vivo, de Dilce Laranjeira."
   }
 ]

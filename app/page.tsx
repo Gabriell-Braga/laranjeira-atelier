@@ -58,7 +58,7 @@ export default function Inicio() {
             </Botao>
           </div>
         </div>
-        <div className="overflow-hidden rounded-[4px]">
+        <div className="destaque-tela overflow-hidden rounded-[4px]">
           <div data-parallax="0.06">
             <Imagem
               img={info(c("imagemDestaque"), c("imagemDestaqueAlt"))}
