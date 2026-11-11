@@ -107,6 +107,36 @@
   color: var(--color-ink-muted);
 }
 
+/* ---------- Manchas de aquarela ----------
+   Lavagens recortadas das pranchas da Dilce (scripts/manchas.mjs). Como nas pranchas dela,
+   a mancha fica atrás da ilustração, nunca atrás de texto. Centrada no elemento, sem esticar
+   (todas são 2:1); ajuste com --mancha-x, --mancha-y e --mancha-largura. */
+@utility mancha {
+  position: relative;
+  isolation: isolate;
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: var(--mancha-x, 50%);
+    top: var(--mancha-y, 50%);
+    translate: -50% -50%;
+    width: var(--mancha-largura, 125%);
+    aspect-ratio: 2;
+    background: var(--mancha, url(/img/manchas/lilas.webp)) center / contain no-repeat;
+    pointer-events: none;
+  }
+}
+@utility mancha-verde {
+  --mancha: url(/img/manchas/verde.webp);
+}
+@utility mancha-cinza {
+  --mancha: url(/img/manchas/cinza.webp);
+}
+@utility mancha-pincel {
+  --mancha: url(/img/manchas/pincel.webp);
+}
+
 /* ---------- Espaçamento ---------- */
 
 @utility conteudo {
@@ -180,51 +210,15 @@
   :disabled {
     cursor: not-allowed;
   }
+  main {
+    overflow-x: clip; /* manchas maiores que a ilustração não criam rolagem lateral */
+  }
   ::selection {
     background: var(--color-areia);
   }
 }
 
 @layer components {
-  /* ---------- Manchas de aquarela ----------
-     Lavagens recortadas das pranchas da Dilce (scripts/manchas.mjs), só onde não há texto:
-     cada faixa (menos a primeira) ganha uma mancha na borda de cima, metade no respiro dela,
-     metade no respiro da faixa anterior, saindo pela lateral da tela. Alterna direita/esquerda
-     e cor. A faixa verde-escura da citação e a seguinte ficam sem (aquarela clara no verde fica feia). */
-  main {
-    overflow-x: clip; /* a mancha sai pela lateral sem criar rolagem */
-  }
-  main > section:not(:first-of-type, .bg-vereda, .bg-vereda + section) {
-    position: relative;
-    isolation: isolate;
-    &::before {
-      content: "";
-      position: absolute;
-      z-index: -1;
-      top: 0;
-      right: -5vw;
-      translate: 0 -50%;
-      /* metade da altura (largura / 4) cabe no respiro da faixa (--espaco-secao): não encosta no texto */
-      width: clamp(220px, 32vw, 480px);
-      aspect-ratio: 2;
-      background: var(--mancha, url(/img/manchas/lilas.webp)) center / contain no-repeat;
-      pointer-events: none;
-    }
-    &:nth-of-type(even)::before {
-      right: auto;
-      left: -5vw;
-      scale: -1 1; /* espelhada, para a mesma lavagem não parecer repetida */
-    }
-  }
-  main > section:nth-of-type(4n + 2) {
-    --mancha: url(/img/manchas/cinza.webp);
-  }
-  main > section:nth-of-type(4n + 3) {
-    --mancha: url(/img/manchas/verde.webp);
-  }
-  main > section:nth-of-type(4n) {
-    --mancha: url(/img/manchas/pincel.webp);
-  }
 
   /* ---------- Botões ---------- */
   .botao {
