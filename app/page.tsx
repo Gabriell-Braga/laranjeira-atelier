@@ -23,7 +23,6 @@ export default function Inicio() {
   const livros = lerLivros();
   const volumes = livros.filter((l) => l.slug !== "colecao-sertao-vivo");
   const c = pagina.campo;
-  const clientes = (pagina.dados.clientes as string[]) ?? [];
   const depoimentos = ((pagina.dados.depoimentos as Depoimento[]) ?? []).filter((d) => MOSTRAR_PENDENCIAS || !pendente(d.texto));
   const palavras = c("destaque").split(" ");
 
@@ -124,26 +123,6 @@ export default function Inicio() {
           />
         </div>
       </Faixa>
-
-      {/* Publicações e clientes (nomes do currículo) */}
-      <section className="faixa bg-surface" aria-labelledby="titulo-clientes">
-        <div className="conteudo">
-          <div className="revelar text-center">
-            <p className="sobretitulo justify-center">{c("clientesTitulo")}</p>
-            <h2 id="titulo-clientes" className="titulo-3 mx-auto mt-4 max-w-[34rem] font-medium">{c("clientesTexto")}</h2>
-          </div>
-          <ul className="revelar mx-auto mt-12 flex max-w-[64rem] flex-wrap items-baseline justify-center gap-x-10 gap-y-4 font-display text-[clamp(1.25rem,1.1rem+0.6vw,1.6rem)] leading-snug text-ink">
-            {clientes.map((nome) => (
-              <li key={nome} className="whitespace-nowrap">
-                {nome}
-              </li>
-            ))}
-          </ul>
-          <div className="mt-6 text-center">
-            <Pendente valor={c("clientesLogos")}>{null}</Pendente>
-          </div>
-        </div>
-      </section>
 
       {/* Depoimentos: só aparecem os que já têm texto */}
       {depoimentos.length > 0 && (

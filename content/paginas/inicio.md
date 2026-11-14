@@ -22,24 +22,6 @@ ilustracaoImagens:
   - "wix/ilustracao/amora-8f903569.jpg"
   - "wix/ilustracao/retrato-997ec865.jpg"
   - "wix/ilustracao/menina-pataxo-8ae94d08.jpg"
-clientesTitulo: "Publicações e clientes"
-clientesTexto: "Ilustração, capas e projeto gráfico para editoras, universidades e instituições."
-# Nomes tirados do currículo (página Sobre). Logos só com autorização de cada marca.
-clientesLogos: "[PREENCHER: logos autorizados das editoras e clientes, se a Dilce quiser usar logos no lugar dos nomes]"
-clientes:
-  - "Petrobras · Cartazes Ecológicos"
-  - "Editora Lê"
-  - "Editora Expressão"
-  - "Editora Dimensão"
-  - "Pontes Editores"
-  - "Editora Alis"
-  - "Franco Editora"
-  - "Proex-UFMG"
-  - "Editora Duna Dueto"
-  - "Saraiva · Formato Editorial"
-  - "IAB"
-  - "Unicult"
-  - "Fundação Zoobotânica PBH"
 depoimentosTitulo: "Sobre o trabalho"
 # Some do site enquanto o texto estiver com [PREENCHER].
 depoimentos:

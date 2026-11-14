@@ -3,7 +3,7 @@ import { pessoa } from "@/lib/dados-estruturados";
 import { JsonLd, metadados } from "@/lib/meta";
 import { Texto, Marcado } from "@/components/Blocos";
 import { Botao } from "@/components/Botao";
-import { Imagem } from "@/components/Imagem";
+import { Galeria } from "@/components/Galeria";
 import { Pendente } from "@/components/Pendente";
 import { lerPagina, lerSite, paraGaleria } from "@/lib/conteudo";
 
@@ -30,9 +30,10 @@ export default function Sobre() {
             <Botao href="/portfolio/" variante="texto">Ver o portfólio</Botao>
           </div>
         </div>
-        <div className="md:pt-24">
+        {/* imagem presa ao rolar o texto; clique abre o lightbox */}
+        <div className="md:sticky md:top-[calc(var(--cabecalho)-4rem)] md:self-start md:pt-24">
           <Pendente valor={c("retrato")}>{null}</Pendente>
-          <Imagem img={imagem} sizes="(min-width: 768px) 40vw, 100vw" prioridade className="tinta w-full" />
+          <Galeria imagens={[imagem]} grade="grid-cols-1" sizes="(min-width: 768px) 40vw, 100vw" />
           {imagem.titulo && <p className="legenda mt-3">{imagem.titulo} · {imagem.origem} · © Dilce Laranjeira</p>}
         </div>
       </div>

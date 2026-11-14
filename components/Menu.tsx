@@ -68,7 +68,7 @@ export function Menu({ itens, compra }: { itens: ItemMenu[]; compra: React.React
       <button
         ref={botao}
         type="button"
-        className="-mr-2.5 grid h-11 w-11 place-items-center text-ink transition-colors duration-[400ms] hover:text-vereda lg:hidden"
+        className="-mr-2.5 grid h-11 w-11 place-items-center text-laranja transition-colors duration-[400ms] hover:text-laranja-escuro lg:hidden"
         aria-label={aberto ? "Fechar o menu" : "Abrir o menu"}
         aria-expanded={aberto}
         aria-controls="menu-celular"
@@ -76,9 +76,9 @@ export function Menu({ itens, compra }: { itens: ItemMenu[]; compra: React.React
       >
         {/* três riscos à mão que viram um X (animação em globals.css, .icone-menu) */}
         <svg className="icone-menu" data-aberto={aberto || undefined} width="26" height="26" viewBox="0 0 18 18" aria-hidden="true">
-          <path d="M2 4.4c4-.8 9.2-.6 14-.3" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-          <path d="M2.2 9.2c4.6-.5 8.6.4 13.6-.4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-          <path d="M2 13.7c3.8.7 9 .3 14 .4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+          <path d="M2 4.4c4-.8 9.2-.6 14-.3" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+          <path d="M2.2 9.2c4.6-.5 8.6.4 13.6-.4" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+          <path d="M2 13.7c3.8.7 9 .3 14 .4" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
         </svg>
       </button>
 
