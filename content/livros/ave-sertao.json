@@ -66,9 +66,24 @@
       "titulo": "Suindara"
     },
     {
-      "arquivo": "livros/ave-sertao/tucano.jpg",
-      "alt": "Tucano de bico laranja pousado em um galho, em aquarela",
-      "titulo": "Tucano"
+      "arquivo": "livros/ave-sertao/prancha-saci-do-brejo.jpg",
+      "alt": "Página dupla do livro com o texto sobre o sací-do-brejo à esquerda e a ilustração à direita",
+      "titulo": "Prancha do livro: Sací-do-brejo"
+    },
+    {
+      "arquivo": "livros/ave-sertao/seriema.jpg",
+      "alt": "Seriema de crista arrepiada caminhando, ilustração",
+      "titulo": "Seriema"
+    },
+    {
+      "arquivo": "livros/ave-sertao/beija-flor.jpg",
+      "alt": "Beija-flor verde pousado em um galho, ilustração",
+      "titulo": "Beija-flôr"
+    },
+    {
+      "arquivo": "livros/ave-sertao/bem-te-vi.jpg",
+      "alt": "Bem-te-vi de peito amarelo pousado em um galho, ilustração",
+      "titulo": "Bem-te-vi"
     }
   ]
 }

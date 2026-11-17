@@ -216,7 +216,9 @@ export function indicePortfolio(): ItemIndice[] {
   const { series, itens } = lerPortfolio();
   const livros = lerLivros();
   const ordemSerie = new Map(series.map((s, i) => [s.slug, i]));
+  // Livros autorais ficam fora do portfólio (já estão em Sobre a coleção), a pedido da Dilce.
   const ordenados = itens
+    .filter((it) => it.tipo !== "livros-autorais")
     .map((it, i) => ({ it, i }))
     .sort((a, b) => Number(b.it.destaque) - Number(a.it.destaque) || ordemSerie.get(a.it.serie)! - ordemSerie.get(b.it.serie)! || a.i - b.i)
     .map(({ it }) => it);

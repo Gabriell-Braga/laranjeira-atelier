@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import { metadados } from "@/lib/meta";
 import { Texto, Marcado } from "@/components/Blocos";
-import { Botao } from "@/components/Botao";
 import { Portfolio } from "@/components/Portfolio";
 import { indicePortfolio, lerPagina, lerPortfolio } from "@/lib/conteudo";
-import { GRUPOS_TECNICA, TIPOS } from "@/lib/portfolio-dados";
+import { TIPOS } from "@/lib/portfolio-dados";
 import { POR_LEVA } from "@/lib/portfolio-indice";
 
 const pagina = lerPagina("portfolio");
@@ -14,8 +13,7 @@ export const metadata: Metadata = metadados({ titulo: pagina.campo("titulo"), de
 export default function PaginaPortfolio() {
   const indice = indicePortfolio();
   const { series } = lerPortfolio();
-  const presentes = (valor: string, chave: "tipo" | "grupos") =>
-    indice.some((i) => (chave === "tipo" ? i.tipo === valor : i.grupos.includes(valor)));
+  const presentes = (valor: string) => indice.some((i) => i.tipo === valor);
 
   return (
     <>
@@ -29,10 +27,7 @@ export default function PaginaPortfolio() {
           inicial={indice.slice(0, POR_LEVA)}
           total={indice.length}
           tipos={Object.entries(TIPOS)
-            .filter(([v]) => presentes(v, "tipo"))
-            .map(([valor, rotulo]) => ({ valor, rotulo }))}
-          tecnicas={Object.entries(GRUPOS_TECNICA)
-            .filter(([v]) => presentes(v, "grupos"))
+            .filter(([v]) => presentes(v))
             .map(([valor, rotulo]) => ({ valor, rotulo }))}
           // Séries que são a única do seu tipo (ex.: Coleção Sertão Vivo = Livros autorais) repetiriam a categoria.
           series={series
@@ -42,17 +37,6 @@ export default function PaginaPortfolio() {
         />
       </section>
 
-      <section className="faixa bg-areia" aria-labelledby="titulo-chamada">
-        <div className="conteudo grid items-center gap-8 md:grid-cols-[3fr_2fr]">
-          <div>
-            <h2 id="titulo-chamada" className="titulo-2"><Marcado texto={pagina.campo("chamadaTitulo")} /></h2>
-            <p className="leitura mt-4">{pagina.campo("chamadaTexto")}</p>
-          </div>
-          <div className="md:text-right">
-            <Botao href="/contato/" variante="vereda" seta>Fale comigo</Botao>
-          </div>
-        </div>
-      </section>
     </>
   );
 }

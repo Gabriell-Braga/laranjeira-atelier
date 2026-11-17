@@ -84,9 +84,9 @@ export default function Colecao() {
         </ul>
       </header>
 
-      {/* Fundos alternam (papel / superfície) sem linhas entre seções; seções de texto curto usam espaço menor */}
-      {/* Introdução de Vive, Sertão! ao lado da prancha de bichos; faixa mais baixa que as outras */}
-      <section className="bg-surface py-[var(--espaco-bloco)]" aria-label="Introdução de Vive, Sertão!">
+      {/* Fundos alternam (papel / superfície) sem linhas entre seções; todas com o mesmo espaço (faixa) */}
+      {/* Introdução de Vive, Sertão! ao lado da prancha de bichos; mesmo espaço das outras faixas */}
+      <section className="faixa bg-surface" aria-label="Introdução de Vive, Sertão!">
         <div className="conteudo grid items-center gap-10 lg:grid-cols-[minmax(0,62ch)_1fr] lg:gap-16">
           <Texto html={vive} className="revelar" />
           <div className="na-tela mx-auto w-full max-w-[460px] [--fundo-tela:var(--color-surface)]">
@@ -96,7 +96,7 @@ export default function Colecao() {
       </section>
 
       {/* Contexto curto antes da compra: uma frase da autora e os números da coleção */}
-      <section className="py-[var(--espaco-bloco)]" aria-label="Sobre o projeto">
+      <section className="faixa" aria-label="Sobre o projeto">
         <div className="conteudo">
           <figure className="revelar mx-auto max-w-[46rem] text-center">
             <Texto html={contexto} className="contexto" />
@@ -135,8 +135,8 @@ export default function Colecao() {
         </div>
       </Faixa>
 
-      {/* Introdução de Ave, Sertão! ao lado da prancha de aves; faixa mais baixa que as outras */}
-      <section className="py-[var(--espaco-bloco)]" aria-label="Introdução de Ave, Sertão!">
+      {/* Introdução de Ave, Sertão! ao lado da prancha de aves; mesmo espaço das outras faixas */}
+      <section className="faixa" aria-label="Introdução de Ave, Sertão!">
         <div className="conteudo grid items-center gap-10 lg:grid-cols-[1fr_minmax(0,62ch)] lg:gap-16">
           <div className="na-tela order-last mx-auto w-full max-w-[460px] lg:order-first">
             <Galeria imagens={pranchas.slice(1, 2)} grade="grid-cols-1" sizes="(min-width: 1024px) 960px, 120vw" />

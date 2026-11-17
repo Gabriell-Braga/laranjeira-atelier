@@ -37,7 +37,7 @@ export default function Inicio() {
             {palavras.map((p, i) => (
               <Fragment key={i}>
                 <span className={`entrar inline-block${i === palavras.length - 1 ? " pincelado" : ""}`} style={atraso(i * 0.45)}>
-                  {p}
+                  {palavras[i - 1] === "sertão:" ? <em>{p}</em> : p}
                 </span>{" "}
               </Fragment>
             ))}
@@ -111,8 +111,8 @@ export default function Inicio() {
             <h2 id="titulo-ilustracao" className="titulo-2"><Marcado texto={c("ilustracaoTitulo")} /></h2>
             <Texto html={pagina.html} className="leitura mt-6" />
             <div className="acoes mt-9">
-              <Botao href="/contato/">Encomendar uma ilustração</Botao>
-              <Botao href="/portfolio/" variante="texto">Ver o portfólio</Botao>
+              <Botao href="/portfolio/">Ver o portfólio</Botao>
+              <Botao href="/contato/" variante="texto">Entre em contato</Botao>
             </div>
           </div>
           <Galeria

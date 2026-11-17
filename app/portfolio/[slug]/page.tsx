@@ -6,7 +6,7 @@ import { Galeria } from "@/components/Galeria";
 import { VoltarAoPortfolio } from "@/components/VoltarAoPortfolio";
 import { lerLivro, lerPortfolio, paraGaleria, paraImagem } from "@/lib/conteudo";
 import { TIPOS } from "@/lib/portfolio-dados";
-import { Marcado } from "@/components/Blocos";
+import { Marcado, Rosa } from "@/components/Blocos";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -40,7 +40,7 @@ export default async function Projeto({ params }: Props) {
           {TIPOS[serie.tipo]} · Projeto{anos.length ? ` · ${anos.join(", ")}` : ""}
         </p>
         <h1 className="titulo-display mt-3"><Marcado texto={serie.titulo} /></h1>
-        {serie.texto && <p className="leitura mt-6 text-ink-muted">{serie.texto}</p>}
+        {serie.texto && <p className="leitura mt-6 text-ink-muted"><Rosa texto={serie.texto} /></p>}
       </div>
       <section className="conteudo pb-[var(--espaco-secao)]" aria-label="Imagens do projeto">
         <Galeria imagens={itens.map((i) => paraGaleria(paraImagem(i)))} grade="grid-cols-1 sm:grid-cols-2 lg:grid-cols-3" sizes="(min-width: 1024px) 384px, (min-width: 640px) 50vw, 100vw" />

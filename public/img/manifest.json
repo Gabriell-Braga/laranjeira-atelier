@@ -204,6 +204,38 @@
   "transparente": false,
   "placeholder": "data:image/webp;base64,UklGRswAAABXRUJQVlA4IMAAAADQBQCdASoYACIAPu1gqE4ppSOiMBVdUTAdiWgAVf0CkoOr4iIkeT5wStYgDNeVna4W9UKqgzwAAP7xzcbOaEm3t04yd5Usdu+3dA5c6WcjnN/yhff6vVOP5CL60Q8d+LxqVw3+HiOPiylbQgdtY6MWNnzSSRpRuSLAT5Im1CbaC8uLg12N8s+FLaNhghN2snJcl+pNZo8p1asffkV+DQVCJyYMI7RuFK6la2MVoA+QeWdg4bkjBGtoTFv+5NAJQAA="
  },
+ "livros/ave-sertao/beija-flor.jpg": {
+  "hash": "f2fb262f2290",
+  "largura": 1638,
+  "altura": 2002,
+  "larguras": [
+   480,
+   720,
+   960,
+   1600,
+   1638
+  ],
+  "qualidade": 90,
+  "cor": "#f8f8f8",
+  "transparente": false,
+  "placeholder": "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAAAQBQCdASoYAB0APtFSoE2oJKMiN+gBABoJYwDLpDJQ3YsOB3ofjIYT79b5Yv47J5kAAP72Avs+Bo1Mj5r2klgrECkeq49cW5jezrEW3hJ6IthZdV4ai+grzezZTLaAtMzV4ILC1ALUtCJsmSpAlRA2+JyxPWJYMrJdjor9tH0picAA"
+ },
+ "livros/ave-sertao/bem-te-vi.jpg": {
+  "hash": "e1e68c041ee1",
+  "largura": 1638,
+  "altura": 2002,
+  "larguras": [
+   480,
+   720,
+   960,
+   1600,
+   1638
+  ],
+  "qualidade": 90,
+  "cor": "#f8f8f8",
+  "transparente": false,
+  "placeholder": "data:image/webp;base64,UklGRp4AAABXRUJQVlA4IJIAAADwBACdASoYAB0APuVep02pJSOiMAwBIByJZAAAW+soNo6gNWhEVISeSGHvQ3uaYoAA/vNwNuDQ59oWFsAU+Ps7KX+nMXZNko7ncYNB6CoD+/+pJB1Y02Pneg8DHE7cTbJo3EI8js9yFJWibJhTwXD79Um/6fJGVKMnRSrh8JCCo2eZ7cR4xveWyx+mRiNIEwAAAA=="
+ },
  "livros/ave-sertao/mapa-ave.jpg": {
   "hash": "832ead8b6d8a",
   "largura": 1965,
@@ -252,6 +284,22 @@
   "transparente": false,
   "placeholder": "data:image/webp;base64,UklGRrAAAABXRUJQVlA4IKQAAAAwBQCdASoYAB8APulep02pJSOiN/VYASAdCWoAUwADyQjCX6glU7fSB3KCxjIM7Wi4AAD+83RmdU2253WjWJz5fSipAKLnURmOhyl2ZRh+PZBUw4U03T7FQGBaK/FnWFq7LfzKqDt94qwfXK6f5AsVG5yAiZ8xFxnC1Sc65s3RqXC1+J0gOXDPhnRop54d3F1X4rUY9Ai2ncfLgMn2v0WUYCQAAA=="
  },
+ "livros/ave-sertao/prancha-saci-do-brejo.jpg": {
+  "hash": "1a7bf8b5a768",
+  "largura": 2412,
+  "altura": 1473,
+  "larguras": [
+   480,
+   720,
+   960,
+   1600,
+   2400
+  ],
+  "qualidade": 90,
+  "cor": "#f8f8f8",
+  "transparente": false,
+  "placeholder": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAAAQBACdASoYAA8APu1iqU2ppaOiMAgBMB2JZwABHZyRGN162l7u9FkcAAD+/gY3jUCze79SpAZT/USBtks/K7j1N/9wmKV7zpMWnIZHwVRhKGh4TNjQ1yq6Sc7hbQPhcVimuTaAAAA="
+ },
  "livros/ave-sertao/prancha-tucano.jpg": {
   "hash": "eafa8c8fdabf",
   "largura": 2402,
@@ -283,6 +331,22 @@
   "cor": "#f8f8f8",
   "transparente": false,
   "placeholder": "data:image/webp;base64,UklGRqgAAABXRUJQVlA4IJwAAACwBACdASoYAB0APu1wsFIppiSiqAgBMB2JYwAA7OVn5N4IUHjoj7LgvIZfqjwAAP77ov6olhzLlnPwzOvI9qcJRuf+RW8WDPaoBMDmB9/ee8P8ruAdFIMFYg7RXhQAx0K3C6j6xFwXp9VbAfTR0Ci54CTbVkx4N/lnA6dhjVyR7X6l7HKrxZbPwBkLqLaujIrwMsU2fJ8qq5fAAAA="
+ },
+ "livros/ave-sertao/seriema.jpg": {
+  "hash": "0ef852f9b7a7",
+  "largura": 1638,
+  "altura": 2002,
+  "larguras": [
+   480,
+   720,
+   960,
+   1600,
+   1638
+  ],
+  "qualidade": 90,
+  "cor": "#f8f8f8",
+  "transparente": false,
+  "placeholder": "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAAAQBQCdASoYAB0APu1krVAppSQisBgIATAdiWMAznQQ77nTTyOIQOi5YOzeN3GdzAAAAP7x21eYxNwQwmjn++bmcHQryX8bBmzrZFqjZCXRFZvwdPxrtAH7PkyKDz2KXPVQNLybxG4MBkKnoVYWwPtEp5uj1HqBuz3P3CBufi1tL+ywEkQAAA=="
  },
  "livros/ave-sertao/suindara.jpg": {
   "hash": "4f78cf1e8114",
@@ -440,6 +504,54 @@
   "transparente": false,
   "placeholder": "data:image/webp;base64,UklGRtIAAABXRUJQVlA4IMYAAAAQBgCdASoYACUAPu1qrVCppaQipWzJMB2JYgAAH0m032n4Cibah13r5A4WwwDE70kj8HuCBmIrhfgA/vBApdhcw2BSj7O9t2Vd/M7hJZi/pMh7noxQZFDJTM/TpdTIDa6QJX7d3BOCll7FsUmvAL5BjA1Bp2Ev0Cc3E+Im6ICKqvbQ43oR1nG1yghElwVScuW26vupa6nGCO/BXUVNevejckVKrnCo95yQ/d3Hk2hny9ORBYVXS3YwTLJswIw0VYIPsTYgAAA="
  },
+ "livros/mburiti-sertao/prancha-canela-de-ema.jpg": {
+  "hash": "e71eb76ec83a",
+  "largura": 2412,
+  "altura": 1473,
+  "larguras": [
+   480,
+   720,
+   960,
+   1600,
+   2400
+  ],
+  "qualidade": 90,
+  "cor": "#f8f8f8",
+  "transparente": false,
+  "placeholder": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAADQAwCdASoYAA8ALrV2u12jqampiYC0SzgABdo7tNf5H5En9t6RBAAA/vgW02xezLO8Tc6QoDXgO+4WEQgSbxM6bYEJ/zm4SW/tADk9OO6l0hAxKNgkml+IkyUH3Q6rZ7hDbyguNIBsgI0AAAA="
+ },
+ "livros/mburiti-sertao/prancha-gravata.jpg": {
+  "hash": "40d23efa2cde",
+  "largura": 2412,
+  "altura": 1473,
+  "larguras": [
+   480,
+   720,
+   960,
+   1600,
+   2400
+  ],
+  "qualidade": 90,
+  "cor": "#f8f8f8",
+  "transparente": false,
+  "placeholder": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAADwAwCdASoYAA8APu1iqk2ppaQiMAgBMB2JZwAAW+vkkFsoJ8bprOMAAP7zfkBmebHzg0GFbLLdmqQWXU/fl2DhsS43L456WfzrHOzVdX55d77zfHmgTCY1KwzhpflU1A5KCRLydwneBjipd/lIgDgBfni/AysAAAA="
+ },
+ "livros/mburiti-sertao/prancha-joazeiro.jpg": {
+  "hash": "e1720cb9457b",
+  "largura": 2412,
+  "altura": 1473,
+  "larguras": [
+   480,
+   720,
+   960,
+   1600,
+   2400
+  ],
+  "qualidade": 90,
+  "cor": "#f8f8f8",
+  "transparente": false,
+  "placeholder": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAADwAwCdASoYAA8APu1iqU2ppaOiMAgBMB2JZwAAW+n2VJw6j0d2m9NgAP7zfkBmebNJN3qIALyKdJo99AYCDfxYEHPuKJFk49Z0mRlLQLtX3JjQfSwNLX7u6bRUf355nIa2wFA4HAA="
+ },
  "livros/mburiti-sertao/prancha-pequi.jpg": {
   "hash": "53fddff0ae73",
   "largura": 2402,
@@ -455,6 +567,22 @@
   "cor": "#f8f8f8",
   "transparente": false,
   "placeholder": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAADwAwCdASoYAA8APu1iqk4ppaQiMAgBMB2JZwAAW+qxn973KQA9WHwAAP7zfkB7pRZW4B5KYsIhKHwvyoiwIvE5Vyhj0/9+KJwGksa7W3gTsBlkqxMViiCc/AmpMgKlXUkGOEz6NcEpwOc9K21HAAUxAAA="
+ },
+ "livros/mburiti-sertao/prancha-pindaiba.jpg": {
+  "hash": "071505fc0565",
+  "largura": 2412,
+  "altura": 1473,
+  "larguras": [
+   480,
+   720,
+   960,
+   1600,
+   2400
+  ],
+  "qualidade": 90,
+  "cor": "#f8f8f8",
+  "transparente": false,
+  "placeholder": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAADwAwCdASoYAA8APu1iqk4ppaQiMAgBMB2JZwAAW+zR0NjGbMhuhM5gAP7zfkB7pRSM29pPt1DYK2k9qU3DU8H0GiK6tCdF5L2biWz9PGklfJA279EhzmXW1ExAAEKO1sS6/AAA"
  },
  "livros/mburiti-sertao/rosto-mburiti.jpg": {
   "hash": "79eb340b8228",
@@ -568,6 +696,38 @@
   "transparente": false,
   "placeholder": "data:image/webp;base64,UklGRrAAAABXRUJQVlA4IKQAAABwBACdASoYAA8APu1kqk4ppaQiMAgBMB2JZgCdMoEUeAaXAvqp547HrI//gAD+1L/UYvxyBkTuF7Y+L98sqkDa4XU1QT1/ClG+b1Iye9DItLBdB/6pSMqPhc1TpwWq3NIwb/X/0+6I76PFf5ur0aNabCeCoh06WOdayng4x7njovU4F+x7WHLPQtgVE/pM7H1nqVQr963B6BavDg0vzeUERlAAAA=="
  },
+ "livros/sertao-sem-fim/povoado.jpg": {
+  "hash": "8947e806be2a",
+  "largura": 2409,
+  "altura": 1522,
+  "larguras": [
+   480,
+   720,
+   960,
+   1600,
+   2400
+  ],
+  "qualidade": 90,
+  "cor": "#f8d8a8",
+  "transparente": false,
+  "placeholder": "data:image/webp;base64,UklGRpYAAABXRUJQVlA4IIoAAABwBACdASoYAA8APu1iqU2ppaOiMAgBMB2JbACdMoMYJn/AbGdCfeTCepvaXAD+s7dIPCSEgUTPCPt9VJ+KT1tBO4W6alZ6AUtZvcXVV5vd2QrXK5XMqkrq2+ji4S3+dLTYZQhYO9PwjiTxPCd87mA8/kkquDR5RLIWo1iI94kuFRKjgSfD3ohdgAA="
+ },
+ "livros/sertao-sem-fim/rio-azul.jpg": {
+  "hash": "6899c88b9a77",
+  "largura": 2409,
+  "altura": 1522,
+  "larguras": [
+   480,
+   720,
+   960,
+   1600,
+   2400
+  ],
+  "qualidade": 90,
+  "cor": "#c8e8e8",
+  "transparente": false,
+  "placeholder": "data:image/webp;base64,UklGRqYAAABXRUJQVlA4IJoAAAAQBACdASoYAA8APu1iqU2ppaQiMAgBMB2JYgCdMoADTfUiHf0fC813SAD+6wn2D5BZho8ypHhxhgOjdAgWvHzaZt0dFA2qEQqjGhMJY9wZPEBH/8fYo8m+RR5bZ5bbFjT+a8hs8dGeT20G+mlQgVsrv2K2Y7TOo0f/ZNAyt+TX49qJJSmyvWYkQCLWImB5BXN/NEyVJBa0AgQA"
+ },
  "livros/sertao-sem-fim/rio.jpg": {
   "hash": "26500b621d20",
   "largura": 2400,
@@ -599,6 +759,22 @@
   "cor": "#f8f8f8",
   "transparente": false,
   "placeholder": "data:image/webp;base64,UklGRsgAAABXRUJQVlA4ILwAAAAwBQCdASoYAB4APu1orVCppaQiqAqpMB2JagC7IExEr8LL0wPLVnHjct6iny3ZCNcoAAD++LmGNsim5k4GMlK75BDjimuPgEr03u6WUdZSQQiBvpPcSUS/XW+E/rm1hGk4QIKCSH1tIz/ZIP36uRRysStdayRDHlXfagBdeiQfHsPqfoT/5TML7mxy0Gl51iIdVcY1u3pKcONY9cSJWSNnmVldc6K0p3Dq/X17h/ojVVHKlVGBaNSzUAAAAA=="
+ },
+ "livros/sertao-sem-fim/suindara-sino.jpg": {
+  "hash": "06d51ce0932a",
+  "largura": 2409,
+  "altura": 1522,
+  "larguras": [
+   480,
+   720,
+   960,
+   1600,
+   2400
+  ],
+  "qualidade": 90,
+  "cor": "#f8f8f8",
+  "transparente": false,
+  "placeholder": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAABQBACdASoYAA8APu1iqU2ppaOiMAgBMB2JYgCdABjvH0YyaeNbOMOInDQAAP7WF0gTm89Iao5JljiV5dVeAZUeZ/KLE7NG+YHMltXazQplPXsyCjKwLW6fVubCe3OkCrMPAigYY64Pot6OAuFuGjfDAJu99xlgAAA="
  },
  "livros/sertao-sem-fim/travessia.jpg": {
   "hash": "6afb0722dc68",
@@ -648,6 +824,22 @@
   "transparente": false,
   "placeholder": "data:image/webp;base64,UklGRtYAAABXRUJQVlA4IMoAAADwBQCdASoYAB8APu1qqVAppiOiqA1RMB2JaAC/WTuqQPdLD3tu9JVBQthWB+rdwWF2MaDHJ4bywAD++ZYXAkzbT8x2RsMwYRHt2AdB12cb40VryRPbMqmg/DoLTyLWqQEgEAbJrTpL6SIzE2Ex2vD1TBP9Y+UUo+6zn1J4VzT0GgEaWox9aMK0kwGkBck9xc07sUMZg/GZFkHe2Luv5PjfeoI8EFQAKAGCBWGAVsAOWPmyhOV97PJZXzuvVNmp01M5yORx1/ecPgAA"
  },
+ "livros/vive-sertao/galheiro.jpg": {
+  "hash": "4ac0015434f0",
+  "largura": 1638,
+  "altura": 2002,
+  "larguras": [
+   480,
+   720,
+   960,
+   1600,
+   1638
+  ],
+  "qualidade": 90,
+  "cor": "#f8f8f8",
+  "transparente": false,
+  "placeholder": "data:image/webp;base64,UklGRqgAAABXRUJQVlA4IJwAAADwBACdASoYAB0APu1qrFCppaQiqAqpMB2JZgABHuwEs3NcCGByE46zy2SlZ8hpugAA/vx4C7ggLUypoEEO/K/EjbXnfHsxATBHXuNz1rqmpusLtUWeZsh5kMPNOY4AgXEXXVIpaF76LshTS1+gWkQLsL/hGVDYLFFrdUygRwBZ2qoMUg2UHHm0wRiB167ykiGsEUGMn6fraR1gAAA="
+ },
  "livros/vive-sertao/lobo-guara.jpg": {
   "hash": "9bb971352407",
   "largura": 1903,
@@ -663,6 +855,22 @@
   "cor": "#f8f8f8",
   "transparente": false,
   "placeholder": "data:image/webp;base64,UklGRp4AAABXRUJQVlA4IJIAAAAwBQCdASoYABUAPu1opU2ppiMiMBgMATAdiWQAuwAQ75rI2o8cmqIifXvkySG0T7EAAAD+8edohiBV/0Jpm7U3NKZUDJBGIkMlT754rqaGeUm/rwxhW5M84aYeWcwXUkrYao/D4Bs/oeE7GJ6ZgFzijxtI34T1NlzgKsCo7xlzLeDd3eeBciRa1Amqf1JJGk5gAA=="
+ },
+ "livros/vive-sertao/mao-pelada.jpg": {
+  "hash": "3ccf7ffbabc2",
+  "largura": 1638,
+  "altura": 2002,
+  "larguras": [
+   480,
+   720,
+   960,
+   1600,
+   1638
+  ],
+  "qualidade": 90,
+  "cor": "#f8f8f8",
+  "transparente": false,
+  "placeholder": "data:image/webp;base64,UklGRqgAAABXRUJQVlA4IJwAAABQBQCdASoYAB0APu1qqVAppiOiqA1RMB2JZQDOOywTnZhdmVq6f+c40cfSL3FqK3wykAAA/voTAqwi6eZyL5xrl63jrMfuuITEQ3xmfUox/ki/0+y8vipmElvNNvldadDaw+SoEgTRgUE8Fciiydjyq9O03MCwTpMfLyrHLblUDmTWoVlOidBJuS6Iv0z0Wt/nR9li9eRnQDGEAAA="
  },
  "livros/vive-sertao/mapa-vive.jpg": {
   "hash": "339922f78d9e",
@@ -712,6 +920,22 @@
   "transparente": false,
   "placeholder": "data:image/webp;base64,UklGRqgAAABXRUJQVlA4IJwAAAAQBQCdASoYAB0APt1Yo02opSMjN/qoARAbiUAYUAQ75cLPcMlTwMRr2QqMZx2qgeFsAP7nPrRGuJlE/BXVEdhj7Q6NjVrFIqmzooML4sd+Zsu5TbifvEVN/DkNWkxZYTYzkJLPbvLLyMvVibfgnwlmm3zgyvYUVaPR1NKyaSireeFM9UFP00HoyBCHeKLjB9ixkeI2ylRPQBLAAAA="
  },
+ "livros/vive-sertao/prancha-jararataca.jpg": {
+  "hash": "84731017433c",
+  "largura": 2412,
+  "altura": 1473,
+  "larguras": [
+   480,
+   720,
+   960,
+   1600,
+   2400
+  ],
+  "qualidade": 90,
+  "cor": "#f8f8f8",
+  "transparente": false,
+  "placeholder": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAADQAwCdASoYAA8APu1iqk2ppaQiMAgBMB2JZwAAW+n0xauAvN0lE6AA/vHnB11i/B1o6X5UX4hcdAmdDK4feZCcyf0IF4T3MX9vZv2eJ7USidBxQjRBK76ddz+1Ynd6BuJ/h+AA"
+ },
  "livros/vive-sertao/prancha-lobo-guara.jpg": {
   "hash": "652eff2e323c",
   "largura": 2402,
@@ -759,6 +983,22 @@
   "cor": "#f8f8f8",
   "transparente": false,
   "placeholder": "data:image/webp;base64,UklGRowAAABXRUJQVlA4IIAAAABwBACdASoYABQAPu1erE2ppSSiMBgMATAdiWUAAC52V+LA6DB2hDXiT6ujAAD+83T9muWcVxPgU2Kvdt+x72IeK50iSbAipNlqKjrbVDA5BNanaUPAXaj63PDtRNfY/dP5g5v/caNcLsBeSIWPaF8uFXNnWIWn53+PyhSyWhwAAA=="
+ },
+ "livros/vive-sertao/tatu-peba.jpg": {
+  "hash": "94dc590cf024",
+  "largura": 1638,
+  "altura": 2002,
+  "larguras": [
+   480,
+   720,
+   960,
+   1600,
+   1638
+  ],
+  "qualidade": 90,
+  "cor": "#f8f8f8",
+  "transparente": false,
+  "placeholder": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAADQBACdASoYAB0APu1mq02ppaQiMAgBMB2JYgDM0GlfwKYex+5NOrVPSwdULslUAAD+/i6jKlMi/yDbC3GgudXkzHWA8gWYE21vNORRoHEwU+yCqAKLFdR7hpjHZg6/6ypNy1dKcG/hqCGkIdjW/CAAAAA="
  },
  "marca/passaro.png": {
   "hash": "cbe57934b4e3",

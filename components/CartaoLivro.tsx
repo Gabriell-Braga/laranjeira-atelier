@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { info, type Livro } from "@/lib/conteudo";
+import { Rosa } from "./Blocos";
 import { Botao } from "./Botao";
 import { Imagem } from "./Imagem";
 
@@ -34,7 +35,7 @@ export function CartaoLivro({ livro, amazon, nivel: Titulo = "h3", prioridade }:
           {livro.titulo}
         </Link>
       </Titulo>
-      <p className="legenda mt-1 flex-1">{livro.subtitulo}</p>
+      <p className="legenda mt-1 flex-1"><Rosa texto={livro.subtitulo} /></p>
       <div className="relative mt-5 flex items-center gap-4">
         {amazon ? (
           <Botao href={amazon} variante="vereda" className="w-full" aria-label={`Comprar na Amazon: ${livro.titulo} (abre em nova aba)`}>

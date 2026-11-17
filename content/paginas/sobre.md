@@ -20,11 +20,11 @@ Dilce Laranjeira
 
 ## Formação
 
-- Bacharelado em Artes Plásticas – Escola de Belas Artes – UFMG – 1985
-- Licenciatura Plena em Desenho e Plástica – EBA/FAE – UFMG – 1988
-- Curso de Formação em Design Gráfico – Mídia Escola de Artes Visuais – BH – 2000
-- Curso de Ilustração Científica – Aquarela Botânica – Cenex ICB-UFMG – 2006
-- Pós-graduação em Artes Digitais – UNA BH – 2011
+- Bacharelado em Artes Plásticas – Escola de Belas Artes – UFMG
+- Licenciatura Plena em Desenho e Plástica – EBA/FAE – UFMG
+- Curso de Formação em Design Gráfico – Mídia Escola de Artes Visuais – BH
+- Curso de Ilustração Científica – Aquarela Botânica – Cenex ICB-UFMG
+- Pós-graduação em Artes Digitais – UNA BH
 
 ## Serviços
 
@@ -37,8 +37,8 @@ Dilce Laranjeira
 
 ## Trajetória
 
-- Professora de Arte – Rede Particular e Municipal de Ensino – 1988/2014
-- Professora de cursos livres: Teoria do Design – Mídia Artes Visuais – BH – 2001; Ilustração em Aquarela – SESC BH – 1987/1988
+- Professora de Arte – Rede Particular e Municipal de Ensino
+- Professora de cursos livres: Teoria do Design – Mídia Artes Visuais – BH; Ilustração em Aquarela – SESC BH
 - Ilustração, projeto gráfico e editoração eletrônica de livros e peças gráficas para: Editora Lê, Editora Expressão, Editora Dimensão, Pontes Editores, Editora Alis, Franco Editora, Proex-UFMG, Editora Duna Dueto, Saraiva-Formato Editorial, IAB, Unicult e Fundação Zoobotânica PBH
-- 48 exposições em 8 estados brasileiros – 1988/2026
-- 05 premiações em Desenho e Gravura em Metal – 1988
+- 48 exposições em 8 estados brasileiros
+- 05 premiações em Desenho e Gravura em Metal

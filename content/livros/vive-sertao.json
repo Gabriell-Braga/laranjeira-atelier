@@ -61,14 +61,29 @@
       "titulo": "Cangussú, onça"
     },
     {
-      "arquivo": "livros/vive-sertao/lobo-guara.jpg",
-      "alt": "Lobo-guará de pelo avermelhado e patas pretas caminhando, em aquarela",
-      "titulo": "Lobo guará"
-    },
-    {
       "arquivo": "livros/vive-sertao/tamandua.jpg",
       "alt": "Tamanduá-bandeira caminhando, em aquarela",
       "titulo": "Tamanduá"
+    },
+    {
+      "arquivo": "livros/vive-sertao/prancha-jararataca.jpg",
+      "alt": "Página dupla do livro com o texto sobre a jararataca à esquerda e a ilustração à direita",
+      "titulo": "Prancha do livro: Jararataca"
+    },
+    {
+      "arquivo": "livros/vive-sertao/mao-pelada.jpg",
+      "alt": "Mão-pelada, de máscara escura no rosto e cauda listrada, ilustração",
+      "titulo": "Mão-pelada"
+    },
+    {
+      "arquivo": "livros/vive-sertao/tatu-peba.jpg",
+      "alt": "Tatu-peba caminhando, ilustração",
+      "titulo": "Tatú-peba"
+    },
+    {
+      "arquivo": "livros/vive-sertao/galheiro.jpg",
+      "alt": "Galheiro, cervo de pelo avermelhado e chifres ramificados, ilustração",
+      "titulo": "Galheiro"
     }
   ]
 }

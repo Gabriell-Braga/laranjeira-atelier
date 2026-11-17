@@ -6,7 +6,7 @@ compraTitulo: "Comprar a coleção completa"
 compraTexto: "Clique nos links para adquirir um dos volumes ou toda a coleção."
 sobretitulo: "Coleção Sertão Vivo · Dilce Laranjeira"
 citacao: "Vivem no sertão. São o sertão."
-citacaoFonte: "Dilce Laranjeira, introdução de Vive, Sertão!"
+citacaoFonte: "Texto de introdução de Vive, Sertão!"
 colecaoTitulo: "A coleção"
 objetivosTitulo: "O projeto tem como objetivos"
 objetivosAbrir: "Ver os objetivos"
@@ -16,11 +16,11 @@ pranchas:
   - "livros/ave-sertao/ararauna.jpg"
   - "livros/vive-sertao/prancha-lobo-guara.jpg"
   - "livros/vive-sertao/onca.jpg"
-  - "livros/ave-sertao/tucano.jpg"
+  - "livros/ave-sertao/seriema.jpg"
   - "livros/mburiti-sertao/buriti.jpg"
-  - "livros/vive-sertao/lobo-guara.jpg"
+  - "livros/vive-sertao/galheiro.jpg"
   - "livros/ave-sertao/suindara.jpg"
-  - "livros/mburiti-sertao/caraiba.jpg"
+  - "livros/mburiti-sertao/prancha-gravata.jpg"
   - "livros/vive-sertao/tamandua.jpg"
   - "livros/ave-sertao/acaua.jpg"
   - "livros/mburiti-sertao/pequi.jpg"
@@ -35,7 +35,7 @@ Quando li Grande sertão, desde a primeira vez me chamou atenção a presença, 
 
 ***
 
-> Primeiro e maior personagem em Grande sertão: veredas, o sertão se faz presente a cada passo da jornada de Riobaldo (...) De toda a matéria viva que plasma, delineia e dá forma ao sertão rosiano, aves, bichos e plantas têm grande protagonismo não só em Grande Sertão, como em toda a obra de Guimarães Rosa. (...) Vivem no sertão. São o sertão.
+> Primeiro e maior personagem em Grande sertão: *veredas*, o sertão se faz presente a cada passo da jornada de Riobaldo (...) De toda a matéria viva que plasma, delineia e dá forma ao sertão rosiano, aves, bichos e plantas têm grande protagonismo não só em Grande Sertão, como em toda a obra de Guimarães Rosa. (...) Vivem no sertão. São o sertão.
 
 O texto acima inicia a introdução ao livro *Vive, Sertão! Bichos em Grande sertão: veredas*, um dos quatro volumes que compõem o propósito deste projeto, a coleção Sertão Vivo.
 
@@ -54,8 +54,8 @@ As ilustrações foram criadas em grafite, aquarela e pintura digital. As págin
 ***
 
 - Conhecer a riqueza da obra de João Guimarães Rosa e o universo (infinito) das possibilidades de leituras e visões de sua linguagem e saberes, aqui utilizando um recorte nas áreas da Etnobiologia e Ressemiotização; mas também, e sobretudo, da sua poética, que permeia as criaturas, a paisagem e as gentes no grande sertão-mundo.
-- Publicar obra editorial que informe e divulgue as espécies de fauna e flora citadas no romance Grande sertão: veredas de João Guimarães Rosa, com registro em imagens e textos, assente na interseção de saberes (interdisciplinaridade) entre ciência, literatura, arte, diversidade cultural e consciência ambiental.
-- Pesquisar e identificar, a partir das citações em Grande sertão: veredas, as espécies de fauna e flora presentes na obra.
+- Publicar obra editorial que informe e divulgue as espécies de fauna e flora citadas no romance Grande sertão: *veredas* de João Guimarães Rosa, com registro em imagens e textos, assente na interseção de saberes (interdisciplinaridade) entre ciência, literatura, arte, diversidade cultural e consciência ambiental.
+- Pesquisar e identificar, a partir das citações em Grande sertão: *veredas*, as espécies de fauna e flora presentes na obra.
 - Registrar iconograficamente as espécies, através de imagens criadas nas técnicas de pintura em aquarela e pintura digital.
 - Divulgar informações sobre as espécies, suas características, morfologia e relações com a obra, o ambiente e a cultura, através de textos.
 - Oferecer ao público uma obra de consulta, informação, conhecimento e fruição visual das espécies citadas no romance.

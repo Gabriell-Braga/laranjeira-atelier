@@ -12,7 +12,7 @@ export function Rodape() {
 
   return (
     <footer className="rodape bg-vereda text-paper">
-      <div className="conteudo grid gap-x-10 gap-y-12 py-[var(--espaco-bloco)] sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr] lg:py-20">
+      <div className="conteudo grid gap-x-10 gap-y-12 py-12 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
         <div>
           {/* eslint-disable-next-line @next/next/no-img-element -- logo pequeno, já no tamanho certo */}
           <img src="/img/marca/logo-claro.png" alt="Laranjeira Atelier" width={343} height={106} className="h-auto w-[170px] rounded-none" />
@@ -25,8 +25,7 @@ export function Rodape() {
           <h2 id="rodape-site" className="sobretitulo mb-5 text-paper">O atelier</h2>
           <ul className="space-y-2.5 text-[16px]">
             <li><LinkRodape className={link} href="/portfolio/">Portfólio</LinkRodape></li>
-            <li><LinkRodape className={link} href="/sobre/">Sobre a Dilce</LinkRodape></li>
-            <li><LinkRodape className={link} href="/escolas-e-livrarias/">Escolas e livrarias</LinkRodape></li>
+            <li><LinkRodape className={link} href="/sobre/">Sobre</LinkRodape></li>
             <li><LinkRodape className={link} href="/contato/">Contato</LinkRodape></li>
           </ul>
         </nav>

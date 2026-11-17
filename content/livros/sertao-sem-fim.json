@@ -69,6 +69,21 @@
       "arquivo": "livros/sertao-sem-fim/nonada.jpg",
       "alt": "Página dupla com homem sentado sob céu noturno e a palavra Nonada",
       "titulo": "Nonada"
+    },
+    {
+      "arquivo": "livros/sertao-sem-fim/povoado.jpg",
+      "alt": "Página dupla com um povoado de casas e igreja no horizonte, árvore seca e céu em tons de laranja e azul",
+      "titulo": "Povoado"
+    },
+    {
+      "arquivo": "livros/sertao-sem-fim/suindara-sino.jpg",
+      "alt": "Página dupla com uma suindara pousada junto a um sino e, ao lado, a coruja em voo",
+      "titulo": "Página dupla"
+    },
+    {
+      "arquivo": "livros/sertao-sem-fim/rio-azul.jpg",
+      "alt": "Página dupla com rio azul, árvores na margem e reflexos na água",
+      "titulo": "Página dupla"
     }
   ]
 }

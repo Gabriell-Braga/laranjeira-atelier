@@ -25,6 +25,11 @@ export function Marcado({ texto }: { texto: string }) {
   );
 }
 
+// Grafia do título de Guimarães Rosa: Grande sertão: *veredas* (o complemento depois dos dois pontos vai em itálico).
+export function Rosa({ texto }: { texto: string }) {
+  return texto.split(/(?<=Grande sertão: )(veredas)/).map((t, i) => (i % 2 ? <em key={i}>{t}</em> : t));
+}
+
 // HTML vindo do markdown de content/paginas.
 export function Texto({ html, className = "" }: { html: string; className?: string }) {
   return <div className={`texto ${className}`} dangerouslySetInnerHTML={{ __html: html }} />;
@@ -46,12 +51,12 @@ export function Paragrafos({ textos, className = "" }: { textos: string[]; class
 // Faixa escura da citação.
 export function Citacao({ texto, fonte }: { texto: string; fonte: string }) {
   return (
-    <section className="faixa bg-vereda text-paper">
+    <section className="bg-vereda py-[var(--espaco-bloco)] text-paper">
       <figure className="conteudo">
         <blockquote className="citacao aspas-pincel leitura revelar revelar-lento">
           <p>{texto}</p>
         </blockquote>
-        <figcaption className="revelar revelar-lento mt-8 text-[15px] tracking-wide text-paper/85" style={{ "--i": 4 } as React.CSSProperties}>
+        <figcaption className="revelar revelar-lento mt-5 text-[15px] tracking-wide text-paper/85" style={{ "--i": 4 } as React.CSSProperties}>
           {fonte}
         </figcaption>
       </figure>
@@ -61,8 +66,11 @@ export function Citacao({ texto, fonte }: { texto: string; fonte: string }) {
 
 // Ficha técnica de um livro.
 export function FichaTecnica({ livro, className = "" }: { livro: Livro; className?: string }) {
+  const colecao = livro.slug === "colecao-sertao-vivo";
+  // Na coleção, encadernação e número de imagens já aparecem em outros pontos da página (pedido da Dilce).
+  const omitir = colecao ? ["Encadernação", "Imagens"] : [];
   const linhas: [string, string][] = [
-    ["Páginas", livro.slug === "colecao-sertao-vivo" ? `${livro.paginas} no total` : String(livro.paginas)],
+    ["Páginas", colecao ? `${livro.paginas} no total` : String(livro.paginas)],
     ["Formato", livro.formato],
     ["Encadernação", livro.encadernacao],
     ["ISBN-13", livro.isbn13],
@@ -71,7 +79,7 @@ export function FichaTecnica({ livro, className = "" }: { livro: Livro; classNam
   return (
     <dl className={`grid grid-cols-[minmax(6.5rem,42%)_1fr] gap-x-6 border-t border-linha text-[16px] ${className}`}>
       {linhas
-        .filter(([, valor]) => MOSTRAR_PENDENCIAS || !pendente(valor))
+        .filter(([rotulo, valor]) => !omitir.includes(rotulo) && (MOSTRAR_PENDENCIAS || !pendente(valor)))
         .map(([rotulo, valor]) => (
           <div key={rotulo} className="contents">
             <dt className="border-b border-linha py-2.5 font-bold">{rotulo}</dt>

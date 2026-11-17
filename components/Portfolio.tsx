@@ -30,7 +30,6 @@ type Props = {
   inicial: ItemIndice[];
   total: number;
   tipos: Opcao[];
-  tecnicas: Opcao[];
   series: (Opcao & { tipo: string })[];
 };
 
@@ -40,8 +39,6 @@ const baixarIndice = () =>
     if (!r.ok) throw new Error("índice do portfólio indisponível");
     return r.json();
   }));
-
-const plural = (n: number) => `${n} ${n === 1 ? "trabalho" : "trabalhos"}`;
 
 function Pilula({ ativo, onClick, children }: { ativo: boolean; onClick: () => void; children: React.ReactNode }) {
   return (
@@ -61,7 +58,7 @@ function Pilula({ ativo, onClick, children }: { ativo: boolean; onClick: () => v
 const reduzMovimento = () => typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const EASE = "cubic-bezier(0.22, 1, 0.36, 1)";
 
-export function Portfolio({ inicial, total, tipos, tecnicas, series }: Props) {
+export function Portfolio({ inicial, total, tipos, series }: Props) {
   const [indice, setIndice] = useState<ItemIndice[] | null>(null);
   const [filtros, setFiltros] = useState<Filtros>({ ordem: "destaques" });
   const [visiveis, setVisiveis] = useState(POR_LEVA);
@@ -233,14 +230,9 @@ export function Portfolio({ inicial, total, tipos, tecnicas, series }: Props) {
     carregarIndice(); // o lightbox navega por todos os itens do filtro, não só os carregados
   };
 
-  const resumo = [
-    tipos.find((t) => t.valor === filtros.tipo)?.rotulo,
-    tecnicas.find((t) => t.valor === filtros.tecnica)?.rotulo,
-    series.find((s) => s.valor === filtros.serie)?.rotulo,
-  ].filter(Boolean);
   const seriesDoTipo = series.filter((s) => !filtros.tipo || s.tipo === filtros.tipo);
 
-  const ativosNoPainel = [filtros.tecnica, filtros.serie, filtros.ordem !== "destaques" ? filtros.ordem : undefined].filter(Boolean).length;
+  const ativosNoPainel = [filtros.serie, filtros.ordem !== "destaques" ? filtros.ordem : undefined].filter(Boolean).length;
   const limpar = () => mudarFiltros({ ordem: "destaques", tipo: filtros.tipo });
 
   return (
@@ -293,21 +285,7 @@ export function Portfolio({ inicial, total, tipos, tecnicas, series }: Props) {
         {/* Painel que abre por altura (0fr -> 1fr) e com os grupos entrando em sequência; fechado fica inert */}
         <div id="painel-filtros" inert={!painel} data-aberto={painel || undefined} className="painel-filtros">
           <div className="min-h-0 overflow-hidden">
-          <div className="conteudo grid gap-x-10 gap-y-5 pb-5 pt-2 text-[15px] md:grid-cols-[auto_auto_auto_1fr] md:items-end">
-            <div role="group" aria-label="Técnica" className="painel-item" style={{ "--i": 0 } as React.CSSProperties}>
-              <p className="mb-2 font-bold text-ink-muted">Técnica</p>
-              <div className="flex flex-wrap gap-2">
-                {tecnicas.map((t) => (
-                  <Pilula
-                    key={t.valor}
-                    ativo={filtros.tecnica === t.valor}
-                    onClick={() => mudarFiltros({ ...filtros, tecnica: filtros.tecnica === t.valor ? undefined : t.valor })}
-                  >
-                    {t.rotulo}
-                  </Pilula>
-                ))}
-              </div>
-            </div>
+          <div className="conteudo grid gap-x-10 gap-y-5 pb-5 pt-2 text-[15px] md:grid-cols-[auto_auto_1fr] md:items-end">
             {seriesDoTipo.length > 0 && (
               <label className="painel-item block" style={{ "--i": 1 } as React.CSSProperties}>
                 <span className="mb-2 block font-bold text-ink-muted">Série</span>
@@ -350,10 +328,6 @@ export function Portfolio({ inicial, total, tipos, tecnicas, series }: Props) {
       </div>
 
       <div className="conteudo">
-      <p className={`mt-6 text-[15px] text-ink-muted ${primeira ? "entrar" : ""}`} style={{ "--i": 3 } as React.CSSProperties} aria-live="polite">
-        {[...(resumo.length ? resumo : ["Todos"]), plural(totalLista)].join(" · ")}
-      </p>
-
       {totalLista === 0 ? (
         <p className="mt-6 text-ink-muted">Nenhum trabalho com esses filtros.</p>
       ) : (
@@ -420,12 +394,10 @@ export function Portfolio({ inicial, total, tipos, tecnicas, series }: Props) {
       </p>
 
       <div className="conteudo mt-12 text-center">
-        {restam ? (
+        {restam && (
           <button type="button" onClick={() => carregarMais(false)} className="botao border-2 border-vereda text-vereda hover:bg-vereda hover:text-paper">
             Carregar mais trabalhos
           </button>
-        ) : (
-          totalLista > 0 && <p className="text-ink-muted">Você viu todos os {plural(totalLista)}.</p>
         )}
       </div>
 

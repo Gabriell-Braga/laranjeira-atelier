@@ -51,11 +51,6 @@
       "titulo": "Paisagem"
     },
     {
-      "arquivo": "livros/mburiti-sertao/caraiba.jpg",
-      "alt": "Caraíba em flor, árvore de flores rosa-violeta, e um galho florido, em aquarela",
-      "titulo": "Caraíba-de-flor-roxa"
-    },
-    {
       "arquivo": "livros/mburiti-sertao/goiabeira.jpg",
       "alt": "Goiabeira, ramo com goiabas e flores brancas, em aquarela",
       "titulo": "Goiabeira"
@@ -69,6 +64,26 @@
       "arquivo": "livros/mburiti-sertao/pequi.jpg",
       "alt": "Pequizeiro, ramo com flor e frutos de pequi, em aquarela",
       "titulo": "Pequí"
+    },
+    {
+      "arquivo": "livros/mburiti-sertao/prancha-canela-de-ema.jpg",
+      "alt": "Página dupla do livro com as pranchas da canela-de-ema e do capitão-da-sala, texto e ilustrações",
+      "titulo": "Prancha do livro: Canela-de-ema"
+    },
+    {
+      "arquivo": "livros/mburiti-sertao/prancha-gravata.jpg",
+      "alt": "Página dupla do livro com as pranchas do gravatá e da imburana, texto e ilustrações",
+      "titulo": "Prancha do livro: Gravatá"
+    },
+    {
+      "arquivo": "livros/mburiti-sertao/prancha-joazeiro.jpg",
+      "alt": "Página dupla do livro com as pranchas do joazeiro e das lágrimas-de-nossa-senhora, texto e ilustrações",
+      "titulo": "Prancha do livro: Joazeiro"
+    },
+    {
+      "arquivo": "livros/mburiti-sertao/prancha-pindaiba.jpg",
+      "alt": "Página dupla do livro com as pranchas da pindaíba e da piteira, texto e ilustrações",
+      "titulo": "Prancha do livro: Pindaíba"
     }
   ]
 }
