@@ -33,7 +33,7 @@ export default function Inicio() {
       <section className="conteudo topo grid items-center gap-10 pb-[var(--espaco-secao)] lg:grid-cols-[5fr_6fr] lg:gap-16">
         <div>
           <p className="sobretitulo entrar">{c("destaqueSobretitulo")}</p>
-          <h1 className="titulo-display mt-5">
+          <h1 className="titulo-display mt-5 [--texto-display:clamp(2.5rem,1.75rem+3.3vw,4.5rem)]">
             {palavras.map((p, i) => (
               <Fragment key={i}>
                 <span className={`entrar inline-block${i === palavras.length - 1 ? " pincelado" : ""}`} style={atraso(i * 0.45)}>
