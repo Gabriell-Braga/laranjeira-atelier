@@ -8,10 +8,9 @@ const NOINDEX = [{ key: "X-Robots-Tag", value: "noindex, nofollow" }];
 const ANTIGOS: [string, string][] = [
   ["/design-grafico", "/portfolio/?tipo=design-grafico"],
   ["/ilustracao", "/portfolio/?tipo=ilustracao"],
-  ["/projeto-sertao-vivo", "/livros/"],
-  ["/projeto-sert%C3%A3o-vivo", "/livros/"],
-  ["/projeto-sertão-vivo", "/livros/"],
-  ["/projeto", "/livros/"],
+  ["/projeto-sert%C3%A3o-vivo", "/projeto-sertao-vivo/"],
+  ["/projeto-sertão-vivo", "/projeto-sertao-vivo/"],
+  ["/projeto", "/projeto-sertao-vivo/"],
   ["/colecao-sertao-vivo", "/livros/"],
   ["/cole%C3%A7%C3%A3o-sert%C3%A3o-vivo", "/livros/"],
   ["/coleção-sertão-vivo", "/livros/"],

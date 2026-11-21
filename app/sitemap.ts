@@ -9,6 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const caminhos = [
     "/",
     "/livros/",
+    "/projeto-sertao-vivo/",
     ...lerLivros().map((l) => `/livros/${l.slug}/`),
     "/portfolio/",
     ...lerPortfolio()

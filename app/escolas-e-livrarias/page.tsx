@@ -36,7 +36,7 @@ export default function EscolasELivrarias() {
       <section className="conteudo faixa" aria-labelledby="titulo-orcamento">
         <div className="max-w-[720px]">
           <h2 id="titulo-orcamento" className="titulo-2 mb-8"><Marcado texto={c("formularioTitulo")} /></h2>
-          <FormularioContato assuntoInicial="Compra para escola ou livraria" />
+          <FormularioContato assuntoInicial="Outro" />
         </div>
       </section>
     </>

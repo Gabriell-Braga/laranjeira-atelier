@@ -8,12 +8,10 @@ import {
   buscaDosFiltros,
   filtrar,
   filtrosDaUrl,
-  ORDENS,
   POR_LEVA,
   temFiltro,
   type Filtros,
   type ItemIndice,
-  type Ordem,
 } from "@/lib/portfolio-indice";
 import { Imagem } from "./Imagem";
 import { atualizarUrlImagem, slugDaUrl } from "@/lib/url-imagem";
@@ -60,7 +58,7 @@ const EASE = "cubic-bezier(0.22, 1, 0.36, 1)";
 
 export function Portfolio({ inicial, total, tipos, series }: Props) {
   const [indice, setIndice] = useState<ItemIndice[] | null>(null);
-  const [filtros, setFiltros] = useState<Filtros>({ ordem: "destaques" });
+  const [filtros, setFiltros] = useState<Filtros>({});
   const [visiveis, setVisiveis] = useState(POR_LEVA);
   const [levasAuto, setLevasAuto] = useState(0);
   const [abertoSlug, setAbertoSlug] = useState<string | null>(null);
@@ -232,8 +230,8 @@ export function Portfolio({ inicial, total, tipos, series }: Props) {
 
   const seriesDoTipo = series.filter((s) => !filtros.tipo || s.tipo === filtros.tipo);
 
-  const ativosNoPainel = [filtros.serie, filtros.ordem !== "destaques" ? filtros.ordem : undefined].filter(Boolean).length;
-  const limpar = () => mudarFiltros({ ordem: "destaques", tipo: filtros.tipo });
+  const ativosNoPainel = filtros.serie ? 1 : 0;
+  const limpar = () => mudarFiltros({ tipo: filtros.tipo });
 
   return (
     <>
@@ -285,7 +283,7 @@ export function Portfolio({ inicial, total, tipos, series }: Props) {
         {/* Painel que abre por altura (0fr -> 1fr) e com os grupos entrando em sequência; fechado fica inert */}
         <div id="painel-filtros" inert={!painel} data-aberto={painel || undefined} className="painel-filtros">
           <div className="min-h-0 overflow-hidden">
-          <div className="conteudo grid gap-x-10 gap-y-5 pb-5 pt-2 text-[15px] md:grid-cols-[auto_auto_1fr] md:items-end">
+          <div className="conteudo grid gap-x-10 gap-y-5 pb-5 pt-2 text-[15px] md:grid-cols-[auto_1fr] md:items-end">
             {seriesDoTipo.length > 0 && (
               <label className="painel-item block" style={{ "--i": 1 } as React.CSSProperties}>
                 <span className="mb-2 block font-bold text-ink-muted">Série</span>
@@ -303,21 +301,7 @@ export function Portfolio({ inicial, total, tipos, series }: Props) {
                 </select>
               </label>
             )}
-            <label className="painel-item block" style={{ "--i": 2 } as React.CSSProperties}>
-              <span className="mb-2 block font-bold text-ink-muted">Ordem</span>
-              <select
-                value={filtros.ordem}
-                onChange={(e) => mudarFiltros({ ...filtros, ordem: e.target.value as Ordem })}
-                className="w-full rounded-full border border-linha bg-surface px-4 py-2 md:w-auto"
-              >
-                {Object.entries(ORDENS).map(([v, r]) => (
-                  <option key={v} value={v}>
-                    {r}
-                  </option>
-                ))}
-              </select>
-            </label>
-            <div className="painel-item md:text-right" style={{ "--i": 3 } as React.CSSProperties}>
+            <div className="painel-item md:text-right" style={{ "--i": 2 } as React.CSSProperties}>
               <button type="button" onClick={limpar} disabled={!ativosNoPainel} className="link-seta py-2 disabled:opacity-40">
                 <span>Limpar filtros</span>
               </button>

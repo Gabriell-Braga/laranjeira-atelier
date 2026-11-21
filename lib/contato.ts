@@ -1,6 +1,6 @@
 // Validação do formulário de contato. Sem dependências: roda na rota /api/contato e no Node (teste no fim).
 
-export const ASSUNTOS = ["Encomenda de ilustração", "Projeto editorial", "Compra para escola ou livraria", "Outro"] as const;
+export const ASSUNTOS = ["Projeto editorial", "Diagramação", "Ilustração", "Capa", "Outro"] as const;
 
 export type Mensagem = { nome: string; email: string; assunto: string; mensagem: string };
 export type Resultado = { ok: true; dados: Mensagem } | { ok: false; erros: Partial<Record<keyof Mensagem | "geral", string>> };

@@ -54,6 +54,7 @@ export default function Colecao() {
           </p>
           <div className="acoes entrar mt-9" style={{ "--i": 3 } as CSSProperties}>
             <Botao href="#volumes">Conhecer os livros</Botao>
+            <Botao href="/projeto-sertao-vivo/" variante="contorno">Conhecer o Projeto Sertão Vivo</Botao>
             <Botao href={site.amazon[colecao.slug]} variante="texto" aria-label="Comprar a coleção na Amazon (abre em nova aba)">
               Comprar a coleção
             </Botao>
