@@ -174,7 +174,7 @@ export function FormularioContato({ assuntoInicial = "" }: { assuntoInicial?: st
 
       <div>
         <label htmlFor={`${id}-assunto`} className="font-bold">Assunto</label>
-        <select id={`${id}-assunto`} name="assunto" required value={valores.assunto} onChange={mudar("assunto")} onBlur={conferirCampo("assunto")} aria-invalid={Boolean(erros.assunto)} aria-describedby={ajuda("assunto")} className={campoBase}>
+        <select id={`${id}-assunto`} name="assunto" required value={valores.assunto} onChange={mudar("assunto")} onBlur={conferirCampo("assunto")} aria-invalid={Boolean(erros.assunto)} aria-describedby={ajuda("assunto")} className={`select-site ${campoBase}`}>
           <option value="">Escolha um assunto</option>
           {ASSUNTOS.map((a) => (
             <option key={a} value={a}>{a}</option>
