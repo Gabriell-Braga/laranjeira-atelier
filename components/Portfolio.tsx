@@ -63,7 +63,6 @@ export function Portfolio({ inicial, total, tipos, series }: Props) {
   const [levasAuto, setLevasAuto] = useState(0);
   const [abertoSlug, setAbertoSlug] = useState<string | null>(null);
   const [anuncio, setAnuncio] = useState("");
-  const [painel, setPainel] = useState(false);
   // Entrada da primeira tela (barra, contagem e primeiros trabalhos); depois disso, só o FLIP anima.
   const [primeira, setPrimeira] = useState(true);
   useEffect(() => {
@@ -230,9 +229,6 @@ export function Portfolio({ inicial, total, tipos, series }: Props) {
 
   const seriesDoTipo = series.filter((s) => !filtros.tipo || s.tipo === filtros.tipo);
 
-  const ativosNoPainel = filtros.serie ? 1 : 0;
-  const limpar = () => mudarFiltros({ tipo: filtros.tipo });
-
   return (
     <>
       {/* Barra de filtros: fica presa logo abaixo do cabeçalho ao rolar a grade */}
@@ -257,57 +253,24 @@ export function Portfolio({ inicial, total, tipos, series }: Props) {
               </Pilula>
             ))}
           </div>
-          <button
-            type="button"
-            aria-expanded={painel}
-            aria-controls="painel-filtros"
-            onClick={() => setPainel((p) => !p)}
-            className={`inline-flex shrink-0 items-center gap-2 rounded-full border px-4 py-2 text-[15px] font-bold transition-colors duration-[400ms] ${
-              painel || ativosNoPainel ? "border-vereda text-vereda" : "border-linha bg-surface text-ink hover:border-vereda hover:text-vereda"
-            }`}
-          >
-            <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
-              <path d="M2 4h12M4.5 8h7M7 12h2" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-            </svg>
-            Filtros
-            {ativosNoPainel > 0 && (
-              <span className="grid h-5 min-w-5 place-items-center rounded-full bg-vereda px-1 text-[12px] text-paper">
-                {ativosNoPainel}
-                <span className="sr-only"> ativos</span>
-              </span>
-            )}
-          </button>
+          {seriesDoTipo.length > 0 && (
+            <select
+              aria-label="Série"
+              value={filtros.serie ?? ""}
+              onChange={(e) => mudarFiltros({ ...filtros, serie: e.target.value || undefined })}
+              className={`select-site min-w-0 max-w-[45vw] shrink-0 truncate rounded-full border bg-surface px-4 py-2 text-[15px] font-bold sm:max-w-[18rem] ${
+                filtros.serie ? "border-vereda text-vereda" : "border-linha text-ink"
+              }`}
+            >
+              <option value="">Todas as séries</option>
+              {seriesDoTipo.map((s) => (
+                <option key={s.valor} value={s.valor}>
+                  {s.rotulo}
+                </option>
+              ))}
+            </select>
+          )}
         </div>
-
-        </div>
-        {/* Painel que abre por altura (0fr -> 1fr) e com os grupos entrando em sequência; fechado fica inert */}
-        <div id="painel-filtros" inert={!painel} data-aberto={painel || undefined} className="painel-filtros">
-          <div className="min-h-0 overflow-hidden">
-          <div className="conteudo grid gap-x-10 gap-y-5 pb-5 pt-2 text-[15px] md:grid-cols-[auto_1fr] md:items-end">
-            {seriesDoTipo.length > 0 && (
-              <label className="painel-item block" style={{ "--i": 1 } as React.CSSProperties}>
-                <span className="mb-2 block font-bold text-ink-muted">Série</span>
-                <select
-                  value={filtros.serie ?? ""}
-                  onChange={(e) => mudarFiltros({ ...filtros, serie: e.target.value || undefined })}
-                  className="select-site w-full rounded-full border border-linha bg-surface px-4 py-2 md:w-auto"
-                >
-                  <option value="">Todas</option>
-                  {seriesDoTipo.map((s) => (
-                    <option key={s.valor} value={s.valor}>
-                      {s.rotulo}
-                    </option>
-                  ))}
-                </select>
-              </label>
-            )}
-            <div className="painel-item md:text-right" style={{ "--i": 2 } as React.CSSProperties}>
-              <button type="button" onClick={limpar} disabled={!ativosNoPainel} className="link-seta py-2 disabled:opacity-40">
-                <span>Limpar filtros</span>
-              </button>
-            </div>
-          </div>
-          </div>
         </div>
       </div>
 

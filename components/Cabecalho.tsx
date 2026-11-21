@@ -20,7 +20,7 @@ export function Cabecalho() {
     <header className="cabecalho sticky top-0 z-40 h-[var(--cabecalho)]">
       <div className="cabecalho-linha conteudo relative flex h-full items-center justify-between gap-6">
         <Link href="/" className="cabecalho-logo shrink-0" aria-label="Laranjeira Atelier: página inicial">
-          <Imagem img={{ ...logo, alt: "" }} sizes="200px" prioridade className="h-[46px] w-auto" />
+          <Imagem img={{ ...logo, alt: "" }} sizes="200px" prioridade className="w-[150px]" />
         </Link>
         <Menu
           itens={itens}
