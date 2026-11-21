@@ -290,7 +290,7 @@ export function Portfolio({ inicial, total, tipos, series }: Props) {
                 <select
                   value={filtros.serie ?? ""}
                   onChange={(e) => mudarFiltros({ ...filtros, serie: e.target.value || undefined })}
-                  className="w-full rounded-full border border-linha bg-surface px-4 py-2 md:w-auto"
+                  className="select-site w-full rounded-full border border-linha bg-surface px-4 py-2 md:w-auto"
                 >
                   <option value="">Todas</option>
                   {seriesDoTipo.map((s) => (
