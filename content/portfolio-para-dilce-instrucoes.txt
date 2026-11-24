@@ -9,7 +9,7 @@ miniatura   A imagem do trabalho. Não mexa.
 numero      Só para a gente conversar ("o 12 está com o título errado"). Não mexa.
 titulo      O nome da obra, como deve aparecer no site. Ex.: Saíra Azul
 serie       O grupo em que o trabalho aparece. Use um destes nomes:
-            Aves / Flora e culinária / Cartazes Ecológicos Petrobras / Retratos / Povos indígenas /
+            Aves / Flora e culinária / Cartazes Ecológicos / Retratos / Povos indígenas /
             Arquitetura e cidade / Livros infantis / Didáticos de Ciências / Ilustração editorial /
             Reversos / Livro Ilustrado da Zoobotânica / Guia Gravura em Metal /
             Capas e livros diagramados / Coleção Sertão Vivo

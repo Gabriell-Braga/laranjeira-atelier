@@ -24,9 +24,6 @@ export default function Sobre() {
           <Texto html={pagina.html} className="leitura mt-8" />
           <div className="acoes mt-12">
             <Botao href="/contato/">Fale comigo</Botao>
-            <Pendente valor={c("curriculo")}>
-              <Botao href={c("curriculo")} variante="contorno">Currículo em PDF</Botao>
-            </Pendente>
             <Botao href="/portfolio/" variante="texto">Ver o portfólio</Botao>
           </div>
         </div>

@@ -63,7 +63,10 @@ export function Rodape() {
       <div className="border-t border-paper/25">
         <div className="conteudo flex flex-col gap-2 py-6 text-[14px] sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} Dilce Laranjeira. Todas as ilustrações são de autoria de Dilce Laranjeira.</p>
-          <LinkRodape className="sublinhado self-start text-paper sm:self-auto" href="/privacidade/">Privacidade</LinkRodape>
+          <p className="flex shrink-0 flex-wrap gap-x-6 gap-y-2">
+            <LinkRodape className={link} href="/privacidade/">Privacidade</LinkRodape>
+            <span>Site por <a className={link} href="https://gabrielbraga.app" target="_blank" rel="noopener">Gabriel Braga</a></span>
+          </p>
         </div>
       </div>
     </footer>
