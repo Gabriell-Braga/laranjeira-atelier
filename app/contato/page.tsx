@@ -17,8 +17,9 @@ export default function Contato() {
       <h1 className="titulo-display mt-4"><Marcado texto={c("titulo")} /></h1>
       <Texto html={pagina.html} className="leitura mt-6 text-[20px]" />
       <div className="mt-12 grid gap-14 md:grid-cols-[3fr_2fr]">
-        <section aria-labelledby="titulo-formulario">
-          <h2 id="titulo-formulario" className="titulo-3 mb-6">{c("formularioTitulo")}</h2>
+        <section aria-labelledby="titulo-formulario" className="group">
+          {/* Some quando o formulário mostra o aviso de enviado (role="status"). */}
+          <h2 id="titulo-formulario" className="titulo-3 mb-6 group-has-[[role=status]]:hidden">{c("formularioTitulo")}</h2>
           <FormularioContato />
         </section>
         <aside className="md:traco-l md:pl-10">
