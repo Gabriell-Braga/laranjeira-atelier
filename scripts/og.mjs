@@ -1,9 +1,9 @@
-// Imagens de compartilhamento (Open Graph, 1200×630) para a Início, Livros e cada livro.
+// Imagens de compartilhamento (Open Graph): a logo quadrada (630×630), usada na Início e nas páginas
+// sem imagem própria, e as capas (1200×630) para Livros e cada livro.
 // Feitas a partir das versões WebP em public/img (não precisa dos originais), por isso rodam no build.
-// Sem texto na imagem: o título e a descrição vão nos metadados da página.
+// Nas capas, sem texto na imagem: o título e a descrição vão nos metadados da página.
 import { mkdirSync, readFileSync, readdirSync } from "node:fs";
 import path from "node:path";
-import matter from "gray-matter";
 import sharp from "sharp";
 
 const RAIZ = path.resolve(import.meta.dirname, "..");
@@ -20,9 +20,14 @@ const webp = (arquivo) => {
   return path.join(RAIZ, "public/img", `${arquivo.replace(/\.[^.]+$/, "")}-${largura}.webp`);
 };
 
-// Paisagem: recorta para 1200×630.
-const recorte = (arquivo, destino) =>
-  sharp(webp(arquivo)).resize(W, H, { fit: "cover", position: "attention" }).jpeg({ quality: 82, mozjpeg: true }).toFile(destino);
+// Logo clara no fundo laranja-escuro da marca (globals.css), quadrada como a miniatura do WhatsApp.
+async function logo(destino) {
+  const frente = await sharp(path.join(RAIZ, "public/img/marca/logo-claro.png")).trim().resize({ width: 540 }).toBuffer();
+  await sharp({ create: { width: 630, height: 630, channels: 3, background: "#d9701c" } })
+    .composite([{ input: frente }])
+    .jpeg({ quality: 90, mozjpeg: true })
+    .toFile(destino);
+}
 
 // Capa: fundo com a própria capa desfocada e clara, capa inteira no centro.
 async function capa(arquivo, destino) {
@@ -39,8 +44,7 @@ async function capa(arquivo, destino) {
 }
 
 mkdirSync(SAIDA, { recursive: true });
-const inicio = matter(readFileSync(path.join(RAIZ, "content/paginas/inicio.md"), "utf8")).data;
-await recorte(inicio.imagemDestaque, path.join(SAIDA, "inicio.jpg"));
+await logo(path.join(SAIDA, "logo.jpg"));
 
 let n = 1;
 for (const f of readdirSync(path.join(RAIZ, "content/livros")).filter((x) => x.endsWith(".json"))) {

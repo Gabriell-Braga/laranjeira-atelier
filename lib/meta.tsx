@@ -9,14 +9,15 @@ type Opcoes = {
   descricao?: string;
   /** caminho da página, com barra no fim (ex.: "/livros/") */
   caminho: string;
-  /** imagem 1200×630 em /og/ */
+  /** imagem 1200×630 em /og/; sem ela, usa a logo quadrada */
   imagem?: string;
   tipo?: "website" | "book" | "article" | "profile";
   semIndice?: boolean;
 };
 
-export function metadados({ titulo, absoluto, descricao, caminho, imagem = "/og/inicio.jpg", tipo = "website", semIndice }: Opcoes): Metadata {
+export function metadados({ titulo, absoluto, descricao, caminho, imagem, tipo = "website", semIndice }: Opcoes): Metadata {
   const desc = pendente(descricao) ? undefined : descricao;
+  const og = imagem ? { url: imagem, width: 1200, height: 630 } : { url: "/og/logo.jpg", width: 630, height: 630, alt: "Laranjeira Atelier" };
   return {
     title: absoluto ? { absolute: titulo } : titulo,
     description: desc,
@@ -28,9 +29,9 @@ export function metadados({ titulo, absoluto, descricao, caminho, imagem = "/og/
       siteName: "Laranjeira Atelier",
       locale: "pt_BR",
       type: tipo === "book" ? "book" : tipo === "profile" ? "profile" : "website",
-      images: [{ url: imagem, width: 1200, height: 630 }],
+      images: [og],
     },
-    twitter: { card: "summary_large_image", title: titulo, description: desc, images: [imagem] },
+    twitter: { card: imagem ? "summary_large_image" : "summary", title: titulo, description: desc, images: [og.url] },
     ...(semIndice ? { robots: { index: false, follow: false } } : {}),
   };
 }
